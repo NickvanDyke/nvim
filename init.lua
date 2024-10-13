@@ -228,6 +228,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  'github/copilot.vim',
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -920,7 +921,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
@@ -954,6 +955,13 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
+-- require('leap').create_default_mappings()
+vim.keymap.set('n', 'f', '<Plug>(leap)')
+vim.keymap.set('n', 'F', '<Plug>(leap-from-window)')
+vim.keymap.set({ 'x', 'o' }, 'f', '<Plug>(leap-forward)')
+vim.keymap.set({ 'x', 'o' }, 'F', '<Plug>(leap-backward)')
 
 vim.opt['tabstop'] = 4
 vim.opt['shiftwidth'] = 4
