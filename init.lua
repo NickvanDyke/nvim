@@ -196,6 +196,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ MY KEYMAPS ]]
+vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 -- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
@@ -409,6 +410,9 @@ require('lazy').setup({
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },
+          smart_open = {
+            match_algorithm = 'fzf',
+          },
         },
       }
 
@@ -428,7 +432,9 @@ require('lazy').setup({
       -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', function()
-        require('telescope').extensions.smart_open.smart_open()
+        require('telescope').extensions.smart_open.smart_open({
+          filename_first = false,
+        })
       end, { desc = '[ ] Smart open' })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -992,4 +998,3 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
