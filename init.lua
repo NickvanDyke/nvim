@@ -633,6 +633,8 @@ require('lazy').setup({
             },
           },
         },
+
+        graphql = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -781,8 +783,8 @@ require('lazy').setup({
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
           ['<CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping.select_next_item(),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          -- ['<Tab>'] = cmp.mapping.select_next_item(),
+          -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
@@ -820,6 +822,27 @@ require('lazy').setup({
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          -- Not really working...
+          -- {
+          --   name = 'html-css',
+          --   option = {
+          --     max_count = {}, -- not ready yet
+          --     enable_on = {
+          --       'html',
+          --       'jsx',
+          --       'tsx',
+          --       'vue',
+          --       'css',
+          --     }, -- set the file types you want the plugin to work on
+          --     spa = { enable = true,  },
+          --     file_extensions = { 'css', 'sass', 'less' }, -- set the local filetypes from which you want to derive classes
+          --     style_sheets = {
+          --       -- example of remote styles, only css no js for now
+          --       'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+          --       'https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css',
+          --     },
+          --   },
+          -- },
         },
       }
     end,
@@ -881,6 +904,9 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+      require('mini.starter').setup()
+      require('mini.animate').setup()
+      require('mini.sessions').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
@@ -920,10 +946,10 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -956,6 +982,8 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+-- Messes with lazygit
+-- vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 -- require('leap').create_default_mappings()
 vim.keymap.set('n', 'f', '<Plug>(leap)')
