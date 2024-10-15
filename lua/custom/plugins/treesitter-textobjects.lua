@@ -1,6 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter-textobjects',
   config = function()
+    ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup {
       textobjects = {
         select = {
@@ -12,7 +13,7 @@ return {
             ['ac'] = '@class.outer',
             ['ic'] = '@class.inner',
             ['ip'] = '@parameter.inner',
-            ['ap'] = '@parameter.outer'
+            ['ap'] = '@parameter.outer',
           },
         },
         swap = {
@@ -28,22 +29,22 @@ return {
           enable = true,
           set_jumps = true,
           goto_next_start = {
-            [']m'] = '@function.outer',
+            [']f'] = '@function.outer',
             [']]'] = '@class.outer',
             [']p'] = '@parameter.inner',
           },
           goto_next_end = {
-            [']M'] = '@function.outer',
+            [']F'] = '@function.outer',
             [']['] = '@class.outer',
             [']P'] = '@parameter.inner',
           },
           goto_previous_start = {
-            ['[m'] = '@function.outer',
+            ['[f'] = '@function.outer',
             ['[['] = '@class.outer',
             ['[p'] = '@parameter.inner',
           },
           goto_previous_end = {
-            ['[M'] = '@function.outer',
+            ['[F'] = '@function.outer',
             ['[]'] = '@class.outer',
             ['[P'] = '@parameter.inner',
           },
