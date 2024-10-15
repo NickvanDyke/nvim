@@ -645,6 +645,7 @@ require('lazy').setup({
         },
 
         graphql = {},
+        terraformls = {},
       }
 
       -- Ensure the servers and tools above are installed
