@@ -145,8 +145,12 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+--   tab = '» ',
+--   trail = '·',
+--   nbsp = '␣',
+-- }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -414,9 +418,9 @@ require('lazy').setup({
       -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       -- vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', function()
-        require('telescope').extensions.smart_open.smart_open({
+        require('telescope').extensions.smart_open.smart_open {
           filename_first = false,
-        })
+        }
       end, { desc = '[ ] Smart open' })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -925,6 +929,7 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      matchup = { enable = true },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
