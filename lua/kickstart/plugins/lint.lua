@@ -10,8 +10,8 @@ return {
         -- eslint_d is better but requires node 18.18.0 and that's annoying in Polco codebases
         -- javascript = { 'eslint_d' },
         -- typescript = { 'eslint_d' },
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
+        javascript = { 'eslint' },
+        typescript = { 'eslint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
