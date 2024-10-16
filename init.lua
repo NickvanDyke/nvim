@@ -654,6 +654,7 @@ require('lazy').setup({
         graphql = {},
         terraformls = {},
         ['circleci-yaml-language-server'] = {},
+        intelephense = {},
       }
 
       -- Ensure the servers and tools above are installed
