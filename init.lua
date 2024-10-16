@@ -199,16 +199,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- [[ MY KEYMAPS ]]
+-- NOTE: [[ MY KEYMAPS ]]
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 -- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
-vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 
+vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 -- require('leap').create_default_mappings()
 vim.keymap.set('n', 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
 vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+
+vim.keymap.set('n', '<C-c><C-f>', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = 'Copy relative file path to clipboard' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -322,6 +324,7 @@ require('lazy').setup({
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
+        { '<leader>l', group = '[L]azy' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
