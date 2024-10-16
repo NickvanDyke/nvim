@@ -12,6 +12,8 @@ return {
 
     vim.keymap.set('n', '<leader>st', '<cmd>TodoTelescope<cr>', { desc = '[S]earch [T]odos' })
 
-    require('todo-comments').setup()
+    require('todo-comments').setup({
+      signs = false,
+    })
   end,
 }

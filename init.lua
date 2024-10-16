@@ -161,10 +161,14 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
--- [[ MY OPTIONS ]]
+-- NOTE: [[ MY OPTIONS ]]
 vim.opt['tabstop'] = 4
 vim.opt['shiftwidth'] = 4
 vim.opt['expandtab'] = false
+
+vim.opt.swapfile = false
+-- vim.opt.autowrite = true
+vim.opt.autoread = true
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -917,7 +921,6 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
       require('mini.indentscope').setup()
       require('mini.starter').setup()
-      -- require('mini.animate').setup()
       require('mini.sessions').setup()
     end,
   },
