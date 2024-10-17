@@ -99,10 +99,10 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.number = true
+-- vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -659,6 +659,7 @@ require('lazy').setup({
         terraformls = {},
         ['circleci-yaml-language-server'] = {},
         intelephense = {},
+        cssls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -732,6 +733,8 @@ require('lazy').setup({
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
+        sql = { 'sqlfmt' },
+        psql = { 'sqlfmt' },
       },
     },
   },
@@ -915,6 +918,19 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
         return '%2l:%-2v'
+      end
+
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_git = function()
+        return nil
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_diff = function()
+        return nil
+      end
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_lsp = function()
+        return nil
       end
 
       -- ... and there is more!
