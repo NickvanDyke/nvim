@@ -216,6 +216,10 @@ vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 
 vim.keymap.set('n', '<C-c><C-f>', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = 'Copy relative file path to clipboard' })
 
+vim.keymap.set('n', '<leader>tl', function()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
+end, { desc = '[T]oggle [L]ine numbers' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -326,7 +330,6 @@ require('lazy').setup({
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
-        { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>l', group = '[L]azy' },
         { '<leader>w', group = '[W]orkspace' },
@@ -559,7 +562,7 @@ require('lazy').setup({
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>cr', vim.lsp.buf.rename, '[R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -731,8 +734,11 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
+        javascriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
+        typescriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
+        -- FIX: I think it needs LSP to detect filetype? It's not just by extension. It's the thing statusline shows in bottom right.
         sql = { 'sqlfmt' },
         psql = { 'sqlfmt' },
       },
