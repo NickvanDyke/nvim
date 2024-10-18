@@ -214,7 +214,7 @@ vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
 vim.keymap.set({ 'x', 'o' }, 's', '<Plug>(leap-forward)')
 vim.keymap.set({ 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 
-vim.keymap.set('n', '<C-c><C-f>', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = 'Copy relative file path to clipboard' })
+vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
 
 vim.keymap.set('n', '<leader>tl', function()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
