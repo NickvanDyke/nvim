@@ -28,26 +28,36 @@ return {
         move = {
           enable = true,
           set_jumps = true,
-          goto_next_start = {
+          goto_next = {
             [']f'] = '@function.outer',
-            [']]'] = '@class.outer',
+            [']['] = '@class.outer',
             [']p'] = '@parameter.inner',
           },
-          goto_next_end = {
-            [']F'] = '@function.outer',
-            [']['] = '@class.outer',
-            [']P'] = '@parameter.inner',
-          },
-          goto_previous_start = {
+          goto_previous = {
             ['[f'] = '@function.outer',
             ['[['] = '@class.outer',
             ['[p'] = '@parameter.inner',
           },
-          goto_previous_end = {
-            ['[F'] = '@function.outer',
-            ['[]'] = '@class.outer',
-            ['[P'] = '@parameter.inner',
-          },
+          -- goto_next_start = {
+          --   [']f'] = '@function.outer',
+          --   [']]'] = '@class.outer',
+          --   [']p'] = '@parameter.inner',
+          -- },
+          -- goto_next_end = {
+          --   [']F'] = '@function.outer',
+          --   [']['] = '@class.outer',
+          --   [']P'] = '@parameter.inner',
+          -- },
+          -- goto_previous_start = {
+          --   ['[f'] = '@function.outer',
+          --   ['[['] = '@class.outer',
+          --   ['[p'] = '@parameter.inner',
+          -- },
+          -- goto_previous_end = {
+          --   ['[F'] = '@function.outer',
+          --   ['[]'] = '@class.outer',
+          --   ['[P'] = '@parameter.inner',
+          -- },
         },
       },
     }
