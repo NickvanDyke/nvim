@@ -402,6 +402,14 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          mappings = {
+            n = {
+              ['q'] = require('telescope.actions').close,
+              ['<esc>'] = require('telescope.actions').close,
+            },
+          }
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
