@@ -828,10 +828,10 @@ require('lazy').setup({
       require('mini.indentscope').setup()
       require('mini.starter').setup()
       require('mini.sessions').setup()
-      require('mini.files').setup {}
-      vim.keymap.set('n', '\\', function()
-        require('mini.files').open(vim.api.nvim_buf_get_name(0))
-      end, { desc = 'Files' })
+      -- require('mini.files').setup {}
+      -- vim.keymap.set('n', '\\', function()
+      --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
+      -- end, { desc = 'Files' })
     end,
   },
 
@@ -848,7 +848,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
