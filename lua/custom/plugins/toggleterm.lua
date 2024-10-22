@@ -17,7 +17,7 @@ return {
     vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua _lazydocker_toggle()<CR>', { noremap = true, silent = true, desc = '[L]azy[D]ocker' })
 
     require('toggleterm').setup {
-      open_mapping = [[<c-\>]],
+      open_mapping = [[<c-t>]],
       direction = 'float',
     }
   end,
