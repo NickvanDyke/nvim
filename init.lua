@@ -207,6 +207,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 -- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
 
+vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move selected lines up' })
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
+
+vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
+
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 -- require('leap').create_default_mappings()
 vim.keymap.set('n', 's', '<Plug>(leap)')
