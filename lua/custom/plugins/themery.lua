@@ -8,6 +8,8 @@ return {
       table.insert(colorschemes, colorscheme)
     end
 
+    vim.keymap.set('n', '<leader>tt', '<cmd>Themery<CR>', { desc = '[T]oggle [T]heme' })
+
     require('themery').setup {
       themes = colorschemes,
     }
