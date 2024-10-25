@@ -170,6 +170,12 @@ vim.opt.swapfile = false
 -- vim.opt.autowrite = true
 vim.opt.autoread = true
 
+vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
+
+-- So mini.animate isn't janky
+vim.opt.mousescroll = "ver:1,hor:1"
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -836,6 +842,7 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+      require('mini.animate').setup()
       require('mini.indentscope').setup()
       require('mini.starter').setup()
       require('mini.sessions').setup()
