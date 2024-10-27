@@ -174,7 +174,7 @@ vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 
 -- So mini.animate isn't janky
-vim.opt.mousescroll = "ver:1,hor:1"
+-- vim.opt.mousescroll = "ver:1,hor:1"
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -220,10 +220,11 @@ vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move selected lines down' })
 vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move selected lines up' })
 
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
-vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
-vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
+-- kinda janky with mini.animate
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
+-- vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
+-- vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
@@ -835,20 +836,22 @@ require('lazy').setup({
         return nil
       end
       ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_diff = function()
-        return nil
-      end
+      -- statusline.section_diff = function()
+      --   return nil
+      -- end
       ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_lsp = function()
-        return nil
-      end
+      -- statusline.section_lsp = function()
+      --   return nil
+      -- end
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
-      require('mini.animate').setup()
+      -- require('mini.animate').setup()
       require('mini.indentscope').setup()
       require('mini.starter').setup()
-      require('mini.sessions').setup()
+      require('mini.sessions').setup({
+        autoread = true,
+      })
       -- require('mini.files').setup {}
       -- vim.keymap.set('n', '\\', function()
       --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
