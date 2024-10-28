@@ -162,6 +162,13 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
+vim.diagnostic.config({
+  underline = true,
+  float = {
+    source = true,
+  }
+})
+
 vim.opt['tabstop'] = 4
 vim.opt['shiftwidth'] = 4
 vim.opt['expandtab'] = false
