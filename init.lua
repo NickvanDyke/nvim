@@ -808,28 +808,36 @@ require('lazy').setup({
       --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      statusline.setup {
+        use_icons = vim.g.have_nerd_font,
+        content = {
+          active = function()
+            -- Initially copied from https://github.com/echasnovski/mini.nvim/blob/2c55015a518e11ea9d49bb96078f5ede51f5d2af/doc/mini-statusline.txt#L87-L105
+            local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+            local git = MiniStatusline.section_git { trunc_width = 40 }
+            local diff = MiniStatusline.section_diff { trunc_width = 75 }
+            local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
+            local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
+            local filename = MiniStatusline.section_filename { trunc_width = 140 }
+            local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+            local location = '%2l:%-2v'
+            local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
+            local codeium = require('codeium.virtual_text').status_string()
 
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_git = function()
-        return nil
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_diff = function()
-      --   return nil
-      -- end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_lsp = function()
-      --   return nil
-      -- end
+            return MiniStatusline.combine_groups {
+              { hl = mode_hl, strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+              '%<', -- Mark general truncate point
+              { hl = 'MiniStatuslineFilename', strings = { filename } },
+              '%=', -- End left alignment
+              { hl = 'MiniStatuslineDevinfo', strings = { codeium } },
+              { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+              { hl = mode_hl, strings = { search, location } },
+            }
+          end,
+        },
+      }
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
