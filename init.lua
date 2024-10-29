@@ -199,6 +199,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
+--
 -- I think this lags esc in floating terminals
 -- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -216,19 +217,19 @@ vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', no
 vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
 
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
--- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
 
 vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move selected lines down' })
 vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move selected lines up' })
 
--- kinda janky with mini.animate
--- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
--- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
--- vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
--- vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
+-- NOTE: kinda janky with mini.animate
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
+vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
+vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
+-- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 -- require('leap').create_default_mappings()
 -- vim.keymap.set('n', 's', '<Plug>(leap)')
