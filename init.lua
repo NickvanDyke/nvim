@@ -162,12 +162,12 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
-vim.diagnostic.config({
+vim.diagnostic.config {
   underline = true,
   float = {
     source = true,
-  }
-})
+  },
+}
 
 vim.opt['tabstop'] = 4
 vim.opt['shiftwidth'] = 4
@@ -218,8 +218,8 @@ vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', nor
 
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 
-vim.keymap.set('v', 'J', ':m \'>+1<CR>gv=gv', { desc = 'Move selected lines down' })
-vim.keymap.set('v', 'K', ':m \'<-2<CR>gv=gv', { desc = 'Move selected lines up' })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 -- NOTE: kinda janky with mini.animate
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
@@ -234,8 +234,8 @@ vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 -- require('leap').create_default_mappings()
 -- vim.keymap.set('n', 's', '<Plug>(leap)')
 -- vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
-vim.keymap.set({'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
-vim.keymap.set({'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
+vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 
 vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
 
@@ -837,9 +837,9 @@ require('lazy').setup({
       require('mini.jump').setup()
       require('mini.indentscope').setup()
       require('mini.starter').setup()
-      require('mini.sessions').setup({
+      require('mini.sessions').setup {
         autoread = true,
-      })
+      }
       -- require('mini.files').setup {}
       -- vim.keymap.set('n', '\\', function()
       --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
@@ -893,4 +893,3 @@ require('lazy').setup({
     notify = false,
   },
 })
-
