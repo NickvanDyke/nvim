@@ -4,7 +4,7 @@ return {
   config = function()
     local Terminal = require('toggleterm.terminal').Terminal
 
-    local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float' }
+    local lazygit = Terminal:new { cmd = 'lazygit', hidden = true, direction = 'float', dir = 'git_dir' }
     function _lazygit_toggle()
       lazygit:toggle()
     end
@@ -16,8 +16,11 @@ return {
     end
     vim.api.nvim_set_keymap('n', '<leader>ld', '<cmd>lua _lazydocker_toggle()<CR>', { noremap = true, silent = true, desc = '[L]azy[D]ocker' })
 
+    -- Open terminal in buffer's current dir
+    -- TODO: might be nice to (optionally) update as buffer changes
+    vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm dir=\"%:p:h\"<cr>')
+
     require('toggleterm').setup {
-      open_mapping = [[<c-t>]],
       direction = 'float',
     }
   end,
