@@ -7,6 +7,7 @@ return {
   config = function()
     require('themify').setup {
       -- 'Tsuzat/NeoSolarized.nvim',
+      'folke/tokyonight.nvim',
       'ellisonleao/gruvbox.nvim',
       'projekt0n/github-nvim-theme',
       'catppuccin/nvim',
