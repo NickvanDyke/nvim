@@ -14,10 +14,14 @@ return {
     },
     sources = {
       providers = {
+        snippets = {
+          enabled = false,
+        },
         buffer = {
           -- Otherwise it shows up immediately which is super annoying
           min_keyword_length = 1,
-          fallback_for = {}
+          fallback_for = {},
+          score_offset = -3,
         },
       },
     },
