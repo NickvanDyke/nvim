@@ -18,9 +18,10 @@ return {
 
     -- Open terminal in buffer's current dir
     -- TODO: might be nice to (optionally) update as buffer changes
-    vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm dir=\"%:p:h\"<cr>')
+    -- vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm dir=\"%:p:h\"<cr>')
 
     require('toggleterm').setup {
+      open_mapping = [[<C-t>]],
       direction = 'float',
     }
   end,
