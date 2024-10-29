@@ -1,4 +1,8 @@
 return {
   'nvim-focus/focus.nvim',
-  opts = {},
+  opts = {
+    ui = {
+      signcolumn = false,
+    },
+  },
 }
