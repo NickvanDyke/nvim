@@ -10,5 +10,7 @@ return {
         enabled = true,
       },
     }
+
+    vim.keymap.set('n', '<leader>cc', '<cmd>Codeium Chat<CR>', { desc = '[C]odeium [C]hat' })
   end,
 }
