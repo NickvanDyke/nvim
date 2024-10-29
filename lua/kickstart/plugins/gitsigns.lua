@@ -15,22 +15,21 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        -- These are configured in better-n.lua so they're repeatable
-        -- map('n', ']c', function()
-        --   if vim.wo.diff then
-        --     vim.cmd.normal { ']c', bang = true }
-        --   else
-        --     gitsigns.nav_hunk 'next'
-        --   end
-        -- end, { desc = 'Jump to next git [c]hange' })
-        --
-        -- map('n', '[c', function()
-        --   if vim.wo.diff then
-        --     vim.cmd.normal { '[c', bang = true }
-        --   else
-        --     gitsigns.nav_hunk 'prev'
-        --   end
-        -- end, { desc = 'Jump to previous git [c]hange' })
+        map('n', ']c', function()
+          if vim.wo.diff then
+            vim.cmd.normal { ']h', bang = true }
+          else
+            gitsigns.nav_hunk 'next'
+          end
+        end, { desc = 'Jump to next git [h]unk' })
+
+        map('n', '[c', function()
+          if vim.wo.diff then
+            vim.cmd.normal { '[h', bang = true }
+          else
+            gitsigns.nav_hunk 'prev'
+          end
+        end, { desc = 'Jump to previous git [h]unk' })
 
         -- Actions
         -- visual mode
