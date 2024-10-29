@@ -213,8 +213,8 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: [[ MY KEYMAPS ]]
-vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
-vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
+-- vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
+-- vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
 
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 
@@ -282,7 +282,7 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   'tpope/vim-surround',
-  {'github/copilot.vim', enabled = false },
+  { 'github/copilot.vim', enabled = false },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -397,7 +397,7 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
-      {'hrsh7th/cmp-nvim-lsp', enabled = false },
+      { 'hrsh7th/cmp-nvim-lsp', enabled = false },
     },
     config = function()
       -- Brief aside: **What is LSP?**
