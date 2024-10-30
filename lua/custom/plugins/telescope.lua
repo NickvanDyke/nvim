@@ -23,6 +23,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope-live-grep-args.nvim'
   },
   config = function()
+    local lga_actions = require("telescope-live-grep-args.actions")
     -- Telescope is a fuzzy finder that comes with a lot of different things that
     -- it can fuzzy find! It's more than just a "file finder", it can search
     -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -76,6 +77,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
         smart_open = {
           match_algorithm = 'fzf',
         },
+        live_grep_args = {
+          mappings = {
+            i = {
+              ["<C-k>"] = lga_actions.quote_prompt()
+            }
+          }
+        }
       },
     }
 
