@@ -18,7 +18,7 @@ return {
       ['V'] = 'lualine_a_visual',
       ['R'] = 'lualine_a_replace',
       ['c'] = 'lualine_a_command',
-      ['t'] = 'lualine_a_terminal',
+      -- ['t'] = 'lualine_a_terminal',
     }
 
     local function sync_cursor_to_mini_mode()
