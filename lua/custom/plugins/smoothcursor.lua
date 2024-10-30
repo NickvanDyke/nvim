@@ -1,17 +1,29 @@
 return {
   'gen740/SmoothCursor.nvim',
   config = function()
+---@diagnostic disable-next-line: missing-fields
     require('smoothcursor').setup {
       cursor = '',
       speed = 17,
       disable_float_win = true, -- looks bad in Arrow
     }
 
-    function sync_cursor_to_mini_mode()
-      local mode, mode_hl = require('mini.statusline').section_mode {}
-      local hl = vim.api.nvim_get_hl_by_name(mode_hl, true)
+    local mode_to_hl_name = {
+      ['n'] = 'lualine_a_normal',
+      ['i'] = 'lualine_a_insert',
+      ['v'] = 'lualine_a_visual',
+      ['V'] = 'lualine_a_visual',
+      ['R'] = 'lualine_a_replace',
+      ['c'] = 'lualine_a_command',
+      ['t'] = 'lualine_a_terminal',
+    }
 
-      local background = hl.background and string.format('#%06x', hl.background) or nil
+    local function sync_cursor_to_mini_mode()
+      local mode = vim.fn.mode()
+      local hl_name = mode_to_hl_name[mode] or 'lualine_a_normal'
+      local hl_group = vim.api.nvim_get_hl_by_name(hl_name, true)
+
+      local background = hl_group.background and string.format('#%06x', hl_group.background) or nil
 
       vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = background })
     end
