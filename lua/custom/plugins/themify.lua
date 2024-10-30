@@ -13,7 +13,11 @@ return {
         before = function()
           require('gruvbox').setup {
             overrides = {
-              SignColumn = { bg = 'none' },
+              -- https://github.com/ellisonleao/gruvbox.nvim/issues/304
+              NormalFloat = { bg = '#32302f' },
+              GitSignsAdd = { link = 'GruvboxGreenSign' },
+              GitSignsChange = { link = 'GruvboxOrangeSign' },
+              GitSignsDelete = { link = 'GruvboxRedSign' },
             },
           }
         end,
