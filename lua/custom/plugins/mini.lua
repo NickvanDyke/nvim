@@ -29,15 +29,23 @@ return { -- Collection of various small independent plugins/modules
           local location = '%2l:%-2v'
           local search = MiniStatusline.section_searchcount { trunc_width = 75 }
 
-          local codeium = require('codeium.virtual_text').status_string()
+          -- local codeium = require('codeium.virtual_text').status_string()
 
           return MiniStatusline.combine_groups {
             { hl = mode_hl, strings = { mode } },
-            { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+            {
+              hl = 'MiniStatuslineDevinfo',
+              strings = {
+                git,
+                -- diff,
+                -- diagnostics,
+                -- lsp,
+              },
+            },
             '%<', -- Mark general truncate point
             { hl = 'MiniStatuslineFilename', strings = { filename } },
             '%=', -- End left alignment
-            { hl = 'MiniStatuslineDevinfo', strings = { codeium } },
+            -- { hl = 'MiniStatuslineDevinfo', strings = { codeium } },
             { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
             { hl = mode_hl, strings = { search, location } },
           }
@@ -49,12 +57,12 @@ return { -- Collection of various small independent plugins/modules
     --  Check out: https://github.com/echasnovski/mini.nvim
     -- require('mini.animate').setup()
     require('mini.splitjoin').setup()
-    require('mini.jump').setup({
+    require('mini.jump').setup {
       mappings = {
         -- shadows arrow.nvim
         repeat_jump = '',
-      }
-    })
+      },
+    }
     require('mini.indentscope').setup()
     require('mini.starter').setup()
     require('mini.sessions').setup {
