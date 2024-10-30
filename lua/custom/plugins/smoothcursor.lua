@@ -21,6 +21,9 @@ return {
       -- ['t'] = 'lualine_a_terminal',
     }
 
+    local cursorline_hl = vim.api.nvim_get_hl_by_name('CursorLine', true)
+    local cursorline_bg = cursorline_hl.background and string.format('#%06x', cursorline_hl.background)
+
     local function sync_cursor_to_mini_mode()
       local mode = vim.fn.mode()
       local hl_name = mode_to_hl_name[mode] or 'lualine_a_normal'
@@ -28,7 +31,7 @@ return {
 
       local background = hl_group.background and string.format('#%06x', hl_group.background) or nil
 
-      vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = background })
+      vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = background, bg = cursorline_bg })
     end
 
     sync_cursor_to_mini_mode()
