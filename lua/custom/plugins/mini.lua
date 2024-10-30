@@ -67,6 +67,14 @@ return { -- Collection of various small independent plugins/modules
     require('mini.starter').setup()
     require('mini.sessions').setup {
       autoread = true,
+      hooks = {
+        post = {
+          read = function()
+            require('arrow.git').refresh_git_branch() -- only if separated_by_branch is true
+            require('arrow.persist').load_cache_file()
+          end,
+        },
+      },
     }
     -- require('mini.files').setup {}
     -- vim.keymap.set('n', '\\', function()
