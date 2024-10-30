@@ -1,7 +1,10 @@
 return {
   'gen740/SmoothCursor.nvim',
+  dependencies = {
+    'nvim-lualine/lualine.nvim',
+  },
   config = function()
----@diagnostic disable-next-line: missing-fields
+    ---@diagnostic disable-next-line: missing-fields
     require('smoothcursor').setup {
       cursor = '',
       speed = 17,
