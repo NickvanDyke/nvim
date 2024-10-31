@@ -209,6 +209,12 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: [[ MY KEYMAPS ]]
+-- Easier window resizing
+vim.keymap.set("n", "<S-Up>", "<cmd>resize +3<cr>", { desc = "Increase Window Height" })
+vim.keymap.set("n", "<S-Down>", "<cmd>resize -3<cr>", { desc = "Decrease Window Height" })
+vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +3<cr>", { desc = "Increase Window Width" })
+vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window Width" })
+
 -- vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
 -- vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
 
