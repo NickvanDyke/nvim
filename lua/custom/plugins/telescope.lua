@@ -20,10 +20,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-    'nvim-telescope/telescope-live-grep-args.nvim'
+    'nvim-telescope/telescope-live-grep-args.nvim',
   },
   config = function()
-    local lga_actions = require("telescope-live-grep-args.actions")
+    local lga_actions = require 'telescope-live-grep-args.actions'
+    local open_with_trouble = require('trouble.sources.telescope').open
+
+    -- Use this to add more results without clearing the trouble list
+    local add_to_trouble = require('trouble.sources.telescope').add
+
     -- Telescope is a fuzzy finder that comes with a lot of different things that
     -- it can fuzzy find! It's more than just a "file finder", it can search
     -- many different aspects of Neovim, your workspace, LSP, and more!
@@ -67,7 +72,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
           n = {
             ['q'] = require('telescope.actions').close,
             ['<esc>'] = require('telescope.actions').close,
+            ['<c-t>'] = open_with_trouble,
           },
+          i = { ['<c-t>'] = open_with_trouble },
         },
       },
       extensions = {
@@ -80,10 +87,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
         live_grep_args = {
           mappings = {
             i = {
-              ["<C-k>"] = lga_actions.quote_prompt()
-            }
-          }
-        }
+              ['<C-k>'] = lga_actions.quote_prompt(),
+            },
+          },
+        },
       },
     }
 

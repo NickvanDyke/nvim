@@ -189,9 +189,6 @@ vim.opt.laststatus = 3
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -215,6 +212,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
 -- vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
 
+vim.keymap.set('n', '<C-w>x', '<C-w><C-s>', { desc = 'Split window below' })
+vim.keymap.set('n', '<C-w><C-x>', '<C-w><C-s>', { desc = 'Split window below' })
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down' })
@@ -239,6 +238,7 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
 
 vim.keymap.set('n', '<leader>tl', function()
+---@diagnostic disable-next-line: undefined-field
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = '[T]oggle [L]ine numbers' })
 
@@ -351,11 +351,11 @@ require('lazy').setup({
       -- Document existing key chains
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>l', group = '[L]azy' },
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>x', group = '[X] Trouble' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
@@ -458,13 +458,9 @@ require('lazy').setup({
           --  the definition of its *type*, not where it was *defined*.
           map('gT', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
 
-          -- Fuzzy find all the symbols in your current document.
-          --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -477,9 +473,6 @@ require('lazy').setup({
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-          map('<leader>chi', vim.lsp.buf.incoming_calls, '[C]ode [H]ierarchy [I]ncoming')
-          map('<leader>cho', vim.lsp.buf.outgoing_calls, '[C]ode [H]ierarchy [O]utgoing')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
