@@ -31,6 +31,10 @@ return {
       desc = 'Disable focus autoresize for FileType',
     })
 
+    vim.keymap.set('n', '<c-;>', function()
+      require('focus').split_nicely()
+    end, { desc = 'split nicely' })
+
     require('focus').setup {
       ui = {
         signcolumn = false,
