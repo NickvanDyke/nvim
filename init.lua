@@ -235,11 +235,6 @@ vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
 -- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
 vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
--- require('leap').create_default_mappings()
--- vim.keymap.set('n', 's', '<Plug>(leap)')
--- vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
-vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
-vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
 
 vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
 
