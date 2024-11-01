@@ -34,6 +34,7 @@ return {
     },
   },
   opts = {
+    warn_no_results = false,
     keys = {
       ['<c-x>'] = 'jump_split',
     },
