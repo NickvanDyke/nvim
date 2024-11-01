@@ -162,6 +162,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
+vim.opt.showbreak = '↪'
 vim.diagnostic.config {
   underline = true,
   float = {
