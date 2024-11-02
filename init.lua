@@ -162,6 +162,13 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
+
+vim.filetype.add({
+  extension = {
+    psql = 'sql',
+  },
+})
+
 vim.opt.showbreak = '↪'
 vim.diagnostic.config {
   underline = true,
@@ -211,10 +218,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- NOTE: [[ MY KEYMAPS ]]
 -- Easier window resizing
-vim.keymap.set("n", "<S-Up>", "<cmd>resize +3<cr>", { desc = "Increase Window Height" })
-vim.keymap.set("n", "<S-Down>", "<cmd>resize -3<cr>", { desc = "Decrease Window Height" })
-vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +3<cr>", { desc = "Increase Window Width" })
-vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -3<cr>", { desc = "Decrease Window Width" })
+vim.keymap.set('n', '<S-Up>', '<cmd>resize +3<cr>', { desc = 'Increase Window Height' })
+vim.keymap.set('n', '<S-Down>', '<cmd>resize -3<cr>', { desc = 'Decrease Window Height' })
+vim.keymap.set('n', '<S-Right>', '<cmd>vertical resize +3<cr>', { desc = 'Increase Window Width' })
+vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<cr>', { desc = 'Decrease Window Width' })
 
 -- vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
 -- vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
@@ -240,7 +247,7 @@ vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
 vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
 
 vim.keymap.set('n', '<leader>tl', function()
----@diagnostic disable-next-line: undefined-field
+  ---@diagnostic disable-next-line: undefined-field
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = '[T]oggle [L]ine numbers' })
 
@@ -648,7 +655,6 @@ require('lazy').setup({
         typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
-        -- FIX: I think it needs LSP to detect filetype? It's not just by extension. It's the thing statusline shows in bottom right.
         sql = { 'sqlfmt' },
         psql = { 'sqlfmt' },
       },
