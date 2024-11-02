@@ -647,16 +647,11 @@ require('lazy').setup({
       -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         javascriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
         typescriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
-        sql = { 'sqlfmt' },
-        psql = { 'sqlfmt' },
+        sql = { 'sqlfmt', stop_after_first = true },
       },
     },
   },
