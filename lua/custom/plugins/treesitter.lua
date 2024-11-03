@@ -33,12 +33,11 @@ return { -- Highlight, edit, and navigate code
     indent = { enable = true, disable = { 'ruby' } },
     matchup = { enable = true },
   },
-  -- config = function(_, opts)
-  --   require('nvim-treesitter.configs').setup(opts)
-  --
-  --   -- TODO: nvim doesn't detect the filetype though. Needs more than just the extension.
-  --   vim.treesitter.language.register('sql', 'psql')
-  -- end,
+  config = function(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
+
+    vim.treesitter.language.register('sql', 'psql')
+  end,
   -- There are additional nvim-treesitter modules that you can use to interact
   -- with nvim-treesitter. You should go explore a few and see what interests you:
   --

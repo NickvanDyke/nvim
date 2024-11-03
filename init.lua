@@ -163,9 +163,12 @@ vim.opt.scrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
 
+-- TODO: apparently Postgres files should still be .sql?
+-- But I think that would break Wanna's migration hashes.
+-- hmmmm
 vim.filetype.add({
   extension = {
-    psql = 'sql',
+    psql = 'psql',
   },
 })
 
