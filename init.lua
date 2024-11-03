@@ -86,27 +86,8 @@ P.S. You can delete this when you're done too. It's your config now! :)
 
 require('nvandyke.options')
 require('nvandyke.maps')
+require('nvandyke.commands')
 
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
-vim.api.nvim_create_autocmd('CursorHold', {
-  desc = 'Trigger autoread (in case file changed externally)',
-  callback = function()
-    vim.cmd 'checktime'
-  end,
-})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
