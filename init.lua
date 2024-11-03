@@ -84,8 +84,8 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-require('custom.options')
-require('custom.maps')
+require('nvandyke.options')
+require('nvandyke.maps')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
