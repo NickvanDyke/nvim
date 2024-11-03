@@ -34,20 +34,6 @@ require('lazy').setup({
   { 'github/copilot.vim', enabled = false },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  -- LSP Plugins
-  {
-    -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-    -- used for completion, annotations and signatures of Neovim apis
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        -- Load luvit types when the `vim.uv` word is found
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-      },
-    },
-  },
-  { 'Bilal2453/luvit-meta', lazy = true },
 
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
