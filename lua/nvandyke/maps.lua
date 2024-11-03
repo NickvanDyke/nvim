@@ -34,6 +34,7 @@ vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<cr>', { desc = 'Decreas
 -- vim.keymap.set('n', '<C-i>', '<C-o>', { desc = 'Jump backwards in jump list', noremap = true })
 -- vim.keymap.set('n', '<C-o>', '<C-i>', { desc = 'Jump forwards in jump list', noremap = true })
 
+-- See focus.lua too
 vim.keymap.set('n', '<C-w>x', '<C-w><C-s>', { desc = 'Split window below' })
 vim.keymap.set('n', '<C-w><C-x>', '<C-w><C-s>', { desc = 'Split window below' })
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
@@ -42,10 +43,10 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down'
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' })
 
 -- NOTE: kinda janky with mini.animate
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
-vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
-vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down half a page, keep cursor centered' })
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up half a page, keep cursor centered' })
+-- vim.keymap.set('n', 'n', 'nzz', { desc = 'Jump to next search result, keep cursor centered' })
+-- vim.keymap.set('n', 'N', 'Nzz', { desc = 'Jump to previous search result, keep cursor centered' })
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
@@ -58,4 +59,3 @@ vim.keymap.set('n', '<leader>tl', function()
   ---@diagnostic disable-next-line: undefined-field
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, { desc = '[T]oggle [L]ine numbers' })
-

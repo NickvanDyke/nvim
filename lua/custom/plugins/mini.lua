@@ -9,16 +9,12 @@ return { -- Collection of various small independent plugins/modules
     --  - ci'  - [C]hange [I]nside [']quote
     require('mini.ai').setup { n_lines = 500 }
 
+    require('mini.animate').setup()
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
     -- require('mini.animate').setup()
     require('mini.splitjoin').setup()
-    -- require('mini.jump').setup {
-    --   mappings = {
-    --     -- shadows arrow.nvim
-    --     repeat_jump = '',
-    --   },
-    -- }
     require('mini.indentscope').setup()
     require('mini.starter').setup()
     require('mini.sessions').setup {
