@@ -10,6 +10,7 @@ return {
     leader_key = ';', -- Recommended to be a single key
     buffer_leader_key = 'm', -- Per Buffer Mappings
     separate_by_branch = true,
+    save_key = 'git_root',
     mappings = {
       open_vertical = '<C-v>',
       open_horizontal = '<C-x>',
