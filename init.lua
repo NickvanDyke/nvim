@@ -1,7 +1,5 @@
---[[
-I hope you enjoy your Neovim journey,
-- TJ
---]]
+-- I hope you enjoy your Neovim journey,
+-- - TJ
 
 require 'nvandyke.options'
 require 'nvandyke.maps'
