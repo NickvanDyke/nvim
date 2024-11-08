@@ -1,12 +1,14 @@
 return {
   'folke/snacks.nvim',
   priority = 1000,
+  lazy = false,
   opts = {
     bigfile = { enabled = true },
     terminal = {
       enabled = true,
     },
     lazygit = { enabled = true },
+    words = { enabled = true },
     statuscolumn = { enabled = false }, -- tf, is everything enabled by default?
     styles = {
       terminal = {
@@ -45,6 +47,20 @@ return {
     },
   },
   keys = {
+    {
+      ']]',
+      function()
+        Snacks.words.jump(vim.v.count1)
+      end,
+      desc = 'Next Reference',
+    },
+    {
+      '[[',
+      function()
+        Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = 'Prev Reference',
+    },
     {
       '<C-w><C-b>',
       function()
