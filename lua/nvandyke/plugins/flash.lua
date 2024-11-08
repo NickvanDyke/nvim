@@ -12,7 +12,7 @@ return {
         -- Seems like a win-win.
         enabled = true,
         highlight = {
-          backdrop = true,
+          backdrop = false,
         }
       }
     }
