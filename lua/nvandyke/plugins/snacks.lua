@@ -6,6 +6,7 @@ return {
     terminal = {
       enabled = true,
     },
+    lazygit = { enabled = true },
     statuscolumn = { enabled = false }, -- tf, is everything enabled by default?
     styles = {
       terminal = {
@@ -59,18 +60,25 @@ return {
       desc = 'Toggle Terminal',
     },
     {
-      '<leader>gg',
-      function()
-        Snacks.terminal 'lazygit'
-      end,
-      desc = 'LazyGit',
-    },
-    {
       '<leader>ld',
       function()
         Snacks.terminal 'lazydocker'
       end,
       desc = '[L]azy [D]ocker',
+    },
+    {
+      '<leader>gg',
+      function()
+        Snacks.lazygit.open()
+      end,
+      desc = 'LazyGit',
+    },
+    {
+      '<leader>gf',
+      function()
+        Snacks.lazygit.log_file()
+      end,
+      desc = 'LazyGit current file',
     },
   },
 }
