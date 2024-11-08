@@ -59,11 +59,11 @@ return {
       desc = 'Toggle Terminal',
     },
     {
-      '<leader>lg',
+      '<leader>gg',
       function()
         Snacks.terminal 'lazygit'
       end,
-      desc = '[L]azy [G]it',
+      desc = 'LazyGit',
     },
     {
       '<leader>ld',
