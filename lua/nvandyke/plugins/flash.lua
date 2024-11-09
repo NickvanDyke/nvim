@@ -4,6 +4,9 @@ return {
   ---@type Flash.Config
   opts = {
     modes = {
+      char = {
+        highlight = { backdrop = false },
+      },
       search = {
         -- Just always integrate with search
         -- instead of having an entirely separate function.
@@ -13,9 +16,9 @@ return {
         enabled = true,
         highlight = {
           backdrop = false,
-        }
-      }
-    }
+        },
+      },
+    },
   },
   -- stylua: ignore
   keys = {
