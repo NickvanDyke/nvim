@@ -105,12 +105,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    vim.keymap.set('n', '<leader>sg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[S]earch with [G]rep' })
-    vim.keymap.set('n', '<leader><leader>', function()
+    vim.keymap.set('n', '<leader>sg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[S]earch with [G]rep (args)' })
+    vim.keymap.set('n', '<leader>sf', function()
       require('telescope').extensions.smart_open.smart_open {
         filename_first = false,
       }
-    end, { desc = '[ ] Smart open' })
+    end, { desc = '[S]earch [F]iles by name (Smart Open)' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<C-/>', function()
