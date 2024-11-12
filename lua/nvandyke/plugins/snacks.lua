@@ -15,7 +15,7 @@ return {
     },
     lazygit = { enabled = true },
     words = { enabled = true },
-    statuscolumn = { enabled = false }, -- tf, is everything enabled by default?
+    statuscolumn = { enabled = false },
     notifier = { enabled = false },
     styles = {},
   },
