@@ -67,7 +67,14 @@ return {
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = 'LazyGit current file',
+      desc = 'LazyGit log (current file)',
     },
+    {
+      '<leader>gl',
+      function()
+        Snacks.lazygit.log()
+      end,
+      desc = 'LazyGit log',
+    }
   },
 }
