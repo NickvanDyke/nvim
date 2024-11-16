@@ -25,9 +25,9 @@ return {
           {
             'filename',
             path = 1,
-            fmt = function(str)
-              return string.gsub(str, '/', ' > ')
-            end,
+            -- fmt = function(str)
+            --   return string.gsub(str, '/', ' > ')
+            -- end,
           },
           -- {
           --   symbols.get,
