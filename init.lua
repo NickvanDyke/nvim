@@ -30,7 +30,6 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   { 'github/copilot.vim', enabled = false },
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
