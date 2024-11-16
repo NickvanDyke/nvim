@@ -15,13 +15,13 @@ return {
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map('n', ']h', function()
+        map('n', ']g', function()
           if vim.wo.diff then
-            vim.cmd.normal { ']h', bang = true }
+            vim.cmd.normal { ']g', bang = true }
           else
             gitsigns.nav_hunk 'next'
           end
-        end, { desc = 'Jump to next [h]unk' })
+        end, { desc = 'Jump to next [g]it hunk' })
 
         map('n', '[h', function()
           if vim.wo.diff then
@@ -29,7 +29,7 @@ return {
           else
             gitsigns.nav_hunk 'prev'
           end
-        end, { desc = 'Jump to previous [h]unk' })
+        end, { desc = 'Jump to previous [g]it hunk' })
 
         -- Actions
         -- visual mode
