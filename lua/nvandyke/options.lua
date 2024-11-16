@@ -103,6 +103,3 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 
 vim.opt.laststatus = 3
-
--- So mini.animate isn't janky
-vim.opt.mousescroll = "ver:1,hor:1"

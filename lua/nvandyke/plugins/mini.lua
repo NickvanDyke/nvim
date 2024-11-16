@@ -9,11 +9,11 @@ return { -- Collection of various small independent plugins/modules
     --  - ci'  - [C]hange [I]nside [']quote
     require('mini.ai').setup { n_lines = 500 }
 
-    require('mini.animate').setup {
-      cursor = {
-        enable = false,
-      },
-    }
+    -- TODO: toggleable for pair programming
+    -- require('mini.animate').setup {
+    -- }
+    -- So mini.animate isn't janky
+    -- vim.opt.mousescroll = "ver:1,hor:1"
 
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
