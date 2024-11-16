@@ -130,11 +130,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     --   }
     -- end, { desc = '[S]earch [/] in Open Files' })
 
-    -- Shortcut for searching your Neovim configuration files
-    -- vim.keymap.set('n', '<leader>sn', function()
-    --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    -- end, { desc = '[S]earch [N]eovim files' })
-
     vim.keymap.set('n', '<leader>sc', function()
       builtin.find_files { cwd = '~/.config/', hidden = true }
     end, { desc = '[S]earch [C]onfig files' })
