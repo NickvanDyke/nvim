@@ -4,7 +4,8 @@ return {
   version = 'v0.*',
   opts = {
     keymap = {
-      accept = '<CR>',
+      preset = 'default',
+      ['<CR>'] = { 'select_and_accept' },
     },
     highlight = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
