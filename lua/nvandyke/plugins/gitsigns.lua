@@ -23,9 +23,9 @@ return {
           end
         end, { desc = 'Jump to next [g]it hunk' })
 
-        map('n', '[h', function()
+        map('n', '[g', function()
           if vim.wo.diff then
-            vim.cmd.normal { '[h', bang = true }
+            vim.cmd.normal { '[g', bang = true }
           else
             gitsigns.nav_hunk 'prev'
           end
