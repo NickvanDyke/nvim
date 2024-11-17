@@ -36,6 +36,7 @@ return { -- Formatting
       typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
+      html = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       sql = { 'sqlfmt', stop_after_first = true },
     },
   },
