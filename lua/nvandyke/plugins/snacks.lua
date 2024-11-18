@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    dashboard = { enabled = true },
     bigfile = { enabled = true },
     terminal = {
       enabled = true,
@@ -33,13 +34,6 @@ return {
         Snacks.words.jump(-vim.v.count1)
       end,
       desc = 'Prev Reference',
-    },
-    {
-      '<C-w><C-b>',
-      function()
-        Snacks.bufdelete()
-      end,
-      desc = 'Delete Buffer',
     },
     {
       '<C-t>',

@@ -20,18 +20,18 @@ return { -- Collection of various small independent plugins/modules
     -- require('mini.animate').setup()
     require('mini.splitjoin').setup()
     require('mini.indentscope').setup()
-    require('mini.starter').setup()
-    require('mini.sessions').setup {
-      autoread = true,
-      hooks = {
-        post = {
-          read = function()
-            require('arrow.git').refresh_git_branch() -- only if separated_by_branch is true
-            require('arrow.persist').load_cache_file()
-          end,
-        },
-      },
-    }
+    -- require('mini.starter').setup()
+    -- require('mini.sessions').setup {
+    --   autoread = true,
+    --   hooks = {
+    --     post = {
+    --       read = function()
+    --         require('arrow.git').refresh_git_branch() -- only if separated_by_branch is true
+    --         require('arrow.persist').load_cache_file()
+    --       end,
+    --     },
+    --   },
+    -- }
     -- require('mini.files').setup {}
     -- vim.keymap.set('n', '\\', function()
     --   require('mini.files').open(vim.api.nvim_buf_get_name(0))
