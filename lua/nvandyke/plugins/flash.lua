@@ -3,9 +3,19 @@ return {
   event = 'VeryLazy',
   ---@type Flash.Config
   opts = {
+    label = {
+      current = false,
+      rainbow = {
+        enabled = true,
+      },
+    },
+    highlight = {
+      -- backdrop = false,
+    },
     modes = {
       char = {
-        highlight = { backdrop = false },
+        -- Prefer using flash for everything. Prevents conflict with surround plugin.
+        enabled = false,
       },
       search = {
         -- Just always integrate with search
@@ -13,16 +23,13 @@ return {
         -- Mainly to keep s free for surround plugin.
         -- Can always just press enter to finish search normally;
         -- Seems like a win-win.
-        enabled = true,
-        highlight = {
-          backdrop = false,
-        },
+        -- enabled = true,
       },
     },
   },
   -- stylua: ignore
   keys = {
-    -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     -- { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
     -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
     -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
