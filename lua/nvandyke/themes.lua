@@ -6,9 +6,8 @@ return {
 
   config = function()
     require('themify').setup {
-      'rose-pine/neovim',
+      { 'rose-pine/neovim', blacklist = { 'rose-pine' } },
       'vague2k/vague.nvim',
-      { 'overcache/NeoSolarized', branch = 'master' },
       { 'folke/tokyonight.nvim', whitelist = { 'tokyonight-moon', 'tokyonight-night', 'tokyonight-storm' } },
       {
         'ellisonleao/gruvbox.nvim',
@@ -24,8 +23,8 @@ return {
           }
         end,
       },
-      'projekt0n/github-nvim-theme',
-      { 'catppuccin/nvim', whitelist = { 'catppuccin-mocha', 'catppuccin-latte' } },
+      { 'projekt0n/github-nvim-theme', whitelist = { 'github_dark', 'github_dark_default' } },
+      { 'catppuccin/nvim', whitelist = { 'catppuccin-frappe', 'catppuccin-mocha', 'catppuccin-latte' } },
     }
 
     vim.keymap.set('n', '<leader>tt', '<cmd>Themify<CR>', { desc = '[T]oggle [T]heme' })
