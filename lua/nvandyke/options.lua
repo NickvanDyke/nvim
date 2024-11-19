@@ -82,7 +82,7 @@ vim.opt.scrolloff = 10
 -- hmmmm
 vim.filetype.add({
   extension = {
-    psql = 'psql',
+    psql = 'sql',
   },
 })
 
