@@ -6,8 +6,9 @@ return {
 
   config = function()
     require('themify').setup {
+      'rose-pine/neovim',
       'vague2k/vague.nvim',
-      {'overcache/NeoSolarized', branch='master'},
+      { 'overcache/NeoSolarized', branch = 'master' },
       { 'folke/tokyonight.nvim', whitelist = { 'tokyonight-moon', 'tokyonight-night', 'tokyonight-storm' } },
       {
         'ellisonleao/gruvbox.nvim',
