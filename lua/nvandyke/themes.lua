@@ -6,6 +6,7 @@ return {
 
   config = function()
     require('themify').setup {
+      'diegoulloao/neofusion.nvim',
       { 'rose-pine/neovim', blacklist = { 'rose-pine' } },
       'vague2k/vague.nvim',
       { 'folke/tokyonight.nvim', whitelist = { 'tokyonight-moon', 'tokyonight-night', 'tokyonight-storm' } },
