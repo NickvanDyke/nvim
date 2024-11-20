@@ -72,10 +72,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
           n = {
             ['q'] = require('telescope.actions').close,
             ['<esc>'] = require('telescope.actions').close,
-            ['<c-t>'] = open_with_trouble,
-            ['<c-d>'] = require('telescope.actions').delete_buffer,
+            ['<C-t>'] = open_with_trouble,
+            ['<C-d>'] = require('telescope.actions').delete_buffer,
           },
-          i = { ['<c-t>'] = open_with_trouble },
+          i = {
+            ['<C-t>'] = open_with_trouble,
+            ['<C-w>'] = function()
+              vim.api.nvim_input '<c-s-w>'
+            end,
+          },
         },
       },
       extensions = {
@@ -84,6 +89,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
         smart_open = {
           match_algorithm = 'fzf',
+          mappings = {
+            i = {
+              -- idk why we have to define this again and it doesn't use the default
+              ['<C-w>'] = function()
+                vim.api.nvim_input '<c-s-w>'
+              end,
+            },
+          },
         },
         live_grep_args = {
           mappings = {
@@ -107,7 +120,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sb', builtin.builtin, { desc = '[S]earch Telescope [B]uiltins' })
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>sg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[S]earch with [G]rep (args)' })
-    vim.keymap.set('n', '<leader>ss', function()
+    vim.keymap.set('n', '<leader><leader>', function()
       require('telescope').extensions.smart_open.smart_open {
         filename_first = false,
       }
