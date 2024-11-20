@@ -25,6 +25,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
   config = function()
     local lga_actions = require 'telescope-live-grep-args.actions'
     local open_with_trouble = require('trouble.sources.telescope').open
+    local action_state = require 'telescope.actions.state'
 
     -- Use this to add more results without clearing the trouble list
     local add_to_trouble = require('trouble.sources.telescope').add
@@ -79,6 +80,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
             ['<C-t>'] = open_with_trouble,
             ['<C-w>'] = function()
               vim.api.nvim_input '<c-s-w>'
+            end,
+            ['<C-;>'] = function()
+              local relative_path = vim.fn.fnamemodify(action_state.get_selected_entry().path, ':.' .. vim.fn.getcwd())
+              require('arrow.persist').save(relative_path)
             end,
           },
         },
