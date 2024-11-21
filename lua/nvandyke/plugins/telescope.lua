@@ -60,7 +60,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
       --   },
       -- },
-      -- pickers = {}
+      -- pickers = {},
       defaults = {
         layout_strategy = 'vertical',
         layout_config = {
@@ -82,6 +82,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
               vim.api.nvim_input '<c-s-w>'
             end,
             ['<C-;>'] = function()
+              -- TODO: how to display icon next to picker result when already saved?
               local relative_path = vim.fn.fnamemodify(action_state.get_selected_entry().path, ':.' .. vim.fn.getcwd())
               require('arrow.persist').save(relative_path)
             end,
