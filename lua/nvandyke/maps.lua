@@ -33,10 +33,7 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' }
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
--- Conflicts with plugin mappings and I don't like having to be faster than timeoutlen
-vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
-
-vim.keymap.set('n', '<leader>cf', '<cmd>silent !echo %:. | pbcopy<CR>', { desc = '[C]opy relative [F]ile path to clipboard' })
+vim.keymap.set('n', '=', '<cmd>silent !echo %:. | pbcopy<CR><cmd>echo "Relative filepath copied to clipboard"<CR>', { desc = 'Copy relative filepath to clipboard' })
 
 vim.keymap.set('n', '<leader>tl', function()
   ---@diagnostic disable-next-line: undefined-field
