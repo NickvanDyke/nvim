@@ -11,7 +11,7 @@ return {
     -- { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
   },
   config = function()
-    vim.keymap.set({ 'n', 'v' }, '<C-a>', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
+    vim.keymap.set({ 'n', 'v' }, '<LocalLeader>ca', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
     vim.keymap.set({ 'n', 'v' }, '<LocalLeader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
     vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
 

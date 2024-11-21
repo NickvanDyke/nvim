@@ -56,7 +56,7 @@ return {
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>cr', vim.lsp.buf.rename, '[R]ename')
+          -- map('<leader>cr', vim.lsp.buf.rename, '[R]ename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -75,6 +75,8 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
           end
+
+          map('<leader>cR', '<cmd>LspRestart<CR>', '[R]estart LSP')
         end,
       })
 
@@ -152,6 +154,11 @@ return {
           end,
         },
       }
+
+      vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', numhl = 'DiagnosticSignError' })
+      vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', numhl = 'DiagnosticSignWarn' })
+      vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', numhl = 'DiagnosticSignHint' })
+      vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', numhl = 'DiagnosticSignInfo' })
     end,
   },
   -- LSP Plugins
@@ -168,4 +175,37 @@ return {
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
+  {
+    'nvimdev/lspsaga.nvim',
+    event = 'LspAttach',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter', -- optional
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
+    config = function()
+      require('lspsaga').setup {
+        lightbulb = {
+          enable = false,
+        },
+        symbol_in_winbar = {
+          enable = false,
+        },
+        definition = {
+          vsplit = '<C-v>',
+          split = '<C-x>',
+        },
+        floaterm = {
+          enable = false,
+        },
+      }
+
+      vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
+      vim.keymap.set('n', '<leader>cr', '<cmd>Lspsaga rename<CR>')
+      vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
+      vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+      vim.keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>')
+      vim.keymap.set('n', 'gP', '<cmd>Lspsaga peek_type_definition<CR>')
+      vim.keymap.set('n', '<C-a>', '<cmd>Lspsaga code_action<CR>')
+    end,
+  },
 }
