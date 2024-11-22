@@ -208,4 +208,22 @@ return {
       vim.keymap.set('n', '<C-a>', '<cmd>Lspsaga code_action<CR>')
     end,
   },
+  {
+    'ray-x/lsp_signature.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    config = function()
+      vim.keymap.set('n', '<C-k>', function()
+        require('lsp_signature').toggle_float_win()
+      end, { silent = true, noremap = true, desc = 'toggle signature' })
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          require('lsp_signature').on_attach({
+            -- ... setup options here ...
+          }, args.bufnr)
+        end,
+      })
+    end,
+  },
 }
