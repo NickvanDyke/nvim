@@ -88,6 +88,7 @@ vim.filetype.add({
 
 vim.opt.showbreak = '↪'
 vim.diagnostic.config {
+  severity_sort = true,
   underline = true,
   float = {
     source = true,
