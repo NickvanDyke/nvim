@@ -76,7 +76,7 @@ return {
             end, '[T]oggle Inlay [H]ints')
           end
 
-          map('<leader>cR', '<cmd>LspRestart<CR>', '[R]estart LSP')
+          -- map('<leader>cR', '<cmd>LspRestart<CR>', '[R]estart LSP')
         end,
       })
 
