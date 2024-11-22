@@ -103,3 +103,6 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 
 vim.opt.laststatus = 3
+
+vim.opt.wrap = false
+
