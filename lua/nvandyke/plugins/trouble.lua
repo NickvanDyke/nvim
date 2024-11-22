@@ -14,12 +14,12 @@ return {
     },
     {
       '<leader>cs',
-      '<cmd>Trouble symbols toggle focus=false<cr>',
+      '<cmd>Trouble symbols toggle<cr>',
       desc = '[S]ymbols (Trouble)',
     },
     {
       '<leader>cl',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      '<cmd>Trouble lsp toggle win.position=right<cr>',
       desc = 'LSP Definitions / references / ... (Trouble)',
     },
     {
@@ -34,6 +34,7 @@ return {
     },
   },
   opts = {
+    focus = true,
     warn_no_results = false,
     keys = {
       ['<c-x>'] = 'jump_split',
