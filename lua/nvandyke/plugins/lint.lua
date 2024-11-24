@@ -9,8 +9,8 @@ return {
         markdown = { 'markdownlint' },
         -- eslint-lsp seems nice but it doesn't fallback to anything if not locally installed in project.
         -- Which polco-services seems to struggle with.
-        javascript = { 'eslint_d' },
-        typescript = { 'eslint_d' },
+        -- javascript = { 'eslint_d' },
+        -- typescript = { 'eslint_d' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
