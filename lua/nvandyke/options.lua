@@ -93,6 +93,7 @@ vim.diagnostic.config {
   underline = true,
   float = {
     source = true,
+    border = 'rounded',
   },
 }
 

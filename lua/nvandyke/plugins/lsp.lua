@@ -201,8 +201,8 @@ return {
 
       vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
       vim.keymap.set('n', '<leader>cr', '<cmd>Lspsaga rename<CR>')
-      vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
-      vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+      -- vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
+      -- vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
       vim.keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>')
       vim.keymap.set('n', 'gP', '<cmd>Lspsaga peek_type_definition<CR>')
       vim.keymap.set('n', '<C-a>', '<cmd>Lspsaga code_action<CR>')
