@@ -179,7 +179,10 @@ return {
     'rmagatti/goto-preview',
     event = 'LspAttach',
     config = function()
-      require('goto-preview').setup {}
+      require('goto-preview').setup {
+        -- focus_on_open = false,
+        border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
+      }
       vim.keymap.set('n', 'gp', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>')
       -- vim.keymap.set('n', 'gpi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>')
       vim.keymap.set('n', 'gP', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>')
