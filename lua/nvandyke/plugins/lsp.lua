@@ -211,7 +211,6 @@ return {
   {
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
-    opts = {},
     config = function()
       vim.keymap.set('n', '<C-k>', function()
         require('lsp_signature').toggle_float_win()
@@ -221,6 +220,7 @@ return {
         callback = function(args)
           require('lsp_signature').on_attach({
             -- ... setup options here ...
+            floating_window = false,
           }, args.bufnr)
         end,
       })
