@@ -60,7 +60,7 @@ return {
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
-          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+          map('<C-a>', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
@@ -176,45 +176,24 @@ return {
   },
   { 'Bilal2453/luvit-meta', lazy = true },
   {
-    'nvimdev/lspsaga.nvim',
+    'rmagatti/goto-preview',
     event = 'LspAttach',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter', -- optional
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
     config = function()
-      require('lspsaga').setup {
-        lightbulb = {
-          enable = false,
-        },
-        symbol_in_winbar = {
-          enable = false,
-        },
-        definition = {
-          vsplit = '<C-v>',
-          split = '<C-x>',
-        },
-        floaterm = {
-          enable = false,
-        },
-      }
-
-      vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
-      vim.keymap.set('n', '<leader>cr', '<cmd>Lspsaga rename<CR>')
-      -- vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
-      -- vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
-      vim.keymap.set('n', 'gp', '<cmd>Lspsaga peek_definition<CR>')
-      vim.keymap.set('n', 'gP', '<cmd>Lspsaga peek_type_definition<CR>')
-      vim.keymap.set('n', '<C-a>', '<cmd>Lspsaga code_action<CR>')
+      require('goto-preview').setup {}
+      vim.keymap.set('n', 'gp', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>')
+      -- vim.keymap.set('n', 'gpi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>')
+      vim.keymap.set('n', 'gP', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>')
+      -- vim.keymap.set('n', 'gpr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>')
     end,
   },
   {
     'ray-x/lsp_signature.nvim',
     event = 'VeryLazy',
+    opts = {},
     config = function()
-      vim.keymap.set('n', '<C-k>', function()
+      vim.keymap.set('n', '<C-S-k>', function()
         require('lsp_signature').toggle_float_win()
-      end, { silent = true, noremap = true, desc = 'toggle signature' })
+      end, { silent = true, noremap = true, desc = 'Toggle signature' })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)

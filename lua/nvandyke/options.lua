@@ -87,6 +87,7 @@ vim.filetype.add({
 })
 
 vim.opt.showbreak = '↪'
+
 vim.diagnostic.config {
   virtual_text = false, -- we use tiny-inline-diagnostic
   severity_sort = true,
@@ -96,6 +97,9 @@ vim.diagnostic.config {
     border = 'rounded',
   },
 }
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
