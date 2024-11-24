@@ -130,7 +130,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       require('telescope').extensions.smart_open.smart_open {
         filename_first = false,
       }
-    end, { desc = '[S]earch [S]mart Open' })
+    end, { desc = 'Smart Open' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<C-/>', function()
