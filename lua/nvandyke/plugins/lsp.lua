@@ -191,21 +191,14 @@ return {
   },
   {
     'ray-x/lsp_signature.nvim',
-    event = 'VeryLazy',
-    opts = {},
+    event = 'LspAttach',
+    opts = {
+      floating_window = false,
+    },
     config = function()
       vim.keymap.set('n', '<C-S-k>', function()
         require('lsp_signature').toggle_float_win()
       end, { silent = true, noremap = true, desc = 'Toggle signature' })
-
-      vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-          require('lsp_signature').on_attach({
-            -- ... setup options here ...
-            floating_window = false,
-          }, args.bufnr)
-        end,
-      })
     end,
   },
 }
