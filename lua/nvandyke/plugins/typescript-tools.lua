@@ -1,6 +1,7 @@
 return {
   'pmizio/typescript-tools.nvim',
   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+  ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
   opts = {
     settings = {
       separate_diagnostic_server = false, -- Uses too much memory in Polco
