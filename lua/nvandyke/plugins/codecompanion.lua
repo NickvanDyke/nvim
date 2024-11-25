@@ -1,6 +1,7 @@
 return {
   'olimorris/codecompanion.nvim',
   cmd = { 'CodeCompanion', 'CodeCompanionActions', 'CodeCompanionChat' },
+  event = 'BufReadPost',
   keys = {
     {
       '<LocalLeader>ca',
