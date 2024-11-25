@@ -1,9 +1,16 @@
 return {
   'Wansmer/treesj',
+  keys = {
+    {
+      'gS',
+      '<cmd>lua require("treesj").toggle()<CR>',
+      noremap = true,
+      silent = true,
+      mode = 'n',
+    },
+  },
   dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
-  config = function()
-    require('treesj').setup({ use_default_keymaps = false })
-
-    vim.keymap.set('n', 'gS', require('treesj').toggle)
-  end,
+  opts = {
+    use_default_keymaps = false,
+  }
 }

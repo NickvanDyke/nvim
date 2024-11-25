@@ -1,5 +1,32 @@
 return {
   'olimorris/codecompanion.nvim',
+  cmd = { 'CodeCompanion', 'CodeCompanionActions', 'CodeCompanionChat' },
+  keys = {
+    {
+      '<LocalLeader>ca',
+      '<cmd>CodeCompanionActions<cr>',
+      mode = { 'n', 'v' },
+      desc = 'Code[C]ompanion [A]ctions',
+      noremap = true,
+      silent = true,
+    },
+    {
+      '<LocalLeader>cc',
+      '<cmd>CodeCompanionChat Toggle<cr>',
+      mode = { 'n', 'v' },
+      desc = 'Code[C]ompanion [C]hat',
+      noremap = true,
+      silent = true,
+    },
+    {
+      'ga',
+      '<cmd>CodeCompanionChat Add<cr>',
+      desc = 'Add to CodeCompanion Chat',
+      mode = 'v',
+      noremap = true,
+      silent = true,
+    },
+  },
   dependencies = {
     'github/copilot.vim', -- codecompanion doesn't offer inline/virtual text completion itself
     'nvim-lua/plenary.nvim',
@@ -10,28 +37,23 @@ return {
     { 'MeanderingProgrammer/render-markdown.nvim', ft = { 'markdown', 'codecompanion' } }, -- Optional: For prettier markdown rendering
     -- { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
   },
-  config = function()
-    vim.keymap.set({ 'n', 'v' }, '<LocalLeader>ca', '<cmd>CodeCompanionActions<cr>', { noremap = true, silent = true })
-    vim.keymap.set({ 'n', 'v' }, '<LocalLeader>cc', '<cmd>CodeCompanionChat Toggle<cr>', { noremap = true, silent = true })
-    vim.keymap.set('v', 'ga', '<cmd>CodeCompanionChat Add<cr>', { noremap = true, silent = true })
-
+  opts = {
+    display = {
+      chat = {
+        render_headers = false,
+      },
+    },
+    strategies = {
+      chat = {
+        adapter = 'copilot',
+      },
+      inline = {
+        adapter = 'copilot',
+      },
+    },
+  },
+  init = function()
     -- Expand 'cc' into 'CodeCompanion' in the command line
     vim.cmd [[cab cc CodeCompanion]]
-
-    require('codecompanion').setup {
-      display = {
-        chat = {
-          render_headers = false,
-        },
-      },
-      strategies = {
-        chat = {
-          adapter = 'copilot',
-        },
-        inline = {
-          adapter = 'copilot',
-        },
-      },
-    }
   end,
 }
