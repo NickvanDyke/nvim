@@ -1,7 +1,11 @@
 return {
-  "otavioschwanck/arrow.nvim",
+  'otavioschwanck/arrow.nvim',
+  keys = {
+    ';',
+    'm',
+  },
   dependencies = {
-    { "nvim-tree/nvim-web-devicons" },
+    { 'nvim-tree/nvim-web-devicons' },
     -- or if using `mini.icons`
     -- { "echasnovski/mini.icons" },
   },
@@ -14,6 +18,6 @@ return {
     mappings = {
       open_vertical = '<C-v>',
       open_horizontal = '<C-x>',
-    }
-  }
+    },
+  },
 }
