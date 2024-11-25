@@ -52,7 +52,7 @@ return {
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+          map('<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -180,17 +180,16 @@ return {
     event = 'LspAttach',
     config = function()
       require('goto-preview').setup {
-        -- focus_on_open = false,
+        default_mappings = true,
+        focus_on_open = false,
+        dismiss_on_move = true,
         border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
       }
-      vim.keymap.set('n', 'gp', '<cmd>lua require("goto-preview").goto_preview_definition()<CR>')
-      -- vim.keymap.set('n', 'gpi', '<cmd>lua require("goto-preview").goto_preview_implementation()<CR>')
-      vim.keymap.set('n', 'gP', '<cmd>lua require("goto-preview").goto_preview_type_definition()<CR>')
-      -- vim.keymap.set('n', 'gpr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>')
     end,
   },
   {
     'ray-x/lsp_signature.nvim',
+    enabled = false,
     event = 'LspAttach',
     opts = {
       floating_window = false,
