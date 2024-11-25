@@ -7,10 +7,10 @@ return {
   },
   lazy = false,
   config = function()
-    require('refactoring').setup()
+    require('refactoring').setup({})
     -- prompt for a refactor to apply when the remap is triggered
     vim.keymap.set({ 'n', 'x' }, '<leader>cR', function()
-      require('refactoring').select_refactor()
+      require('refactoring').select_refactor({})
     end, { desc = '[R]efactor' })
     -- Note that not all refactor support both normal and visual mode
 
@@ -22,13 +22,13 @@ return {
 
     -- Print var
     vim.keymap.set({ 'x', 'n' }, '<leader>dv', function()
-      require('refactoring').debug.print_var()
-    end, { desc = '[D]ebug [V]ar' })
+      require('refactoring').debug.print_var({})
+    end, { desc = '[D]ebug print [V]ar' })
     -- Supports both visual and normal mode
 
     vim.keymap.set('n', '<leader>dc', function()
       require('refactoring').debug.cleanup {}
-    end, { desc = '[D]efactor [C]leanup' })
+    end, { desc = '[D]ebug print [C]leanup' })
     -- Supports only normal mode
   end,
 }
