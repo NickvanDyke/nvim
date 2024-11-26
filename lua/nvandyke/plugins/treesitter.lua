@@ -5,6 +5,16 @@ return { -- Highlight, edit, and navigate code
   -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
   event = 'BufReadPost',
   opts = {
+    autotag = { enable = true },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = '<CR>',
+        -- scope_incremental = '<CR>',
+        node_incremental = '<CR>',
+        node_decremental = '<TAB>',
+      },
+    },
     ensure_installed = {
       'bash',
       'c',
@@ -39,10 +49,4 @@ return { -- Highlight, edit, and navigate code
 
     vim.treesitter.language.register('sql', 'psql')
   end,
-  -- There are additional nvim-treesitter modules that you can use to interact
-  -- with nvim-treesitter. You should go explore a few and see what interests you:
-  --
-  --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-  --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-  --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 }
