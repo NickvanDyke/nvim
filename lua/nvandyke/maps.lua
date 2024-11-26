@@ -35,7 +35,10 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' }
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
-vim.keymap.set('n', '=', '<cmd>silent !echo %:. | pbcopy<CR><cmd>echo "Relative filepath copied to clipboard"<CR>', { desc = 'Copy relative filepath to clipboard' })
+vim.keymap.set('n', '=', function()
+  vim.cmd [[ silent !echo %:. | pbcopy ]]
+  vim.notify('Copied ' .. vim.fn.expand('%:.'))
+end, { desc = 'Copy relative filepath to clipboard' })
 
 vim.keymap.set('n', '<leader>tl', function()
   ---@diagnostic disable-next-line: undefined-field
