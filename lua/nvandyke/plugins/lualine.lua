@@ -3,6 +3,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local lualine = require 'lualine'
+    local codecompanion = require 'nvandyke.lualine-codecompanion'
     -- local trouble = require 'trouble'
     -- local symbols = trouble.statusline {
     --   mode = 'lsp_document_symbols',
@@ -47,6 +48,7 @@ return {
           -- }
         },
         lualine_x = { 'filetype' },
+        lualine_y = { codecompanion, 'progress' },
       },
       winbar = {},
       inactive_winbar = {},
