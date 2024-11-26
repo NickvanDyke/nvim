@@ -72,11 +72,9 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
+-- Minimal number of screen lines to keep around the cursor.
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
-
--- NOTE: [[ MY OPTIONS ]]
 
 -- TODO: apparently Postgres files should still be .sql?
 -- But I think that would break Wanna's migration hashes.
@@ -88,19 +86,6 @@ vim.filetype.add {
 }
 
 vim.opt.showbreak = '↪'
-
-vim.diagnostic.config {
-  virtual_text = false, -- we use tiny-inline-diagnostic
-  severity_sort = true,
-  underline = true,
-  float = {
-    source = true,
-    border = 'rounded',
-  },
-}
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
-})
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
