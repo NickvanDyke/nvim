@@ -1,5 +1,6 @@
 return {
   'nvim-focus/focus.nvim',
+  event = 'VeryLazy',
   config = function()
     -- Taken from readme
     local ignore_filetypes = { 'trouble' }
