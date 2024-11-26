@@ -1,7 +1,8 @@
 return {
   'saghen/blink.cmp',
+  -- enabled = false,
   lazy = false, -- lazy loading handled internally
-  version = 'v0.*',
+  version = 'v0.5.1', -- 0.6 crashes every time I enter insert?
   opts = {
     keymap = {
       preset = 'default',
