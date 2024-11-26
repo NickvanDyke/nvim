@@ -29,7 +29,7 @@ return {
       return { bg = background, fg = foreground }
     end
 
-    local function sync_cursor_to_mini_mode()
+    local function sync_cursor_to_mode()
       local mode = vim.fn.mode()
       local mode_hl = mode_to_hl_name[mode] or 'lualine_a_normal'
 
@@ -39,11 +39,11 @@ return {
       vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = mode_color, bg = cursorline_bg })
     end
 
-    sync_cursor_to_mini_mode()
+    sync_cursor_to_mode()
 
     -- Sync cursor color with mini.statusline mode colors
     vim.api.nvim_create_autocmd({ 'ModeChanged' }, {
-      callback = sync_cursor_to_mini_mode,
+      callback = sync_cursor_to_mode,
     })
   end,
 }
