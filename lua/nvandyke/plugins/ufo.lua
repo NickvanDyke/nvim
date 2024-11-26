@@ -1,6 +1,6 @@
 return {
   'kevinhwang91/nvim-ufo',
-  event = 'BufReadPost',
+  event = 'BufReadPost', -- Tried LspAttach but it doesn't like that
   dependencies = { 'kevinhwang91/promise-async' },
   config = function()
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
