@@ -8,6 +8,7 @@ return {
         function()
           vim.g.minianimate_disable = not vim.g.minianimate_disable
           vim.cmd 'Twilight'
+          vim.cmd 'Screenkey'
         end,
         noremap = true,
         silent = true,
@@ -22,7 +23,11 @@ return {
   {
     'folke/twilight.nvim',
     cmd = 'Twilight',
-    opts = {
-    },
+    opts = {},
+  },
+  {
+    'NStefan002/screenkey.nvim',
+    version = '*', -- or branch = "dev", to use the latest commit
+    cmd = 'Screenkey',
   },
 }
