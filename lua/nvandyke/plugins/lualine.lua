@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-tree/nvim-web-devicons', 'meuter/lualine-so-fancy.nvim' },
   config = function()
     local lualine = require 'lualine'
     local codecompanion = require 'nvandyke.lualine-codecompanion'
@@ -48,7 +48,7 @@ return {
           -- }
         },
         lualine_x = { 'filetype' },
-        lualine_y = { codecompanion, 'progress' },
+        lualine_y = { codecompanion, 'fancy_macro', 'progress' },
       },
       winbar = {},
       inactive_winbar = {},
