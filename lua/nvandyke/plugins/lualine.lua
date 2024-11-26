@@ -48,7 +48,12 @@ return {
           -- }
         },
         lualine_x = { 'filetype' },
-        lualine_y = { codecompanion, 'fancy_macro', 'fancy_searchcount', 'progress' },
+        lualine_y = {
+          codecompanion,
+          'fancy_macro',
+          'fancy_searchcount',
+          -- 'progress',
+        },
       },
       winbar = {},
       inactive_winbar = {},
