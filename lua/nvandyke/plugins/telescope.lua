@@ -107,5 +107,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sc', function()
       builtin.find_files { cwd = '~/.config/', hidden = true }
     end, { desc = '[S]earch [C]onfig files' })
+
+    vim.keymap.set('n', '<leader>tt', function()
+      builtin.colorscheme {
+        enable_preview = true,
+      }
+    end, { desc = '[T]elescope [T]hemes' })
   end,
 }
