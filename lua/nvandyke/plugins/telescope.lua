@@ -1,6 +1,7 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
+  cmd = 'Telescope',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -23,34 +24,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope-live-grep-args.nvim',
   },
   config = function()
-    local lga_actions = require 'telescope-live-grep-args.actions'
-    local open_with_trouble = require('trouble.sources.telescope').open
-    local action_state = require 'telescope.actions.state'
-
-    -- Use this to add more results without clearing the trouble list
-    local add_to_trouble = require('trouble.sources.telescope').add
-
-    -- Telescope is a fuzzy finder that comes with a lot of different things that
-    -- it can fuzzy find! It's more than just a "file finder", it can search
-    -- many different aspects of Neovim, your workspace, LSP, and more!
-    --
-    -- The easiest way to use Telescope, is to start by doing something like:
-    --  :Telescope help_tags
-    --
-    -- After running this command, a window will open up and you're able to
-    -- type in the prompt window. You'll see a list of `help_tags` options and
-    -- a corresponding preview of the help.
-    --
-    -- Two important keymaps to use while in Telescope are:
-    --  - Insert mode: <c-/>
-    --  - Normal mode: ?
-    --
-    -- This opens a window that shows you all of the keymaps for the current
-    -- Telescope picker. This is really useful to discover what Telescope can
-    -- do as well as how to actually do it!
-
-    -- [[ Configure Telescope ]]
-    -- See `:help telescope` and `:help telescope.setup()`
     require('telescope').setup {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
@@ -73,16 +46,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
           n = {
             ['q'] = require('telescope.actions').close,
             ['<esc>'] = require('telescope.actions').close,
-            ['<C-t>'] = open_with_trouble,
+            ['<C-t>'] = require('trouble.sources.telescope').open,
             ['<C-d>'] = require('telescope.actions').delete_buffer,
           },
           i = {
-            ['<C-t>'] = open_with_trouble,
+            ['<C-t>'] = require('trouble.sources.telescope').open,
             ['<C-w>'] = function()
               vim.api.nvim_input '<c-s-w>'
             end,
             ['<C-;>'] = function()
               -- TODO: how to display icon next to picker result when already saved?
+              local action_state = require 'telescope.actions.state'
               local relative_path = vim.fn.fnamemodify(action_state.get_selected_entry().path, ':.' .. vim.fn.getcwd())
               require('arrow.persist').save(relative_path)
             end,
@@ -107,17 +81,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
         live_grep_args = {
           mappings = {
             i = {
-              ['<C-k>'] = lga_actions.quote_prompt(),
+              ['<C-k>'] = require('telescope-live-grep-args.actions').quote_prompt(),
             },
           },
         },
       },
     }
-
-    -- Enable Telescope extensions if they are installed
-    pcall(require('telescope').load_extension, 'fzf')
-    pcall(require('telescope').load_extension, 'ui-select')
-    pcall(require('telescope').load_extension, 'live_grep_args')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -135,15 +104,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         previewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer' })
-
-    -- It's also possible to pass additional configuration options.
-    --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    -- vim.keymap.set('n', '<leader>s/', function()
-    --   builtin.live_grep {
-    --     grep_open_files = true,
-    --     prompt_title = 'Live Grep in Open Files',
-    --   }
-    -- end, { desc = '[S]earch [/] in Open Files' })
 
     vim.keymap.set('n', '<leader>sc', function()
       builtin.find_files { cwd = '~/.config/', hidden = true }
