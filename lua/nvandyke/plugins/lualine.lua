@@ -2,10 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons', 'meuter/lualine-so-fancy.nvim' },
   config = function()
-    -- Disable some messages because we show them in the statusline
-    vim.opt.shortmess:append 'S'
-    vim.opt.shortmess:append 'q'
-
     local lualine = require 'lualine'
     local codecompanion = require 'nvandyke.lualine-codecompanion'
     -- local trouble = require 'trouble'

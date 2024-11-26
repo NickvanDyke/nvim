@@ -81,11 +81,11 @@ vim.opt.sidescrolloff = 10
 -- TODO: apparently Postgres files should still be .sql?
 -- But I think that would break Wanna's migration hashes.
 -- hmmmm
-vim.filetype.add({
+vim.filetype.add {
   extension = {
     psql = 'sql',
   },
-})
+}
 
 vim.opt.showbreak = '↪'
 
@@ -112,4 +112,7 @@ vim.opt.autoread = true
 
 vim.opt.laststatus = 3
 
-vim.opt.wrap = false
+vim.opt.cmdheight=0
+-- Disable some messages because we show them in the statusline
+vim.opt.shortmess:append 'S'
+vim.opt.shortmess:append 'q'

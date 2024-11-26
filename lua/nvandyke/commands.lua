@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
 
       -- local time = os.date '%I:%M %p'
 
-      vim.notify('autosaved', vim.log.levels.INFO, { timeout = 500 })
+      vim.notify('autosaved', vim.log.levels.INFO, { timeout = 100 })
     end
   end,
 })
