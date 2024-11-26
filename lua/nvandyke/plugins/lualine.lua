@@ -15,12 +15,24 @@ return {
     --   hl_group = 'lualine_c_normal',
     -- }
 
+    local function diff_source()
+      local gitsigns = vim.b.gitsigns_status_dict
+      if gitsigns then
+        return {
+          added = gitsigns.added,
+          modified = gitsigns.changed,
+          removed = gitsigns.removed,
+        }
+      end
+    end
+
     lualine.setup {
       options = {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
       sections = {
+        lualine_b = { { 'diff', source = diff_source } },
         lualine_c = {
           {
             'filename',
