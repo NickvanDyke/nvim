@@ -61,25 +61,25 @@ return {
       desc = '[L]azy [D]ocker',
     },
     {
-      '<leader>gg',
+      '<leader>lg',
       function()
         Snacks.lazygit.open()
       end,
-      desc = 'LazyGit',
+      desc = '[L]azy [G]it',
     },
     {
       '<leader>gf',
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = 'LazyGit log (current file)',
+      desc = 'LazyGit log (current [f]ile)',
     },
     {
       '<leader>gl',
       function()
         Snacks.lazygit.log()
       end,
-      desc = 'LazyGit log',
+      desc = 'LazyGit [l]og',
     },
   },
 }
