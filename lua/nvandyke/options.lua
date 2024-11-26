@@ -74,6 +74,7 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
 -- NOTE: [[ MY OPTIONS ]]
 
@@ -112,4 +113,3 @@ vim.opt.autoread = true
 vim.opt.laststatus = 3
 
 vim.opt.wrap = false
-
