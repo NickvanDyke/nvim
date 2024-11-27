@@ -8,7 +8,7 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      { 'j-hui/fidget.nvim', opts = { notification = { override_vim_notify = true } } },
+      'j-hui/fidget.nvim',
     },
     config = function()
       -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
