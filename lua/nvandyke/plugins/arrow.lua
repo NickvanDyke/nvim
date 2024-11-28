@@ -15,6 +15,9 @@ return {
     buffer_leader_key = 'm', -- Per Buffer Mappings
     separate_by_branch = true,
     save_key = 'git_root',
+    window = {
+      border = 'rounded',
+    },
     mappings = {
       open_vertical = '<C-v>',
       open_horizontal = '<C-x>',
