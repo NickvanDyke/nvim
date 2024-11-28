@@ -7,6 +7,10 @@ return {
       vim.cmd 'colorscheme rose-pine'
     end,
   },
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = true,
+  },
   { 'folke/tokyonight.nvim', lazy = true },
   {
     'ellisonleao/gruvbox.nvim',
