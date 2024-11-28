@@ -6,7 +6,7 @@ return {
     config = function()
       local lint = require 'lint'
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        -- markdown = { 'markdownlint' },
         -- eslint-lsp seems nice but it doesn't fallback to anything if not locally installed in project.
         -- Which polco-services seems to struggle with.
         -- javascript = { 'eslint_d' },
