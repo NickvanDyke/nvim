@@ -25,13 +25,18 @@ return {
   keys = {
     -- TODO: have to wait for timeoutlen when using with `y` because of nvim-surround `ys` mapping
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-    { "S", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     {
-      "R",
+      "S",
       mode = { "n", "x", "o" },
       function() require("flash").treesitter() end,
       desc = "Flash Treesitter",
     },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search({
+      remote_op = {
+        restore = true,
+        motion = true,
+      }
+    }) end, desc = "Treesitter Search" },
     {
       "r",
       mode = "o",
