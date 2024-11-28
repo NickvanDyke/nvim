@@ -21,7 +21,9 @@ vim.api.nvim_create_autocmd('CursorHold', {
 
 vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
   callback = function()
-    if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
+    local is_modified = vim.api.nvim_buf_get_option(0, 'modified')
+    -- if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
+    if is_modified then
       vim.cmd 'silent w'
 
       -- local time = os.date '%I:%M %p'
