@@ -7,7 +7,7 @@ return {
       function()
         require('refactoring').select_refactor {}
       end,
-      { desc = '[R]efactor' },
+      desc = '[R]efactor',
     },
     {
       mode = 'n',
@@ -15,7 +15,7 @@ return {
       function()
         require('refactoring').debug.printf { below = false }
       end,
-      { desc = '[D]ebug [P]rint' },
+      desc = '[D]ebug [P]rint',
     },
     {
       mode = { 'x', 'n' },
@@ -23,7 +23,7 @@ return {
       function()
         require('refactoring').debug.print_var {}
       end,
-      { desc = '[D]ebug print [V]ar' },
+      desc = '[D]ebug print [V]ar',
     },
     {
       mode = 'n',
@@ -31,7 +31,7 @@ return {
       function()
         require('refactoring').debug.cleanup {}
       end,
-      { desc = '[D]ebug print [C]leanup' },
+      desc = '[D]ebug print [C]leanup',
     },
   },
   dependencies = {
