@@ -1,6 +1,5 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
-  cmd = 'Telescope',
   event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -44,11 +43,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
           n = {
             ['q'] = require('telescope.actions').close,
             ['<esc>'] = require('telescope.actions').close,
-            ['<C-t>'] = require('trouble.sources.telescope').open,
+            -- ['<C-t>'] = require('trouble.sources.telescope').open,
             ['<C-d>'] = require('telescope.actions').delete_buffer,
           },
           i = {
-            ['<C-t>'] = require('trouble.sources.telescope').open,
+            -- ['<C-t>'] = require('trouble.sources.telescope').open,
             ['<C-w>'] = function()
               vim.api.nvim_input '<c-s-w>'
             end,
