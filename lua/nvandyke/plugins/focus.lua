@@ -3,7 +3,7 @@ return {
   event = 'VeryLazy',
   config = function()
     -- Taken from readme
-    local ignore_filetypes = { 'trouble' }
+    local ignore_filetypes = { 'trouble', 'qf' }
     local ignore_buftypes = { 'prompt', 'popup' }
 
     local augroup = vim.api.nvim_create_augroup('FocusDisable', { clear = true })
