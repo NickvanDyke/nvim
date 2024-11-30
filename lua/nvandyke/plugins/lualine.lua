@@ -4,21 +4,11 @@ return {
     'nvim-tree/nvim-web-devicons',
     'meuter/lualine-so-fancy.nvim',
     'AndreM222/copilot-lualine',
+    'otavioschwanck/arrow.nvim',
   },
   config = function()
     local lualine = require 'lualine'
     local codecompanion = require 'nvandyke.lualine-codecompanion'
-    -- local trouble = require 'trouble'
-    -- local symbols = trouble.statusline {
-    --   mode = 'lsp_document_symbols',
-    --   groups = {},
-    --   title = false,
-    --   filter = { range = true },
-    --   format = '{kind_icon}{symbol.name:Normal}',
-    --   -- The following line is needed to fix the background color
-    --   -- Set it to the lualine section you want to use
-    --   hl_group = 'lualine_c_normal',
-    -- }
 
     -- local function diff_source()
     --   local gitsigns = vim.b.gitsigns_status_dict
@@ -82,9 +72,9 @@ return {
       end,
     }
     local arrow = {
-      function ()
+      function()
         return require('arrow.statusline').text_for_statusline_with_icons()
-      end
+      end,
     }
 
     lualine.setup {
@@ -98,7 +88,7 @@ return {
             'mode',
             fmt = function(str)
               local width = vim.fn.winwidth(0)
-              local length = width >= 120 and 8 or width >= 80 and 3 or 1
+              local length = width >= 120 and 8 or 1
               return string.sub(str, 0, length)
             end,
           },
@@ -108,30 +98,29 @@ return {
           'diagnostics',
         },
         lualine_c = {
+          -- TODO: https://github.com/LazyVim/LazyVim/discussions/2605#discussioncomment-8653080
           {
             'filename',
             path = 0,
+            -- color = 'NeoTreeGitModified'
             -- fmt = function(str)
             --   return string.gsub(str, '/', ' > ')
             -- end,
           },
-          -- {
-          --   symbols.get,
-          --   cond = symbols.has
-          -- }
         },
-        lualine_x = { {
-          'filetype',
-          -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
-          disable_text = true,
-        } },
+        lualine_x = {
+          -- {
+          --   'filetype',
+          --   -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
+          --   disable_text = true,
+          -- },
+        },
         lualine_y = {
           codecompanion,
           'fancy_macro',
           'fancy_searchcount',
           -- ll,
           -- qf,
-          arrow,
           {
             'copilot',
             symbols = {
@@ -139,6 +128,7 @@ return {
               spinners = { '⠋ ', '⠙ ', '⠹ ', '⠸ ', '⠼ ', '⠴ ', '⠦ ', '⠧ ', '⠇ ', '⠏ ' },
             },
           },
+          arrow,
           -- 'progress',
         },
       },

@@ -1,9 +1,12 @@
 return {
   'folke/persistence.nvim',
+  dependencies = {
+    'otavioschwanck/arrow.nvim',
+  },
   config = function()
-    require('persistence').setup({
+    require('persistence').setup {
       need = 0,
-    })
+    }
 
     vim.api.nvim_create_autocmd('User', {
       desc = 'Load arrow files',
