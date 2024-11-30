@@ -34,11 +34,11 @@ return {
       local mode_hl = mode_to_hl_name[mode] or 'lualine_a_normal'
 
       local mode_color = get_colors_from_hl(mode_hl).bg
-      local cursorline_bg = get_colors_from_hl('CursorLine').bg
+      local cursorline_bg = get_colors_from_hl('CursorLineNr').bg
 
       vim.api.nvim_set_hl(0, 'SmoothCursor', {
         fg = mode_color,
-        -- bg = cursorline_bg,
+        bg = cursorline_bg,
       })
     end
 
