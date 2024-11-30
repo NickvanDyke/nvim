@@ -93,6 +93,16 @@ return {
         section_separators = { left = '', right = '' },
       },
       sections = {
+        lualine_a = {
+          {
+            'mode',
+            fmt = function(str)
+              local width = vim.fn.winwidth(0)
+              local length = width >= 120 and 8 or width >= 80 and 3 or 1
+              return string.sub(str, 0, length)
+            end,
+          },
+        },
         lualine_b = {
           'branch',
           'diagnostics',
