@@ -31,6 +31,9 @@ return {
   dependencies = {
     {
       'zbirenbaum/copilot.lua',
+      -- wtf lol, shows error every type when no internet
+      -- https://github.com/zbirenbaum/copilot.lua/issues/165
+      -- enabled = false, 
       opts = {
         suggestion = {
           auto_trigger = true,
