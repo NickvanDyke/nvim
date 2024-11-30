@@ -29,8 +29,6 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
-  { 'tpope/vim-sleuth', event = 'BufReadPost' }, -- Detect tabstop and shiftwidth automatically
-
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.neo-tree',
