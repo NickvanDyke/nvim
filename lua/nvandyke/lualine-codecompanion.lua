@@ -17,7 +17,7 @@ local spinner_symbols = {
 }
 local spinner_symbols_len = 10
 
--- Initializer
+-- TODO: merge with https://github.com/AndreM222/copilot-lualine ?
 function M:init(options)
   M.super.init(self, options)
 
