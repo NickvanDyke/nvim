@@ -154,20 +154,10 @@ return {
         },
       }
 
-      vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', numhl = 'DiagnosticSignError' })
-      vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', numhl = 'DiagnosticSignWarn' })
-      vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', numhl = 'DiagnosticSignHint' })
+      vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', numhl = 'DiagnosticSignError' })
+      vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', numhl = 'DiagnosticSignWarn' })
+      vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', numhl = 'DiagnosticSignHint' })
       vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', numhl = 'DiagnosticSignInfo' })
-
-      vim.diagnostic.config {
-        virtual_text = false, -- we use tiny-inline-diagnostic
-        severity_sort = true,
-        underline = true,
-        float = {
-          source = true,
-          border = 'rounded',
-        },
-      }
 
       vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
         border = 'rounded',
