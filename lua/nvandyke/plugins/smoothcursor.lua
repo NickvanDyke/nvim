@@ -36,7 +36,10 @@ return {
       local mode_color = get_colors_from_hl(mode_hl).bg
       local cursorline_bg = get_colors_from_hl('CursorLine').bg
 
-      vim.api.nvim_set_hl(0, 'SmoothCursor', { fg = mode_color, bg = cursorline_bg })
+      vim.api.nvim_set_hl(0, 'SmoothCursor', {
+        fg = mode_color,
+        -- bg = cursorline_bg,
+      })
     end
 
     sync_cursor_to_mode()
