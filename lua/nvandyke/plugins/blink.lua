@@ -2,11 +2,11 @@ return {
   'saghen/blink.cmp',
   -- enabled = false,
   lazy = false, -- lazy loading handled internally
-  version = 'v0.5.1', -- 0.6 crashes every time I enter insert?
+  version = 'v0.*', -- 0.6 crashes every time I enter insert?
   opts = {
     keymap = {
-      preset = 'default',
-      ['<CR>'] = { 'select_and_accept', 'fallback' },
+      preset = 'enter',
+      -- ['<CR>'] = { 'select_and_accept', 'fallback' },
     },
     highlight = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
