@@ -19,6 +19,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     'nvim-telescope/telescope-live-grep-args.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
   },
   config = function()
     require('telescope').setup {
@@ -55,12 +56,17 @@ return { -- Fuzzy Finder (files, lsp, etc)
               -- TODO: how to display icon next to picker result when already saved?
               local action_state = require 'telescope.actions.state'
               local relative_path = vim.fn.fnamemodify(action_state.get_selected_entry().path, ':.' .. vim.fn.getcwd())
-              require('arrow.persist').save(relative_path)
+              -- require('arrow.persist').save(relative_path)
             end,
           },
         },
       },
       extensions = {
+        ['ui-select'] = {
+          require('telescope.themes').get_dropdown {
+            -- even more opts
+          },
+        },
         smart_open = {
           match_algorithm = 'fzf',
           mappings = {
@@ -84,6 +90,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'live_grep_args')
+    pcall(require('telescope').load_extension 'ui-select')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
