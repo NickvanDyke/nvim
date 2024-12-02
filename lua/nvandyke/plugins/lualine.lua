@@ -98,6 +98,7 @@ return {
           'diagnostics',
         },
         lualine_c = {
+          arrow,
           -- TODO: https://github.com/LazyVim/LazyVim/discussions/2605#discussioncomment-8653080
           {
             'filename',
@@ -109,12 +110,11 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   'filetype',
-          --   -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
-          --   disable_text = true,
-          -- },
-          arrow,
+          {
+            'filetype',
+            -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
+            disable_text = true,
+          },
         },
         lualine_y = {
           codecompanion,
