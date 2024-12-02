@@ -114,6 +114,7 @@ return {
           --   -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
           --   disable_text = true,
           -- },
+          arrow,
         },
         lualine_y = {
           codecompanion,
@@ -128,7 +129,6 @@ return {
               spinners = { '⠋ ', '⠙ ', '⠹ ', '⠸ ', '⠼ ', '⠴ ', '⠦ ', '⠧ ', '⠇ ', '⠏ ' },
             },
           },
-          arrow,
           -- 'progress',
         },
       },
