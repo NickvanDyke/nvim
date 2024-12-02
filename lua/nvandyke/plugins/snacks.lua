@@ -33,9 +33,33 @@ return {
       top_down = false,
       -- style = 'minimal'
     },
+    scratch = {
+      -- ft = 'md', -- Causes error rn
+    },
     styles = {},
   },
   keys = {
+    {
+      '<leader>ps',
+      function()
+        Snacks.profiler.scratch()
+      end,
+      desc = 'Profiler Scratch Bufer',
+    },
+    {
+      '<leader>.',
+      function()
+        Snacks.scratch()
+      end,
+      desc = 'Toggle Scratch Buffer',
+    },
+    {
+      '<leader>S',
+      function()
+        Snacks.scratch.select()
+      end,
+      desc = 'Select Scratch Buffer',
+    },
     {
       ']]',
       function()
