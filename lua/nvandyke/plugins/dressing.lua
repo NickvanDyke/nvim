@@ -4,5 +4,12 @@ return {
     select = {
       relative = 'editor',
     },
+    input = {
+      mappings = {
+        n = {
+          q = 'Close',
+        },
+      },
+    },
   },
 }
