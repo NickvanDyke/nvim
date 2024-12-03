@@ -20,56 +20,6 @@ return {
     --   end
     -- end
 
-    local function count_items(qf_list)
-      if #qf_list > 0 then
-        local valid = 0
-        for _, item in ipairs(qf_list) do
-          if item.valid == 1 then
-            valid = valid + 1
-          end
-        end
-        if valid > 0 then
-          return tostring(valid)
-        end
-      end
-    end
-
-    local ll = {
-      function()
-        local loc_values = vim.fn.getloclist(vim.api.nvim_get_current_win())
-        local items = count_items(loc_values)
-        if items then
-          return 'll:' .. items
-        end
-        return ''
-      end,
-      on_click = function(clicks, button, modifiers)
-        local winid = vim.fn.getqflist(vim.api.nvim_get_current_win(), { winid = 0 }).winid
-        if winid == 0 then
-          vim.cmd.lopen()
-        else
-          vim.cmd.lclose()
-        end
-      end,
-    }
-    local qf = {
-      function()
-        local qf_values = vim.fn.getqflist()
-        local items = count_items(qf_values)
-        if items then
-          return 'qf:' .. items
-        end
-        return ''
-      end,
-      on_click = function(clicks, button, modifiers)
-        local winid = vim.fn.getqflist({ winid = 0 }).winid
-        if winid == 0 then
-          vim.cmd.copen()
-        else
-          vim.cmd.cclose()
-        end
-      end,
-    }
     local arrow = {
       function()
         return require('arrow.statusline').text_for_statusline_with_icons()
@@ -81,6 +31,10 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
+      -- winbar = {
+      --   lualine_c = { {'filename', path = 1} },
+      -- },
+      -- inactive_winbar = {},
       sections = {
         lualine_a = {
           {
@@ -93,14 +47,19 @@ return {
           },
         },
         lualine_b = {
-          'branch',
+          {
+            'branch',
+            cond = function()
+              return vim.fn.winwidth(0) > 120
+            end,
+          },
           'diagnostics',
         },
         lualine_c = {
           -- TODO: https://github.com/LazyVim/LazyVim/discussions/2605#discussioncomment-8653080
           {
             'filename',
-            path = 0,
+            path = 1,
             -- color = 'NeoTreeGitModified'
             -- fmt = function(str)
             --   return string.gsub(str, '/', ' > ')
@@ -109,17 +68,15 @@ return {
         },
         lualine_x = {
           arrow,
-          {
-            'filetype',
-            -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
-            disable_text = true,
-          },
+          -- {
+          --   'filetype',
+          --   -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
+          --   disable_text = true,
+          -- },
         },
         lualine_y = {
           'fancy_macro',
           'fancy_searchcount',
-          -- ll,
-          -- qf,
           {
             'copilot',
             symbols = {
@@ -127,11 +84,8 @@ return {
               spinners = { '⠋ ', '⠙ ', '⠹ ', '⠸ ', '⠼ ', '⠴ ', '⠦ ', '⠧ ', '⠇ ', '⠏ ' },
             },
           },
-          -- 'progress',
         },
       },
-      winbar = {},
-      inactive_winbar = {},
     }
   end,
 }
