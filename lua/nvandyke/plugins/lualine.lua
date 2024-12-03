@@ -8,7 +8,6 @@ return {
   },
   config = function()
     local lualine = require 'lualine'
-    local codecompanion = require 'nvandyke.lualine-codecompanion'
 
     -- local function diff_source()
     --   local gitsigns = vim.b.gitsigns_status_dict
@@ -98,7 +97,6 @@ return {
           'diagnostics',
         },
         lualine_c = {
-          arrow,
           -- TODO: https://github.com/LazyVim/LazyVim/discussions/2605#discussioncomment-8653080
           {
             'filename',
@@ -110,6 +108,7 @@ return {
           },
         },
         lualine_x = {
+          arrow,
           {
             'filetype',
             -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
@@ -117,7 +116,6 @@ return {
           },
         },
         lualine_y = {
-          codecompanion,
           'fancy_macro',
           'fancy_searchcount',
           -- ll,
