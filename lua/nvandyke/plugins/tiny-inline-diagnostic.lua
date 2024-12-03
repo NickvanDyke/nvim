@@ -3,7 +3,7 @@ return {
   priority = 1000, -- needs to be loaded in first
   config = function()
     vim.diagnostic.config {
-      virtual_text = false, -- we use tiny-inline-diagnostic
+      virtual_text = false, -- prevent duplicates
       severity_sort = true,
       underline = true,
       float = {
@@ -13,6 +13,7 @@ return {
     }
 
     require('tiny-inline-diagnostic').setup {
+      preset = 'modern',
       options = {
         -- multilines = true,
         show_source = true,
