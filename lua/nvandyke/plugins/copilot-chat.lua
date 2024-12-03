@@ -3,13 +3,6 @@ return {
   dependencies = {
     { 'zbirenbaum/copilot.lua' },
     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
-    {
-      'MeanderingProgrammer/render-markdown.nvim',
-      ft = {
-        'markdown',
-        'copilot-chat',
-      },
-    }, -- Optional: For prettier markdown rendering
   },
   -- build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
