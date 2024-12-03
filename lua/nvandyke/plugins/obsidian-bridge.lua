@@ -1,7 +1,6 @@
 return {
   'oflisback/obsidian-bridge.nvim',
   dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  lazy = true,
   events = {
     -- `ft` causes it to load for floating windows, like LSP hover
     'BufRead *.md',
