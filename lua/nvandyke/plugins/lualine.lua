@@ -70,8 +70,7 @@ return {
           arrow,
           -- {
           --   'filetype',
-          --   -- Doesn't work :/ https://github.com/nvim-lualine/lualine.nvim/pull/236/files
-          --   disable_text = true,
+          --   icon_only = true,
           -- },
         },
         lualine_y = {
