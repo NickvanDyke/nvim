@@ -1,8 +1,8 @@
 return {
   'saghen/blink.cmp',
-  -- enabled = false,
+  -- enabled = false, -- NOTE: if it crashes after updating, re-install; https://github.com/Saghen/blink.cmp/issues/68
   lazy = false, -- lazy loading handled internally
-  version = 'v0.*', -- 0.6 crashes every time I enter insert?
+  version = 'v0.*',
   opts = {
     keymap = {
       preset = 'enter',
