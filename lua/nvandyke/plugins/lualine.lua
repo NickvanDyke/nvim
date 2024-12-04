@@ -46,6 +46,10 @@ return {
           },
         },
         lualine_b = {
+          function()
+            ---@diagnostic disable-next-line: undefined-field
+            return ' ' .. vim.fn.fnamemodify(vim.loop.cwd(), ':t')
+          end,
           {
             'branch',
             cond = function()
