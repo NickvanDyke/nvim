@@ -39,12 +39,16 @@ return {
           },
         },
         lualine_b = {
-          function()
-            ---@diagnostic disable-next-line: undefined-field
-            return ' ' .. vim.fn.fnamemodify(vim.loop.cwd(), ':t')
-          end,
+          {
+            function()
+              ---@diagnostic disable-next-line: undefined-field
+              return vim.fn.fnamemodify(vim.loop.cwd(), ':t')
+            end,
+            icon = '', -- Same as my powerline prompt
+          },
           {
             'branch',
+            icon = '',
             cond = function()
               return vim.o.columns >= 120
             end,
