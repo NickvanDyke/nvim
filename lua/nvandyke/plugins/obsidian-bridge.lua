@@ -1,10 +1,10 @@
 return {
   'oflisback/obsidian-bridge.nvim',
   dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
-  events = {
+  event = {
     -- `ft` causes it to load for floating windows, like LSP hover
-    'BufRead *.md',
-    'BufWrite *.md',
+    'BufReadPre *.md',
+    'BufNewFile *.md',
   },
   opts = {
     -- TODO: no luck with https server thus far
