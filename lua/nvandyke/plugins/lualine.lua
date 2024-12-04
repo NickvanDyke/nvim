@@ -40,8 +40,7 @@ return {
           {
             'mode',
             fmt = function(str)
-              local width = vim.fn.winwidth(0)
-              local length = width >= 120 and 8 or 1
+              local length = vim.o.columns >= 120 and 8 or 1
               return string.sub(str, 0, length)
             end,
           },
@@ -50,7 +49,7 @@ return {
           {
             'branch',
             cond = function()
-              return vim.fn.winwidth(0) > 120
+              return vim.o.columns >= 120
             end,
           },
           'diagnostics',
