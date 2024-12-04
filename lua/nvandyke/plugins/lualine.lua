@@ -58,7 +58,6 @@ return {
         lualine_c = {
           {
             'windows',
-            show_filename_only = false,
             show_modified_status = false,
             filetype_names = {
               ['snacks_dashboard'] = 'Dashboard',
@@ -69,6 +68,11 @@ return {
               if not arrow_is_loaded then
                 return str
               else
+                local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':t')
+                if filename:match('^index%..+$') then
+                  local parent_dir = vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t')
+                  return parent_dir .. '/' .. filename
+                end
                 return str .. ' ' .. require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
               end
             end,
