@@ -21,15 +21,26 @@ return {
         },
         buffer = {
           -- Otherwise it shows up immediately which is super annoying
-          min_keyword_length = 1,
+          min_keyword_length = 3,
           fallback_for = {},
           score_offset = -3,
         },
       },
     },
-    windows = {
+    completion = {
+      menu = {
+        border = 'padded',
+      },
       documentation = {
         auto_show = true,
+        window = {
+          border = 'rounded',
+        }
+      },
+      signature = {
+        window = {
+          border = 'rounded',
+        }
       },
     },
   },
