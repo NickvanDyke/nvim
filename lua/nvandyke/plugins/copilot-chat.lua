@@ -20,6 +20,7 @@ return {
     --   desc = 'CopilotChat - Prompt actions',
     -- },
     {
+      mode = { 'n', 'x' },
       '<C-c>',
       function()
         require('CopilotChat').toggle()
