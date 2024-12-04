@@ -55,14 +55,13 @@ return {
           'diagnostics',
         },
         lualine_c = {
-          -- TODO: https://github.com/LazyVim/LazyVim/discussions/2605#discussioncomment-8653080
           {
-            'filename',
-            path = 1,
-            -- color = 'NeoTreeGitModified'
-            -- fmt = function(str)
-            --   return string.gsub(str, '/', ' > ')
-            -- end,
+            'windows',
+            show_filename_only = false,
+            show_modified_status = false,
+            filetype_names = {
+              ['snacks_dashboard'] = 'Dashboard',
+            },
           },
         },
         lualine_x = {
