@@ -19,7 +19,7 @@ return {
       mode = 'n',
       desc = 'Previous todo comment',
     },
-    { '<leader>st', '<cmd>TodoTelescope<cr>', mode = 'n', desc = '[S]earch [T]odos' },
+    { '<leader>st', '<cmd>TodoTelescope<cr>', mode = 'n', desc = '[s]earch [t]odos' },
   },
   opts = {
     signs = false,

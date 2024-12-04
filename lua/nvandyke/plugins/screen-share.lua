@@ -12,7 +12,7 @@ return {
         end,
         noremap = true,
         silent = true,
-        desc = '[T]oggle [s]creenshare stuff',
+        desc = '[t]oggle [s]creenshare stuff',
       },
     },
     config = function()

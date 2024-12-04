@@ -16,7 +16,7 @@ return {
     {
       '<leader>cs',
       '<cmd>Trouble symbols toggle<cr>',
-      desc = '[S]ymbols (Trouble)',
+      desc = '[s]ymbols (Trouble)',
     },
     {
       '<leader>cl',
@@ -26,12 +26,12 @@ return {
     {
       '<leader>cL',
       '<cmd>Trouble loclist toggle<cr>',
-      desc = '[L]ocation List (Trouble)',
+      desc = '[l]ocation List (Trouble)',
     },
     {
       '<leader>cq',
       '<cmd>Trouble qflist toggle<cr>',
-      desc = '[Q]uickfix List (Trouble)',
+      desc = '[q]uickfix List (Trouble)',
     },
   },
   opts = {

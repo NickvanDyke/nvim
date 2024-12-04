@@ -42,12 +42,12 @@ return { -- Useful plugin to show you pending keybinds.
 
     -- Document existing key chains
     spec = {
-      { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>l', group = '[L]azy' },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
-      { '<leader>d', group = '[D]ebug', mode = { 'n', 'v' } },
+      { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
+      { '<leader>s', group = '[s]earch' },
+      { '<leader>l', group = '[l]azy' },
+      { '<leader>t', group = '[t]oggle' },
+      { '<leader>g', group = '[g]it', mode = { 'n', 'v' } },
+      { '<leader>d', group = '[d]ebug', mode = { 'n', 'v' } },
     },
   },
 }

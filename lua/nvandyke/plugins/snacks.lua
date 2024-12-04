@@ -86,14 +86,14 @@ return {
       function()
         Snacks.terminal 'lazydocker'
       end,
-      desc = '[L]azy [D]ocker',
+      desc = '[l]azy [d]ocker',
     },
     {
       '<leader>lg',
       function()
         Snacks.lazygit.open()
       end,
-      desc = '[L]azy [G]it',
+      desc = '[l]azy [g]it',
     },
     {
       '<leader>gf',

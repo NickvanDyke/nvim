@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = '[L]azy' })
+vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = '[l]azy' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -43,7 +43,7 @@ end, { desc = 'Copy relative filepath to clipboard' })
 vim.keymap.set('n', '<leader>tl', function()
   ---@diagnostic disable-next-line: undefined-field
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
-end, { desc = '[T]oggle [L]ine numbers' })
+end, { desc = '[t]oggle [l]ine numbers' })
 
-vim.keymap.set('n', '<leader>cq', '<cmd>copen<cr>', { desc = '[Q]uickfix list' })
-vim.keymap.set('n', '<leader>cl', '<cmd>lopen<cr>', { desc = '[L]ocation list' })
+vim.keymap.set('n', '<leader>cq', '<cmd>copen<cr>', { desc = '[q]uickfix list' })
+vim.keymap.set('n', '<leader>cl', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
