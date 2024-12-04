@@ -4,6 +4,7 @@ return {
     ';',
     'm',
   },
+  event = 'BufReadPost',
   dependencies = {
     { 'nvim-tree/nvim-web-devicons' },
     -- or if using `mini.icons`

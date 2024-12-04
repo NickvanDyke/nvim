@@ -4,7 +4,6 @@ return {
     'nvim-tree/nvim-web-devicons',
     'meuter/lualine-so-fancy.nvim',
     'AndreM222/copilot-lualine',
-    'otavioschwanck/arrow.nvim',
   },
   config = function()
     local lualine = require 'lualine'
@@ -19,12 +18,6 @@ return {
     --     }
     --   end
     -- end
-
-    local arrow = {
-      function()
-        return require('arrow.statusline').text_for_statusline_with_icons()
-      end,
-    }
 
     lualine.setup {
       options = {
@@ -66,10 +59,18 @@ return {
             filetype_names = {
               ['snacks_dashboard'] = 'Dashboard',
             },
+            fmt = function(str, ctx)
+              -- arrow takes a long time to load and we'll never need it on the dashboard
+              local arrow_is_loaded = package.loaded['arrow']
+              if not arrow_is_loaded then
+                return str
+              else
+                return str .. ' ' .. require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
+              end
+            end,
           },
         },
         lualine_x = {
-          arrow,
           -- {
           --   'filetype',
           --   icon_only = true,
