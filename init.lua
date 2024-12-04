@@ -73,6 +73,7 @@ require('lazy').setup({
         'tohtml',
         'tutor',
         'zipPlugin',
+        'rplugin',
       },
     },
   },
