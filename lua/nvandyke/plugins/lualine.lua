@@ -50,7 +50,14 @@ return {
             'branch',
             icon = '',
             cond = function()
-              return vim.o.columns >= 120
+              return vim.o.columns >= 80
+            end,
+            fmt = function(str)
+              if string.len(str) > 11 then
+                return string.sub(str, 1, 5) .. '…' .. string.sub(str, -5)
+              else
+                return str
+              end
             end,
           },
           'diagnostics',
@@ -69,7 +76,7 @@ return {
                 return str
               else
                 local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':t')
-                if filename:match('^index%..+$') then
+                if filename:match '^index%..+$' then
                   local parent_dir = vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t')
                   return parent_dir .. '/' .. filename
                 end
