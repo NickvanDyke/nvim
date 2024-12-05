@@ -4,9 +4,7 @@ return {
     {
       '<leader><leader>',
       function()
-        require('telescope').extensions.smart_open.smart_open {
-          filename_first = false,
-        }
+        require('telescope').extensions.smart_open.smart_open {}
       end,
       desc = 'Smart Open',
     },

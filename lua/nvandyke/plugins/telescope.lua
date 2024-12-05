@@ -33,6 +33,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- },
       -- pickers = {},
       defaults = {
+        path_display = {
+          shorten = 3,
+          'filename_first',
+        },
         layout_strategy = 'vertical',
         layout_config = {
           -- prompt_position = 'top',
