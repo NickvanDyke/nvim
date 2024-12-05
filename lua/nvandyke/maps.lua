@@ -1,13 +1,9 @@
 vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = '[l]azy' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
@@ -35,20 +31,13 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' }
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
-
-
-vim.keymap.set('n', '=', function()
+vim.keymap.set('n', 'y=', function()
   vim.cmd [[ silent !echo %:. | pbcopy ]]
   vim.notify('Copied ' .. vim.fn.expand '%:.')
 end, { desc = 'Copy relative filepath to clipboard' })
 
-vim.keymap.set('n', '<leader>tl', function()
-  ---@diagnostic disable-next-line: undefined-field
-  vim.opt.relativenumber = not vim.opt.relativenumber:get()
-end, { desc = '[t]oggle [l]ine numbers' })
-
-vim.keymap.set('n', '<leader>cq', '<cmd>copen<cr>', { desc = '[q]uickfix list' })
-vim.keymap.set('n', '<leader>cl', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
+vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = '[q]uick[f]ix list' })
+vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
 
 vim.keymap.set('n', '<C-d>', function()
   local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 4)
@@ -62,3 +51,6 @@ vim.keymap.set('n', '<C-u>', function()
   vim.api.nvim_feedkeys(keys, 'n', false)
 end, { desc = 'Scroll up a quarter of the window height' })
 
+vim.keymap.set("n", "gG", "gg<S-v>G", { desc = "Select all" })
+
+-- vim.keymap.set("n", "<C-c>", "ciw")
