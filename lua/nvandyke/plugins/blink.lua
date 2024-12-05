@@ -29,7 +29,7 @@ return {
     },
     completion = {
       menu = {
-        border = 'padded',
+        border = 'rounded',
       },
       documentation = {
         auto_show = true,
