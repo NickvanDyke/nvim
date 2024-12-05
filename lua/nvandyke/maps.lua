@@ -40,16 +40,16 @@ vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = '[q]uick[f]ix list'
 vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
 
 vim.keymap.set('n', '<C-d>', function()
-  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 4)
+  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 3)
   local keys = vim.api.nvim_replace_termcodes(quarter_height .. '<C-d>', true, false, true)
   vim.api.nvim_feedkeys(keys, 'n', false)
-end, { desc = 'Scroll down a quarter of the window height' })
+end, { desc = 'Scroll down a third of the window height' })
 
 vim.keymap.set('n', '<C-u>', function()
-  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 4)
+  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 3)
   local keys = vim.api.nvim_replace_termcodes(quarter_height .. '<C-u>', true, false, true)
   vim.api.nvim_feedkeys(keys, 'n', false)
-end, { desc = 'Scroll up a quarter of the window height' })
+end, { desc = 'Scroll up a third of the window height' })
 
 vim.keymap.set("n", "gG", "gg<S-v>G", { desc = "Select all" })
 
