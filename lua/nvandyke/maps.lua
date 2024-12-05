@@ -35,6 +35,8 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up' }
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
 
+
+
 vim.keymap.set('n', '=', function()
   vim.cmd [[ silent !echo %:. | pbcopy ]]
   vim.notify('Copied ' .. vim.fn.expand '%:.')
@@ -47,3 +49,16 @@ end, { desc = '[t]oggle [l]ine numbers' })
 
 vim.keymap.set('n', '<leader>cq', '<cmd>copen<cr>', { desc = '[q]uickfix list' })
 vim.keymap.set('n', '<leader>cl', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
+
+vim.keymap.set('n', '<C-d>', function()
+  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 4)
+  local keys = vim.api.nvim_replace_termcodes(quarter_height .. '<C-d>', true, false, true)
+  vim.api.nvim_feedkeys(keys, 'n', false)
+end, { desc = 'Scroll down a quarter of the window height' })
+
+vim.keymap.set('n', '<C-u>', function()
+  local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 4)
+  local keys = vim.api.nvim_replace_termcodes(quarter_height .. '<C-u>', true, false, true)
+  vim.api.nvim_feedkeys(keys, 'n', false)
+end, { desc = 'Scroll up a quarter of the window height' })
+
