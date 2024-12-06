@@ -32,7 +32,8 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Enable break indent
+vim.opt.linebreak = true
+vim.opt.showbreak = '↪'
 vim.opt.breakindent = true
 
 -- Save undo history
@@ -84,8 +85,6 @@ vim.filetype.add {
     psql = 'sql',
   },
 }
-
-vim.opt.showbreak = '↪'
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
