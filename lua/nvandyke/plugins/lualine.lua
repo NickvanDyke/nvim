@@ -54,7 +54,8 @@ return {
             end,
             fmt = function(str)
               if string.len(str) > 11 then
-                return string.sub(str, 1, 5) .. '…' .. string.sub(str, -5)
+                return string.sub(str, 1, 11) .. '…'
+                -- return string.sub(str, 1, 5) .. '…' .. string.sub(str, -5)
               else
                 return str
               end
@@ -70,18 +71,15 @@ return {
               ['snacks_dashboard'] = 'Dashboard',
             },
             fmt = function(str, ctx)
-              -- arrow takes a long time to load and we'll never need it on the dashboard
-              local arrow_is_loaded = package.loaded['arrow']
-              if not arrow_is_loaded then
-                return str
-              else
-                local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':t')
-                if filename:match '^index%..+$' then
-                  local parent_dir = vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t')
-                  return parent_dir .. '/' .. filename
-                end
-                return str .. ' ' .. require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
-              end
+              local filename = str --vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':t')
+              local filename_to_show = filename:match '^index%..+$'
+                  -- prefix parent dir
+                  and vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t') .. '/' .. filename
+                or filename
+
+              -- Takes a long time to load and we'll never need on the Dashboard
+              local arrow_icon = package.loaded['arrow'] and require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr) or nil
+              return arrow_icon and (filename_to_show .. ' ' .. arrow_icon) or filename_to_show
             end,
           },
         },
