@@ -9,7 +9,6 @@ return {
       { 'williamboman/mason.nvim', cmd = 'Mason', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      'j-hui/fidget.nvim',
     },
     config = function()
       -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
@@ -158,10 +157,6 @@ return {
       vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', numhl = 'DiagnosticSignWarn' })
       vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', numhl = 'DiagnosticSignHint' })
       vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', numhl = 'DiagnosticSignInfo' })
-
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = 'rounded',
-      })
     end,
   },
   -- LSP Plugins
@@ -188,19 +183,6 @@ return {
         dismiss_on_move = true,
         border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
       }
-    end,
-  },
-  {
-    'ray-x/lsp_signature.nvim',
-    enabled = false,
-    event = 'LspAttach',
-    opts = {
-      floating_window = false,
-    },
-    config = function()
-      vim.keymap.set('n', '<C-S-k>', function()
-        require('lsp_signature').toggle_float_win()
-      end, { silent = true, noremap = true, desc = 'Toggle signature' })
     end,
   },
 }
