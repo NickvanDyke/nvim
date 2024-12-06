@@ -97,11 +97,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[s]earch [h]elp' })
-    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[s]earch [k]eymaps' })
-    vim.keymap.set('n', '<leader>sb', builtin.builtin, { desc = '[s]earch Telescope [b]uiltins' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord' })
-    vim.keymap.set('n', '<leader>sg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = '[s]earch with [g]rep (args)' })
+    vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[s]earch [h]elp', silent = true })
+    vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[s]earch [k]eymaps', silent = true })
+    vim.keymap.set('n', '<leader>sb', builtin.builtin, { desc = '[s]earch Telescope [b]uiltins', silent = true })
+    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[s]earch current [w]ord', silent = true })
+    vim.keymap.set(
+      'n',
+      '<leader>sg',
+      ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+      { desc = '[s]earch with [g]rep (args)', silent = true }
+    )
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<C-/>', function()
@@ -110,16 +115,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
         winblend = 10,
         previewer = false,
       })
-    end, { desc = '[/] Fuzzily search in current buffer' })
+    end, { desc = '[/] Fuzzily search in current buffer', silent = true })
 
     vim.keymap.set('n', '<leader>sc', function()
       builtin.find_files { cwd = '~/.config/', hidden = true }
-    end, { desc = '[s]earch [c]onfig files' })
+    end, { desc = '[s]earch [c]onfig files', silent = true })
 
     vim.keymap.set('n', '<leader>tt', function()
       builtin.colorscheme {
         enable_preview = true,
       }
-    end, { desc = '[t]elescope [t]hemes' })
+    end, { desc = '[t]elescope [t]hemes', silent = true })
   end,
 }
