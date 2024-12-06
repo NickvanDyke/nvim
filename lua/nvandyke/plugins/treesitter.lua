@@ -9,10 +9,8 @@ return { -- Highlight, edit, and navigate code
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<CR>',
-        -- scope_incremental = '<CR>',
-        node_incremental = '<CR>',
-        node_decremental = '<TAB>',
+        node_incremental = 'v',
+        node_decremental = 'V',
       },
     },
     ensure_installed = {
