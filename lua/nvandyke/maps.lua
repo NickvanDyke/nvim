@@ -51,6 +51,8 @@ vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = '[l]ocation list' }
 --   vim.api.nvim_feedkeys(keys, 'n', false)
 -- end, { desc = 'Scroll up a third of the window height' })
 
+vim.keymap.set("n", "<Leader>s", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Substitute word under cursor" })
+
 vim.keymap.set("n", "gG", "gg<S-v>G", { desc = "Select all" })
 
 -- vim.keymap.set("n", "<C-c>", "ciw")
