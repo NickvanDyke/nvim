@@ -6,20 +6,18 @@ return {
     'AndreM222/copilot-lualine',
   },
   config = function()
-    local lualine = require 'lualine'
+    local function diff_source()
+      local gitsigns = vim.b.gitsigns_status_dict
+      if gitsigns then
+        return {
+          added = gitsigns.added,
+          modified = gitsigns.changed,
+          removed = gitsigns.removed,
+        }
+      end
+    end
 
-    -- local function diff_source()
-    --   local gitsigns = vim.b.gitsigns_status_dict
-    --   if gitsigns then
-    --     return {
-    --       added = gitsigns.added,
-    --       modified = gitsigns.changed,
-    --       removed = gitsigns.removed,
-    --     }
-    --   end
-    -- end
-
-    lualine.setup {
+    require('lualine').setup {
       options = {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
@@ -33,8 +31,8 @@ return {
           {
             'mode',
             fmt = function(str)
-              local length = vim.o.columns >= 120 and 8 or 1
-              return string.sub(str, 0, length)
+              -- local length = vim.o.columns >= 120 and 8 or 1
+              return string.sub(str, 0, 3)
             end,
           },
         },
@@ -55,23 +53,29 @@ return {
             fmt = function(str)
               if string.len(str) > 11 then
                 return string.sub(str, 1, 11) .. '…'
-                -- return string.sub(str, 1, 5) .. '…' .. string.sub(str, -5)
               else
                 return str
               end
             end,
+          },
+          {
+            'diff',
+            source = diff_source,
           },
           'diagnostics',
         },
         lualine_c = {
           {
             'windows',
+            cond = function()
+              return false
+            end,
             show_modified_status = false,
             filetype_names = {
               ['snacks_dashboard'] = 'Dashboard',
             },
             fmt = function(str, ctx)
-              local filename = str --vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':t')
+              local filename = str
               local filename_to_show = filename:match '^index%..+$'
                   -- prefix parent dir
                   and vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t') .. '/' .. filename
@@ -84,10 +88,6 @@ return {
           },
         },
         lualine_x = {
-          -- {
-          --   'filetype',
-          --   icon_only = true,
-          -- },
         },
         lualine_y = {
           'fancy_macro',
