@@ -47,9 +47,9 @@ return {
           {
             'branch',
             icon = '',
-            cond = function()
-              return vim.o.columns >= 80
-            end,
+            -- cond = function()
+            --   return vim.o.columns >= 80
+            -- end,
             fmt = function(str)
               if string.len(str) > 11 then
                 return string.sub(str, 1, 11) .. '…'
