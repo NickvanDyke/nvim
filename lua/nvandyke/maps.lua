@@ -10,8 +10,6 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- See focus.lua too
-vim.keymap.set('n', '<C-w>x', '<C-w><C-s>', { desc = 'Split window below' })
-vim.keymap.set('n', '<C-w><C-x>', '<C-w><C-s>', { desc = 'Split window below' })
 vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 
 -- Easier window resizing

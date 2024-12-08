@@ -21,7 +21,7 @@ return {
     },
     mappings = {
       open_vertical = '<C-v>',
-      open_horizontal = '<C-x>',
+      open_horizontal = '<C-s>',
     },
   },
 }

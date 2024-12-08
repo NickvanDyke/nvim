@@ -51,6 +51,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
             ['<C-d>'] = require('telescope.actions').delete_buffer,
           },
           i = {
+            ['<C-s>'] = require('telescope.actions').select_horizontal,
             -- ['<C-t>'] = require('trouble.sources.telescope').open,
             ['<C-w>'] = function()
               vim.api.nvim_input '<c-s-w>'
