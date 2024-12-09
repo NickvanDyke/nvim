@@ -2,9 +2,11 @@ return {
   'cbochs/portal.nvim',
   opts = {
     window_options = {
-      border = 'rounded',
+      border = vim.g.border_default,
+      height = 5,
     },
   },
+  cmd = 'Portal',
   keys = {
     {
       '<S-C-o>',

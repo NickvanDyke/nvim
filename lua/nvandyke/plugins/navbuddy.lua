@@ -22,4 +22,13 @@ return {
       mode = 'n',
     },
   },
+  config = function(_, opts)
+    -- FIX:
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'Navbuddy',
+      command = 'setlocal nowrap',
+    })
+
+    require('nvim-navbuddy').setup(opts)
+  end,
 }

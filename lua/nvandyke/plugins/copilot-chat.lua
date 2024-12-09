@@ -6,6 +6,10 @@ return {
   },
   -- build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
+    window = {
+      layout = 'float',
+      border = vim.g.border_default,
+    },
     -- See Configuration section for options
   },
   cmd = { 'CopilotChat' },
