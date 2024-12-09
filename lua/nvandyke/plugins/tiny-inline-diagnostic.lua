@@ -8,7 +8,7 @@ return {
       underline = true,
       float = {
         source = true,
-        border = 'rounded',
+        border = vim.g.border_default,
       },
     }
 

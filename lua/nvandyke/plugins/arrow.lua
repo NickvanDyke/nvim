@@ -17,7 +17,7 @@ return {
     separate_by_branch = true,
     save_key = 'git_root',
     window = {
-      border = 'rounded',
+      border = vim.g.border_default,
     },
     mappings = {
       open_vertical = '<C-v>',

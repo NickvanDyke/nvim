@@ -10,8 +10,8 @@ return {
       auto_attach = true,
     },
     window = {
-      border = 'rounded',
-      size = '90%',
+      border = vim.g.border_default,
+      size = '69%',
     },
   },
   keys = {

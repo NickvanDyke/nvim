@@ -29,18 +29,18 @@ return {
     },
     completion = {
       menu = {
-        border = 'rounded',
+        border = vim.g.border_default,
       },
       documentation = {
         auto_show = true,
         window = {
-          border = 'rounded',
-        }
+          border = vim.g.border_default,
+        },
       },
       signature = {
         window = {
-          border = 'rounded',
-        }
+          border = vim.g.border_default,
+        },
       },
     },
   },
