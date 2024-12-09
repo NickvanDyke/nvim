@@ -22,10 +22,6 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
-      -- winbar = {
-      --   lualine_c = { {'filename', path = 1} },
-      -- },
-      -- inactive_winbar = {},
       tabline = {
         lualine_c = {
           -- https://github.com/nvim-lualine/lualine.nvim/discussions/845#discussioncomment-4984116
@@ -57,7 +53,7 @@ return {
             icon = '', -- Same as my powerline prompt
           },
           {
-            'branch',
+            'b:gitsigns_head',
             icon = '',
             -- cond = function()
             --   return vim.o.columns >= 80
