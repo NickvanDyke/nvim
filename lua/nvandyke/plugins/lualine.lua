@@ -83,7 +83,9 @@ return {
               parts[#parts] = '%#Bold#' .. parts[#parts] .. '%*' -- Bold the filename using custom Bold highlight group
               return table.concat(parts, '/')
             end,
+            separator = '',
           },
+          { 'filetype', icon_only = true, padding = 0, separator = '' },
           {
             'windows',
             cond = function()
@@ -106,9 +108,7 @@ return {
             end,
           },
         },
-        lualine_x = {
-          { 'filetype', icon_only = true, padding = 0 },
-        },
+        lualine_x = {},
         lualine_y = {
           'fancy_macro',
           'fancy_searchcount',
