@@ -1,6 +1,8 @@
 return {
   'b0o/incline.nvim',
   config = function()
+    -- TODO: delayed appearance on first open.
+    -- Not critical rn because `hide.only_win = true`
     local helpers = require 'incline.helpers'
     local devicons = require 'nvim-web-devicons'
     require('incline').setup {
@@ -8,9 +10,10 @@ return {
         padding = 0,
         margin = { horizontal = 0 },
       },
+      hide = {
+        only_win = true,
+      },
       render = function(props)
-        -- TODO: return nil if only one window open in tab
-
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
         if filename == '' then
           filename = '[No Name]'
@@ -26,6 +29,5 @@ return {
       end,
     }
   end,
-  -- Optional: Lazy load Incline
   event = 'VeryLazy',
 }
