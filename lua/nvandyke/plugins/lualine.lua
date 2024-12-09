@@ -52,7 +52,7 @@ return {
             icon = '', -- Same as my powerline prompt
           },
           {
-            'b:gitsigns_head',
+            'b:gitsigns_head', -- NOTE: based on open file I think. Thus disappears when e.g. lazygit is focused
             icon = '',
             fmt = function(str)
               if string.len(str) > 11 then
@@ -77,11 +77,13 @@ return {
             path = 1,
             fmt = function(str)
               local parts = vim.split(str, '/')
-              for i = 1, #parts - 1 do
-                parts[i] = '%#Comment#' .. parts[i] .. '%*' -- Grey out directories using Comment highlight group
+              local filename = '%#Bold#' .. parts[#parts] .. '%*'
+              if #parts == 1 then
+                return filename
+              else
+                local path = '%#Comment#' .. table.concat(parts, '/', 1, #parts - 1) .. '/' .. '%*'
+                return path .. filename
               end
-              parts[#parts] = '%#Bold#' .. parts[#parts] .. '%*' -- Bold the filename using custom Bold highlight group
-              return table.concat(parts, '/')
             end,
             separator = '',
           },
