@@ -26,13 +26,25 @@ return {
       --   lualine_c = { {'filename', path = 1} },
       -- },
       -- inactive_winbar = {},
+      tabline = {
+        lualine_c = {
+          -- https://github.com/nvim-lualine/lualine.nvim/discussions/845#discussioncomment-4984116
+          function()
+            vim.o.showtabline = 1
+            return ''
+          end,
+        },
+        lualine_z = {
+          'tabs',
+        },
+      },
       sections = {
         lualine_a = {
           {
             'mode',
             fmt = function(str)
               -- local length = vim.o.columns >= 120 and 8 or 1
-              return string.sub(str, 0, 3)
+              return string.sub(str, 0, 1)
             end,
           },
         },
@@ -61,15 +73,18 @@ return {
           {
             'diff',
             source = diff_source,
+            cond = function()
+              return false
+            end,
           },
           'diagnostics',
         },
         lualine_c = {
           {
             'windows',
-            cond = function()
-              return false
-            end,
+            -- cond = function()
+            --   return false
+            -- end,
             show_modified_status = false,
             filetype_names = {
               ['snacks_dashboard'] = 'Dashboard',
@@ -87,8 +102,7 @@ return {
             end,
           },
         },
-        lualine_x = {
-        },
+        lualine_x = {},
         lualine_y = {
           'fancy_macro',
           'fancy_searchcount',
