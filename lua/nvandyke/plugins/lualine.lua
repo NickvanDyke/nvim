@@ -107,7 +107,7 @@ return {
           },
         },
         lualine_x = {
-          -- { 'filetype', icon_only = true },
+          { 'filetype', icon_only = true, padding = 0 },
         },
         lualine_y = {
           'fancy_macro',
