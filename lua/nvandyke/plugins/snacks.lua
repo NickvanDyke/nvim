@@ -40,6 +40,27 @@ return {
   },
   keys = {
     {
+      '<leader>bdc',
+      function()
+        Snacks.bufdelete.delete()
+      end,
+      desc = '[b]uffer [d]elete [c]urrent'
+    },
+    {
+      '<leader>bda',
+      function()
+        Snacks.bufdelete.delete_all()
+      end,
+      desc = '[b]uffer [d]elete [a]ll'
+    },
+    {
+      '<leader>bdo',
+      function()
+        Snacks.bufdelete.other()
+      end,
+      desc = '[b]uffer [d]elete [o]thers'
+    },
+    {
       '<leader>.',
       function()
         Snacks.scratch()
@@ -79,14 +100,14 @@ return {
       function()
         Snacks.terminal 'lazydocker'
       end,
-      desc = '[l]azy [d]ocker',
+      desc = 'Lazy[d]ocker',
     },
     {
       '<leader>lg',
       function()
         Snacks.lazygit.open()
       end,
-      desc = '[l]azy [g]it',
+      desc = 'Lazy[g]it',
     },
     {
       '<leader>gf',
