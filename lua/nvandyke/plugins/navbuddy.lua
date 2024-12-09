@@ -11,7 +11,7 @@ return {
     },
     window = {
       border = vim.g.border_default,
-      size = '69%',
+      size = { width = '69%', height = 11 },
     },
   },
   keys = {
