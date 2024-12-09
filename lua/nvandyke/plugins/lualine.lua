@@ -39,7 +39,6 @@ return {
           {
             'mode',
             fmt = function(str)
-              -- local length = vim.o.columns >= 120 and 8 or 1
               return string.sub(str, 0, 1)
             end,
           },
@@ -55,9 +54,6 @@ return {
           {
             'b:gitsigns_head',
             icon = '',
-            -- cond = function()
-            --   return vim.o.columns >= 80
-            -- end,
             fmt = function(str)
               if string.len(str) > 11 then
                 return string.sub(str, 1, 11) .. '…'
@@ -77,10 +73,17 @@ return {
         },
         lualine_c = {
           {
-            'windows',
-            -- cond = function()
-            --   return false
+            'filename',
+            path = 1,
+            -- fmt = function(str)
+            --   return string.gsub(str, '/', ' > ')
             -- end,
+          },
+          {
+            'windows',
+            cond = function()
+              return false
+            end,
             show_modified_status = false,
             filetype_names = {
               ['snacks_dashboard'] = 'Dashboard',
@@ -98,7 +101,9 @@ return {
             end,
           },
         },
-        lualine_x = {},
+        lualine_x = {
+          -- { 'filetype', icon_only = true },
+        },
         lualine_y = {
           'fancy_macro',
           'fancy_searchcount',
