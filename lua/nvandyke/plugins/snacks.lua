@@ -104,7 +104,7 @@ return {
       desc = 'Prev Reference',
     },
     {
-      '<C-=>',
+      '<C-\\>',
       function()
         Snacks.terminal()
       end,
