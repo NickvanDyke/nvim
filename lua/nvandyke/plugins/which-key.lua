@@ -5,7 +5,7 @@ return { -- Useful plugin to show you pending keybinds.
     preset = 'helix',
     icons = {
       -- set icon mappings to true if you have a Nerd Font
-      mappings = false,-- vim.g.have_nerd_font,
+      mappings = vim.g.have_nerd_font,
       -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
       -- default whick-key.nvim defined Nerd Font icons, otherwise define a string table
       keys = vim.g.have_nerd_font and {} or {
@@ -48,6 +48,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>t', group = '[t]oggle' },
       { '<leader>g', group = '[g]it', mode = { 'n', 'v' } },
       { '<leader>d', group = '[d]ebug', mode = { 'n', 'v' } },
+      { '<leader>u', group = '[u]ser' },
     },
   },
 }

@@ -25,10 +25,11 @@ return {
     -- },
     {
       mode = { 'n', 'x' },
-      '<C-c>',
+      '<leader>cc',
       function()
         require('CopilotChat').toggle()
       end,
+      desc = 'CopilotChat'
     },
   },
   init = function()

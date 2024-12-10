@@ -53,4 +53,4 @@ vim.keymap.set("n", "<Leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc =
 
 vim.keymap.set("n", "gG", "gg<S-v>G", { desc = "Select all" })
 
--- vim.keymap.set("n", "<C-c>", "ciw")
+vim.keymap.set("n", "<C-c>", "ciw")
