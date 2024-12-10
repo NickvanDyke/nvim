@@ -54,7 +54,8 @@ return {
             icon = '', -- Same as my powerline prompt
           },
           {
-            'b:gitsigns_head', -- NOTE: based on open file I think. Thus disappears when e.g. lazygit is focused
+            -- 'b:gitsigns_head', -- NOTE: based on open file I think. Thus disappears when e.g. lazygit is focused
+            'branch',
             icon = '',
             fmt = function(str)
               if string.len(str) > 11 then
