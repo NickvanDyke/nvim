@@ -1,6 +1,6 @@
 return {
   'folke/snacks.nvim',
-  dependencies = { 'folke/persistence.nvim' },
+  -- dependencies = { 'folke/persistence.nvim' },
   priority = 1000,
   lazy = false,
   opts = {
@@ -36,29 +36,44 @@ return {
     scratch = {
       -- ft = 'md', -- Causes error rn
     },
+    dim = {},
     styles = {},
   },
   keys = {
+    {
+      '<leader>z',
+      function()
+        Snacks.zen()
+      end,
+      desc = 'Toggle Zen Mode',
+    },
+    {
+      '<leader>Z',
+      function()
+        Snacks.zen.zoom()
+      end,
+      desc = 'Toggle Zoom',
+    },
     {
       '<leader>bdc',
       function()
         Snacks.bufdelete.delete()
       end,
-      desc = '[b]uffer [d]elete [c]urrent'
+      desc = '[b]uffer [d]elete [c]urrent',
     },
     {
       '<leader>bda',
       function()
         Snacks.bufdelete.delete_all()
       end,
-      desc = '[b]uffer [d]elete [a]ll'
+      desc = '[b]uffer [d]elete [a]ll',
     },
     {
       '<leader>bdo',
       function()
         Snacks.bufdelete.other()
       end,
-      desc = '[b]uffer [d]elete [o]thers'
+      desc = '[b]uffer [d]elete [o]thers',
     },
     {
       '<leader>.',
@@ -89,7 +104,7 @@ return {
       desc = 'Prev Reference',
     },
     {
-      '<C-t>',
+      '<C-=>',
       function()
         Snacks.terminal()
       end,
@@ -123,5 +138,48 @@ return {
       end,
       desc = 'LazyGit [l]og',
     },
+    {
+      '<leader>gb',
+      function()
+        Snacks.git.blame_line()
+      end,
+      desc = 'Git Blame Line',
+    },
+    {
+      '<leader>gB',
+      function()
+        Snacks.gitbrowse()
+      end,
+      desc = 'Git Browse',
+    },
   },
+  init = function()
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'VeryLazy',
+      callback = function()
+        -- Setup some globals for debugging (lazy-loaded)
+        _G.dd = function(...)
+          Snacks.debug.inspect(...)
+        end
+        _G.bt = function()
+          Snacks.debug.backtrace()
+        end
+        vim.print = _G.dd -- Override print to use snacks for `:=` command
+
+        -- Create some toggle mappings
+        Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>uS'
+        Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>uw'
+        Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map '<leader>uL'
+        Snacks.toggle.diagnostics():map '<leader>ud'
+        Snacks.toggle.line_number():map '<leader>ul'
+        Snacks.toggle.option('conceallevel', { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map '<leader>uc'
+        Snacks.toggle.treesitter():map '<leader>uT'
+        Snacks.toggle.option('background', { off = 'light', on = 'dark', name = 'Dark Background' }):map '<leader>ub'
+        Snacks.toggle.inlay_hints():map '<leader>uh'
+        Snacks.toggle.indent():map '<leader>ug'
+        Snacks.toggle.dim():map '<leader>uD'
+        Snacks.toggle.scroll():map '<leader>us'
+      end,
+    })
+  end,
 }
