@@ -30,25 +30,27 @@ return {
       return { bg = background, fg = foreground }
     end
 
+    -- Depending on colorscheme, CursorLine will 'merge' the sign column bg color and CursorLine.
+    -- But in other colorschemes, they disagree.
+    local cursorline_bg = get_colors_from_hl('CursorLineNr').bg
+    vim.api.nvim_set_hl(0, 'SmoothCursor', {
+      bg = cursorline_bg,
+    })
+
     local function sync_cursor_to_mode()
       local mode = vim.fn.mode()
       local mode_hl = mode_to_hl_name[mode] or 'lualine_a_normal'
 
       local mode_color = get_colors_from_hl(mode_hl).bg
-      local cursorline_bg = get_colors_from_hl('CursorLineNr').bg
 
       vim.api.nvim_set_hl(0, 'SmoothCursor', {
         fg = mode_color,
-        bg = cursorline_bg,
       })
-      -- Render hl changes immediately. Hopefully not bad for perf lol
-      vim.api.nvim_command('redraw')
     end
 
     sync_cursor_to_mode()
 
-    -- Sync cursor color with mini.statusline mode colors
-    vim.api.nvim_create_autocmd( 'ModeChanged' , {
+    vim.api.nvim_create_autocmd('ModeChanged', {
       -- TODO: doesn't seem to trigger immediately for some mode changes.
       -- Lualine sometimes does and sometimes doesn't.
       callback = sync_cursor_to_mode,
