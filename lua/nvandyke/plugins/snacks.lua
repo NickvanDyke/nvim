@@ -118,7 +118,7 @@ return {
       desc = 'Lazy[d]ocker',
     },
     {
-      '<leader>lg',
+      '<leader>gg',
       function()
         Snacks.lazygit.open()
       end,
