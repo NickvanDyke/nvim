@@ -73,6 +73,9 @@ return {
             end, '[t]oggle Inlay [h]ints')
           end
 
+          map('<leader>cD', function()
+            vim.diagnostic.setqflist { open = true }
+          end, 'Workspace [D]iagnostics')
           -- map('<leader>cR', '<cmd>LspRestart<CR>', '[r]estart LSP')
         end,
       })
@@ -180,8 +183,7 @@ return {
         default_mappings = true,
         focus_on_open = false,
         dismiss_on_move = true,
-        border = vim.g.border_default == 'none' and { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' }
-          or { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
+        border = vim.g.border_default == 'none' and { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' } or { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
       }
     end,
   },
