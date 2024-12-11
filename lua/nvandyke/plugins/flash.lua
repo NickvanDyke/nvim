@@ -8,6 +8,9 @@ return {
       },
     },
     modes = {
+      char = {
+        keys = { 'f', 'F', 't', 'T' },
+      },
       search = {
         -- Just always integrate with search
         -- instead of having an entirely separate function.
