@@ -8,6 +8,8 @@ return {
   opts = {
     window = {
       layout = 'float',
+      width = 0.69,
+      height = 0.69,
       border = vim.g.border_default,
     },
     -- See Configuration section for options
