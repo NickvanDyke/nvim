@@ -8,7 +8,7 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     require('smoothcursor').setup {
       cursor = '',
-      speed = 17,
+      speed = 31,
       disable_float_win = true, -- looks bad in Arrow
     }
 
@@ -17,6 +17,7 @@ return {
       ['i'] = 'lualine_a_insert',
       ['v'] = 'lualine_a_visual',
       ['V'] = 'lualine_a_visual',
+      ['^V'] = 'lualine_a_visual', -- TODO: doesn't get selected?
       ['R'] = 'lualine_a_replace',
       ['c'] = 'lualine_a_command',
       -- ['t'] = 'lualine_a_terminal',
@@ -40,12 +41,16 @@ return {
         fg = mode_color,
         bg = cursorline_bg,
       })
+      -- Render hl changes immediately. Hopefully not bad for perf lol
+      vim.api.nvim_command('redraw')
     end
 
     sync_cursor_to_mode()
 
     -- Sync cursor color with mini.statusline mode colors
-    vim.api.nvim_create_autocmd({ 'ModeChanged' }, {
+    vim.api.nvim_create_autocmd( 'ModeChanged' , {
+      -- TODO: doesn't seem to trigger immediately for some mode changes.
+      -- Lualine sometimes does and sometimes doesn't.
       callback = sync_cursor_to_mode,
     })
   end,
