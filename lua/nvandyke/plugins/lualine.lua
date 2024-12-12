@@ -31,7 +31,7 @@ return {
               if vim.o.showtabline ~= 1 then -- If we don't check, then repeatedly setting will cause redraw and cursor flicker
                 vim.o.showtabline = 1
               end
-              return nil
+              return ''
             end,
           },
         },
