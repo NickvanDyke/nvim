@@ -108,6 +108,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
       { desc = '[s]earch with [g]rep (args)', silent = true }
     )
+    vim.keymap.set('n', '<leader>sq', builtin.quickfix, { desc = '[s]earch [q]uickfix', silent = true })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<C-/>', function()

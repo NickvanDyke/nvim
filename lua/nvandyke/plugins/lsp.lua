@@ -76,6 +76,10 @@ return {
           map('<leader>cD', function()
             vim.diagnostic.setqflist { open = true }
           end, 'Workspace [D]iagnostics')
+          map('<leader>cd', function()
+            vim.diagnostic.setloclist { open = true }
+          end, 'Workspace [d]iagnostics')
+
           -- map('<leader>cR', '<cmd>LspRestart<CR>', '[r]estart LSP')
         end,
       })
