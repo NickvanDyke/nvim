@@ -8,7 +8,7 @@ return {
       preset = 'enter',
       -- ['<CR>'] = { 'select_and_accept', 'fallback' },
     },
-    highlight = {
+    appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
       -- useful for when your theme doesn't support blink.cmp
       -- will be removed in a future release, assuming themes add support
@@ -19,10 +19,12 @@ return {
         snippets = {
           enabled = false,
         },
+        lsp = {
+          fallbacks = {}
+        },
         buffer = {
           -- Otherwise it shows up immediately which is super annoying
           min_keyword_length = 3,
-          fallback_for = {},
           score_offset = -3,
         },
       },
@@ -34,6 +36,7 @@ return {
       },
       documentation = {
         auto_show = true,
+        treesitter_highlighting = true,
         window = {
           border = vim.g.border_default,
           winblend = vim.g.winblend_default,
@@ -43,6 +46,7 @@ return {
         window = {
           border = vim.g.border_default,
           winblend = vim.g.winblend_default,
+        treesitter_highlighting = true,
         },
       },
     },
