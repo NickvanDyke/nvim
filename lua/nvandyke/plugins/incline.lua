@@ -22,8 +22,9 @@ return {
         local modified = vim.bo[props.buf].modified
 
         return {
-          { '', guifg = ft_color },
+          ft_icon and { '', guifg = ft_color },
           ft_icon and { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
+          not ft_icon and { '', guifg = '#44406e' },
           { ' ' .. filename .. ' ', gui = modified and 'bold,italic' or 'bold', guibg = '#44406e' },
         }
       end,
