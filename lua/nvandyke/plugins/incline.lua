@@ -1,5 +1,6 @@
 return {
   'b0o/incline.nvim',
+  event = 'WinNew',
   config = function()
     -- TODO: delayed appearance on first open.
     -- Not critical rn because `hide.only_win = true`
@@ -22,13 +23,12 @@ return {
         local modified = vim.bo[props.buf].modified
 
         return {
-          ft_icon and { '', guifg = ft_color },
+          ft_icon and { '', guifg = ft_color } or '',
           ft_icon and { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) } or '',
-          not ft_icon and { '', guifg = '#44406e' },
+          not ft_icon and { '', guifg = '#44406e' } or '',
           { ' ' .. filename .. ' ', gui = modified and 'bold,italic' or 'bold', guibg = '#44406e' },
         }
       end,
     }
   end,
-  event = 'VeryLazy',
 }
