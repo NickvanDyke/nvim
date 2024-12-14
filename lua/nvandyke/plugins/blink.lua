@@ -30,16 +30,19 @@ return {
     completion = {
       menu = {
         border = vim.g.border_default,
+        winblend = vim.g.winblend_default,
       },
       documentation = {
         auto_show = true,
         window = {
           border = vim.g.border_default,
+          winblend = vim.g.winblend_default,
         },
       },
       signature = {
         window = {
           border = vim.g.border_default,
+          winblend = vim.g.winblend_default,
         },
       },
     },

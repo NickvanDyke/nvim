@@ -114,7 +114,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<C-/>', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        winblend = 10,
+        winblend = vim.g.winblend_default,
         previewer = false,
       })
     end, { desc = '[/] Fuzzily search in current buffer', silent = true })
