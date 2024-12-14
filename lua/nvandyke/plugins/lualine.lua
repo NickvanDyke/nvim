@@ -79,9 +79,10 @@ return {
           {
             'filename',
             path = 1,
+            padding = 0, -- Pad it ourselves with a space below, to get same bg as filename
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
-              local filename = '%#Bold#' .. parts[#parts] .. '%*'
+              local filename = '%#Bold#' .. parts[#parts] .. ' %*'
 
               -- local filename_to_show = filename:match '^index%..+$'
               --     -- prefix parent dir
@@ -105,11 +106,12 @@ return {
             function(ctx)
               return require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
             end,
-            -- cond = function()
-            --   -- Takes a long time to load and we'll never need on the Dashboard
-            --   -- TODO: doesn't work. Maybe lualine doesn't allow this with function component
-            --   return package.loaded['arrow']
-            -- end,
+            cond = function()
+              return false
+              -- Takes a long time to load and we'll never need on the Dashboard
+              -- TODO: doesn't work. Maybe lualine doesn't allow this with function component
+              -- return package.loaded['arrow']
+            end,
           },
         },
         lualine_y = {
