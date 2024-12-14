@@ -79,7 +79,7 @@ return {
           {
             'filename',
             path = 1,
-            padding = 0, -- Pad it ourselves with a space below, to get same bg as filename
+            padding = { right = 0 }, -- Pad it ourselves with a space below, to get same bg as filename
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
               local filename = '%#Bold#' .. parts[#parts] .. ' %*'
