@@ -132,9 +132,8 @@ return {
     }
 
     -- Awkward to create hl group at the right time
-    vim.api.nvim_create_autocmd('BufReadPre', {
+    vim.api.nvim_create_autocmd('UIEnter', {
       callback = function()
-        -- TODO: bg color is slightly off
         vim.api.nvim_set_hl(0, 'Bold', { bold = true })
       end,
     })
