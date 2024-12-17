@@ -38,6 +38,7 @@ return { -- Formatting
       typescriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       html = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       sql = { 'sqlfmt', lsp_format = 'never', stop_after_first = true },
+      terraform = { lsp_format = 'always', stop_after_first = true },
     },
   },
 }
