@@ -19,7 +19,7 @@ return {
   'cbochs/portal.nvim',
   opts = {
     window_options = {
-      border = vim.g.border_default,
+      border = 'solid',
       height = 3,
     },
   },

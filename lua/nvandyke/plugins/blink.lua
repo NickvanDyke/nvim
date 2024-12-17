@@ -20,7 +20,11 @@ return {
           enabled = false,
         },
         lsp = {
-          fallbacks = {}
+          min_keyword_length = 3,
+          -- TODO: doesn't work, always falls back to buffer...???
+          -- And that ignores buffer's min_keyword_length.
+          -- So I set it above too.
+          fallbacks = {},
         },
         buffer = {
           -- Otherwise it shows up immediately which is super annoying
@@ -31,7 +35,7 @@ return {
     },
     completion = {
       menu = {
-        border = vim.g.border_default,
+        border = 'none', -- anything else looks bad
         winblend = vim.g.winblend_default,
       },
       documentation = {
@@ -46,7 +50,7 @@ return {
         window = {
           border = vim.g.border_default,
           winblend = vim.g.winblend_default,
-        treesitter_highlighting = true,
+          treesitter_highlighting = true,
         },
       },
     },

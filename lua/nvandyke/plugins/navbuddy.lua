@@ -10,7 +10,7 @@ return {
       auto_attach = true,
     },
     window = {
-      border = vim.g.border_default,
+      border = 'rounded',
       size = { width = '69%', height = 11 },
     },
   },
