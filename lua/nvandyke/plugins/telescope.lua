@@ -109,7 +109,7 @@ return {
     {
       '<leader>sw',
       function()
-        require('telescope-live-grep-args.shortcuts').shortcuts.grep_word_under_cursor()
+        require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()
       end,
       desc = '[s]earch current [w]ord',
       silent = true,
