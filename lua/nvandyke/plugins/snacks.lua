@@ -18,18 +18,13 @@ return {
     bigfile = { enabled = true },
     terminal = {
       enabled = true,
-      win = {
-        wo = {
-          -- TODO: how to disable this? Don't need with prompt
-          winbar = nil,
-        },
-      },
+      -- TODO: how to disable this? Don't need with prompt
+      winbar = nil,
     },
     lazygit = { enabled = true },
     words = { enabled = true },
     statuscolumn = { enabled = false },
-    notifier = { -- We use noice
-      enabled = false,
+    notifier = { -- Used by noice
       top_down = false,
       style = 'compact',
     },
