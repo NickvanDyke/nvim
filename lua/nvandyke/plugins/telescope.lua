@@ -70,8 +70,8 @@ return {
       live_grep_args = {
         mappings = {
           i = {
-            ['<C-k>'] = function()
-              require('telescope-live-grep-args.actions').quote_prompt()
+            ['<C-k>'] = function(prompt_bufnr)
+              require('telescope-live-grep-args.actions').quote_prompt()(prompt_bufnr)
             end,
           },
         },
