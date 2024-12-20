@@ -54,21 +54,21 @@ return {
       function()
         Snacks.bufdelete.delete()
       end,
-      desc = '[b]uffer [d]elete [c]urrent',
+      desc = 'Delete current buffer',
     },
     {
       '<leader>bda',
       function()
-        Snacks.bufdelete.delete_all()
+        Snacks.bufdelete.all()
       end,
-      desc = '[b]uffer [d]elete [a]ll',
+      desc = 'Delete all buffers',
     },
     {
       '<leader>bdo',
       function()
         Snacks.bufdelete.other()
       end,
-      desc = '[b]uffer [d]elete [o]thers',
+      desc = 'Delete other buffers',
     },
     {
       '<leader>.',
