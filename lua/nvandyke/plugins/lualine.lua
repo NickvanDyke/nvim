@@ -116,7 +116,6 @@ return {
         },
         lualine_y = {
           'fancy_macro',
-          'fancy_searchcount',
           {
             'copilot',
             cond = function()

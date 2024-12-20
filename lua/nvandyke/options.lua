@@ -100,7 +100,4 @@ vim.opt.autoread = true
 vim.opt.laststatus = 3
 
 vim.opt.cmdheight = 0
--- Disable some messages because we show them in the statusline
-vim.opt.shortmess:append 'S'
-vim.opt.shortmess:append 'q'
 
