@@ -2,7 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'meuter/lualine-so-fancy.nvim',
     'AndreM222/copilot-lualine',
   },
   config = function()
@@ -115,7 +114,14 @@ return {
           },
         },
         lualine_y = {
-          'fancy_macro',
+          {
+            require('noice').api.statusline.mode.get,
+            cond = require('noice').api.statusline.mode.has,
+            fmt = function(str)
+              return '󰑋 ' .. string.sub(str, #str)
+            end,
+            color = { fg = '#ff0000' },
+          },
           {
             'copilot',
             cond = function()
