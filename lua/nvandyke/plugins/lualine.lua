@@ -2,7 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'AndreM222/copilot-lualine',
   },
   config = function()
     local function diff_source()
@@ -121,16 +120,6 @@ return {
               return '󰑋 ' .. string.sub(str, #str)
             end,
             color = { fg = '#ff0000' },
-          },
-          {
-            'copilot',
-            cond = function()
-              return false
-            end,
-            symbols = {
-              -- The idle symbol has a right-space but the spinners don't
-              spinners = { '⠋ ', '⠙ ', '⠹ ', '⠸ ', '⠼ ', '⠴ ', '⠦ ', '⠧ ', '⠇ ', '⠏ ' },
-            },
           },
         },
       },
