@@ -1,6 +1,5 @@
 return {
   'nvim-telescope/telescope.nvim',
-  event = 'VeryLazy',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -30,13 +29,19 @@ return {
       },
       mappings = {
         n = {
-          ['q'] = require('telescope.actions').close,
-          ['<esc>'] = require('telescope.actions').close,
+          ['q'] = function(prompt_bufnr)
+            require('telescope.actions').close(prompt_bufnr)
+          end,
+          ['<esc>'] = function(prompt_bufnr)
+            require('telescope.actions').close(prompt_bufnr)
+          end,
           -- ['<C-t>'] = require('trouble.sources.telescope').open,
-          ['<C-d>'] = require('telescope.actions').delete_buffer,
+          -- ['<C-d>'] = require('telescope.actions').delete_buffer,
         },
         i = {
-          ['<C-s>'] = require('telescope.actions').select_horizontal,
+          ['<C-s>'] = function()
+            require('telescope.actions').select_horizontal()
+          end,
           -- ['<C-t>'] = require('trouble.sources.telescope').open,
           ['<C-w>'] = function()
             vim.api.nvim_input '<c-s-w>'
@@ -51,6 +56,7 @@ return {
       },
     },
     extensions = {
+      -- TODO: don't think I can do this lazily?
       ['ui-select'] = {
         require('telescope.themes').get_dropdown {
           -- even more opts
@@ -124,7 +130,9 @@ return {
     },
     {
       '<leader>sq',
-      require('telescope.builtin').quickfix,
+      function()
+        require('telescope.builtin').quickfix()
+      end,
       desc = '[s]earch [q]uickfix',
       silent = true,
       mode = 'n',
