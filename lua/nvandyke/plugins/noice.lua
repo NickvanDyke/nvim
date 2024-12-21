@@ -23,8 +23,8 @@ return {
           win_options = {
             winblend = vim.g.winblend_default,
           },
-        }
-      }
+        },
+      },
     },
     -- you can enable a preset for easier configuration
     presets = {
