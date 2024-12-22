@@ -40,8 +40,8 @@ return { -- Useful plugin to show you pending keybinds.
       },
     },
 
-    -- Document existing key chains
     spec = {
+      { '<leader>z', group = '[z]ettelkasten', mode = { 'n', 'x' } },
       { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
       { '<leader>s', group = '[s]earch' },
       { '<leader>l', group = '[l]azy' },
