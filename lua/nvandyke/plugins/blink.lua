@@ -50,12 +50,12 @@ return {
           winblend = vim.g.winblend_default,
         },
       },
-      signature = {
-        window = {
-          border = vim.g.border_default,
-          winblend = vim.g.winblend_default,
-          treesitter_highlighting = true,
-        },
+    },
+    signature = {
+      window = {
+        border = vim.g.border_default,
+        winblend = vim.g.winblend_default,
+        treesitter_highlighting = true,
       },
     },
   },
