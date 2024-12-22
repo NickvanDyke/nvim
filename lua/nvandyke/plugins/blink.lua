@@ -14,22 +14,30 @@ return {
       use_nvim_cmp_as_default = true,
     },
     sources = {
+      min_keyword_length = 3,
+      per_filetype = {
+        markdown = {},
+      },
+      cmdline = function()
+        local type = vim.fn.getcmdtype()
+        -- Search forward and backward
+        if type == '/' or type == '?' then
+          -- return { 'buffer' }
+          return {} -- it auto-shows and that's annoying
+        end
+        -- Commands
+        if type == ':' then
+          return { 'cmdline' }
+        end
+        return {}
+      end,
       providers = {
         snippets = {
           enabled = false,
-          fallbacks = {},
         },
-        lsp = {
-          min_keyword_length = 3,
-          fallbacks = {},
-        },
-        path = {
-          fallbacks = {},
-        },
+        lsp = {},
+        path = {},
         buffer = {
-          min_keyword_length = function()
-            return vim.bo.filetype == 'markdown' and 999 or 3
-          end,
           score_offset = -3,
         },
       },
