@@ -6,7 +6,6 @@ return {
   opts = {
     keymap = {
       preset = 'enter',
-      -- ['<CR>'] = { 'select_and_accept', 'fallback' },
     },
     appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -18,22 +17,27 @@ return {
       providers = {
         snippets = {
           enabled = false,
+          fallbacks = {},
         },
         lsp = {
           min_keyword_length = 3,
-          -- TODO: doesn't work, always falls back to buffer...???
-          -- And that ignores buffer's min_keyword_length.
-          -- So I set it above too.
+          fallbacks = {},
+        },
+        path = {
           fallbacks = {},
         },
         buffer = {
-          -- Otherwise it shows up immediately which is super annoying
-          min_keyword_length = 3,
+          min_keyword_length = function()
+            return vim.bo.filetype == 'markdown' and 999 or 3
+          end,
           score_offset = -3,
         },
       },
     },
     completion = {
+      trigger = {
+        show_on_insert_on_trigger_character = false,
+      },
       menu = {
         border = 'none', -- anything else looks bad
         winblend = vim.g.winblend_default,
