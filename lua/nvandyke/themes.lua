@@ -2,10 +2,6 @@ return {
   {
     'rose-pine/neovim',
     lazy = true,
-    priority = 1000,
-    init = function()
-      vim.cmd 'colorscheme rose-pine'
-    end,
   },
   {
     'rebelot/kanagawa.nvim',
@@ -28,5 +24,8 @@ return {
     end,
   },
   { 'projekt0n/github-nvim-theme', lazy = true },
-  { 'catppuccin/nvim', lazy = true },
+  {
+    'catppuccin/nvim',
+    lazy = true,
+  },
 }

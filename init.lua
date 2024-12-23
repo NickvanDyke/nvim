@@ -78,3 +78,6 @@ require('lazy').setup({
     },
   },
 })
+
+vim.cmd('colorscheme rose-pine')
+
