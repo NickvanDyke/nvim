@@ -2,6 +2,9 @@ return {
   'folke/flash.nvim',
   ---@type Flash.Config
   opts = {
+    highlight = {
+      backdrop = false,
+    },
     label = {
       rainbow = {
         enabled = true,
@@ -10,6 +13,9 @@ return {
     modes = {
       char = {
         keys = { 'f', 'F', 't', 'T' },
+        highlight = {
+          backdrop = false,
+        },
       },
       search = {
         -- Just always integrate with search
@@ -18,9 +24,9 @@ return {
         -- Can always just press enter to finish search normally;
         -- Seems like a win-win.
         enabled = true,
-        highlight = {
-          backdrop = true,
-        },
+      },
+      treesitter = {
+        jump = { pos = 'start' },
       },
     },
   },
