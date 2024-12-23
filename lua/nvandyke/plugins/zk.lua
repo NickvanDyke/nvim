@@ -26,7 +26,7 @@ return {
     vim.api.nvim_set_keymap('v', '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true, desc = 'Actions' })
     vim.api.nvim_set_keymap(
       'n',
-      '<leader>zjd',
+      '<leader>zd',
       "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>",
       { noremap = true, silent = true, desc = 'Daily journal' }
     )
