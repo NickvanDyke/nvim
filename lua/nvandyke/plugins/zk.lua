@@ -4,18 +4,32 @@ return {
   opts = {
     picker = 'telescope',
   },
-  ft = { 'markdown' },
-  keys = {
-    { '<leader>zn', "<Cmd>ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", mode = 'n', buffer = 0, desc = 'New note' },
-    { '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", mode = 'v', buffer = 0 },
-    { '<leader>znc', ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>", mode = 'v', buffer = 0 },
-    { '<leader>zb', '<Cmd>ZkBacklinks<CR>', mode = 'n', buffer = 0, desc = 'Backlinks' },
-    { '<leader>zl', '<Cmd>ZkLinks<CR>', mode = 'n', buffer = 0, desc = 'Links' },
-    { '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", mode = 'v', buffer = 0, desc = 'Actions' },
-    { '<leader>zjd', "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>", desc = 'Daily journal' },
-  },
   config = function(_, opts)
     require('zk').setup(opts)
+
+    -- `keys` doesn't seem to play nice
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>zn',
+      "<Cmd>ZkNew { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>",
+      { noremap = true, silent = true, desc = 'New note' }
+    )
+    vim.api.nvim_set_keymap('v', '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap(
+      'v',
+      '<leader>znc',
+      ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>",
+      { noremap = true, silent = true }
+    )
+    vim.api.nvim_set_keymap('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { noremap = true, silent = true, desc = 'Backlinks' })
+    vim.api.nvim_set_keymap('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { noremap = true, silent = true, desc = 'Links' })
+    vim.api.nvim_set_keymap('v', '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true, desc = 'Actions' })
+    vim.api.nvim_set_keymap(
+      'n',
+      '<leader>zjd',
+      "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>",
+      { noremap = true, silent = true, desc = 'Daily journal' }
+    )
 
     local zk = require 'zk'
     local commands = require 'zk.commands'
