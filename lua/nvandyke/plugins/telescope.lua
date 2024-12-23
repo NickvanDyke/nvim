@@ -39,8 +39,8 @@ return {
           -- ['<C-d>'] = require('telescope.actions').delete_buffer,
         },
         i = {
-          ['<C-s>'] = function()
-            require('telescope.actions').select_horizontal()
+          ['<C-s>'] = function(prompt_bufnr)
+            require('telescope.actions').select_horizontal(prompt_bufnr)
           end,
           -- ['<C-t>'] = require('trouble.sources.telescope').open,
           ['<C-w>'] = function()
