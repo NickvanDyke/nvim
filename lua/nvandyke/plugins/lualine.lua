@@ -77,10 +77,10 @@ return {
           {
             'filename',
             path = 1,
-            padding = { right = 0 }, -- Pad it ourselves with a space below, to get same bg as filename
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
-              local filename = '%#Bold#' .. parts[#parts] .. ' %*'
+              -- TODO: bg is wrong in themes that change it
+              local filename = '%#LualineFilename#' .. parts[#parts] .. '%*'
 
               -- local filename_to_show = filename:match '^index%..+$'
               --     -- prefix parent dir
@@ -93,7 +93,7 @@ return {
               if #parts == 1 then
                 return filename
               else
-                local path = '%#Comment#' .. table.concat(parts, '/', 1, #parts - 1) .. '/' .. '%*'
+                local path = '%#LualineFilepath#' .. table.concat(parts, '/', 1, #parts - 1) .. '/' .. '%*'
                 return path .. filename
               end
             end,
@@ -128,7 +128,10 @@ return {
     -- Awkward to create hl group at the right time
     vim.api.nvim_create_autocmd('UIEnter', {
       callback = function()
-        vim.api.nvim_set_hl(0, 'Bold', { bold = true })
+        local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
+        local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
+        vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
+        vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
       end,
     })
   end,
