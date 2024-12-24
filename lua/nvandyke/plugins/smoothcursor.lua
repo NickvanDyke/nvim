@@ -23,16 +23,9 @@ return {
       -- ['t'] = 'lualine_a_terminal',
     }
 
-    local function get_colors_from_hl(hl_name)
-      local hl_group = vim.api.nvim_get_hl_by_name(hl_name, true)
-      local background = hl_group.background and string.format('#%06x', hl_group.background) or nil
-      local foreground = hl_group.foreground and string.format('#%06x', hl_group.foreground) or nil
-      return { bg = background, fg = foreground }
-    end
-
     -- Depending on colorscheme, CursorLine will 'merge' the sign column bg color and CursorLine.
     -- But in other colorschemes, they disagree.
-    local cursorline_bg = get_colors_from_hl('CursorLineNr').bg
+    local cursorline_bg = vim.api.nvim_get_hl_by_name('CursorLineNr', true).background
     vim.api.nvim_set_hl(0, 'SmoothCursor', {
       bg = cursorline_bg,
     })
@@ -40,8 +33,7 @@ return {
     local function sync_cursor_to_mode()
       local mode = vim.fn.mode()
       local mode_hl = mode_to_hl_name[mode] or 'lualine_a_normal'
-
-      local mode_color = get_colors_from_hl(mode_hl).bg
+      local mode_color = vim.api.nvim_get_hl_by_name(mode_hl, true).background
 
       vim.api.nvim_set_hl(0, 'SmoothCursor', {
         fg = mode_color,
