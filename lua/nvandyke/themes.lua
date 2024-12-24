@@ -28,4 +28,9 @@ return {
     'catppuccin/nvim',
     lazy = true,
   },
+  {
+    "0xstepit/flow.nvim",
+    lazy = true,
+    opts = {},
+  }
 }
