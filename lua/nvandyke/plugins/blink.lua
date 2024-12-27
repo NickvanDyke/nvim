@@ -14,7 +14,6 @@ return {
       use_nvim_cmp_as_default = true,
     },
     sources = {
-      min_keyword_length = 3,
       per_filetype = {
         markdown = {},
       },
@@ -38,6 +37,7 @@ return {
         lsp = {},
         path = {},
         buffer = {
+          min_keyword_length = 3,
           score_offset = -3,
         },
       },
