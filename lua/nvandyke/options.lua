@@ -4,7 +4,7 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.border_default = 'none'
+vim.g.border_default = 'rounded'
 vim.g.winblend_default = 11
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
