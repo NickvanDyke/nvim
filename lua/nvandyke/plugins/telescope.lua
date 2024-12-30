@@ -90,7 +90,7 @@ return {
       function()
         require('telescope.builtin').help_tags()
       end,
-      desc = '[s]earch [h]elp',
+      desc = 'Search Help',
       silent = true,
       mode = 'n',
     },
@@ -99,7 +99,7 @@ return {
       function()
         require('telescope.builtin').keymaps()
       end,
-      desc = '[s]earch [k]eymaps',
+      desc = 'Search Keymaps',
       silent = true,
       mode = 'n',
     },
@@ -108,7 +108,7 @@ return {
       function()
         require('telescope.builtin').builtin()
       end,
-      desc = '[s]earch Telescope [b]uiltins',
+      desc = 'Search Telescope Builtins',
       silent = true,
       mode = 'n',
     },
@@ -117,14 +117,14 @@ return {
       function()
         require('telescope-live-grep-args.shortcuts').grep_word_under_cursor()
       end,
-      desc = '[s]earch current [w]ord',
+      desc = 'Search current Word',
       silent = true,
       mode = 'n',
     },
     {
       '<leader>sg',
       ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-      desc = '[s]earch with [g]rep (args)',
+      desc = 'Search with Grep (args)',
       silent = true,
       mode = 'n',
     },
@@ -133,7 +133,7 @@ return {
       function()
         require('telescope.builtin').quickfix()
       end,
-      desc = '[s]earch [q]uickfix',
+      desc = 'Search Quickfix',
       silent = true,
       mode = 'n',
     },
@@ -145,7 +145,7 @@ return {
           previewer = false,
         })
       end,
-      desc = '[/] Fuzzily search in current buffer',
+      desc = '/ Fuzzily search in current buffer',
       silent = true,
       mode = 'n',
     },
@@ -154,7 +154,7 @@ return {
       function()
         require('telescope.builtin').find_files { cwd = '~/.config/', hidden = true }
       end,
-      desc = '[s]earch [c]onfig files',
+      desc = 'Search Config files',
       silent = true,
       mode = 'n',
     },
@@ -165,7 +165,7 @@ return {
           enable_preview = true,
         }
       end,
-      desc = 'Telescope [t]hemes',
+      desc = 'Telescope Themes',
       silent = true,
       mode = 'n',
     },

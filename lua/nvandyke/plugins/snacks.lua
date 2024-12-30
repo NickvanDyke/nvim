@@ -103,28 +103,28 @@ return {
       function()
         Snacks.terminal 'lazydocker'
       end,
-      desc = 'Lazy[d]ocker',
+      desc = 'LazyDocker',
     },
     {
       '<leader>gg',
       function()
         Snacks.lazygit.open()
       end,
-      desc = 'Lazy[g]it',
+      desc = 'LazyGit',
     },
     {
       '<leader>gf',
       function()
         Snacks.lazygit.log_file()
       end,
-      desc = 'LazyGit log (current [f]ile)',
+      desc = 'LazyGit Log (current file)',
     },
     {
       '<leader>gl',
       function()
         Snacks.lazygit.log()
       end,
-      desc = 'LazyGit [l]og',
+      desc = 'LazyGit Log',
     },
     {
       '<leader>gb',

@@ -41,14 +41,14 @@ return { -- Useful plugin to show you pending keybinds.
     },
 
     spec = {
-      { '<leader>z', group = '[z]ettelkasten', mode = { 'n', 'x' } },
-      { '<leader>c', group = '[c]ode', mode = { 'n', 'x' } },
-      { '<leader>s', group = '[s]earch' },
-      { '<leader>l', group = '[l]azy' },
-      { '<leader>t', group = '[t]oggle' },
-      { '<leader>g', group = '[g]it', mode = { 'n', 'v' } },
-      { '<leader>d', group = '[d]ebug', mode = { 'n', 'v' } },
-      { '<leader>u', group = '[u]ser' },
+      { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' } },
+      { '<leader>c', group = 'Code', mode = { 'n', 'x' } },
+      { '<leader>s', group = 'Search' },
+      { '<leader>l', group = 'Lazy' },
+      { '<leader>t', group = 'Toggle' },
+      { '<leader>g', group = 'Git', mode = { 'n', 'v' } },
+      { '<leader>d', group = 'Debug', mode = { 'n', 'v' } },
+      { '<leader>u', group = 'User' },
     },
   },
 }

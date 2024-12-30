@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = '[l]azy' })
+vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = 'Lazy' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -35,8 +35,8 @@ vim.keymap.set('n', 'y=', function()
   vim.notify('Copied ' .. vim.fn.expand '%:.')
 end, { desc = 'Copy relative filepath to clipboard' })
 
-vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = '[q]uick[f]ix list' })
-vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = '[l]ocation list' })
+vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
+vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
 
 -- vim.keymap.set('n', '<C-d>', function()
 --   local quarter_height = math.floor(vim.api.nvim_win_get_height(0) / 3)
@@ -50,7 +50,7 @@ vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = '[l]ocation list' }
 --   vim.api.nvim_feedkeys(keys, 'n', false)
 -- end, { desc = 'Scroll up a third of the window height' })
 
-vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = '[r]eplace word under cursor' })
+vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
 
 vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
 

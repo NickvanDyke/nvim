@@ -34,26 +34,26 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', require('telescope.builtin').lsp_definitions, '[g]oto [d]efinition')
+          map('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
 
           -- Find references for the word under your cursor.
-          map('gr', require('telescope.builtin').lsp_references, '[g]oto [r]eferences')
+          map('gr', require('telescope.builtin').lsp_references, 'Goto References')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', require('telescope.builtin').lsp_implementations, '[g]oto [I]mplementation')
+          map('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('gT', require('telescope.builtin').lsp_type_definitions, '[T]ype Definition')
+          map('gT', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace [S]ymbols')
+          map('<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
 
           -- Handled by inc-rename.nvim
-          -- map('<leader>cr', vim.lsp.buf.rename, '[r]ename')
+          -- map('<leader>cr', vim.lsp.buf.rename, 'Rename')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -61,16 +61,16 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+          map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
 
           map('<leader>cD', function()
             vim.diagnostic.setqflist { open = true }
-          end, 'Workspace [D]iagnostics')
+          end, 'Workspace Diagnostics')
           map('<leader>cd', function()
             vim.diagnostic.setloclist { open = true }
-          end, 'Workspace [d]iagnostics')
+          end, 'Workspace Diagnostics')
 
-          -- map('<leader>cR', '<cmd>LspRestart<CR>', '[r]estart LSP')
+          -- map('<leader>cR', '<cmd>LspRestart<CR>', 'Restart LSP')
         end,
       })
 

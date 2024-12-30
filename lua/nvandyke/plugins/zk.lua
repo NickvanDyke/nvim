@@ -7,7 +7,6 @@ return {
   config = function(_, opts)
     require('zk').setup(opts)
 
-    -- `keys` doesn't seem to play nice
     vim.api.nvim_set_keymap(
       'n',
       '<leader>zn',
