@@ -20,7 +20,7 @@ return {
       path_display = {
         'smart',
       },
-      layout_strategy = 'vertical',
+      layout_strategy = 'flex',
       layout_config = {
         -- prompt_position = 'top',
         -- vertical = {
