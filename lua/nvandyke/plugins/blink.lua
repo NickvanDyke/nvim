@@ -49,6 +49,9 @@ return {
       menu = {
         border = 'none', -- anything else looks bad
         winblend = vim.g.winblend_default,
+        draw = {
+          treesitter = { 'lsp' },
+        },
       },
       documentation = {
         auto_show = true,
