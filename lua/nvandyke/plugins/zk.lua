@@ -5,7 +5,6 @@ return {
   opts = {
     picker = 'telescope',
   },
-
   keys = {
     {
       '<leader>zn',
@@ -13,6 +12,14 @@ return {
       mode = 'n',
       silent = true,
       desc = 'New note',
+    },
+    -- autocomplete doesn't seem to work rn...
+    {
+      '<leader>zi',
+      "<Cmd>ZkInsertLink<CR>",
+      mode = 'n',
+      silent = true,
+      desc = 'Insert link',
     },
     { '<leader>znt', ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>", mode = 'v', noremap = true, silent = true },
     {
