@@ -29,8 +29,11 @@ return {
     lazy = true,
   },
   {
-    "0xstepit/flow.nvim",
+    '0xstepit/flow.nvim',
     lazy = true,
-    opts = {},
-  }
+  },
+  {
+    'sainnhe/everforest',
+    lazy = true,
+  },
 }
