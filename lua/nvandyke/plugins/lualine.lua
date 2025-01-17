@@ -77,10 +77,10 @@ return {
           {
             'filename',
             path = 1,
+            padding = 0,
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
-              -- TODO: bg is wrong in themes that change it
-              local filename = '%#LualineFilename#' .. parts[#parts] .. '%*'
+              local filename = '%#LualineFilename#' .. parts[#parts] .. ' %*'
 
               -- local filename_to_show = filename:match '^index%..+$'
               --     -- prefix parent dir
@@ -130,6 +130,7 @@ return {
       callback = function()
         local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
         local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
+
         vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
         vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
       end,
