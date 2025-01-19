@@ -32,10 +32,6 @@ if vim.env.PROF then
 end
 
 require('lazy').setup({
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.neo-tree',
-
   { import = 'nvandyke.plugins' },
   { import = 'nvandyke.themes' },
 }, {

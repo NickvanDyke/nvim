@@ -36,4 +36,8 @@ return {
     'sainnhe/everforest',
     lazy = true,
   },
+  {
+    'navarasu/onedark.nvim',
+    lazy = true,
+  }
 }
