@@ -1,8 +1,9 @@
 return {
   'saghen/blink.cmp',
   -- enabled = false, -- NOTE: if it crashes after updating, re-install; https://github.com/Saghen/blink.cmp/issues/68
-  lazy = false, -- lazy loading handled internally
+  -- lazy = false, -- lazy loading handled internally
   version = 'v0.*',
+  event = { 'InsertEnter', 'CmdlineEnter' },
   opts = {
     keymap = {
       preset = 'enter',
