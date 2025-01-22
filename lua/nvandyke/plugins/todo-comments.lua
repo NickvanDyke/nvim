@@ -19,7 +19,6 @@ return {
       mode = 'n',
       desc = 'Previous todo comment',
     },
-    { '<leader>st', '<cmd>TodoTelescope<cr>', mode = 'n', desc = 'Search Todos' },
   },
   opts = {
     signs = false,

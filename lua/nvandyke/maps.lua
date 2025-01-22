@@ -1,5 +1,3 @@
-vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<cr>', { desc = 'Lazy' })
-
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 

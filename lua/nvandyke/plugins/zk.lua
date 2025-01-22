@@ -3,7 +3,7 @@ return {
   cmd = 'ZkOrphans',
   ft = 'markdown',
   opts = {
-    picker = 'telescope',
+    picker = 'select', -- TODO: snacks picker
   },
   keys = {
     {
