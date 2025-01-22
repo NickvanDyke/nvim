@@ -82,12 +82,12 @@ return {
               local parts = vim.split(str, '/')
               local filename
 
-              local gitsigns = vim.b.gitsigns_status_dict
-              if gitsigns and (gitsigns.changed > 0 or gitsigns.added > 0 or gitsigns.removed > 0) then
-                filename = '%#LualineFilenameChanged#' .. parts[#parts] .. ' %*'
-              else
+              -- local gitsigns = vim.b.gitsigns_status_dict
+              -- if gitsigns and (gitsigns.changed > 0 or gitsigns.added > 0 or gitsigns.removed > 0) then
+              --   filename = '%#LualineFilenameChanged#' .. parts[#parts] .. ' %*'
+              -- else
                 filename = '%#LualineFilename#' .. parts[#parts] .. ' %*'
-              end
+              -- end
 
               -- local filename_to_show = filename:match '^index%..+$'
               --     -- prefix parent dir
