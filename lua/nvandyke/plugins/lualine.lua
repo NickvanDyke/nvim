@@ -129,15 +129,15 @@ return {
     }
 
     -- Awkward to create hl group at the right time
-    vim.api.nvim_create_autocmd('UIEnter', {
+    vim.api.nvim_create_autocmd('ColorScheme', {
       callback = function()
         local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
         local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
-        local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
+        -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
 
         vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
         vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
-        vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
+        -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
       end,
     })
   end,
