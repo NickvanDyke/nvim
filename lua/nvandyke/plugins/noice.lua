@@ -35,9 +35,12 @@ return {
       lsp_doc_border = vim.g.border_default == 'rounded', -- add a border to hover docs and signature help
     },
   },
-  config = function(_, opts)
-    require('noice').setup(opts)
-
-    vim.keymap.set('n', '<leader>n', '<cmd>Noice<CR>')
-  end,
+  keys = {
+    {
+      '<leader>N',
+      '<cmd>Noice<CR>',
+      desc = 'Noice',
+      mode = 'n',
+    },
+  },
 }

@@ -16,7 +16,7 @@ return {
   },
   keys = {
     {
-      '<leader>o',
+      '<leader>O',
       '<cmd>lua require("nvim-navbuddy").open()<CR>',
       desc = 'Navbuddy',
       mode = 'n',
