@@ -20,20 +20,20 @@ return {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
       },
-      tabline = {
-        lualine_z = {
-          'tabs',
-          {
-            -- https://github.com/nvim-lualine/lualine.nvim/discussions/845#discussioncomment-4984116
-            function()
-              if vim.o.showtabline ~= 1 then -- If we don't check, then repeatedly setting will cause redraw and cursor flicker
-                vim.o.showtabline = 1
-              end
-              return ''
-            end,
-          },
-        },
-      },
+      -- tabline = {
+      --   lualine_z = {
+      --     'tabs',
+      --     {
+      --       -- https://github.com/nvim-lualine/lualine.nvim/discussions/845#discussioncomment-4984116
+      --       function()
+      --         if vim.o.showtabline ~= 1 then -- If we don't check, then repeatedly setting will cause redraw and cursor flicker
+      --           vim.o.showtabline = 1
+      --         end
+      --         return ''
+      --       end,
+      --     },
+      --   },
+      -- },
       sections = {
         lualine_a = {
           {
