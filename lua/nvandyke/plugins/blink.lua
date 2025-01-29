@@ -19,20 +19,21 @@ return {
         markdown = {},
         org = { 'orgmode' },
       },
-      -- NOTE: breaks orgmode completion
-      -- cmdline = function()
-      --   local type = vim.fn.getcmdtype()
-      --   -- Search forward and backward
-      --   if type == '/' or type == '?' then
-      --     -- return { 'buffer' }
-      --     return {} -- it auto-shows and that's annoying
-      --   end
-      --   -- Commands
-      --   if type == ':' then
-      --     return { 'cmdline' }
-      --   end
-      --   return {}
-      -- end,
+      cmdline = function()
+        local type = vim.fn.getcmdtype()
+        -- Search forward and backward
+        if type == '/' or type == '?' then
+          -- return { 'buffer' }
+          return {} -- it auto-shows and that's annoying
+        end
+        -- Commands
+        if type == ':' then
+          return { 'cmdline' }
+        end
+        -- FIX: breaks orgmode completion
+        -- return { 'orgmode' }
+        return {}
+      end,
       providers = {
         snippets = {
           enabled = false,
@@ -43,11 +44,11 @@ return {
           min_keyword_length = 3,
           score_offset = -3,
         },
-        orgmode = {
-          name = 'Orgmode',
-          module = 'orgmode.org.autocompletion.blink',
-          fallbacks = { 'buffer' },
-        },
+        -- orgmode = {
+        --   name = 'Orgmode',
+        --   module = 'orgmode.org.autocompletion.blink',
+        --   fallbacks = { 'buffer' },
+        -- },
       },
     },
     completion = {

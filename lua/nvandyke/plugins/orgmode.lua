@@ -1,11 +1,12 @@
 return {
   {
     'nvim-orgmode/orgmode',
+    enabled = false,
     event = 'VeryLazy',
     ft = { 'org' },
     opts = {
-      org_agenda_files = '~/notes/**/*',
-      org_default_notes_file = '~/notes/refile.org',
+      org_agenda_files = '~/org/**/*',
+      org_default_notes_file = '~/org/refile.org',
       win_border = 'rounded'
     },
   },
@@ -18,7 +19,7 @@ return {
     'chipsenkbeil/org-roam.nvim',
     enabled = false,
     opts = {
-      directory = '~/notes',
+      directory = '~/org',
     },
   },
 }
