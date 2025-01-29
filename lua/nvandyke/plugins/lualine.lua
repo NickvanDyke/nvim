@@ -16,6 +16,8 @@ return {
       end
     end
 
+    -- FIX: Flickering. https://github.com/nvim-lualine/lualine.nvim/issues/1280
+
     require('lualine').setup {
       options = {
         component_separators = { left = '', right = '' },
