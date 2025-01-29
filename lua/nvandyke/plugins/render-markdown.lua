@@ -4,4 +4,9 @@ return {
     'markdown',
     'copilot-chat',
   },
+  opts = {
+    heading = {
+      sign = false,
+    },
+  },
 }
