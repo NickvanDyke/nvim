@@ -43,7 +43,9 @@ return {
     {
       -- snacks goto doesn't work for some reason
       '<leader>zf',
-      vim.lsp.buf.definition,
+      function()
+        vim.lsp.buf.definition()
+      end,
       mode = 'n',
       desc = 'Follow link',
     },
