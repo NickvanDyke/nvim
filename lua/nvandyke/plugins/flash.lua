@@ -23,7 +23,7 @@ return {
         -- Mainly to keep s free for surround plugin.
         -- Can always just press enter to finish search normally;
         -- Seems like a win-win.
-        enabled = true,
+        -- enabled = true,
       },
       treesitter = {
         jump = { pos = 'start' },
@@ -45,7 +45,7 @@ return {
       desc = "Remote Flash",
     },
     -- TODO: have to wait for timeoutlen when using with `y` because of nvim-surround `ys` mapping
-    -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     -- no 'x' mode cuz nvim-surround in visual mode
 
     -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search({
@@ -54,7 +54,7 @@ return {
     --     motion = true,
     --   }
     -- }) end, desc = "Treesitter Search" },
-    '/',
+    -- '/',
     '?',
     'f',
     'F',
