@@ -20,21 +20,13 @@ return {
       options = {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
+        always_show_tabline = false,
       },
-      -- tabline = {
-      --   lualine_z = {
-      --     'tabs',
-      --     {
-      --       -- https://github.com/nvim-lualine/lualine.nvim/discussions/845#discussioncomment-4984116
-      --       function()
-      --         if vim.o.showtabline ~= 1 then -- If we don't check, then repeatedly setting will cause redraw and cursor flicker
-      --           vim.o.showtabline = 1
-      --         end
-      --         return ''
-      --       end,
-      --     },
-      --   },
-      -- },
+      tabline = {
+        lualine_z = {
+          'tabs',
+        },
+      },
       sections = {
         lualine_a = {
           {
@@ -129,9 +121,7 @@ return {
       },
     }
 
-    -- Awkward to create hl group at the right time
-    vim.api.nvim_create_autocmd('ColorScheme', {
-      callback = function()
+    local function createFilepathHls()
         local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
         local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
         -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
@@ -139,7 +129,14 @@ return {
         vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
         vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
         -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
-      end,
-    })
+    end
+
+    -- Must be called after colorscheme is loaded
+    -- We're lazy-loading rn, so immediately is fine
+    createFilepathHls()
+
+    -- vim.api.nvim_create_autocmd('ColorScheme', {
+    --   callback = createFilepathHls,
+    -- })
   end,
 }
