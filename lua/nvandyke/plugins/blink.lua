@@ -4,6 +4,9 @@ return {
   -- lazy = false, -- lazy loading handled internally
   version = 'v0.*',
   event = { 'InsertEnter', 'CmdlineEnter' },
+  dependencies = {
+    'xzbdmw/colorful-menu.nvim',
+  },
   opts = {
     keymap = {
       preset = 'enter',
@@ -60,6 +63,17 @@ return {
         winblend = vim.g.winblend_default,
         draw = {
           treesitter = { 'lsp' },
+          columns = { { 'kind_icon' }, { 'label', gap = 1 } },
+          components = {
+            label = {
+              text = function(ctx)
+                return require('colorful-menu').blink_components_text(ctx)
+              end,
+              highlight = function(ctx)
+                return require('colorful-menu').blink_components_highlight(ctx)
+              end,
+            },
+          },
         },
       },
       documentation = {
