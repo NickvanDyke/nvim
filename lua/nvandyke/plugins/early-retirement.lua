@@ -1,6 +1,6 @@
 return {
   'chrisgrieser/nvim-early-retirement',
-  event = 'VeryLazy',
+  event = 'BufReadPost',
   opts = {
     notificationOnAutoClose = true,
   }
