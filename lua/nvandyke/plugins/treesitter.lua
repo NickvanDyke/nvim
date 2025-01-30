@@ -47,6 +47,7 @@ return { -- Highlight, edit, and navigate code
   config = function(_, opts)
     require('nvim-treesitter.configs').setup(opts)
 
+    -- TODO: Migrate Wanna to use .sql... don't think .psql is a legit thing
     vim.treesitter.language.register('sql', 'psql')
   end,
 }
