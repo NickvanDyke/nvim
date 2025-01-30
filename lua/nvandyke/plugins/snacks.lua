@@ -19,8 +19,11 @@ return {
     bigfile = { enabled = true },
     terminal = {
       enabled = true,
-      -- TODO: how to disable this? Don't need with prompt
-      winbar = nil,
+      win = {
+        wo = {
+          winbar = '',
+        },
+      },
     },
     lazygit = { enabled = true },
     words = { enabled = true },
@@ -392,15 +395,17 @@ return {
         Snacks.toggle.indent():map '<leader>ug'
         Snacks.toggle.dim():map '<leader>ud'
         Snacks.toggle.scroll():map '<leader>us'
-        Snacks.toggle.new({
-          name = 'Smear Cursor',
-          get = function()
-            return require('smear_cursor').enabled
-          end,
-          set = function(state)
-            require('smear_cursor').enabled = state
-          end,
-        }):map '<leader>ua'
+        Snacks.toggle
+          .new({
+            name = 'Smear Cursor',
+            get = function()
+              return require('smear_cursor').enabled
+            end,
+            set = function(state)
+              require('smear_cursor').enabled = state
+            end,
+          })
+          :map '<leader>ua'
       end,
     })
   end,
