@@ -1,6 +1,6 @@
 return {
   'folke/persistence.nvim',
-  lazy = true,
+  event = 'BufReadPost',
   opts = {
     need = 0,
   },
