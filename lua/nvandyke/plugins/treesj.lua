@@ -4,6 +4,7 @@ return {
     {
       'gS',
       '<cmd>lua require("treesj").toggle()<CR>',
+      desc = 'Treesitter split/join',
       noremap = true,
       silent = true,
       mode = 'n',
@@ -12,5 +13,5 @@ return {
   dependencies = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
   opts = {
     use_default_keymaps = false,
-  }
+  },
 }
