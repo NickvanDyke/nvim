@@ -17,7 +17,7 @@ return {
         else
           gitsigns.nav_hunk 'next'
         end
-      end, { desc = 'Jump to next Git hunk' })
+      end, { desc = 'Next Git hunk' })
 
       map('n', '[g', function()
         if vim.wo.diff then
@@ -25,7 +25,7 @@ return {
         else
           gitsigns.nav_hunk 'prev'
         end
-      end, { desc = 'Jump to previous Git hunk' })
+      end, { desc = 'Previous Git hunk' })
 
       -- Actions
       -- visual mode
