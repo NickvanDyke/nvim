@@ -47,13 +47,6 @@ return {
       desc = 'Smart',
     },
     {
-      '<leader>:',
-      function()
-        Snacks.picker.command_history()
-      end,
-      desc = 'Command History',
-    },
-    {
       '<leader>sn',
       function()
         Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
@@ -239,7 +232,7 @@ return {
         Snacks.picker.lsp_references()
       end,
       nowait = true,
-      desc = 'References',
+      desc = 'Goto References',
     },
     {
       'gI',
@@ -249,7 +242,7 @@ return {
       desc = 'Goto Implementation',
     },
     {
-      'g%',
+      'gy',
       function()
         Snacks.picker.lsp_type_definitions()
       end,
