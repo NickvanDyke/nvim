@@ -2,10 +2,13 @@ return {
   {
     'rose-pine/neovim',
     lazy = true,
-  },
-  {
-    'rebelot/kanagawa.nvim',
-    lazy = true,
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          transparency = true,
+        },
+      }
+    end,
   },
   { 'folke/tokyonight.nvim', lazy = true },
   {
@@ -29,15 +32,7 @@ return {
     lazy = true,
   },
   {
-    '0xstepit/flow.nvim',
-    lazy = true,
-  },
-  {
     'sainnhe/everforest',
     lazy = true,
   },
-  {
-    'navarasu/onedark.nvim',
-    lazy = true,
-  }
 }

@@ -1,6 +1,6 @@
 return {
   'OlegGulevskyy/better-ts-errors.nvim',
-  enabled = false,
+  ft = { 'typescript', 'typescriptreact' },
   dependencies = { 'MunifTanjim/nui.nvim' },
   config = {
     keymaps = {

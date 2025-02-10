@@ -37,7 +37,7 @@ return {
   },
   keys = {
     {
-      '<leader>N',
+      '<leader>n',
       '<cmd>Noice<CR>',
       desc = 'Noice',
       mode = 'n',

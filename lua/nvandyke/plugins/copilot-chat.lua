@@ -16,25 +16,16 @@ return {
   },
   cmd = { 'CopilotChat' },
   keys = {
-    -- Show prompts actions with telescope
-    -- {
-    --   '<leader>ccp',
-    --   function()
-    --     local actions = require 'CopilotChat.actions'
-    --     require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
-    --   end,
-    --   desc = 'CopilotChat - Prompt actions',
-    -- },
     {
       mode = { 'n', 'x' },
       '<leader>cc',
       function()
         require('CopilotChat').toggle()
       end,
-      desc = 'CopilotChat'
+      desc = 'CopilotChat',
     },
   },
-  init = function()
-    vim.cmd [[cab cc CopilotChat]]
-  end,
+  -- init = function()
+  --   vim.cmd [[cab cc CopilotChat]]
+  -- end,
 }

@@ -3,7 +3,7 @@ return {
   -- wtf lol, shows error every type when no internet
   -- https://github.com/zbirenbaum/copilot.lua/issues/165
   -- enabled = false,
-  event = 'BufReadPost',
+  event = 'InsertEnter',
   opts = {
     suggestion = {
       auto_trigger = true,
