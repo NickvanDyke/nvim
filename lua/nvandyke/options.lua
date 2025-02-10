@@ -15,12 +15,6 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
--- vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
-
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -74,15 +68,13 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+-- vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep around the cursor.
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 
 -- TODO: apparently Postgres files should still be .sql?
--- But I think that would break Wanna's migration hashes.
--- hmmmm
 vim.filetype.add {
   extension = {
     psql = 'sql',
@@ -102,3 +94,13 @@ vim.opt.laststatus = 3
 vim.opt.cmdheight = 0
 
 vim.opt.wrap = false
+
+vim.diagnostic.config {
+  -- virtual_text = false, -- prevent duplicates w/ tiny-inline-diagnostic
+  severity_sort = true,
+  underline = true,
+  float = {
+    source = true,
+    border = vim.g.border_default,
+  },
+}
