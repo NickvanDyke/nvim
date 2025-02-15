@@ -2,10 +2,9 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-  -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
   event = 'BufReadPost',
+  -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
   opts = {
-    autotag = { enable = true },
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -44,9 +43,7 @@ return { -- Highlight, edit, and navigate code
     indent = { enable = true, disable = { 'ruby' } },
     matchup = { enable = true },
   },
-  config = function(_, opts)
-    require('nvim-treesitter.configs').setup(opts)
-
+  init = function()
     -- TODO: Migrate Wanna to use .sql... don't think .psql is a legit thing
     vim.treesitter.language.register('sql', 'psql')
   end,
