@@ -97,6 +97,9 @@ vim.opt.wrap = false
 
 vim.diagnostic.config {
   -- virtual_text = false, -- prevent duplicates w/ tiny-inline-diagnostic
+  virtual_text = {
+    prefix = '',
+  },
   severity_sort = true,
   underline = true,
   float = {
