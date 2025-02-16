@@ -19,7 +19,6 @@ return {
     },
     sources = {
       per_filetype = {
-        markdown = {},
         org = { 'orgmode' },
       },
       cmdline = function()
