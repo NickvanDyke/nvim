@@ -1,7 +1,5 @@
 return {
   'saghen/blink.cmp',
-  -- enabled = false, -- NOTE: if it crashes after updating, re-install; https://github.com/Saghen/blink.cmp/issues/68
-  -- lazy = false, -- lazy loading handled internally
   version = 'v0.*',
   event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
@@ -9,33 +7,18 @@ return {
   },
   opts = {
     keymap = {
-      preset = 'enter',
+      preset = 'default',
     },
     appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
       -- useful for when your theme doesn't support blink.cmp
       -- will be removed in a future release, assuming themes add support
-      use_nvim_cmp_as_default = true,
+      -- use_nvim_cmp_as_default = true,
     },
     sources = {
       per_filetype = {
         org = { 'orgmode' },
       },
-      cmdline = function()
-        local type = vim.fn.getcmdtype()
-        -- Search forward and backward
-        if type == '/' or type == '?' then
-          -- return { 'buffer' }
-          return {} -- it auto-shows and that's annoying
-        end
-        -- Commands
-        if type == ':' then
-          return { 'cmdline' }
-        end
-        -- FIX: breaks orgmode completion
-        -- return { 'orgmode' }
-        return {}
-      end,
       providers = {
         snippets = {
           enabled = false,
@@ -43,7 +26,7 @@ return {
         lsp = {},
         path = {},
         buffer = {
-          min_keyword_length = 3,
+          -- min_keyword_length = 3,
           score_offset = -3,
         },
         -- orgmode = {
@@ -55,14 +38,14 @@ return {
     },
     completion = {
       trigger = {
-        show_on_insert_on_trigger_character = false,
+        -- show_on_insert_on_trigger_character = false,
       },
       menu = {
-        border = 'none', -- anything else looks bad
+        border = 'rounded',
         winblend = vim.g.winblend_default,
         draw = {
           treesitter = { 'lsp' },
-          columns = { { 'kind_icon' }, { 'label', gap = 1 } },
+          columns = { { 'kind_icon' }, { 'label', gap = 1 }, { 'label_description' }, { 'source_name' } },
           components = {
             label = {
               text = function(ctx)
@@ -85,6 +68,7 @@ return {
       },
     },
     signature = {
+      enabled = true,
       window = {
         border = vim.g.border_default,
         winblend = vim.g.winblend_default,
