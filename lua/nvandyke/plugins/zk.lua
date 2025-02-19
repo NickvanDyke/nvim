@@ -41,7 +41,7 @@ return {
     { '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", mode = 'v', silent = true, desc = 'Actions' },
     { '<leader>zd', "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>", mode = 'n', silent = true, desc = 'Daily journal' },
     {
-      -- snacks goto doesn't work for some reason
+      -- snacks gd doesn't work for some reason
       '<leader>zf',
       function()
         vim.lsp.buf.definition()
@@ -49,15 +49,45 @@ return {
       mode = 'n',
       desc = 'Follow link',
     },
+    {
+      '<leader>znn',
+      ":'<,'>ZkNewFromTitleAndContentSelection<CR>",
+      function() end,
+      mode = 'v',
+      desc = 'New from title and content selection',
+    },
   },
   config = function(_, opts)
     require('zk').setup(opts)
 
     local zk = require 'zk'
+    local util = require 'zk.util'
     local commands = require 'zk.commands'
+
     commands.add('ZkOrphans', function(options)
       options = vim.tbl_extend('force', { orphan = true }, options or {})
       zk.edit(options, { title = 'Orphans' })
     end)
+
+    commands.add('ZkNewFromTitleAndContentSelection', function(options)
+      local location = util.get_lsp_location_from_selection()
+      local selected_text = util.get_selected_text()
+      assert(selected_text ~= nil, 'No selected text')
+
+      local newline_index = string.find(selected_text, '\n')
+      assert(newline_index ~= nil, 'No newline found in selection to separate title and content')
+
+      local title = string.sub(selected_text, string.find(selected_text, '%a') or 1, newline_index - 1)
+      -- assumes two newlines separate title and content (per markdown spec)
+      -- TODO: would be nice to detect location instead
+      local content = string.sub(selected_text, newline_index + 2)
+
+      zk.new {
+        dir = vim.fn.expand '%:p:h',
+        title = vim.fn.input('Title: ', title),
+        content = content,
+        insertLinkAtLocation = location,
+      }
+    end, { needs_selection = true })
   end,
 }
