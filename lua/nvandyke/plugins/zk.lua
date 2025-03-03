@@ -23,7 +23,7 @@ return {
     },
     {
       '<leader>znt',
-      ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.expand('%:p:h') }<CR>",
+      ":'<,'>ZkNewFromTitleSelection { dir = vim.fn.getcwd() }<CR>",
       mode = 'v',
       noremap = true,
       silent = true,
@@ -31,7 +31,7 @@ return {
     },
     {
       '<leader>znc',
-      ":'<,'>ZkNewFromContentSelection { dir = vim.fn.expand('%:p:h'), title = vim.fn.input('Title: ') }<CR>",
+      ":'<,'>ZkNewFromContentSelection { dir = vim.fn.getcwd(), title = vim.fn.input('Title: ') }<CR>",
       mode = 'v',
       silent = true,
       desc = 'New from content selection',
@@ -51,7 +51,7 @@ return {
     },
     {
       '<leader>znn',
-      ":'<,'>ZkNewFromTitleAndContentSelection<CR>",
+      ":'<,'>ZkNewFromTitleAndContentSelection { dir = vim.fn.getcwd() }<CR>",
       function() end,
       mode = 'v',
       desc = 'New from title and content selection',
