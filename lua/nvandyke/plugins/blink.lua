@@ -41,7 +41,7 @@ return {
         -- show_on_insert_on_trigger_character = false,
       },
       menu = {
-        border = 'rounded',
+        border = 'none',
         winblend = vim.g.winblend_default,
         draw = {
           treesitter = { 'lsp' },

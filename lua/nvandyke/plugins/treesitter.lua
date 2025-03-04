@@ -21,6 +21,7 @@ return { -- Highlight, edit, and navigate code
       'luadoc',
       'markdown',
       'markdown_inline',
+      'php',
       'graphql',
       'query',
       'vim',
