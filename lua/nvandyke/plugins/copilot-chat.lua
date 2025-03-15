@@ -25,7 +25,7 @@ return {
       desc = 'CopilotChat',
     },
   },
-  -- init = function()
-  --   vim.cmd [[cab cc CopilotChat]]
-  -- end,
+  init = function()
+    vim.cmd [[cab cc CopilotChat]]
+  end,
 }

@@ -4,7 +4,9 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    picker = {},
+    picker = {
+      ui_select = true,
+    },
     dashboard = {
       enabled = true,
 

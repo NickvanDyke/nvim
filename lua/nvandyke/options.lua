@@ -107,3 +107,6 @@ vim.diagnostic.config {
     border = vim.g.border_default,
   },
 }
+
+-- To make CopilotChat completion behave well
+vim.opt.completeopt = { "menuone", "popup", "noinsert" }
