@@ -8,7 +8,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
+-- vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
+
+vim.keymap.set({ 'n', 'v' }, 'H', '^', { desc = 'Move to the beginning of the line' })
+vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Move to the end of the line' })
 
 -- Easier window resizing
 vim.keymap.set('n', '<S-Up>', '<cmd>resize +3<cr>', { desc = 'Increase Window Height', silent = true })
