@@ -1,6 +1,5 @@
 return {
   'folke/snacks.nvim',
-  -- dependencies = { 'folke/persistence.nvim' },
   priority = 1000,
   lazy = false,
   opts = {
