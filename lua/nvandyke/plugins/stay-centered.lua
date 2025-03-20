@@ -1,5 +1,5 @@
 return {
   'arnamak/stay-centered.nvim',
-  cmd = { 'BufReadPost' },
+  event = { 'BufReadPost' },
   opts = {},
 }
