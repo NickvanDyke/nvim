@@ -2,6 +2,11 @@ return {
   'folke/snacks.nvim',
   opts = {
     picker = {
+      layout = {
+        preset = function ()
+          return vim.o.columns > 140 and 'default' or 'vertical'
+        end,
+      }
     },
   },
   keys = {
