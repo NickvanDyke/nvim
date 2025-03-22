@@ -18,7 +18,7 @@ return {
       desc = 'Smart',
     },
     {
-      '<leader>/',
+      '<leader>sg',
       function()
         Snacks.picker.grep()
       end,
@@ -44,7 +44,7 @@ return {
       function()
         Snacks.picker.git_log()
       end,
-      desc = 'Git Log',
+      desc = 'Git Commits',
     },
     {
       '<leader>gs',
