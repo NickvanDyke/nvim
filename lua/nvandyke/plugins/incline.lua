@@ -1,5 +1,6 @@
 return {
   'b0o/incline.nvim',
+  enabled = false,
   event = 'WinNew',
   config = function()
     -- TODO: delayed appearance on first open.

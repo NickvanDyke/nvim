@@ -4,7 +4,7 @@ return {
     { 'zbirenbaum/copilot.lua' },
     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
   },
-  -- build = 'make tiktoken', -- Only on MacOS or Linux
+  build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
     window = {
       layout = 'float',

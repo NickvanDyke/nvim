@@ -69,6 +69,19 @@ return {
         },
         lualine_c = {},
         lualine_x = {
+          -- {
+          --   'filename',
+          --   path = 1,
+          --   padding = 0,
+          --   fmt = function (str, ctx)
+          --     local parts = vim.split(str, '/')
+          --     if #parts == 1 then
+          --       return str
+          --     else
+          --       return parts[#parts - 1] .. '/' .. parts[#parts]
+          --     end
+          --   end
+          -- },
           {
             'filename',
             path = 1,
