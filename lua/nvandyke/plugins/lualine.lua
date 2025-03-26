@@ -69,19 +69,6 @@ return {
         },
         lualine_c = {},
         lualine_x = {
-          -- {
-          --   'filename',
-          --   path = 1,
-          --   padding = 0,
-          --   fmt = function (str, ctx)
-          --     local parts = vim.split(str, '/')
-          --     if #parts == 1 then
-          --       return str
-          --     else
-          --       return parts[#parts - 1] .. '/' .. parts[#parts]
-          --     end
-          --   end
-          -- },
           {
             'filename',
             path = 1,
@@ -94,7 +81,7 @@ return {
               -- if gitsigns and (gitsigns.changed > 0 or gitsigns.added > 0 or gitsigns.removed > 0) then
               --   filename = '%#LualineFilenameChanged#' .. parts[#parts] .. ' %*'
               -- else
-                filename = '%#LualineFilename#' .. parts[#parts] .. ' %*'
+              filename = '%#LualineFilename#' .. parts[#parts] .. ' %*'
               -- end
 
               -- local filename_to_show = filename:match '^index%..+$'
@@ -108,19 +95,17 @@ return {
                 return path .. filename
               end
             end,
-            separator = '',
+            separator = { right = '' },
           },
-          { 'filetype', icon_only = true, padding = 0, separator = '' },
+          { 'filetype', icon_only = true, padding = 0, section_separators = { left = '' } },
           {
             function(ctx)
               return require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
             end,
             cond = function()
-              return false
-              -- Takes a long time to load and we'll never need on the Dashboard
-              -- TODO: doesn't work. Maybe lualine doesn't allow this with function component
-              -- return package.loaded['arrow']
+              return package.loaded['arrow'] ~= nil
             end,
+            color = { fg = '#66ff66' },
           },
         },
         lualine_y = {
@@ -137,13 +122,13 @@ return {
     }
 
     local function createFilepathHls()
-        local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
-        local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
-        -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
+      local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
+      local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
+      -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
 
-        vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
-        vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
-        -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
+      vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
+      vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
+      -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
     end
 
     -- Must be called after colorscheme is loaded
