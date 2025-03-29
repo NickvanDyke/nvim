@@ -14,7 +14,7 @@ return {
       end,
     },
     {
-      '<c-l>',
+      '<s-c-;>',
       mode = { 'n', 'i' },
       function()
         require('clasp').wrap 'prev'
