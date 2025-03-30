@@ -69,10 +69,14 @@ return {
     },
     signature = {
       enabled = true,
+      trigger = {
+        enabled = true,
+      },
       window = {
         border = vim.g.border_default,
         winblend = vim.g.winblend_default,
         treesitter_highlighting = true,
+        show_documentation = true,
       },
     },
   },
