@@ -17,6 +17,9 @@ return { -- Formatting
     format_on_save = {
       timeout_ms = 500,
       lsp_format = 'fallback',
+      stop_after_first = true,
+      -- Exclude the format from the undotree. Specifically, that's annoying with auto-save and auto-format
+      undojoin = true,
     },
     formatters_by_ft = {
       lua = { 'stylua' },

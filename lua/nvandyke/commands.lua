@@ -13,23 +13,6 @@ vim.api.nvim_create_autocmd('CursorHold', {
   end,
 })
 
--- NOTE: doesn't trigger for bulk edits like via quickfix list
-vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
-  desc = 'Auto-save buffer when leaving insert mode or text changed',
-  callback = function()
-    if
-      -- vim.bo.buflisted -- breaks orgmode capture auto-save. Not sure what else it might break lol.
-      #vim.api.nvim_buf_get_name(0) ~= 0 and vim.api.nvim_buf_get_option(0, 'modified')
-    then
-      vim.cmd 'silent w'
-
-      -- local time = os.date '%I:%M %p'
-
-      -- vim.notify('autosaved', vim.log.levels.INFO, { timeout = 1000 })
-    end
-  end,
-})
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   desc = 'Set wrap for markdown files',
