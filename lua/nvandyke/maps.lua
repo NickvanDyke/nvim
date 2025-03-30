@@ -22,7 +22,7 @@ vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<cr>', { desc = 'Decreas
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
 
-vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste without yanking' })
+vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste over selection without yanking' })
 
 vim.keymap.set('n', 'y=', function()
   vim.cmd [[ silent !echo %:. | pbcopy ]]

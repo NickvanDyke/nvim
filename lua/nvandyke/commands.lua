@@ -13,12 +13,14 @@ vim.api.nvim_create_autocmd('CursorHold', {
   end,
 })
 
+-- NOTE: doesn't trigger for bulk edits like via quickfix list
 vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  desc = 'Auto-save buffer when leaving insert mode or text changed',
   callback = function()
     if
       -- vim.bo.buflisted -- breaks orgmode capture auto-save. Not sure what else it might break lol.
-      #vim.api.nvim_buf_get_name(0) ~= 0
-      and vim.api.nvim_buf_get_option(0, 'modified') then
+      #vim.api.nvim_buf_get_name(0) ~= 0 and vim.api.nvim_buf_get_option(0, 'modified')
+    then
       vim.cmd 'silent w'
 
       -- local time = os.date '%I:%M %p'
@@ -36,13 +38,13 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Restore cursor to file position in previous editing session
-vim.api.nvim_create_autocmd("BufReadPost", {
-    callback = function(args)
-        local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
-        local line_count = vim.api.nvim_buf_line_count(args.buf)
-        if mark[1] > 0 and mark[1] <= line_count then
-            vim.cmd('normal! g`"zz')
-        end
-    end,
+vim.api.nvim_create_autocmd('BufReadPost', {
+  desc = 'Restore cursor to file position in previous editing session',
+  callback = function(args)
+    local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
+    local line_count = vim.api.nvim_buf_line_count(args.buf)
+    if mark[1] > 0 and mark[1] <= line_count then
+      vim.cmd 'normal! g`"zz'
+    end
+  end,
 })
