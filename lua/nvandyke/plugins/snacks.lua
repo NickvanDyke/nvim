@@ -166,6 +166,7 @@ return {
         Snacks.toggle.scroll():map '<leader>us'
         Snacks.toggle
           .new({
+            id = 'smear_cursor',
             name = 'Smear Cursor',
             get = function()
               return require('smear_cursor').enabled
@@ -175,6 +176,32 @@ return {
             end,
           })
           :map '<leader>ua'
+        Snacks.toggle
+          .new({
+            id = 'screenkey',
+            name = 'Screenkey',
+            get = function()
+              return require('screenkey').is_active()
+            end,
+            set = function(state)
+              require('screenkey').toggle()
+            end,
+          })
+          :map '<leader>uK'
+        Snacks.toggle
+          .new({
+            name = 'Pair programming',
+            get = function()
+              return Snacks.scroll.enabled and Snacks.toggle.line_number():get() and require('smear_cursor').enabled
+            end,
+            set = function(state)
+              Snacks.toggle.scroll():set(state)
+              Snacks.toggle.line_number():set(state)
+              -- idk how to toggle this via the custom toggle above
+              require('smear_cursor').enabled = state
+            end,
+          })
+          :map '<leader>up'
       end,
     })
   end,
