@@ -121,7 +121,7 @@ return {
       },
     }
 
-    local function createFilepathHls()
+    local function createFilepathHighlights()
       local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
       local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
       -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
@@ -131,12 +131,14 @@ return {
       -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
     end
 
-    -- Must be called after colorscheme is loaded
-    -- We're lazy-loading rn, so immediately is fine
-    createFilepathHls()
+    -- Must be called after colorscheme is loaded.
+    -- This also re-creates the highlight groups when the colorscheme changes.
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      callback = createFilepathHighlights,
+    })
 
-    -- vim.api.nvim_create_autocmd('ColorScheme', {
-    --   callback = createFilepathHls,
-    -- })
+    -- We're lazy-loaded, so the colorscheme has already been set by the time we register the autocmd.
+    -- So call it immediately.
+    createFilepathHighlights()
   end,
 }
