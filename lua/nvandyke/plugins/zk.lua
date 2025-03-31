@@ -13,7 +13,6 @@ return {
       silent = true,
       desc = 'New note',
     },
-    -- autocomplete doesn't seem to work rn...
     {
       '<leader>zi',
       '<Cmd>ZkInsertLink<CR>',
@@ -38,17 +37,7 @@ return {
     },
     { '<leader>zb', '<Cmd>ZkBacklinks<CR>', mode = 'n', silent = true, desc = 'Backlinks' },
     { '<leader>zl', '<Cmd>ZkLinks<CR>', mode = 'n', silent = true, desc = 'Links' },
-    { '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", mode = 'v', silent = true, desc = 'Actions' },
     { '<leader>zd', "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>", mode = 'n', silent = true, desc = 'Daily journal' },
-    {
-      -- snacks gd doesn't work for some reason
-      '<leader>zf',
-      function()
-        vim.lsp.buf.definition()
-      end,
-      mode = 'n',
-      desc = 'Follow link',
-    },
     {
       '<leader>znn',
       ":'<,'>ZkNewFromTitleAndContentSelection { dir = vim.fn.getcwd() }<CR>",
