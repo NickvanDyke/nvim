@@ -7,6 +7,7 @@ return {
   dependencies = {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
   },
   config = function()
     -- Enable the following language servers
@@ -68,6 +69,8 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
+    -- mason-lspconfig seems to provide this too, but it then also calls setup for the LSP
+    -- via nvim-lspconfig. Which doesn't have some of them (like stylua or circleci)
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
