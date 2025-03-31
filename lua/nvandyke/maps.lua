@@ -24,10 +24,10 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', 
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste over selection without yanking' })
 
-vim.keymap.set('n', 'y=', function()
+vim.keymap.set('n', 'y\\', function()
   -- -n means do not append newline
   vim.cmd [[ silent !echo -n %:. | pbcopy ]]
-  vim.notify('Copied ' .. vim.fn.expand '%:.')
+  vim.notify('Copied: ' .. vim.fn.expand '%:.')
 end, { desc = 'Copy relative filepath to clipboard' })
 
 vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
