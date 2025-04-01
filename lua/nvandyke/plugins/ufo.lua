@@ -1,6 +1,6 @@
 return {
   'kevinhwang91/nvim-ufo',
-  event = 'BufReadPost', -- Tried LspAttach but it doesn't like that
+  event = 'BufReadPost', -- Tried LspAttach but the auto-fold doesn't work with that :/
   dependencies = { 'kevinhwang91/promise-async' },
   config = function()
     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -10,18 +10,19 @@ return {
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true,
-    }
-    local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-    for _, ls in ipairs(language_servers) do
-      require('lspconfig')[ls].setup {
-        capabilities = capabilities,
-        -- you can add other fields for setting up lsp server in this table
-      }
-    end
+    -- TODO: can't duplicate LSP setup call; Mason does it too
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    -- capabilities.textDocument.foldingRange = {
+    --   dynamicRegistration = false,
+    --   lineFoldingOnly = true,
+    -- }
+    -- local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+    -- for _, ls in ipairs(language_servers) do
+    --   require('lspconfig')[ls].setup {
+    --     capabilities = capabilities,
+    --     -- you can add other fields for setting up lsp server in this table
+    --   }
+    -- end
 
     -- vim.keymap.set('n', 'K', function()
     --   local winid = require('ufo').peekFoldedLinesUnderCursor()
@@ -31,7 +32,7 @@ return {
     -- end)
 
     -- Show number of lines in fold
-    local handler = function(virtText, lnum, endLnum, width, truncate)
+    local fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
       local newVirtText = {}
       local suffix = (' 󰁂 %d '):format(endLnum - lnum)
       local sufWidth = vim.fn.strdisplaywidth(suffix)
@@ -65,7 +66,7 @@ return {
           'imports',
         },
       },
-      fold_virt_text_handler = handler,
+      fold_virt_text_handler = fold_virt_text_handler,
     }
   end,
 }
