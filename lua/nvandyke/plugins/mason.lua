@@ -53,23 +53,20 @@ return {
       ['circleci-yaml-language-server'] = {},
       intelephense = {},
       cssls = {},
+
+      harper_ls = {
+        filetypes = { 'markdown' },
+      },
     }
 
-    -- Ensure the servers and tools above are installed
-    --  To check the current status of installed tools and/or manually install
-    --  other tools, you can run
-    --    :Mason
-    --
-    --  You can press `g?` for help in this menu.
     require('mason').setup()
 
-    -- You can add other tools here that you want Mason to install
-    -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
-    -- mason-lspconfig seems to provide this too, but it then also calls setup for the LSP
+
+    -- mason-lspconfig seems to provide this too, but then it also calls setup for the LSP
     -- via nvim-lspconfig. Which doesn't have some of them (like stylua or circleci)
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -77,7 +74,6 @@ return {
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
-
           require('lspconfig')[server_name].setup(server)
         end,
       },
