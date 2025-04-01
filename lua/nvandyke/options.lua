@@ -4,6 +4,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- kinda breaks a lot of plugins still; puts borders where they shouldn't be
+-- vim.o.winborder = 'rounded'
 vim.g.border_default = 'rounded'
 vim.g.winblend_default = 20
 
@@ -96,7 +98,20 @@ vim.opt.cmdheight = 0
 vim.opt.wrap = false
 
 vim.diagnostic.config {
-  -- virtual_text = false, -- prevent duplicates w/ tiny-inline-diagnostic
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = ' ',
+      [vim.diagnostic.severity.WARN] = ' ',
+      [vim.diagnostic.severity.INFO] = ' ',
+      [vim.diagnostic.severity.HINT] = '󰠠 ',
+    },
+    linehl = {
+      [vim.diagnostic.severity.ERROR] = 'Error',
+      [vim.diagnostic.severity.WARN] = 'Warn',
+      [vim.diagnostic.severity.INFO] = 'Info',
+      [vim.diagnostic.severity.HINT] = 'Hint',
+    },
+  },
   virtual_text = {
     prefix = '',
   },
@@ -106,14 +121,13 @@ vim.diagnostic.config {
     source = true,
     border = vim.g.border_default,
   },
+  jump = {
+    -- float = true,
+    severity = vim.diagnostic.severity.ERROR,
+  },
 }
 
 -- To make CopilotChat completion behave well
 vim.opt.completeopt = { 'menuone', 'popup', 'noinsert' }
 
 vim.opt.termguicolors = true
-
-vim.fn.sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '', numhl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '', numhl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '', numhl = 'DiagnosticSignHint' })
-vim.fn.sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '', numhl = 'DiagnosticSignInfo' })
