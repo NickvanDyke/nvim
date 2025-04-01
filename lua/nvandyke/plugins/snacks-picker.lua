@@ -3,10 +3,10 @@ return {
   opts = {
     picker = {
       layout = {
-        preset = function ()
+        preset = function()
           return vim.o.columns > 140 and 'default' or 'vertical'
         end,
-      }
+      },
     },
   },
   keys = {
@@ -56,6 +56,13 @@ return {
     -- Grep
     {
       '<leader>sb',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = 'Buffer Lines',
+    },
+    {
+      '<C-/>',
       function()
         Snacks.picker.lines()
       end,
