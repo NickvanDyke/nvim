@@ -48,12 +48,25 @@ return {
         },
       },
 
+      ['yaml-language-server'] = {
+        settings = {
+          yaml = {
+            schemas = {
+              ['https://json.schemastore.org/circleciconfig.json'] = '/.circleci/config.yml',
+            },
+          },
+        },
+      },
       graphql = {},
       terraformls = {},
-      ['circleci-yaml-language-server'] = {},
       intelephense = {},
       cssls = {},
 
+      ['circleci-yaml-language-server'] = {
+        cmd = { 'circleci-yaml-language-server', '--stdio' },
+        filetypes = { 'yaml' },
+        root_markers = { '.circleci/config.yml' },
+      },
       harper_ls = {
         filetypes = { 'markdown' },
       },
@@ -78,5 +91,9 @@ return {
         end,
       },
     }
+
+    -- lspconfig doesn't support circleci, so set it up ourselves
+    vim.lsp.config['circleci'] = servers['circleci-yaml-language-server']
+    vim.lsp.enable 'circleci'
   end,
 }
