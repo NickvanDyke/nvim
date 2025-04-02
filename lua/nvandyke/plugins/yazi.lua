@@ -1,5 +1,6 @@
 return {
   'mikavilpas/yazi.nvim',
+  enabled = false,
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {

@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    explorer = {},
     scope = {},
     dashboard = {
       enabled = true,
@@ -38,6 +39,16 @@ return {
     styles = {},
   },
   keys = {
+    {
+      '\\',
+      function()
+        Snacks.explorer.open {
+          auto_close = true,
+          jump = { close = true },
+        }
+      end,
+      desc = 'Snacks Explorer',
+    },
     {
       '<leader>uz',
       function()
