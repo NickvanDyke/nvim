@@ -7,6 +7,15 @@ return {
           return vim.o.columns > 140 and 'default' or 'vertical'
         end,
       },
+      win = {
+        input = {
+          keys = {
+            ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
+            ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+            ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
+          },
+        },
+      },
     },
   },
   keys = {
