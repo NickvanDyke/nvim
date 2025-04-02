@@ -7,12 +7,8 @@ return {
   build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
     window = {
-      layout = 'float',
-      width = 0.69,
-      height = 0.69,
-      border = vim.g.border_default,
+      layout = 'horizontal',
     },
-    -- See Configuration section for options
   },
   cmd = { 'CopilotChat' },
   keys = {
