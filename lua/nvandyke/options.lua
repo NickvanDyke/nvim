@@ -123,7 +123,6 @@ vim.diagnostic.config {
   },
   jump = {
     -- float = true,
-    severity = vim.diagnostic.severity.ERROR,
   },
 }
 
