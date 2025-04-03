@@ -14,7 +14,7 @@ return {
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
         -- Create some toggle mappings
-        Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>uS'
+        -- Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>uS'
         Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>uw'
         Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map '<leader>uL'
         Snacks.toggle.diagnostics():map '<leader>uD'
@@ -37,7 +37,7 @@ return {
               require('smear_cursor').enabled = state
             end,
           })
-          :map '<leader>ua'
+          :map '<leader>uS'
         Snacks.toggle
           .new({
             id = 'screenkey',
@@ -59,9 +59,8 @@ return {
             set = function(state)
               Snacks.toggle.scroll():set(state)
               Snacks.toggle.line_number():set(state)
+              Snacks.toggle.get('smear_cursor'):set(state)
               vim.o.cursorline = state
-              -- idk how to toggle this via the custom toggle above
-              require('smear_cursor').enabled = state
             end,
           })
           :map '<leader>up'
