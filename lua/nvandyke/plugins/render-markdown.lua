@@ -6,7 +6,6 @@ return {
   },
   opts = {
     heading = {
-      enabled = false,
       sign = false,
     },
   },
