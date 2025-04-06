@@ -54,7 +54,7 @@ return {
           .new({
             name = 'Pairing',
             get = function()
-              return Snacks.scroll.enabled and Snacks.toggle.line_number():get() and require('smear_cursor').enabled
+              return Snacks.toggle.scroll():get() and Snacks.toggle.line_number():get() and Snacks.toggle.get('smear_cursor'):get() and vim.o.cursorline
             end,
             set = function(state)
               Snacks.toggle.scroll():set(state)
