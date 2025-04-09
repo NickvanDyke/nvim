@@ -66,13 +66,12 @@ return {
           .new({
             name = 'Pairing',
             get = function()
-              return Snacks.toggle.scroll():get() and Snacks.toggle.line_number():get() and Snacks.toggle.get('smear_cursor'):get() and vim.o.cursorline
+              return Snacks.toggle.scroll():get() and Snacks.toggle.line_number():get() and Snacks.toggle.get('smear_cursor'):get()
             end,
             set = function(state)
               Snacks.toggle.scroll():set(state)
               Snacks.toggle.line_number():set(state)
               Snacks.toggle.get('smear_cursor'):set(state)
-              vim.o.cursorline = state
             end,
           })
           :map '<leader>up'
