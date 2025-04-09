@@ -51,7 +51,7 @@ return {
             icon = '',
             fmt = function(str)
               -- 8 is just enough to show the Jira ticket
-              if string.len(str) > 8 and vim.o.columns <= 100 then
+              if string.len(str) > 8 and vim.o.columns < 120 then
                 return string.sub(str, 1, 8) .. '…'
               else
                 return str
