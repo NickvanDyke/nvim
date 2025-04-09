@@ -12,11 +12,6 @@ vim.g.winblend_default = 20
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -59,20 +54,18 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
--- vim.opt.list = true
--- vim.opt.listchars = {
---   tab = '» ',
---   trail = '·',
---   nbsp = '␣',
--- }
+vim.opt.list = true
+vim.opt.listchars = {
+  tab = '» ',
+  trail = '·',
+  nbsp = '␣',
+}
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
--- Show which line your cursor is on
--- vim.opt.cursorline = true
+vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep around the cursor.
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 
@@ -100,23 +93,27 @@ vim.opt.wrap = false
 vim.diagnostic.config {
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = ' ',
-      [vim.diagnostic.severity.WARN] = ' ',
-      [vim.diagnostic.severity.INFO] = ' ',
-      [vim.diagnostic.severity.HINT] = '󰠠 ',
+      [vim.diagnostic.severity.ERROR] = '',
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰠠',
     },
-    linehl = {
-      [vim.diagnostic.severity.ERROR] = 'Error',
-      [vim.diagnostic.severity.WARN] = 'Warn',
-      [vim.diagnostic.severity.INFO] = 'Info',
-      [vim.diagnostic.severity.HINT] = 'Hint',
-    },
+    -- linehl = {
+    --   [vim.diagnostic.severity.ERROR] = 'Error',
+    --   [vim.diagnostic.severity.WARN] = 'Warn',
+    --   [vim.diagnostic.severity.INFO] = 'Info',
+    --   [vim.diagnostic.severity.HINT] = 'Hint',
+    -- },
   },
-  virtual_text = {
-    prefix = '',
-  },
+  -- virtual_text = {
+  --   current_line = true,
+  --   prefix = '',
+  -- },
   severity_sort = true,
   underline = true,
+  virtual_lines = {
+    current_line = true,
+  },
   float = {
     source = true,
     border = vim.g.border_default,
