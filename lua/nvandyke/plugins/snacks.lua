@@ -25,7 +25,19 @@ return {
         },
       },
     },
-    lazygit = { enabled = true },
+    lazygit = {
+      enabled = true,
+      -- https://github.com/folke/snacks.nvim/issues/46
+      -- Change default settings to open edits in the current tab, not a new one
+      config = {
+        os = {
+          edit = '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{filename}})',
+          editAtLine = '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "q" &&  nvim --server "$NVIM" --remote {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")',
+          editAtLineAndWait = 'nvim +{{line}} {{filename}}',
+          openDirInEditor = '[ -z "$NVIM" ] && (nvim -- {{dir}}) || (nvim --server "$NVIM" --remote-send "q" && nvim --server "$NVIM" --remote {{dir}})',
+        },
+      },
+    },
     words = { enabled = true },
     statuscolumn = { enabled = false },
     notifier = { -- Used by noice
