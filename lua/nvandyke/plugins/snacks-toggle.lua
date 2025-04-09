@@ -28,6 +28,18 @@ return {
         Snacks.toggle.scroll():map '<leader>us'
         Snacks.toggle
           .new({
+            id = 'autoformat',
+            name = 'Autoformat',
+            get = function()
+              return not vim.g.disable_autoformat
+            end,
+            set = function(state)
+              vim.g.disable_autoformat = not state
+            end,
+          })
+          :map '<leader>uf'
+        Snacks.toggle
+          .new({
             id = 'smear_cursor',
             name = 'Smear Cursor',
             get = function()
