@@ -24,7 +24,7 @@ return {
       function()
         Snacks.picker.smart()
       end,
-      desc = 'Smart',
+      desc = 'Smart Picker',
     },
     {
       '<leader>sg',
@@ -40,29 +40,7 @@ return {
       end,
       desc = 'Find Neovim Config File',
     },
-    {
-      '<leader>gF',
-      function()
-        Snacks.picker.git_files()
-      end,
-      desc = 'Find Git Files',
-    },
-    -- git
-    {
-      '<leader>gc',
-      function()
-        Snacks.picker.git_log()
-      end,
-      desc = 'Git Commits',
-    },
-    {
-      '<leader>gs',
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = 'Git Status',
-    },
-    -- Grep
+    -- grep
     {
       '<leader>sb',
       function()
@@ -99,6 +77,13 @@ return {
         Snacks.picker.registers()
       end,
       desc = 'Registers',
+    },
+    {
+      '<leader>s/',
+      function()
+        Snacks.picker.search_history()
+      end,
+      desc = 'Search History',
     },
     {
       '<leader>sa',
