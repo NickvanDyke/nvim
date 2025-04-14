@@ -1,6 +1,6 @@
 return {
   'mikavilpas/yazi.nvim',
-  ft = 'netrw',
+  cmd = 'Yazi',
   keys = {
     -- 👇 in this section, choose your own keymappings!
     {
@@ -37,5 +37,9 @@ return {
     -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
     -- vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
+
+    if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv(0)) == 1 then
+      vim.cmd 'Yazi'
+    end
   end,
 }
