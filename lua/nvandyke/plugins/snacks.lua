@@ -17,14 +17,6 @@ return {
       },
     },
     bigfile = { enabled = true },
-    terminal = {
-      enabled = true,
-      win = {
-        wo = {
-          winbar = '',
-        },
-      },
-    },
     lazygit = {
       enabled = true,
       -- https://github.com/folke/snacks.nvim/issues/46
@@ -116,14 +108,6 @@ return {
         Snacks.words.jump(-vim.v.count1)
       end,
       desc = 'Prev Reference',
-    },
-    {
-      '<C-`>',
-      function()
-        Snacks.terminal()
-      end,
-      desc = 'Toggle Terminal',
-      mode = { 'n', 't' },
     },
     {
       '<leader>gg',
