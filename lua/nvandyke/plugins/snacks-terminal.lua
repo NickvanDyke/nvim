@@ -14,9 +14,17 @@ return {
     {
       '<C-`>',
       function()
-        Snacks.terminal()
+        Snacks.terminal.toggle()
       end,
-      desc = 'Toggle Terminal',
+      desc = 'Toggle newest terminal',
+      mode = { 'n', 't' },
+    },
+    {
+      '<S-C-`>',
+      function()
+        Snacks.terminal.open()
+      end,
+      desc = 'Open new terminal',
       mode = { 'n', 't' },
     },
   },
