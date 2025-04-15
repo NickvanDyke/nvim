@@ -5,6 +5,7 @@ return {
   opts = {
     -- explorer = {},
     scope = {},
+    indent = {},
     dashboard = {
       enabled = true,
 
