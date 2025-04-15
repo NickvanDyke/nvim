@@ -122,12 +122,19 @@ return {
     }
 
     local function createFilepathHighlights()
-      local lualine_hl = vim.api.nvim_get_hl_by_name('lualine_c_normal', true)
-      local comment_hl = vim.api.nvim_get_hl_by_name('Comment', true)
+      local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_insert' })
+      local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
       -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
 
-      vim.api.nvim_set_hl(0, 'LualineFilepath', { italic = true, fg = comment_hl.foreground, bg = lualine_hl.background })
-      vim.api.nvim_set_hl(0, 'LualineFilename', { bold = true, bg = lualine_hl.background })
+      vim.api.nvim_set_hl(0, 'LualineFilepath', {
+        italic = true,
+        bg = lualine_hl.bg,
+        fg = comment_hl.fg,
+      })
+      vim.api.nvim_set_hl(0, 'LualineFilename', {
+        bold = true,
+        bg = lualine_hl.bg,
+      })
       -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
     end
 
