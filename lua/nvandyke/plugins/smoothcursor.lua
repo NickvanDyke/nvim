@@ -42,7 +42,7 @@ return {
 
     sync_cursor_to_mode()
 
-    vim.api.nvim_create_autocmd('ModeChanged', {
+    vim.api.nvim_create_autocmd({ 'ModeChanged', 'ColorScheme' }, {
       -- TODO: doesn't seem to trigger immediately for some mode changes.
       -- Lualine sometimes does and sometimes doesn't.
       callback = sync_cursor_to_mode,
