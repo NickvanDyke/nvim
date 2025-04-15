@@ -1,5 +1,6 @@
 -- Technically we can configure LSPs ourselves more easily now with Neovim 0.11
 -- But Mason as a portable package manager is nice.
+-- And lspconfig saves a lot of boilerplate and maintenance.
 return {
   'williamboman/mason.nvim',
   cmd = { 'LspInfo', 'LspStart', 'LspRestart', 'Mason' },
@@ -65,7 +66,8 @@ return {
 
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
-      'stylua', -- Used to format Lua code
+      'stylua',
+      'black',
     })
 
     -- mason-lspconfig provides this too, but then it also calls setup for the LSP

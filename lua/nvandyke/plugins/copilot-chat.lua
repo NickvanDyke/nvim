@@ -7,7 +7,7 @@ return {
   build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
     window = {
-      layout = 'horizontal',
+      -- layout = 'horizontal',
     },
   },
   cmd = { 'CopilotChat' },

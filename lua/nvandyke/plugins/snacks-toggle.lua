@@ -13,8 +13,6 @@ return {
         end
         vim.print = _G.dd -- Override print to use snacks for `:=` command
 
-        -- Create some toggle mappings
-        -- Snacks.toggle.option('spell', { name = 'Spelling' }):map '<leader>uS'
         Snacks.toggle.option('wrap', { name = 'Wrap' }):map '<leader>uw'
         Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map '<leader>uL'
         Snacks.toggle.diagnostics():map '<leader>uD'

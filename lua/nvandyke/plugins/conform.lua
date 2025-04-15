@@ -27,7 +27,7 @@ return { -- Formatting
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { lsp_format = 'fallback', stop_after_first = true },
+      python = { 'black', lsp_format = 'fallback', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
       javascriptreact = { 'prettierd', 'prettier', lsp_format = 'fallback', stop_after_first = true },
