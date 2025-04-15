@@ -1,6 +1,15 @@
 return {
   'pmizio/typescript-tools.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'neovim/nvim-lspconfig',
+    {
+      'Sebastian-Nielsen/better-type-hover',
+      opts = {
+        openTypeDocKeymap = 'K',
+      },
+    },
+  },
   ft = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
   opts = {
     settings = {
