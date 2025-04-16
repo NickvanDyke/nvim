@@ -47,9 +47,9 @@ vim.opt.updatetime = 250
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
 
--- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitkeep = 'cursor'
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
