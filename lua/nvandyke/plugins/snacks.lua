@@ -37,11 +37,6 @@ return {
       top_down = false,
       style = 'compact',
     },
-    scratch = {
-      -- ft = 'md', -- Causes error rn
-    },
-    dim = {},
-    styles = {},
   },
   keys = {
     -- {
