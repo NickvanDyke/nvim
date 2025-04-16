@@ -122,7 +122,8 @@ return {
     }
 
     local function createFilepathHighlights()
-      local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_insert' })
+      -- FIX: background gets out of sync after changing colorscheme
+      local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
       -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
 
