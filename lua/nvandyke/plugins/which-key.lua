@@ -50,6 +50,10 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>d', group = 'Debug', mode = { 'n', 'v' } },
       { '<leader>u', group = 'User' },
       { '<leader>o', group = 'Orgmode' },
+      { 'gr', group = 'LSP' },
+      { 'gl', group = 'Log' },
+      { 'gL', group = 'Log w/ operator' },
+      { 'gp', group = 'LSP (preview)' },
     },
   },
 }
