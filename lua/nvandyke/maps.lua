@@ -31,8 +31,9 @@ vim.keymap.set('n', 'y\\', function()
   vim.notify('Copied: ' .. vim.fn.expand '%:.')
 end, { desc = 'Copy relative filepath to clipboard' })
 
-vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
-vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
+-- Mapped in quicker.lua
+-- vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
+-- vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
 
 vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
 
