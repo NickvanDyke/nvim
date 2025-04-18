@@ -6,6 +6,9 @@ return {
       -- Kinda disorienting to have this constantly flicker.
       -- Doesn't play well with floating windows either.
       signcolumn = false,
+
+      -- it doesn't properly re-enable cursorline when returning from a floating window
+      cursorline = false,
     },
   },
   keys = {
