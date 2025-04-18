@@ -1,6 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
-  event = 'BufReadPre',
+  -- event = 'BufReadPre',
+  -- ft = { 'snacks_terminal' },
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
@@ -123,6 +124,7 @@ return {
 
     local function createFilepathHighlights()
       -- FIX: background gets out of sync after changing colorscheme
+      -- `lualine_hl` ends up as an empty dict after changing colorscheme...?
       local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
       -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)

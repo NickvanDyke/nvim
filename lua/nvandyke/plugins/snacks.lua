@@ -31,7 +31,7 @@ return {
         },
       },
     },
-    words = { enabled = true },
+    -- words = { enabled = true },
     statuscolumn = { enabled = false },
     notifier = { -- Used by noice
       top_down = false,
