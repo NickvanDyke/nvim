@@ -10,6 +10,9 @@ return {
       cursor = '',
       speed = 31,
       disable_float_win = true, -- looks bad in Arrow
+      -- Show over signs in the sign column.
+      -- Consistent and then don't have to deal with also syncing CursorLineSign bg.
+      priority = 100,
     }
 
     local mode_to_hl_name = {
@@ -33,6 +36,10 @@ return {
         fg = mode_color,
         bg = cursorline_bg,
       })
+
+      -- vim.api.nvim_set_hl(0, 'CursorLineSign', {
+      --   bg = cursorline_bg,
+      -- })
     end
 
     sync_cursor_to_mode()
