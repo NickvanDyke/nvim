@@ -60,16 +60,27 @@ return {
             end,
           })
           :map '<leader>uK'
+
+        local pairingToggles = {
+          'smear_cursor',
+          'scroll',
+          'screenkey',
+          'dim',
+        }
         Snacks.toggle
           .new({
             name = 'Pairing',
             get = function()
-              return Snacks.toggle.scroll():get() and Snacks.toggle.line_number():get() and Snacks.toggle.get('smear_cursor'):get()
+              local state = true
+              for _, id in ipairs(pairingToggles) do
+                state = state and Snacks.toggle.get(id):get()
+              end
+              return state
             end,
             set = function(state)
-              Snacks.toggle.scroll():set(state)
-              Snacks.toggle.line_number():set(state)
-              Snacks.toggle.get('smear_cursor'):set(state)
+              for _, id in ipairs(pairingToggles) do
+                Snacks.toggle.get(id):set(state)
+              end
             end,
           })
           :map '<leader>up'
