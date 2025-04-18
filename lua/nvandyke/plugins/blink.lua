@@ -16,9 +16,6 @@ return {
       -- use_nvim_cmp_as_default = true,
     },
     sources = {
-      per_filetype = {
-        org = { 'orgmode' },
-      },
       providers = {
         snippets = {
           enabled = false,
@@ -29,11 +26,6 @@ return {
           -- min_keyword_length = 3,
           score_offset = -3,
         },
-        -- orgmode = {
-        --   name = 'Orgmode',
-        --   module = 'orgmode.org.autocompletion.blink',
-        --   fallbacks = { 'buffer' },
-        -- },
       },
     },
     completion = {
