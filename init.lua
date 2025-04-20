@@ -20,15 +20,15 @@ vim.opt.rtp:prepend(lazypath)
 if vim.env.PROF then
   -- example for lazy.nvim
   -- change this to the correct path for your plugin manager
-  local snacks = vim.fn.stdpath("data") .. "/lazy/snacks.nvim"
+  local snacks = vim.fn.stdpath 'data' .. '/lazy/snacks.nvim'
   vim.opt.rtp:append(snacks)
-  require("snacks.profiler").startup({
+  require('snacks.profiler').startup {
     startup = {
-      event = "VimEnter", -- stop profiler on this event. Defaults to `VimEnter`
+      event = 'VimEnter', -- stop profiler on this event. Defaults to `VimEnter`
       -- event = "UIEnter",
       -- event = "VeryLazy",
     },
-  })
+  }
 end
 
 require('lazy').setup({
@@ -36,6 +36,7 @@ require('lazy').setup({
   { import = 'nvandyke.themes' },
 }, {
   ui = {
+    border = vim.o.winborder,
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
@@ -75,5 +76,4 @@ require('lazy').setup({
   },
 })
 
-vim.cmd('colorscheme rose-pine')
-
+vim.cmd 'colorscheme rose-pine'

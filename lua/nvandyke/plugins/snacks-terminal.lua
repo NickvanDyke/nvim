@@ -7,6 +7,7 @@ return {
         wo = {
           winbar = '',
         },
+        border = vim.o.winborder
       },
     },
   },
