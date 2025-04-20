@@ -1,7 +1,7 @@
 return {
   'otavioschwanck/arrow.nvim',
   keys = {
-    '\'',
+    "'",
     'm',
   },
   dependencies = {
@@ -11,13 +11,10 @@ return {
   },
   opts = {
     show_icons = true,
-    leader_key = '\'', -- Recommended to be a single key
+    leader_key = "'", -- Recommended to be a single key
     buffer_leader_key = 'm', -- Per Buffer Mappings
     separate_by_branch = true,
     save_key = 'git_root',
-    window = {
-      border = vim.g.border_default,
-    },
     mappings = {
       open_vertical = '<C-v>',
       open_horizontal = '<C-s>',

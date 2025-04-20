@@ -4,9 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- kinda breaks a lot of plugins still; puts borders where they shouldn't be
--- vim.o.winborder = 'rounded'
-vim.g.border_default = 'rounded'
+-- FIX: breaks noice/nui: https://github.com/folke/noice.nvim/issues/1082
+vim.o.winborder = 'rounded'
+
 vim.g.winblend_default = 20
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
@@ -120,7 +120,6 @@ vim.diagnostic.config {
   },
   float = {
     source = true,
-    border = vim.g.border_default,
   },
   jump = {
     -- float = true,

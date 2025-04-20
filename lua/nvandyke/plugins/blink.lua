@@ -54,7 +54,6 @@ return {
         auto_show = true,
         treesitter_highlighting = true,
         window = {
-          border = vim.g.border_default,
           winblend = vim.g.winblend_default,
         },
       },
@@ -65,7 +64,6 @@ return {
         enabled = true,
       },
       window = {
-        border = vim.g.border_default,
         winblend = vim.g.winblend_default,
         treesitter_highlighting = true,
         show_documentation = true,
