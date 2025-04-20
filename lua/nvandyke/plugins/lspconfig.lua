@@ -8,6 +8,7 @@ return {
     require('mason').setup()
 
     -- Extend lspconfig defaults
+    -- Atm it doesn't support merging with lsp/<server>.lua
     vim.lsp.config('harper_ls', {
       filetypes = { 'markdown' },
     })
