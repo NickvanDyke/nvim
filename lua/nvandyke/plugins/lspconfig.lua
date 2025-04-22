@@ -33,6 +33,7 @@ return {
       'yamlls',
       'circleci',
       'harper_ls',
+      'eslint',
     }
   end,
 }
