@@ -10,6 +10,10 @@ return {
     edit = {
       autosave = true,
     },
+    highlight = {
+      -- Better highlighting
+      load_buffers = true,
+    },
   },
   keys = {
     {
