@@ -6,6 +6,7 @@ return {
   opts = {
     opts = {
       signcolumn = 'yes',
+      winfixheight = false, -- Let focus.nvim handle the height
     },
     edit = {
       autosave = true,
@@ -13,6 +14,9 @@ return {
     highlight = {
       -- Better highlighting
       load_buffers = true,
+    },
+    follow = {
+      enable = true,
     },
   },
   keys = {
