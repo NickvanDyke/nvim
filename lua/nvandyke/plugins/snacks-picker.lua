@@ -47,14 +47,32 @@ return {
     {
       '<leader>sb',
       function()
-        Snacks.picker.lines()
+        Snacks.picker.lines {
+          win = {
+            preview = {
+              wo = {
+                -- Matches current window options so layout doesn't shift
+                signcolumn = 'yes',
+              },
+            },
+          },
+        }
       end,
       desc = 'Buffer Lines',
     },
     {
       '<C-/>',
       function()
-        Snacks.picker.lines()
+        Snacks.picker.lines {
+          win = {
+            preview = {
+              wo = {
+                -- Matches current window options so layout doesn't shift
+                signcolumn = 'yes',
+              },
+            },
+          },
+        }
       end,
       desc = 'Buffer Lines',
     },
