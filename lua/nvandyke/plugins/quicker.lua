@@ -39,16 +39,27 @@ return {
     {
       '>',
       function()
-        require('quicker').expand { before = 2, after = 2, add_to_existing = true }
+        if vim.bo.filetype == 'qf' then
+          require('quicker').expand { before = 2, after = 2, add_to_existing = true }
+        else
+          return '>'
+        end
       end,
       desc = 'Expand quickfix context',
+      -- Causes error when it triggers the qf function. Not sure why.
+      expr = true,
     },
     {
       '<',
       function()
-        require('quicker').collapse()
+        if vim.bo.filetype == 'qf' then
+          require('quicker').collapse()
+        else
+          return '<'
+        end
       end,
       desc = 'Collapse quickfix context',
+      expr = true,
     },
   },
 }
