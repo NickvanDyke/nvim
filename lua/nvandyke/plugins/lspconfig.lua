@@ -33,6 +33,8 @@ return {
       'yamlls',
       'circleci',
       'harper_ls',
+      -- NOTE: `eslint` needs to exist in `node_modules` or globally installed.
+      -- Doesn't seem to cooperate with yarn v4 cache.
       'eslint',
     }
   end,

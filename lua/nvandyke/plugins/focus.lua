@@ -2,6 +2,10 @@ return {
   'nvim-focus/focus.nvim',
   event = 'WinNew',
   opts = {
+    autoresize = {
+      -- minwidth = 3, -- Force minimum width for the unfocused window
+      -- minheight = 3, -- Force minimum height for the unfocused window
+    },
     ui = {
       -- Kinda disorienting to have this constantly flicker.
       -- Doesn't play well with floating windows either.

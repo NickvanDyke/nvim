@@ -31,7 +31,8 @@ return {
         },
       },
     },
-    -- words = { enabled = true },
+    -- NOTE: Breaks and issues tons of warnings in VSCode Neovim
+    words = { enabled = true },
     statuscolumn = { enabled = false },
     notifier = { -- Used by noice
       top_down = false,
