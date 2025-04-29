@@ -92,8 +92,8 @@ return {
               if #parts == 1 then
                 return filename
               else
-                local path = '%#LualineFilepath#' .. table.concat(parts, '/', 1, #parts - 1) .. '/' .. '%*'
-                return path .. filename
+                local filepath = table.concat(parts, '/', 1, #parts - 1)
+                return '%#LualineFilepath#' .. filepath .. '/' .. '%*' .. filename
               end
             end,
             separator = { right = '' },
