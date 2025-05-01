@@ -1,7 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  -- event = 'BufReadPre',
-  -- ft = { 'snacks_terminal' },
+  event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'letieu/harpoon-lualine',
