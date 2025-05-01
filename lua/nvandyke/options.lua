@@ -70,8 +70,8 @@ vim.opt.inccommand = 'split'
 
 vim.opt.cursorline = true
 
-vim.opt.scrolloff = 10
-vim.opt.sidescrolloff = 10
+vim.opt.scrolloff = 11
+vim.opt.sidescrolloff = 11
 
 -- TODO: apparently Postgres files should still be .sql?
 vim.filetype.add {
