@@ -7,21 +7,26 @@ return {
         wo = {
           winbar = '',
         },
-        border = vim.o.winborder
+        border = vim.o.winborder,
       },
     },
   },
   keys = {
     {
-      '<C-`>',
+      '<C-t>',
       function()
-        Snacks.terminal.toggle()
+        Snacks.terminal.toggle(nil, {
+          win = {
+            position = 'float',
+            -- backdrop = false,
+          },
+        })
       end,
       desc = 'Toggle newest terminal',
       mode = { 'n', 't' },
     },
     {
-      '<S-C-`>',
+      '<S-C-t>',
       function()
         Snacks.terminal.open()
       end,
