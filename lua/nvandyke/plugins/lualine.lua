@@ -19,7 +19,10 @@ return {
 
     -- FIX: Flickering. https://github.com/nvim-lualine/lualine.nvim/issues/1280
 
+    vim.o.laststatus = 3 -- works better with globalstatus
+
     require('lualine').setup {
+      globalstatus = true,
       options = {
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
