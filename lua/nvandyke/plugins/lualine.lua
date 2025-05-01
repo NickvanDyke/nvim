@@ -4,6 +4,7 @@ return {
   -- ft = { 'snacks_terminal' },
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    'letieu/harpoon-lualine',
   },
   config = function()
     local function diff_source()
@@ -107,6 +108,15 @@ return {
               return package.loaded['arrow'] ~= nil
             end,
             color = { fg = '#66ff66' },
+          },
+          {
+            'harpoon2',
+            icon = '♥',
+            indicators = { '1', '2', '3', '4', '5' },
+            active_indicators = { '1', '2', '3', '4', '5' },
+            color_active = { fg = '#66ff66' },
+            _separator = ' ',
+            no_harpoon = '...',
           },
         },
         lualine_y = {
