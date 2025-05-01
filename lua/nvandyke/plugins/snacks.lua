@@ -31,7 +31,7 @@ return {
         },
       },
     },
-    -- NOTE: Breaks and issues tons of warnings in VSCode Neovim
+    -- WARNING: Breaks and issues tons of warnings in VSCode Neovim
     words = { enabled = true },
     statuscolumn = { enabled = false },
     notifier = { -- Used by noice
@@ -109,7 +109,10 @@ return {
     {
       '<leader>gg',
       function()
-        Snacks.lazygit.open()
+        Snacks.lazygit.open {
+          -- Current file's directory, in case Neovim's cwd is not a git repository (like the parent of many repos)
+          cwd = vim.fn.expand '%:h',
+        }
       end,
       desc = 'LazyGit',
     },
