@@ -19,9 +19,8 @@ vim.keymap.set('n', '<S-Down>', '<cmd>resize -3<cr>', { desc = 'Decrease Window 
 vim.keymap.set('n', '<S-Right>', '<cmd>vertical resize +3<cr>', { desc = 'Increase Window Width', silent = true })
 vim.keymap.set('n', '<S-Left>', '<cmd>vertical resize -3<cr>', { desc = 'Decrease Window Width', silent = true })
 
--- Don't think I really need? Treewalker swap is better.
--- vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
--- vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected lines down', silent = true })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected lines up', silent = true })
 
 vim.keymap.set('x', 'P', '"_dP', { desc = 'Paste over selection without yanking' })
 
