@@ -9,9 +9,20 @@ return {
 
     -- Extend lspconfig defaults
     -- Atm it doesn't support merging with lsp/<server>.lua
+
+    -- https://writewithharper.com/docs/integrations/neovim
     vim.lsp.config('harper_ls', {
       filetypes = { 'markdown' },
+      settings = {
+        ['harper-ls'] = {
+          linters = {
+            -- SentenceCapitalization = false,
+            SpellCheck = false,
+          },
+        },
+      },
     })
+
     vim.lsp.config('yamlls', {
       settings = {
         yaml = {
