@@ -88,8 +88,6 @@ vim.opt.swapfile = false
 -- vim.opt.autowrite = true
 vim.opt.autoread = true
 
-vim.opt.laststatus = 3
-
 vim.opt.cmdheight = 0
 
 vim.opt.wrap = false
