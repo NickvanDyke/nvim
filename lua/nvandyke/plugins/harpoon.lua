@@ -9,7 +9,7 @@ return {
   },
   keys = {
     {
-      '<leader>a',
+      '<leader>H',
       function()
         require('harpoon'):list():add()
       end,
