@@ -1,6 +1,8 @@
 return {
   'Chaitanyabsprip/fastaction.nvim',
-  opts = {},
+  opts = {
+    dismiss_keys = { 'q', '<Esc>', '<C-c>' },
+  },
   keys = {
     {
       'gra',
