@@ -50,13 +50,13 @@ return {
           :map '<leader>uS'
         Snacks.toggle
           .new({
-            id = 'screenkey',
-            name = 'Screenkey',
+            id = 'showkeys',
+            name = 'Showkeys',
             get = function()
-              return require('screenkey').is_active()
+              return require('showkeys.state').visible
             end,
             set = function(state)
-              require('screenkey').toggle()
+              require('showkeys').toggle()
             end,
           })
           :map '<leader>uK'
@@ -64,7 +64,7 @@ return {
         local pairingToggles = {
           'smear_cursor',
           'scroll',
-          'screenkey',
+          'showkeys',
           'dim',
         }
         Snacks.toggle
