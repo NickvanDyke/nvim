@@ -15,37 +15,54 @@ return {
       priority = 100,
     }
 
-    local mode_to_hl_name = {
-      ['n'] = 'lualine_a_normal',
-      ['i'] = 'lualine_a_insert',
-      ['v'] = 'lualine_a_visual',
-      ['V'] = 'lualine_a_visual',
-      ['^V'] = 'lualine_a_visual', -- TODO: doesn't get selected?
-      ['R'] = 'lualine_a_replace',
-      ['c'] = 'lualine_a_command',
-      -- ['t'] = 'lualine_a_terminal',
-    }
+    local function get_simple_mode()
+      -- See `:h mode()`, there are a lot lol
+      local modes = {
+        ['n'] = 'normal',
+        ['i'] = 'insert',
+        ['v'] = 'visual',
+        ['ctrl-v'] = 'visual', -- idk why this one doesn't match
+        ['s'] = 'visual',
+        ['r'] = 'replace',
+        ['c'] = 'command',
+        ['t'] = 'terminal',
+      }
 
-    local function sync_cursor_to_mode()
-      local mode_hl = mode_to_hl_name[vim.fn.mode()] or 'lualine_a_normal'
+      local mode = nil
+      for mode_char, simple_mode in pairs(modes) do
+        if string.find(string.lower(vim.fn.mode()), string.lower(mode_char)) == 1 then
+          mode = simple_mode
+          break
+        end
+      end
 
-      local mode_color = vim.api.nvim_get_hl(0, { name = mode_hl }).bg
-      local cursorline_bg = vim.api.nvim_get_hl(0, { name = 'CursorLine' }).bg
-
-      vim.api.nvim_set_hl(0, 'SmoothCursor', {
-        fg = mode_color,
-        bg = cursorline_bg,
-      })
-
-      -- vim.api.nvim_set_hl(0, 'CursorLineSign', {
-      --   bg = cursorline_bg,
-      -- })
+      return mode
     end
 
-    sync_cursor_to_mode()
+    local function sync_cursor_sign()
+      local mode = get_simple_mode()
+      local mode_hl_name = mode and ('lualine_a_' .. mode) or 'lualine_a_normal'
+      local mode_hl = vim.api.nvim_get_hl(0, { name = mode_hl_name })
+      vim.api.nvim_set_hl(0, 'SmoothCursor', {
+        fg = mode_hl.bg,
+      })
+    end
+
+    local function sync_cursorlinesign()
+      local cursorline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
+      vim.api.nvim_set_hl(0, 'CursorLineSign', {
+        bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
+      })
+    end
 
     vim.api.nvim_create_autocmd({ 'ModeChanged', 'ColorScheme' }, {
-      callback = sync_cursor_to_mode,
+      callback = function()
+        sync_cursor_sign()
+        sync_cursorlinesign()
+      end,
     })
+
+    sync_cursor_sign()
+    sync_cursorlinesign()
   end,
 }
