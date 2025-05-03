@@ -42,7 +42,6 @@ return { -- Useful plugin to show you pending keybinds.
 
     spec = {
       { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' } },
-      { '<leader>c', group = 'Code', mode = { 'n', 'x' } },
       { '<leader>s', group = 'Search' },
       { '<leader>l', group = 'Lazy' },
       { '<leader>t', group = 'Toggle' },
