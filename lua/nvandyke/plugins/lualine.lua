@@ -7,17 +7,6 @@ return {
     'letieu/harpoon-lualine',
   },
   config = function()
-    local function diff_source()
-      local gitsigns = vim.b.gitsigns_status_dict
-      if gitsigns then
-        return {
-          added = gitsigns.added,
-          modified = gitsigns.changed,
-          removed = gitsigns.removed,
-        }
-      end
-    end
-
     vim.o.laststatus = 3 -- works better with globalstatus
 
     require('lualine').setup {
@@ -63,9 +52,15 @@ return {
           },
           {
             'diff',
-            source = diff_source,
-            cond = function()
-              return false
+            source = function()
+              local gitsigns = vim.b.gitsigns_status_dict
+              if gitsigns then
+                return {
+                  added = gitsigns.added,
+                  modified = gitsigns.changed,
+                  removed = gitsigns.removed,
+                }
+              end
             end,
           },
           'diagnostics',
@@ -80,11 +75,11 @@ return {
               local parts = vim.split(str, '/')
               local filename = parts[#parts]
 
-              local gitsigns = vim.b.gitsigns_status_dict
               local filename_hl_name = 'LualineFilename'
-              if gitsigns and (gitsigns.changed ~= nil or gitsigns.added ~= nil or gitsigns.removed ~= nil) then
-                filename_hl_name = 'LualineFilenameChanged'
-              end
+              -- local gitsigns = vim.b.gitsigns_status_dict
+              -- if gitsigns and (gitsigns.changed ~= nil or gitsigns.added ~= nil or gitsigns.removed ~= nil) then
+              --   filename_hl_name = 'LualineFilenameChanged'
+              -- end
 
               filename = '%#' .. filename_hl_name .. '#' .. filename .. ' %*'
 
