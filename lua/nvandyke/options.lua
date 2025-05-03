@@ -124,7 +124,4 @@ vim.diagnostic.config {
   },
 }
 
--- To make CopilotChat completion behave well
-vim.opt.completeopt = { 'menuone', 'popup', 'noinsert' }
-
 vim.opt.termguicolors = true

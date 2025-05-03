@@ -22,6 +22,7 @@ return {
     },
   },
   init = function()
+    vim.opt.completeopt = { 'popup' }
     vim.cmd [[cab cc CopilotChat]]
   end,
 }
