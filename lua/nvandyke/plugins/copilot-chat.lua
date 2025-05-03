@@ -7,18 +7,29 @@ return {
   build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
     window = {
-      -- layout = 'horizontal',
+      layout = 'float',
+      width = 0.69,
+      height = 0.69,
     },
+    prompts = {},
   },
   cmd = { 'CopilotChat' },
   keys = {
     {
-      mode = { 'n', 'x' },
       '<leader>c',
       function()
         require('CopilotChat').toggle()
       end,
+      mode = { 'n', 'x' },
       desc = 'CopilotChat',
+    },
+    {
+      '<leader>C',
+      function()
+        require('CopilotChat').select_prompt()
+      end,
+      mode = { 'n', 'x' },
+      desc = 'CopilotChat Prompts',
     },
   },
   init = function()
