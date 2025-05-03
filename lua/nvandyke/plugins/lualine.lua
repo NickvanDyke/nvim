@@ -78,19 +78,17 @@ return {
             padding = 0,
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
-              local filename
+              local filename = parts[#parts]
 
-              -- local gitsigns = vim.b.gitsigns_status_dict
-              -- if gitsigns and (gitsigns.changed > 0 or gitsigns.added > 0 or gitsigns.removed > 0) then
-              --   filename = '%#LualineFilenameChanged#' .. parts[#parts] .. ' %*'
-              -- else
-              filename = '%#LualineFilename#' .. parts[#parts] .. ' %*'
-              -- end
+              local gitsigns = vim.b.gitsigns_status_dict
+              local filename_hl_name = 'LualineFilename'
+              if gitsigns and (gitsigns.changed ~= nil or gitsigns.added ~= nil or gitsigns.removed ~= nil) then
+                filename_hl_name = 'LualineFilenameChanged'
+              end
 
-              -- local filename_to_show = filename:match '^index%..+$'
-              --     -- prefix parent dir
-              --     and vim.fn.fnamemodify(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(ctx.bufnr), ':h'), ':t') .. '/' .. filename
-              --   or filename
+              filename = '%#' .. filename_hl_name .. '#' .. filename .. ' %*'
+
+              -- local is_index_file = filename:match '^index%..+$'
               if #parts == 1 then
                 return filename
               else
@@ -135,7 +133,6 @@ return {
     local function createFilepathHighlights()
       local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
-      -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
 
       vim.api.nvim_set_hl(0, 'LualineFilepath', {
         italic = true,
@@ -146,7 +143,11 @@ return {
         bold = true,
         bg = lualine_hl.bg,
       })
-      -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
+      vim.api.nvim_set_hl(0, 'LualineFilenameChanged', {
+        bold = true,
+        fg = vim.api.nvim_get_hl(0, { name = 'GitSignsChange' }).fg,
+        bg = lualine_hl.bg,
+      })
     end
 
     vim.api.nvim_create_autocmd('ColorScheme', {
