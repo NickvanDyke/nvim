@@ -3,6 +3,7 @@ return {
   event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
+    'ThePrimeagen/harpoon',
     'letieu/harpoon-lualine',
   },
   config = function()
