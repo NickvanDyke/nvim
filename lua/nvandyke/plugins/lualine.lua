@@ -102,22 +102,21 @@ return {
             separator = { right = '' },
           },
           { 'filetype', icon_only = true, padding = 0, section_separators = { left = '' } },
-          {
-            function(ctx)
-              return require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
-            end,
-            cond = function()
-              return package.loaded['arrow'] ~= nil
-            end,
-            color = { fg = '#66ff66' },
-          },
+          -- {
+          --   function(ctx)
+          --     return require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
+          --   end,
+          --   cond = function()
+          --     return package.loaded['arrow'] ~= nil
+          --   end,
+          --   color = { fg = '#66ff66' },
+          -- },
           {
             'harpoon2',
             icon = '♥',
             indicators = { '1', '2', '3', '4', '5' },
             active_indicators = { '1', '2', '3', '4', '5' },
             color_active = { fg = '#66ff66' },
-            _separator = ' ',
             no_harpoon = '...',
           },
         },

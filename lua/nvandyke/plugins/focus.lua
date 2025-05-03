@@ -1,5 +1,6 @@
 return {
   'nvim-focus/focus.nvim',
+  enabled = false,
   event = 'WinNew',
   opts = {
     autoresize = {
