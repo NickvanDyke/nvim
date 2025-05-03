@@ -11,17 +11,17 @@ return {
         vim.keymap.set(mode, l, r, opts)
       end
 
-      map('n', ']g', function()
+      map('n', ']h', function()
         if vim.wo.diff then
-          vim.cmd.normal { ']g', bang = true }
+          vim.cmd.normal { ']h', bang = true }
         else
           gitsigns.nav_hunk 'next'
         end
       end, { desc = 'Next Git hunk' })
 
-      map('n', '[g', function()
+      map('n', '[h', function()
         if vim.wo.diff then
-          vim.cmd.normal { '[g', bang = true }
+          vim.cmd.normal { '[h', bang = true }
         else
           gitsigns.nav_hunk 'prev'
         end
@@ -36,10 +36,9 @@ return {
         gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
       end, { desc = 'reset hunk' })
       -- normal mode
-      map('n', '<leader>gs', gitsigns.stage_hunk, { desc = 'Stage hunk' })
+      map('n', '<leader>gs', gitsigns.stage_hunk, { desc = 'Un/Stage hunk' })
       map('n', '<leader>gr', gitsigns.reset_hunk, { desc = 'Reset hunk' })
       map('n', '<leader>gS', gitsigns.stage_buffer, { desc = 'Stage buffer' })
-      map('n', '<leader>gu', gitsigns.undo_stage_hunk, { desc = 'Undo stage hunk' })
       map('n', '<leader>gR', gitsigns.reset_buffer, { desc = 'Reset buffer' })
       map('n', '<leader>gp', gitsigns.preview_hunk, { desc = 'Preview hunk' })
       map('n', '<leader>gd', gitsigns.diffthis, { desc = 'Diff against index' })
