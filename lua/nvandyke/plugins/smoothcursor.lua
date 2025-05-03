@@ -9,7 +9,6 @@ return {
     require('smoothcursor').setup {
       cursor = '',
       speed = 31,
-      disable_float_win = true, -- looks bad in Arrow
       -- Show over signs in the sign column.
       -- Consistent and then don't have to deal with also syncing CursorLineSign bg.
       priority = 100,
@@ -55,10 +54,13 @@ return {
       })
     end
 
+    -- NOTE: ModeChanged seemingly doesn't fire until after potential keymaps. Not sure how Lualine responds immediately.
     vim.api.nvim_create_autocmd({ 'ModeChanged', 'ColorScheme' }, {
       callback = function()
-        sync_cursor_sign()
-        sync_cursorlinesign()
+        vim.schedule(function()
+          sync_cursor_sign()
+          sync_cursorlinesign()
+        end)
       end,
     })
 

@@ -134,8 +134,6 @@ return {
     }
 
     local function createFilepathHighlights()
-      -- FIX: background gets out of sync after changing colorscheme
-      -- `lualine_hl` ends up as an empty dict after changing colorscheme...?
       local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
       -- local gitsigns_hl = vim.api.nvim_get_hl_by_name('GitSignsChange', true)
@@ -152,14 +150,13 @@ return {
       -- vim.api.nvim_set_hl(0, 'LualineFilenameChanged', { bold = true, fg = gitsigns_hl.foreground, bg = lualine_hl.background })
     end
 
-    -- Must be called after colorscheme is loaded.
-    -- This also re-creates the highlight groups when the colorscheme changes.
     vim.api.nvim_create_autocmd('ColorScheme', {
-      callback = createFilepathHighlights,
+      callback = function()
+        -- Schedule so we can wait for lualine to set up its highlights
+        vim.schedule(createFilepathHighlights)
+      end,
     })
 
-    -- We're lazy-loaded, so the colorscheme has already been set by the time we register the autocmd.
-    -- So call it immediately.
     createFilepathHighlights()
   end,
 }
