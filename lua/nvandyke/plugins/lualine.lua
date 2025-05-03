@@ -33,8 +33,7 @@ return {
         lualine_b = {
           {
             function()
-              ---@diagnostic disable-next-line: undefined-field
-              return vim.fn.fnamemodify(vim.loop.cwd(), ':t')
+              return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
             end,
             icon = '', -- Same as my powerline prompt
           },
