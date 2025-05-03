@@ -69,7 +69,6 @@ return {
           {
             'filename',
             path = 1,
-            padding = 0,
             fmt = function(str, ctx)
               local parts = vim.split(str, '/')
               local filename = parts[#parts]
@@ -80,7 +79,7 @@ return {
               --   filename_hl_name = 'LualineFilenameChanged'
               -- end
 
-              filename = '%#' .. filename_hl_name .. '#' .. filename .. ' %*'
+              filename = '%#' .. filename_hl_name .. '#' .. filename .. '%*'
 
               -- local is_index_file = filename:match '^index%..+$'
               if #parts == 1 then
