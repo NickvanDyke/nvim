@@ -99,15 +99,6 @@ return {
             separator = { right = '' },
           },
           { 'filetype', icon_only = true, padding = 0, section_separators = { left = '' } },
-          -- {
-          --   function(ctx)
-          --     return require('arrow.statusline').text_for_statusline_with_icons(ctx.bufnr)
-          --   end,
-          --   cond = function()
-          --     return package.loaded['arrow'] ~= nil
-          --   end,
-          --   color = { fg = '#66ff66' },
-          -- },
           {
             'harpoon2',
             icon = '♥',
