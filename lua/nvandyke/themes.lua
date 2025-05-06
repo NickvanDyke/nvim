@@ -1,16 +1,9 @@
 return {
-  {
-    'rose-pine/neovim',
-    priority = 1000,
-    config = function()
-      require('rose-pine').setup {
-        styles = {
-          transparency = false,
-        },
-      }
-    end,
-  },
+  { 'rose-pine/neovim', lazy = true },
   { 'folke/tokyonight.nvim', lazy = true },
+  { 'projekt0n/github-nvim-theme', lazy = true },
+  { 'catppuccin/nvim', lazy = true },
+  { 'sainnhe/everforest', lazy = true },
   {
     'ellisonleao/gruvbox.nvim',
     lazy = true,
@@ -25,14 +18,5 @@ return {
         },
       }
     end,
-  },
-  { 'projekt0n/github-nvim-theme', lazy = true },
-  {
-    'catppuccin/nvim',
-    lazy = true,
-  },
-  {
-    'sainnhe/everforest',
-    lazy = true,
   },
 }
