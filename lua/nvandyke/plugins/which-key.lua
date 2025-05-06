@@ -3,6 +3,8 @@ return { -- Useful plugin to show you pending keybinds.
   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
   opts = {
     preset = 'helix',
+    -- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
+    show_help = false,
     icons = {
       -- set icon mappings to true if you have a Nerd Font
       mappings = false, -- vim.g.have_nerd_font,
