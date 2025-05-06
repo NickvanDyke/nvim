@@ -17,7 +17,7 @@ return {
       function()
         Snacks.terminal.toggle(nil, {
           win = {
-            position = 'float',
+            -- position = 'float',
             -- backdrop = false,
           },
         })
