@@ -4,7 +4,18 @@ return {
   lazy = false,
   opts = {
     -- explorer = {},
-    scope = {},
+    scope = {
+      keys = {
+        textobject = {
+          ii = {
+            linewise = true,
+          },
+          ai = {
+            linewise = true,
+          },
+        },
+      },
+    },
     indent = {},
     dashboard = {
       enabled = true,
