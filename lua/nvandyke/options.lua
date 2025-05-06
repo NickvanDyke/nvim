@@ -107,15 +107,15 @@ vim.diagnostic.config {
     --   [vim.diagnostic.severity.HINT] = 'Hint',
     -- },
   },
-  -- virtual_text = {
+  virtual_text = {
+    current_line = true,
+    prefix = '',
+  },
+  -- virtual_lines = {
   --   current_line = true,
-  --   prefix = '',
   -- },
   severity_sort = true,
   underline = true,
-  virtual_lines = {
-    current_line = true,
-  },
   float = {
     source = true,
   },
