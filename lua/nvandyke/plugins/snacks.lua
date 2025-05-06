@@ -5,6 +5,9 @@ return {
   opts = {
     -- explorer = {},
     scope = {
+      -- The textobjects ignore cursor column;
+      -- ignore it for the scope guide too so we know what we'll select
+      cursor = false,
       keys = {
         textobject = {
           ii = {
