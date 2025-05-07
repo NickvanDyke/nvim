@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter-context',
-  enabled = false,
+  enabled = true,
   event = 'BufReadPost',
   opts = {
     multiwindow = true,

@@ -4,6 +4,7 @@ return {
   { 'projekt0n/github-nvim-theme', lazy = true },
   { 'catppuccin/nvim', lazy = true },
   { 'sainnhe/everforest', lazy = true },
+  { 'webhooked/kanso.nvim', lazy = true },
   {
     'ellisonleao/gruvbox.nvim',
     lazy = true,

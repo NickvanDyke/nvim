@@ -9,8 +9,8 @@ return {
     require('smoothcursor').setup {
       cursor = '',
       speed = 31,
-      -- Show over signs in the sign column.
-      -- Consistent and then don't have to deal with also syncing CursorLineSign bg.
+      disable_float_win = true,
+      -- Show over signs in the sign column
       priority = 100,
     }
 

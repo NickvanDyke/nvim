@@ -122,7 +122,4 @@ vim.diagnostic.config {
   float = {
     source = true,
   },
-  jump = {
-    -- float = true,
-  },
 }
