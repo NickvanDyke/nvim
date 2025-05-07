@@ -92,6 +92,9 @@ vim.opt.cmdheight = 0
 
 vim.opt.wrap = false
 
+vim.opt.termguicolors = true
+vim.opt.guicursor:append 't:ver25'
+
 vim.diagnostic.config {
   signs = {
     text = {
@@ -123,5 +126,3 @@ vim.diagnostic.config {
     -- float = true,
   },
 }
-
-vim.opt.termguicolors = true
