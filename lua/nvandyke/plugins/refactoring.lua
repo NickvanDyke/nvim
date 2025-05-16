@@ -7,7 +7,7 @@ return {
   keys = {
     {
       mode = { 'n', 'x' },
-      'grR',
+      '<leader>R',
       function()
         require('refactoring').select_refactor {}
       end,

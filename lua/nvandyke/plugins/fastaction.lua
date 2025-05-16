@@ -10,6 +10,7 @@ return {
         require('fastaction').code_action()
       end,
       mode = { 'n', 'x' },
+      desc = 'Code Action',
     },
   },
 }

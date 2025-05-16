@@ -33,7 +33,12 @@ return {
         lualine_b = {
           {
             function()
-              return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+              local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+              if string.len(cwd) > 8 and vim.o.columns < 120 then
+                return string.sub(cwd, 1, 8) .. '…'
+              else
+                return cwd
+              end
             end,
             icon = '', -- Same as my powerline prompt
           },
