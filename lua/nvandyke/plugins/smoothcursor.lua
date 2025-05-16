@@ -20,7 +20,7 @@ return {
         ['n'] = 'normal',
         ['i'] = 'insert',
         ['v'] = 'visual',
-        ['ctrl-v'] = 'visual', -- idk why this one doesn't match
+        ['ctrl-v'] = 'visual', -- FIX: idk why this one doesn't match
         ['s'] = 'visual',
         ['r'] = 'replace',
         ['c'] = 'command',
@@ -47,6 +47,7 @@ return {
       })
     end
 
+    -- FIX: In some colorschemes, the bg follows the smooth cursor, not the cursorline...
     local function sync_cursorlinesign()
       local cursorline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
       vim.api.nvim_set_hl(0, 'CursorLineSign', {
