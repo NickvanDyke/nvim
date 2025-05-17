@@ -96,7 +96,7 @@ return {
             end,
             separator = { right = '' },
           },
-          { 'filetype', icon_only = true, padding = 0, section_separators = { left = '' } },
+          { 'filetype', icon_only = true, padding = 0 },
           {
             'harpoon2',
             icon = '♥',
@@ -121,7 +121,23 @@ return {
             fmt = function(str)
               return str:gsub('[%[%]|]', '')
             end,
-          }
+          },
+        },
+        lualine_z = {
+          {
+            'location',
+          },
+          {
+            function()
+              local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
+
+              local progress = math.floor((vim.fn.line '.' / vim.fn.line '$') * 100)
+              local indexBucket = math.min(#chars, math.floor(progress / (100 / #chars)) + 1)
+              local progressChar = chars[indexBucket]
+
+              return progressChar
+            end,
+          },
         },
       },
     }
