@@ -5,6 +5,9 @@ return {
       sources = {
         files = { hidden = true },
       },
+      layout = {
+        preset = 'vertical',
+      },
       win = {
         input = {
           keys = {
