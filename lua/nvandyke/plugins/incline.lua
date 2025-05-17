@@ -1,6 +1,6 @@
 return {
   'b0o/incline.nvim',
-  event = 'WinNew',
+  event = 'VeryLazy',
   config = function()
     -- TODO: delayed appearance on first open.
     -- Not critical rn because `hide.only_win = true`
