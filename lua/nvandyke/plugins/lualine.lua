@@ -115,6 +115,13 @@ return {
             end,
             color = { fg = '#ff0000' },
           },
+          {
+            'searchcount',
+            icon = '',
+            fmt = function(str)
+              return str:gsub('[%[%]|]', '')
+            end,
+          }
         },
       },
     }
