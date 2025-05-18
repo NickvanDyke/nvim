@@ -4,6 +4,15 @@ return {
   dependencies = {
     'mason-org/mason.nvim',
   },
+  keys = {
+    {
+      '<leader>F',
+      function()
+        vim.cmd('silent! LspEslintFixAll')
+      end,
+      desc = 'Fix all'
+    }
+  },
   config = function()
     -- Add installed executables to PATH
     require('mason').setup()
@@ -49,5 +58,10 @@ return {
       -- Doesn't seem to cooperate with yarn v4 cache.
       'eslint',
     }
+
+    -- vim.api.nvim_create_autocmd('BufWritePre', {
+    --   pattern = { '*.js', '*.ts', '*.jsx', '*.tsx' },
+    --   command = 'LspEslintFixAll',
+    -- })
   end,
 }

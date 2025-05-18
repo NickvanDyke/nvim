@@ -2,8 +2,6 @@ return {
   'b0o/incline.nvim',
   event = 'VeryLazy',
   config = function()
-    -- TODO: delayed appearance on first open.
-    -- Not critical rn because `hide.only_win = true`
     local helpers = require 'incline.helpers'
     local devicons = require 'nvim-web-devicons'
     require('incline').setup {
@@ -22,9 +20,16 @@ return {
         return {
           { '', guifg = ft_color or '#44406e' },
           { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) },
-          { ' ' .. filename .. ' ', gui = modified and 'bold,italic' or nil, guibg = '#44406e' },
+          { ' ' .. filename .. ' ', gui = modified and 'bold,italic' or 'bold', guibg = '#44406e' },
         }
       end,
     }
+
+    -- FIX: Doesn't work
+    vim.api.nvim_create_autocmd('ColorScheme', {
+      callback = function()
+        vim.schedule(require('incline').refresh)
+      end,
+    })
   end,
 }
