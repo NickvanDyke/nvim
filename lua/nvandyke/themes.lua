@@ -2,6 +2,7 @@ return {
   { 'rose-pine/neovim', lazy = true },
   { 'folke/tokyonight.nvim', lazy = true },
   { 'projekt0n/github-nvim-theme', lazy = true },
+  -- Disabled cuz aider.nvim looks weird when it tries to auto-use it...
   { 'catppuccin/nvim', lazy = true },
   { 'sainnhe/everforest', lazy = true },
   { 'webhooked/kanso.nvim', lazy = true },
