@@ -69,11 +69,7 @@ return {
           },
           'diagnostics',
         },
-        lualine_c = {
-          {
-            'lsp_status',
-          },
-        },
+        lualine_c = {},
         lualine_x = {
           {
             'filename',
