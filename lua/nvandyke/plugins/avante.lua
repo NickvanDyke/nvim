@@ -8,6 +8,13 @@ return {
     -- https://github.com/yetone/avante.nvim/issues/1048
     -- auto_suggestions_provider = 'copilot',
 
+    windows = {
+      width = 50,
+      ask = {
+        floating = true,
+      },
+    },
+
     -- openai = {
     --   endpoint = 'https://api.githubcopilot.com',
     --   model = 'gpt-4o', -- your desired model (or use gpt-4o, etc.)
@@ -26,26 +33,7 @@ return {
     'MunifTanjim/nui.nvim',
     'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
-    {
-      'saghen/blink.cmp',
-      dependencies = {
-        'Kaiser-Yang/blink-cmp-avante',
-      },
-      opts = {
-        sources = {
-          default = { 'avante' },
-          providers = {
-            avante = {
-              module = 'blink-cmp-avante',
-              name = 'Avante',
-              opts = {
-                -- options for blink-cmp-avante
-              },
-            },
-          },
-        },
-      },
-    },
+    'saghen/blink.cmp',
     {
       -- support for image pasting
       'HakonHarnes/img-clip.nvim',
