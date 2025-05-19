@@ -1,9 +1,6 @@
 return {
   'MeanderingProgrammer/render-markdown.nvim',
-  ft = {
-    'markdown',
-    'copilot-chat',
-  },
+  ft = { 'markdown' },
   opts = {
     heading = {
       sign = false,

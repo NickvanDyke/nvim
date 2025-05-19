@@ -1,5 +1,6 @@
 return {
   'GeorgesAlkhouri/nvim-aider',
+  enabled = false,
   cmd = 'Aider',
   dependencies = { 'folke/snacks.nvim' },
   keys = {
@@ -14,20 +15,13 @@ return {
   },
   opts = {
     auto_reload = true,
+    args = {
+      '--no-auto-commits',
+      '--dark-mode',
+      -- '--code-theme material',
+    },
     picker_cfg = {
       preset = 'select',
-    },
-    -- TODO: Do these do anything...? Completion bg color is really gross
-    theme = {
-      user_input_color = '#a6da95',
-      tool_output_color = '#8aadf4',
-      tool_error_color = '#ed8796',
-      tool_warning_color = '#eed49f',
-      assistant_output_color = '#c6a0f6',
-      completion_menu_color = '#cad3f5',
-      completion_menu_bg_color = '#24273a',
-      completion_menu_current_color = '#181926',
-      completion_menu_current_bg_color = '#f4dbd6',
     },
   },
 }
