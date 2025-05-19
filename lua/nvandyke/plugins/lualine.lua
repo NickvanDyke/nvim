@@ -34,8 +34,9 @@ return {
           {
             function()
               local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-              if string.len(cwd) > 8 and vim.o.columns < 120 then
-                return string.sub(cwd, 1, 8) .. '…'
+              local target_len = vim.o.columns / 7
+              if string.len(cwd) > target_len then
+                return string.sub(cwd, 1, target_len) .. '…'
               else
                 return cwd
               end
@@ -46,9 +47,9 @@ return {
             'b:gitsigns_head', -- NOTE: based on open file I think. Thus disappears when e.g. lazygit is focused
             icon = '',
             fmt = function(str)
-              -- 8 is just enough to show the Jira ticket
-              if string.len(str) > 8 and vim.o.columns < 120 then
-                return string.sub(str, 1, 8) .. '…'
+              local target_len = vim.o.columns / 7
+              if string.len(str) > target_len then
+                return string.sub(str, 1, target_len) .. '…'
               else
                 return str
               end
