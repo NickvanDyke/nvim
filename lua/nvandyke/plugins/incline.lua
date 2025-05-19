@@ -15,12 +15,13 @@ return {
       render = function(props)
         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t') or '[No Name]'
         local ft_icon, ft_color = devicons.get_icon_color(filename)
-        local modified = vim.bo[props.buf].modified
+        local is_modified = vim.bo[props.buf].modified
+        local normal_hl = vim.api.nvim_get_hl(0, { name = 'Normal' })
 
         return {
-          { '', guifg = ft_color or '#44406e' },
-          { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) },
-          { ' ' .. filename .. ' ', gui = modified and 'bold,italic' or 'bold', guibg = '#44406e' },
+          { '', guifg = ft_color or '#44406e', guibg = normal_hl.bg },
+          ft_icon and { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) },
+          { ' ' .. filename .. ' ', gui = is_modified and 'bold,italic' or 'bold', guibg = normal_hl.bg },
         }
       end,
     }
