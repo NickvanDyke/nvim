@@ -19,7 +19,7 @@ return {
         Snacks.terminal.toggle()
       end,
       desc = 'Toggle terminal',
-      mode = { 'n', 't' },
+      mode = 'n',
     },
     {
       '<leader>tf',
@@ -35,7 +35,7 @@ return {
         })
       end,
       desc = 'Toggle floating terminal',
-      mode = { 'n', 't' },
+      mode = 'n',
     },
     {
       '<leader>tn',
@@ -43,7 +43,7 @@ return {
         Snacks.terminal.open()
       end,
       desc = 'Open new terminal',
-      mode = { 'n', 't' },
+      mode = 'n',
     },
   },
 }
