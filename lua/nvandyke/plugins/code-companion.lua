@@ -5,8 +5,15 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'echasnovski/mini.diff',
   },
-  opts = {},
+  opts = {
+    display = {
+      diff = {
+        provider = 'mini_diff',
+      },
+    },
+  },
   keys = {
     {
       '<c-a>',
