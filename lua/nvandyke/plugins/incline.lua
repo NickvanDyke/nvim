@@ -20,8 +20,8 @@ return {
 
         return {
           { '', guifg = ft_color or '#44406e', guibg = normal_hl.bg },
-          ft_icon and { ft_icon, ' ', guibg = ft_color, guifg = helpers.contrast_color(ft_color) },
-          { ' ' .. filename .. ' ', gui = is_modified and 'bold,italic' or 'bold', guibg = normal_hl.bg },
+          { ft_icon, ' ', guibg = ft_color or '#44406e', guifg = helpers.contrast_color(ft_color) },
+          { ' ' .. filename .. ' ', gui = is_modified and 'bold,italic' or 'bold', guibg = '#44406e' },
         }
       end,
     }

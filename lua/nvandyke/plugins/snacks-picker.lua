@@ -2,6 +2,7 @@ return {
   'folke/snacks.nvim',
   opts = {
     picker = {
+      ui_select = true,
       sources = {
         files = { hidden = true },
       },

@@ -8,21 +8,20 @@ return {
     -- https://github.com/yetone/avante.nvim/issues/1048
     -- auto_suggestions_provider = 'copilot',
 
+    behavior = {
+      auto_apply_diff_after_generation = true,
+    },
+    suggestion = {
+      -- https://github.com/yetone/avante.nvim/issues/1048
+      debounce = 5000,
+      throttle = 5000,
+    },
     windows = {
-      width = 50,
+      width = 41,
       ask = {
-        floating = true,
+        -- floating = true,
       },
     },
-
-    -- openai = {
-    --   endpoint = 'https://api.githubcopilot.com',
-    --   model = 'gpt-4o', -- your desired model (or use gpt-4o, etc.)
-    --   timeout = 30000, -- Timeout in milliseconds, increase this for reasoning models
-    --   temperature = 0,
-    --   max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-    --   --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    -- },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
@@ -37,6 +36,7 @@ return {
     {
       -- support for image pasting
       'HakonHarnes/img-clip.nvim',
+      enabled = false,
       event = 'VeryLazy',
       opts = {
         -- recommended settings
