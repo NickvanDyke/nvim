@@ -3,6 +3,7 @@ return {
   opts = {
     terminal = {
       enabled = true,
+      auto_insert = false,
       win = {
         wo = {
           winbar = '',
@@ -13,20 +14,31 @@ return {
   },
   keys = {
     {
-      '<C-t>',
+      '<leader>tt',
       function()
-        Snacks.terminal.toggle(nil, {
-          win = {
-            -- position = 'float',
-            -- backdrop = false,
-          },
-        })
+        Snacks.terminal.toggle()
       end,
-      desc = 'Toggle newest terminal',
+      desc = 'Toggle terminal',
       mode = { 'n', 't' },
     },
     {
-      '<S-C-t>',
+      '<leader>tf',
+      function()
+        Snacks.terminal.toggle(nil, {
+          env = {
+            -- So Snacks IDs it differently
+            floating = 'true',
+          },
+          win = {
+            position = 'float',
+          },
+        })
+      end,
+      desc = 'Toggle floating terminal',
+      mode = { 'n', 't' },
+    },
+    {
+      '<leader>tn',
       function()
         Snacks.terminal.open()
       end,

@@ -54,6 +54,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>h', group = 'Harpoon' },
       { '<leader>q', group = 'Quickfix' },
       { '<leader>a', group = 'avante' },
+      { '<leader>t', group = 'Terminal' },
       { 'gr', group = 'LSP' },
       { 'gl', group = 'Log' },
       { 'gL', group = 'Log w/ operator' },
