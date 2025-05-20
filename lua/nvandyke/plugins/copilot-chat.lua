@@ -1,15 +1,9 @@
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
+  enabled = false,
   dependencies = {
     { 'zbirenbaum/copilot.lua' },
     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
-    {
-      'MeanderingProgrammer/render-markdown.nvim',
-      ft = { 'copilot-chat' },
-      opts = {
-        file_types = { 'copilot-chat' },
-      },
-    },
   },
   build = 'make tiktoken', -- Only on MacOS or Linux
   opts = {
