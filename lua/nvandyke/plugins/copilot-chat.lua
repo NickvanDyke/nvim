@@ -5,8 +5,9 @@ return {
     { 'nvim-lua/plenary.nvim' }, -- for curl, log wrapper
     {
       'MeanderingProgrammer/render-markdown.nvim',
-      ft = {
-        'copilot-chat',
+      ft = { 'copilot-chat' },
+      opts = {
+        file_types = { 'copilot-chat' },
       },
     },
   },
