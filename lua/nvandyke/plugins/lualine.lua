@@ -129,6 +129,7 @@ return {
         lualine_z = {
           {
             'location',
+            separator = '',
           },
           {
             function()
@@ -140,6 +141,8 @@ return {
 
               return progressChar
             end,
+            padding = { right = 1, left = 0 },
+            color = { fg = '#ff0000' },
           },
           {
             lualine_ai,
