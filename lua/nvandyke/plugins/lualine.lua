@@ -9,6 +9,8 @@ return {
   config = function()
     vim.o.laststatus = 3 -- works better with globalstatus
 
+    local lualine_ai = require 'nvandyke.lualine-ai'
+
     require('lualine').setup {
       globalstatus = true,
       options = {
@@ -138,6 +140,10 @@ return {
 
               return progressChar
             end,
+          },
+          {
+            lualine_ai,
+            padding = { left = 1, right = 0 },
           },
         },
       },
