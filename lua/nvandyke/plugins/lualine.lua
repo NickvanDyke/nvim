@@ -77,7 +77,7 @@ return {
           {
             'filename',
             path = 1,
-            fmt = function(str, ctx)
+            fmt = function(str)
               local parts = vim.split(str, '/')
               local filename = parts[#parts]
 
@@ -110,9 +110,13 @@ return {
           },
         },
         lualine_y = {
+          -- {
+          --   require('noice').api.status.command.get,
+          --   cond = require('noice').api.status.command.has,
+          -- },
           {
-            require('noice').api.statusline.mode.get,
-            cond = require('noice').api.statusline.mode.has,
+            require('noice').api.status.mode.get,
+            cond = require('noice').api.status.mode.has,
             fmt = function(str)
               return '󰑋 ' .. string.sub(str, #str)
             end,
