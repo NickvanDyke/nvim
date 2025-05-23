@@ -145,7 +145,7 @@ return {
 
               return progressChar
             end,
-            padding = { right = 1, left = 0 },
+            padding = { left = 0, right = 1 },
             color = { fg = '#ff0000' },
           },
           {

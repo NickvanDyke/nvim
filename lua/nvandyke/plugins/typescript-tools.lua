@@ -5,6 +5,7 @@ return {
     'neovim/nvim-lspconfig',
     {
       'Sebastian-Nielsen/better-type-hover',
+      enabled = false,
       opts = {
         openTypeDocKeymap = 'K',
       },

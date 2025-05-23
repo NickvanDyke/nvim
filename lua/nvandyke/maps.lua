@@ -3,11 +3,11 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Keybinds to make split navigation easier.
 -- Eh idk. Valuable keys.
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-q>', '<C-w><C-q>', { desc = 'Close current window' })
 
 vim.keymap.set({ 'n', 'v' }, 'H', '^', { desc = 'Move to the beginning of the line' })
 vim.keymap.set({ 'n', 'v' }, 'L', '$', { desc = 'Move to the end of the line' })
@@ -33,7 +33,7 @@ end, { desc = 'Copy relative filepath to clipboard' })
 -- vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
 -- vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
 
-vim.keymap.set('n', '<Leader>r', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
+vim.keymap.set('n', '<Leader>R', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
 
 vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
 

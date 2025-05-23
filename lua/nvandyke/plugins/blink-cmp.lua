@@ -46,7 +46,6 @@ return {
       },
       menu = {
         border = 'none',
-        winblend = vim.g.winblend_default,
         draw = {
           treesitter = { 'lsp' },
           columns = { { 'kind_icon' }, { 'label', gap = 1 }, { 'label_description' }, { 'source_name' } },
@@ -65,9 +64,6 @@ return {
       documentation = {
         auto_show = true,
         treesitter_highlighting = true,
-        window = {
-          winblend = vim.g.winblend_default,
-        },
       },
     },
     signature = {
@@ -76,7 +72,6 @@ return {
         enabled = true,
       },
       window = {
-        winblend = vim.g.winblend_default,
         treesitter_highlighting = true,
         show_documentation = true,
       },
