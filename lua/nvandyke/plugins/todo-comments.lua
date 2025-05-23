@@ -21,6 +21,6 @@ return {
     },
   },
   opts = {
-    signs = false,
+    -- signs = false,
   },
 }
