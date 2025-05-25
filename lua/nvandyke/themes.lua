@@ -4,7 +4,15 @@ return {
   { 'projekt0n/github-nvim-theme', lazy = true },
   -- Disabled cuz aider.nvim looks weird when it tries to auto-use it...
   { 'catppuccin/nvim', lazy = true },
-  { 'sainnhe/everforest', lazy = true },
+  {
+    'sainnhe/everforest',
+    lazy = true,
+    opts = {
+      overrides = {
+        NormalFloat = 'FloatBorder',
+      },
+    },
+  },
   { 'webhooked/kanso.nvim', lazy = true },
   {
     'ellisonleao/gruvbox.nvim',

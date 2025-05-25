@@ -105,7 +105,7 @@ return {
             icon = '♥',
             indicators = { '1', '2', '3', '4', '5' },
             active_indicators = { '1', '2', '3', '4', '5' },
-            color_active = { fg = '#66ff66' },
+            color_active = { fg = '#A7C080' },
             no_harpoon = '...',
           },
         },
