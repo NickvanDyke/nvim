@@ -3,7 +3,6 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
-    explorer = {},
     bigfile = { enabled = true },
     lazygit = {
       enabled = true,
@@ -27,13 +26,6 @@ return {
     },
   },
   keys = {
-    {
-      '\\',
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = 'Snacks Explorer',
-    },
     {
       '<leader>uz',
       function()
