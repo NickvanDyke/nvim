@@ -1,5 +1,6 @@
 return {
   'okuuva/auto-save.nvim',
+  enabled = false,
   event = { 'InsertLeave', 'TextChanged' },
   opts = {
     -- noautocmd = true, -- Don't run autocmds, specifically Conform auto-format

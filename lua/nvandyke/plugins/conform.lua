@@ -13,7 +13,7 @@ return {
     },
   },
   opts = {
-    format_on_save = function(bufnr)
+    format_on_save = function()
       if vim.g.disable_autoformat then
         return
       end
