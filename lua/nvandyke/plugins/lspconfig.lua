@@ -8,10 +8,10 @@ return {
     {
       '<leader>F',
       function()
-        vim.cmd('silent! LspEslintFixAll')
+        vim.cmd 'silent! LspEslintFixAll'
       end,
-      desc = 'Fix all'
-    }
+      desc = 'Fix all',
+    },
   },
   config = function()
     -- Add installed executables to PATH
