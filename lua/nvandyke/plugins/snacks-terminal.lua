@@ -15,31 +15,31 @@ return {
   },
   keys = {
     {
-      '<leader>tt',
+      '<c-t>',
       function()
         Snacks.terminal.toggle()
       end,
       desc = 'Toggle terminal',
-      mode = 'n',
+      mode = { 'n', 't' },
     },
+    -- {
+    --   '<leader>tf',
+    --   function()
+    --     Snacks.terminal.toggle(nil, {
+    --       env = {
+    --         -- So Snacks IDs it differently
+    --         floating = 'true',
+    --       },
+    --       win = {
+    --         position = 'float',
+    --       },
+    --     })
+    --   end,
+    --   desc = 'Toggle floating terminal',
+    --   mode = 'n',
+    -- },
     {
-      '<leader>tf',
-      function()
-        Snacks.terminal.toggle(nil, {
-          env = {
-            -- So Snacks IDs it differently
-            floating = 'true',
-          },
-          win = {
-            position = 'float',
-          },
-        })
-      end,
-      desc = 'Toggle floating terminal',
-      mode = 'n',
-    },
-    {
-      '<leader>tn',
+      '<s-c-t>',
       function()
         Snacks.terminal.open()
       end,
