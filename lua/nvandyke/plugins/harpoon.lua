@@ -9,14 +9,14 @@ return {
   },
   keys = {
     {
-      '<leader>ha',
+      '<c-a>',
       function()
         require('harpoon'):list():add()
       end,
       desc = 'Add file to harpoon',
     },
     {
-      '<leader>he',
+      '<c-e>',
       function()
         require('harpoon').ui:toggle_quick_menu(require('harpoon'):list(), {
           border = vim.o.winborder,

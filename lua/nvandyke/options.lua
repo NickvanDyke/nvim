@@ -80,9 +80,10 @@ vim.filetype.add {
   },
 }
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
+-- I prefer tabs but the formatters for my most-used languages don't :(
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 vim.opt.swapfile = false
 -- vim.opt.autowrite = true

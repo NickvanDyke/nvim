@@ -1,7 +1,8 @@
 return {
   'olimorris/codecompanion.nvim',
   -- enabled = false,
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
+  cmd = 'CodeCompanion',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
@@ -16,19 +17,19 @@ return {
   },
   keys = {
     {
-      '<c-a>',
+      '<c-x>',
       '<cmd>CodeCompanionActions<cr>',
       mode = { 'n', 'v' },
       noremap = true,
       silent = true,
     },
-    {
-      '<leader>c',
-      '<cmd>CodeCompanionChat Toggle<cr>',
-      mode = { 'n', 'v' },
-      noremap = true,
-      silent = true,
-    },
+    -- {
+    --   '<leader>c',
+    --   '<cmd>CodeCompanionChat Toggle<cr>',
+    --   mode = { 'n', 'v' },
+    --   noremap = true,
+    --   silent = true,
+    -- },
     {
       'ga',
       '<cmd>CodeCompanionChat Add<cr>',

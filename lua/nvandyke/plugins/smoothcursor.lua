@@ -1,6 +1,6 @@
 return {
   'gen740/SmoothCursor.nvim',
-  event = 'BufReadPost',
+  event = 'VeryLazy',
   dependencies = {
     'nvim-lualine/lualine.nvim',
   },

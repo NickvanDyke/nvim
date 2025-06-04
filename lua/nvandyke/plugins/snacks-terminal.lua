@@ -1,3 +1,5 @@
+-- FIX: `OA` on up arrow press,
+-- and ignoring first keypress after normal -> terminal mode
 return {
   'folke/snacks.nvim',
   opts = {

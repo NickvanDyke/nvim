@@ -182,7 +182,5 @@ return {
         vim.schedule(createFilepathHighlights)
       end,
     })
-
-    createFilepathHighlights()
   end,
 }

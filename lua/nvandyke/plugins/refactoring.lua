@@ -7,11 +7,11 @@ return {
   keys = {
     {
       mode = { 'n', 'x' },
-      '<leader>r',
+      '<leader>R',
       function()
         require('refactoring').select_refactor()
       end,
-      desc = 'Inline Variable',
+      desc = 'Refactor',
     },
     -- TODO: Try refactoring.debug instead of timber
   },
