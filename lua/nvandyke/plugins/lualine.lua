@@ -46,7 +46,7 @@ return {
             icon = '', -- Same as my powerline prompt
           },
           {
-            'b:gitsigns_head', -- NOTE: based on open file I think. Thus disappears when e.g. lazygit is focused
+            'branch',
             icon = '',
             fmt = function(str)
               local target_len = vim.o.columns / 7
@@ -58,17 +58,7 @@ return {
             end,
           },
           {
-            'diff',
-            source = function()
-              local gitsigns = vim.b.gitsigns_status_dict
-              if gitsigns then
-                return {
-                  added = gitsigns.added,
-                  modified = gitsigns.changed,
-                  removed = gitsigns.removed,
-                }
-              end
-            end,
+            'b:minidiff_summary_string',
           },
           'diagnostics',
         },
@@ -167,11 +157,6 @@ return {
       })
       vim.api.nvim_set_hl(0, 'LualineFilename', {
         bold = true,
-        bg = lualine_hl.bg,
-      })
-      vim.api.nvim_set_hl(0, 'LualineFilenameChanged', {
-        bold = true,
-        fg = vim.api.nvim_get_hl(0, { name = 'GitSignsChange' }).fg,
         bg = lualine_hl.bg,
       })
     end
