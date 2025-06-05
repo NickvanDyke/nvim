@@ -57,12 +57,13 @@ return {
               end
             end,
           },
+        },
+        lualine_c = {
           {
             'b:minidiff_summary_string',
           },
           'diagnostics',
         },
-        lualine_c = {},
         lualine_x = {
           {
             'filename',
@@ -87,9 +88,22 @@ return {
                 return '%#LualineFilepath#' .. filepath .. '/' .. '%*' .. filename
               end
             end,
-            separator = { right = '' },
+            separator = '',
           },
-          { 'filetype', icon_only = true, padding = 0 },
+          { 'filetype', icon_only = true, padding = 0, separator = '' },
+          {
+            function()
+              local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
+
+              local progress = math.floor((vim.fn.line '.' / vim.fn.line '$') * 100)
+              local indexBucket = math.min(#chars, math.floor(progress / (100 / #chars)) + 1)
+              local progressChar = chars[indexBucket]
+
+              return progressChar
+            end,
+            padding = { left = 0, right = 1 },
+            color = { fg = '#ff0000' },
+          },
           {
             'harpoon2',
             icon = '♥',
@@ -121,23 +135,10 @@ return {
           },
         },
         lualine_z = {
-          {
-            'location',
-            separator = '',
-          },
-          {
-            function()
-              local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
-
-              local progress = math.floor((vim.fn.line '.' / vim.fn.line '$') * 100)
-              local indexBucket = math.min(#chars, math.floor(progress / (100 / #chars)) + 1)
-              local progressChar = chars[indexBucket]
-
-              return progressChar
-            end,
-            padding = { left = 0, right = 1 },
-            color = { fg = '#ff0000' },
-          },
+          -- {
+          --   'location',
+          --   separator = '',
+          -- },
           {
             lualine_ai,
             padding = { left = 1, right = 0 },
