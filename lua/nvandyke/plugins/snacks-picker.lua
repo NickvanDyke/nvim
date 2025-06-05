@@ -20,8 +20,8 @@ return {
         },
         preview = {
           wo = {
-            number = false,
-            relativenumber = false,
+            number = vim.o.number,
+            relativenumber = vim.o.relativenumber,
             signcolumn = 'no',
           },
         },

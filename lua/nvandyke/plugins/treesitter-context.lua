@@ -4,7 +4,7 @@ return {
   event = 'BufReadPost',
   opts = {
     multiwindow = true,
-    line_numbers = false,
+    line_numbers = vim.o.number or vim.o.relativenumber,
     multiline_threshold = 7,
     mode = 'cursor',
     -- separator = '.',
