@@ -11,6 +11,15 @@ return {
     { '<leader>a-', '<cmd>Aider drop<cr>', desc = 'Drop File' },
     { '<leader>ar', '<cmd>Aider add readonly<cr>', desc = 'Add Read-Only' },
     { '<leader>aR', '<cmd>Aider reset<cr>', desc = 'Reset Session' },
+    {
+      '<leader>aG',
+      function()
+        for _, tag in ipairs(require('grapple').tags() or {}) do
+          require('nvim_aider').api.add_file(tag.path)
+        end
+      end,
+      desc = 'Add Grapple Files',
+    },
   },
   opts = {
     auto_reload = true,
