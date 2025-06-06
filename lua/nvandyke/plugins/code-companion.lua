@@ -1,7 +1,7 @@
 return {
   'olimorris/codecompanion.nvim',
-  -- enabled = false,
-  -- event = 'VeryLazy',
+  enabled = false,
+  event = 'VeryLazy',
   cmd = 'CodeCompanion',
   dependencies = {
     'nvim-lua/plenary.nvim',
