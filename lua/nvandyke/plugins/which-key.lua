@@ -51,7 +51,6 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>d', group = 'Debug', mode = { 'n', 'v' } },
       { '<leader>u', group = 'User' },
       { '<leader>c', group = 'CodeCompanion' },
-      { '<leader>h', group = 'Harpoon' },
       { '<leader>q', group = 'Quickfix' },
       { '<leader>a', group = 'Aider' },
       { '<leader>t', group = 'Terminal' },

@@ -3,8 +3,6 @@ return {
   event = 'VeryLazy',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
-    'ThePrimeagen/harpoon',
-    'letieu/harpoon-lualine',
   },
   config = function()
     vim.o.laststatus = 3 -- works better with globalstatus
@@ -105,12 +103,10 @@ return {
             color = { fg = '#ff0000' },
           },
           {
-            'harpoon2',
-            icon = '♥',
-            indicators = { '1', '2', '3', '4', '5' },
-            active_indicators = { '1', '2', '3', '4', '5' },
-            color_active = { fg = '#A7C080' },
-            no_harpoon = '...',
+            'grapple',
+            active = '%%#GrappleActive#%s%%* ',
+            inactive = '%s ',
+            padding = { right = 0, left = 1 },
           },
         },
         lualine_y = {
@@ -147,28 +143,33 @@ return {
       },
     }
 
-    local function createFilepathHighlights()
-      local lualine_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
+    local function createHighlights()
+      local lualine_a_hl = vim.api.nvim_get_hl(0, { name = 'lualine_a_normal' })
+      local lualine_c_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
 
       vim.api.nvim_set_hl(0, 'LualineFilepath', {
         italic = true,
-        bg = lualine_hl.bg,
+        bg = lualine_c_hl.bg,
         fg = comment_hl.fg,
       })
       vim.api.nvim_set_hl(0, 'LualineFilename', {
         bold = true,
-        bg = lualine_hl.bg,
+        bg = lualine_c_hl.bg,
+      })
+      vim.api.nvim_set_hl(0, 'GrappleActive', {
+        bold = true,
+        fg = lualine_a_hl.bg,
       })
     end
 
     vim.api.nvim_create_autocmd('ColorScheme', {
       callback = function()
         -- Schedule so we can wait for lualine to set up its highlights
-        vim.schedule(createFilepathHighlights)
+        vim.schedule(createHighlights)
       end,
     })
 
-    createFilepathHighlights()
+    createHighlights()
   end,
 }
