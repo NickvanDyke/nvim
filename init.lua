@@ -79,4 +79,5 @@ require('lazy').setup({
 
 
 -- FIX: Seems to immediately load lualine (before VeryLazy) because it registers a ColorScheme autocmd in `config`
-vim.cmd 'colorscheme everforest'
+-- But only when 'everforest'...?
+vim.cmd 'colorscheme rose-pine-moon'
