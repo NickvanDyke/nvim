@@ -104,10 +104,6 @@ return {
           },
           {
             'grapple',
-            icon = '♥',
-            include_icon = false,
-            active = '%%#GrappleActive#%s%%* ',
-            inactive = '%s ',
             padding = { right = 0, left = 1 },
           },
         },

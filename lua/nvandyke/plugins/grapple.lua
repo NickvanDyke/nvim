@@ -3,7 +3,13 @@ return {
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', lazy = true },
   },
-  opts = {},
+  opts = {
+    statusline = {
+      icon = '♥',
+      active = '%%#GrappleActive#%s%%* ',
+      inactive = '%s ',
+    },
+  },
   keys = {
     {
       '<C-a>',
