@@ -55,12 +55,10 @@ return {
               end
             end,
           },
+          'diagnostics',
         },
         lualine_c = {
-          {
-            'b:minidiff_summary_string',
-          },
-          'diagnostics',
+          'b:minidiff_summary_string',
         },
         lualine_x = {
           {
@@ -133,10 +131,10 @@ return {
           --   'location',
           --   separator = '',
           -- },
-          {
-            lualine_ai,
-            padding = { left = 1, right = 0 },
-          },
+          -- {
+          --   lualine_ai,
+          --   padding = { left = 1, right = 0 },
+          -- },
         },
       },
     }
