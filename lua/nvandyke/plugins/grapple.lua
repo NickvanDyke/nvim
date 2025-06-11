@@ -7,8 +7,9 @@ return {
     scope = "git_branch",
     statusline = {
       icon = '♥',
-      active = '%%#GrappleActive#%s%%* ',
-      inactive = '%s ',
+      -- active = '%%#GrappleActive#%s%%* ',
+      active = "|%s|",
+      inactive = ' %s ',
     },
   },
   keys = {

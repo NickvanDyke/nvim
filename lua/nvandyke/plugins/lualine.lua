@@ -100,16 +100,15 @@ return {
             padding = { left = 0, right = 1 },
             color = { fg = '#ff0000' },
           },
-          {
-            'grapple',
-            padding = { right = 0, left = 1 },
-          },
         },
         lualine_y = {
           -- {
           --   require('noice').api.status.command.get,
           --   cond = require('noice').api.status.command.has,
           -- },
+          {
+            'grapple',
+          },
           {
             require('noice').api.status.mode.get,
             cond = require('noice').api.status.mode.has,
