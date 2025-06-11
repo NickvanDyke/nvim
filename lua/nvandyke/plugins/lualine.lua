@@ -58,7 +58,27 @@ return {
           'diagnostics',
         },
         lualine_c = {
-          'b:minidiff_summary_string',
+          {
+            function()
+              local summary = vim.b.minidiff_summary
+              if not summary then
+                return ''
+              end
+
+              local result = ''
+              if summary.add and summary.add > 0 then
+                result = result .. '%#MiniDiffSignAdd#+' .. summary.add .. '%*'
+              end
+              if summary.change and summary.change > 0 then
+                result = result .. ' %#MiniDiffSignChange#~' .. summary.change .. '%*'
+              end
+              if summary.delete and summary.delete > 0 then
+                result = result .. ' %#MiniDiffSignDelete#-' .. summary.delete .. '%*'
+              end
+
+              return result
+            end,
+          },
         },
         lualine_x = {
           {
@@ -154,7 +174,6 @@ return {
       })
       vim.api.nvim_set_hl(0, 'GrappleActive', {
         bold = true,
-        fg = lualine_a_hl.bg,
       })
     end
 
