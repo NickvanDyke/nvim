@@ -128,6 +128,7 @@ return {
           -- },
           {
             'grapple',
+            padding = { left = 1, right = 0 },
           },
           {
             require('noice').api.status.mode.get,
@@ -160,6 +161,7 @@ return {
 
     local function createHighlights()
       local lualine_a_hl = vim.api.nvim_get_hl(0, { name = 'lualine_a_normal' })
+      local lualine_b_hl = vim.api.nvim_get_hl(0, { name = 'lualine_b_normal' })
       local lualine_c_hl = vim.api.nvim_get_hl(0, { name = 'lualine_c_normal' })
       local comment_hl = vim.api.nvim_get_hl(0, { name = 'Comment' })
 
@@ -174,6 +176,12 @@ return {
       })
       vim.api.nvim_set_hl(0, 'GrappleActive', {
         bold = true,
+        fg = lualine_b_hl.fg,
+        bg = lualine_b_hl.bg,
+      })
+      vim.api.nvim_set_hl(0, 'GrappleInactive', {
+        fg = lualine_c_hl.fg,
+        bg = lualine_b_hl.bg,
       })
     end
 
