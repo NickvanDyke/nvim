@@ -167,11 +167,12 @@ return {
 
       vim.api.nvim_set_hl(0, 'LualineFilepath', {
         italic = true,
-        bg = lualine_c_hl.bg,
         fg = comment_hl.fg,
+        bg = lualine_c_hl.bg,
       })
       vim.api.nvim_set_hl(0, 'LualineFilename', {
         bold = true,
+        fg = lualine_c_hl.fg,
         bg = lualine_c_hl.bg,
       })
       vim.api.nvim_set_hl(0, 'GrappleActive', {
