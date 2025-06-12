@@ -8,6 +8,7 @@ return { -- Highlight, edit, and navigate code
     incremental_selection = {
       enable = true,
       keymaps = {
+        init_selection = false,
         node_incremental = '<Tab>',
         node_decremental = '<S-Tab>',
       },
