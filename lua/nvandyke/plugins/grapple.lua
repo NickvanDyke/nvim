@@ -13,7 +13,7 @@ return {
   },
   keys = {
     {
-      '<C-a>',
+      '<C-g>',
       function()
         require('grapple').toggle()
       end,
