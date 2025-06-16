@@ -181,7 +181,7 @@ return {
         bg = lualine_b_hl.bg,
       })
       vim.api.nvim_set_hl(0, 'GrappleInactive', {
-        fg = lualine_c_hl.fg,
+        fg = comment_hl.fg,
         bg = lualine_b_hl.bg,
       })
     end
