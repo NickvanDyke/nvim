@@ -67,13 +67,13 @@ return {
 
               local result = ''
               if summary.add and summary.add > 0 then
-                result = result .. '%#MiniDiffSignAdd#+' .. summary.add .. '%*'
+                result = result .. '%#MiniDiffSignAdd#+' .. summary.add .. '%* '
               end
               if summary.change and summary.change > 0 then
-                result = result .. ' %#MiniDiffSignChange#~' .. summary.change .. '%*'
+                result = result .. '%#MiniDiffSignChange#~' .. summary.change .. '%* '
               end
               if summary.delete and summary.delete > 0 then
-                result = result .. ' %#MiniDiffSignDelete#-' .. summary.delete .. '%*'
+                result = result .. '%#MiniDiffSignDelete#-' .. summary.delete .. '%*'
               end
 
               return result
@@ -127,10 +127,6 @@ return {
           --   cond = require('noice').api.status.command.has,
           -- },
           {
-            'grapple',
-            padding = { left = 1, right = 0 },
-          },
-          {
             require('noice').api.status.mode.get,
             cond = require('noice').api.status.mode.has,
             fmt = function(str)
@@ -144,6 +140,10 @@ return {
             fmt = function(str)
               return str:gsub('[%[%]|]', '')
             end,
+          },
+          {
+            'grapple',
+            padding = { left = 1, right = 0 },
           },
         },
         lualine_z = {
