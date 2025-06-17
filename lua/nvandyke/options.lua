@@ -5,9 +5,9 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- FIX: breaks noice/nui: https://github.com/folke/noice.nvim/issues/1082
-vim.o.winborder = 'rounded'
+-- vim.o.winborder = 'rounded'
 
-vim.g.winblend_default = 20
+vim.g.winblend_default = 0 --20
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -112,16 +112,24 @@ vim.diagnostic.config {
     --   [vim.diagnostic.severity.HINT] = 'Hint',
     -- },
   },
-  virtual_text = {
-    current_line = true,
-    prefix = '',
-  },
-  -- virtual_lines = {
+  -- virtual_text = {
   --   current_line = true,
+  --   prefix = '',
   -- },
+  virtual_lines = {
+    current_line = true,
+  },
   severity_sort = true,
   underline = true,
   float = {
     source = true,
   },
+  jump = {
+    severity = {
+      vim.diagnostic.severity.ERROR,
+      vim.diagnostic.severity.WARN,
+      -- vim.diagnostic.severity.INFO,
+      -- vim.diagnostic.severity.HINT,
+    }
+  }
 }

@@ -25,6 +25,23 @@ return {
             signcolumn = 'no',
           },
         },
+        list = {
+          keys = {
+            -- TODO:
+            ['a'] = {
+              function(picker)
+                require('nvim_aider').api.add_file(picker:selected())
+              end,
+              mode = { 'n' },
+            },
+            ['A'] = {
+              function(picker)
+                require('nvim_aider').api.add_read_only_file(picker:selected())
+              end,
+              mode = { 'n' },
+            },
+          },
+        },
       },
     },
   },
