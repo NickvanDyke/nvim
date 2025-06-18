@@ -151,10 +151,10 @@ return {
           --   'location',
           --   separator = '',
           -- },
-          -- {
-          --   lualine_ai,
-          --   padding = { left = 1, right = 0 },
-          -- },
+          {
+            lualine_ai,
+            padding = { left = 1, right = 0 },
+          },
         },
       },
     }

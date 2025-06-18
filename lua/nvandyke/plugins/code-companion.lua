@@ -1,6 +1,6 @@
 return {
   'olimorris/codecompanion.nvim',
-  enabled = false,
+  enabled = true,
   event = 'VeryLazy',
   cmd = 'CodeCompanion',
   dependencies = {
@@ -14,22 +14,42 @@ return {
         provider = 'mini_diff',
       },
     },
+    adapters = {
+      copilot = function()
+        return require('codecompanion.adapters').extend('copilot', {
+          schema = {
+            model = {
+              default = 'gpt-4.1',
+            },
+          },
+        })
+      end,
+    },
   },
   keys = {
     {
-      '<c-x>',
+      '<c-a>',
       '<cmd>CodeCompanionActions<cr>',
       mode = { 'n', 'v' },
       noremap = true,
       silent = true,
     },
-    -- {
-    --   '<leader>c',
-    --   '<cmd>CodeCompanionChat Toggle<cr>',
-    --   mode = { 'n', 'v' },
-    --   noremap = true,
-    --   silent = true,
-    -- },
+    {
+      '<leader>cc',
+      '<cmd>CodeCompanionChat Toggle<cr>',
+      mode = { 'n', 'v' },
+      noremap = true,
+      silent = true,
+    },
+    {
+      '<leader>cs',
+      -- TODO:
+      '<cmd>CodeCompanion ',
+      mode = { 'n', 'v' },
+      desc = "CodeCompanion Send",
+      noremap = true,
+      silent = true,
+    },
     {
       'ga',
       '<cmd>CodeCompanionChat Add<cr>',
