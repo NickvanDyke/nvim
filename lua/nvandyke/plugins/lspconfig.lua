@@ -43,6 +43,14 @@ return {
       },
     })
 
+    -- Add --cache flag
+    -- TODO: Not certain it works?
+    -- WARNING: `eslint` needs to exist in `node_modules` or globally installed.
+    -- Doesn't seem to cooperate with yarn v4 cache.
+    vim.lsp.config('eslint', {
+      cmd = { 'vscode-eslint-language-server', '--stdio', '--cache' },
+    })
+
     vim.lsp.enable {
       'lua_ls',
       'graphql',
@@ -54,8 +62,6 @@ return {
       'yamlls',
       'circleci',
       'harper_ls',
-      -- WARNING: `eslint` needs to exist in `node_modules` or globally installed.
-      -- Doesn't seem to cooperate with yarn v4 cache.
       'eslint',
     }
 
