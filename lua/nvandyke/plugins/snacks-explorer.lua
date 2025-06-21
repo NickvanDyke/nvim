@@ -7,7 +7,7 @@ return {
         explorer = {
           hidden = true,
           ignored = true,
-          layout = { layout = { position = 'right' } },
+          -- layout = { layout = { position = 'right' } },
         },
       },
     },

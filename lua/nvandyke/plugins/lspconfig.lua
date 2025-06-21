@@ -44,7 +44,7 @@ return {
     })
 
     -- Add --cache flag
-    -- TODO: Not certain it works?
+    -- TODO: Verify it works. I don't see a .eslintcache file being created.
     -- WARNING: `eslint` needs to exist in `node_modules` or globally installed.
     -- Doesn't seem to cooperate with yarn v4 cache.
     vim.lsp.config('eslint', {

@@ -22,7 +22,7 @@ return {
           wo = {
             number = vim.o.number,
             relativenumber = vim.o.relativenumber,
-            signcolumn = 'no',
+            signcolumn = vim.o.signcolumn,
           },
         },
         list = {
