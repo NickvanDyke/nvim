@@ -10,6 +10,13 @@ return {
   },
   opts = {
     display = {
+      chat = {
+        window = {
+          opts = {
+            number = false,
+          },
+        },
+      },
       diff = {
         provider = 'mini_diff',
       },
@@ -46,7 +53,7 @@ return {
       -- TODO:
       '<cmd>CodeCompanion ',
       mode = { 'n', 'v' },
-      desc = "CodeCompanion Send",
+      desc = 'CodeCompanion Send',
       noremap = true,
       silent = true,
     },
