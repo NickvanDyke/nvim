@@ -18,6 +18,22 @@ return {
     follow = {
       enable = true,
     },
+    keys = {
+      {
+        '>',
+        function()
+          require('quicker').expand { before = 2, after = 2, add_to_existing = true }
+        end,
+        desc = 'Expand quickfix context',
+      },
+      {
+        '<',
+        function()
+          require('quicker').collapse()
+        end,
+        desc = 'Collapse quickfix context',
+      },
+    },
   },
   keys = {
     {
@@ -35,31 +51,6 @@ return {
       end,
       desc = 'Toggle loclist',
       mode = 'n',
-    },
-    {
-      '>',
-      function()
-        if vim.bo.filetype == 'qf' then
-          require('quicker').expand { before = 2, after = 2, add_to_existing = true }
-        else
-          return '>'
-        end
-      end,
-      desc = 'Expand quickfix context',
-      -- Causes error when it triggers the qf function. Not sure why.
-      expr = true,
-    },
-    {
-      '<',
-      function()
-        if vim.bo.filetype == 'qf' then
-          require('quicker').collapse()
-        else
-          return '<'
-        end
-      end,
-      desc = 'Collapse quickfix context',
-      expr = true,
     },
   },
 }
