@@ -1,6 +1,5 @@
 return {
   'folke/flash.nvim',
-  ---@type Flash.Config
   opts = {
     label = {
       rainbow = {
@@ -12,10 +11,8 @@ return {
         keys = { 'f', 'F', 't', 'T' },
       },
       treesitter = {
-        jump = { pos = 'start' },
-      },
-      search = {
-        -- enabled = true,
+        -- This breaks the `treesitter` mode's selection
+        -- jump = { pos = 'start' },
       },
     },
   },
@@ -30,6 +27,14 @@ return {
       desc = 'Flash',
     },
     {
+      'r',
+      mode = 'o',
+      function()
+        require('flash').remote()
+      end,
+      desc = 'Remote Flash',
+    },
+    {
       'S',
       -- No 'x' mode because it conflicts with nvim-surround and seems kinda useless anyway (maybe I'm using it wrong)
       mode = { 'n', 'o' },
@@ -37,14 +42,6 @@ return {
         require('flash').treesitter()
       end,
       desc = 'Flash Treesitter',
-    },
-    {
-      'r',
-      mode = 'o',
-      function()
-        require('flash').remote()
-      end,
-      desc = 'Remote Flash',
     },
     {
       'R',
