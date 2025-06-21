@@ -35,7 +35,7 @@ return {
   },
   keys = {
     {
-      '<c-a>',
+      '<leader>ca',
       '<cmd>CodeCompanionActions<cr>',
       mode = { 'n', 'v' },
       noremap = true,
@@ -50,12 +50,10 @@ return {
     },
     {
       '<leader>cs',
-      -- TODO:
-      '<cmd>CodeCompanion ',
+      ':CodeCompanion ',
       mode = { 'n', 'v' },
       desc = 'CodeCompanion Send',
       noremap = true,
-      silent = true,
     },
     {
       'ga',
