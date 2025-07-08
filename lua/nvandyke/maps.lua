@@ -43,3 +43,6 @@ vim.keymap.set('i', '<C-j>', "[[<C-r>=strftime('%Y-%m-%d')<CR>]]", { desc = 'Ins
 
 vim.keymap.set('n', '<c-s>', '<cmd>write<cr>', { desc = 'Save file', silent = true })
 vim.keymap.set('n', '<s-c-s>', '<cmd>wall<cr>', { desc = 'Save all files', silent = true })
+
+vim.keymap.set('n', '<c-n>', '<cmd>bnext<cr>', { desc = 'Next buffer', silent = true })
+vim.keymap.set('n', '<c-p>', '<cmd>bprevious<cr>', { desc = 'Previous buffer', silent = true })
