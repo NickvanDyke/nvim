@@ -10,13 +10,13 @@ return {
   },
   keys = {
     {
-      '<leader>Ss',
+      '<leader>SS',
       '<Esc><cmd>CodeSnap<cr>', -- https://github.com/mistricky/codesnap.nvim/issues/103#issuecomment-2155887498
       mode = 'x',
       desc = 'Screenshot code',
     },
     {
-      '<leader>Sh',
+      '<leader>SH',
       '<Esc><cmd>CodeSnapHighlight<cr>', -- https://github.com/mistricky/codesnap.nvim/issues/103#issuecomment-2155887498
       mode = 'x',
       desc = 'Screenshot code + highlight',

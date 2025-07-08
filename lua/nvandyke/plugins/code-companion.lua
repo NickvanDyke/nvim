@@ -1,7 +1,5 @@
 return {
   'olimorris/codecompanion.nvim',
-  enabled = true,
-  event = 'VeryLazy',
   cmd = 'CodeCompanion',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -9,6 +7,12 @@ return {
     'echasnovski/mini.diff',
   },
   opts = {
+    -- system_prompt = function()
+    --   local text = io.open('~/.config/opencode/AGENTS.md', 'r'):read '*a'
+    --   -- __AUTO_GENERATED_PRINT_VAR_START__
+    --   print([==[system_prompt text:]==], vim.inspect(text)) -- __AUTO_GENERATED_PRINT_VAR_END__
+    --   return text
+    -- end,
     display = {
       chat = {
         window = {

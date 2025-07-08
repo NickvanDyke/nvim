@@ -8,19 +8,22 @@ return {
     },
     modes = {
       char = {
-        keys = { 'f', 'F', 't', 'T' },
+        jump_labels = true,
       },
       treesitter = {
         -- This breaks the `treesitter` mode's selection
         -- jump = { pos = 'start' },
       },
     },
+    prompt = {
+      enabled = false, -- looks bad until it properly supports the new vim.o.winborder
+    },
   },
   keys = {
     -- TODO: have to wait for timeoutlen when using `ys` or `yS` because of nvim-surround `ys` mapping
     {
       's',
-      mode = { 'n', 'x', 'o' },
+      mode = { 'n', 'o' },
       function()
         require('flash').jump()
       end,
@@ -45,7 +48,7 @@ return {
     },
     {
       'R',
-      mode = { 'o', 'x' },
+      mode = { 'n', 'o', 'x' },
       function()
         require('flash').treesitter_search()
       end,
