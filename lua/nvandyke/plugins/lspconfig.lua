@@ -57,7 +57,7 @@ return {
       'terraformls',
       'intelephense',
       'cssls',
-      'volar',
+      'vue_ls',
       'basedpyright',
       'yamlls',
       'circleci',
