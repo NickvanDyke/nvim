@@ -10,26 +10,12 @@ return {
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-    -- TODO: can't duplicate LSP setup call; Mason does it too
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- capabilities.textDocument.foldingRange = {
-    --   dynamicRegistration = false,
-    --   lineFoldingOnly = true,
-    -- }
-    -- local language_servers = require('lspconfig').util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
-    -- for _, ls in ipairs(language_servers) do
-    --   require('lspconfig')[ls].setup {
-    --     capabilities = capabilities,
-    --     -- you can add other fields for setting up lsp server in this table
-    --   }
-    -- end
-
-    -- vim.keymap.set('n', 'K', function()
-    --   local winid = require('ufo').peekFoldedLinesUnderCursor()
-    --   if not winid then
-    --     vim.lsp.buf.hover()
-    --   end
-    -- end)
+    vim.keymap.set('n', 'K', function()
+      local winid = require('ufo').peekFoldedLinesUnderCursor()
+      if not winid then
+        vim.lsp.buf.hover()
+      end
+    end)
 
     -- Show number of lines in fold
     local fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
@@ -61,11 +47,9 @@ return {
     end
 
     require('ufo').setup {
-      close_fold_kinds_for_ft = {
-        default = {
-          'imports',
-        },
-      },
+      provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+      end,
       fold_virt_text_handler = fold_virt_text_handler,
     }
   end,
