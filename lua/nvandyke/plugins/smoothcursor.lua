@@ -1,7 +1,7 @@
 return {
   'gen740/SmoothCursor.nvim',
   event = 'VeryLazy',
-  enabled = false,
+  -- enabled = false,
   dependencies = {
     'nvim-lualine/lualine.nvim',
   },

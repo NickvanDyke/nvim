@@ -1,3 +1,5 @@
+local o = vim.opt
+local a = vim.api
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -30,6 +32,9 @@ vim.opt.linebreak = true
 vim.opt.showbreak = '↪'
 vim.opt.breakindent = true
 
+o.copyindent = true
+o.breakindent = true
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -55,12 +60,12 @@ vim.opt.splitkeep = 'screen'
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = {
-  tab = '» ',
-  trail = '·',
-  nbsp = '␣',
-}
+-- vim.opt.list = true
+-- vim.opt.listchars = {
+--   tab = '» ',
+--   trail = '·',
+--   nbsp = '␣',
+-- }
 vim.opt.fillchars = {
   eob = ' ',
   lastline = ' ',
@@ -72,7 +77,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 vim.opt.scrolloff = 11
-vim.opt.sidescrolloff = 7
+vim.opt.sidescrolloff = 3
 
 -- TODO: apparently Postgres files should still be .sql?
 vim.filetype.add {
@@ -88,7 +93,7 @@ vim.opt.expandtab = true
 
 vim.opt.swapfile = false
 -- vim.opt.autowrite = true
-vim.opt.autoread = true
+-- vim.opt.autoread = true
 
 vim.opt.cmdheight = 0
 
@@ -133,3 +138,6 @@ vim.diagnostic.config {
     }
   }
 }
+
+a.nvim_command('aunmenu PopUp.How-to\\ disable\\ mouse')
+a.nvim_command('aunmenu PopUp.-1-')
