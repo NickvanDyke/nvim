@@ -7,9 +7,6 @@ return {
       },
     },
     modes = {
-      char = {
-        jump_labels = true,
-      },
       treesitter = {
         -- This breaks the `treesitter` mode's selection
         -- jump = { pos = 'start' },
