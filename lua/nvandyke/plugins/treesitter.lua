@@ -32,6 +32,7 @@ return { -- Highlight, edit, and navigate code
       'yaml',
       'sql',
       'regex',
+      'blade',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,
@@ -47,6 +48,8 @@ return { -- Highlight, edit, and navigate code
   },
   init = function()
     -- TODO: Migrate Wanna to use .sql... don't think .psql is a legit thing
+    vim.treesitter.language.register('sql', 'psql')
+
     vim.treesitter.language.register('sql', 'psql')
   end,
 }

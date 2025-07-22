@@ -19,7 +19,7 @@ return {
     {
       '<leader>gf',
       function()
-        -- require('diffview').file_history(vim.fn.expand '<cfile>')
+        require('diffview').file_history(vim.fn.expand '<cfile>')
       end,
     },
   },

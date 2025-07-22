@@ -6,7 +6,7 @@ return {
   opts = {
     opts = {
       signcolumn = 'yes',
-      winfixheight = false, -- Let focus.nvim handle the height
+      winfixheight = true,
     },
     edit = {
       autosave = true,
