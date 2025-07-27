@@ -4,7 +4,7 @@ return {
     picker = {
       ui_select = true,
       sources = {
-        files = { hidden = true },
+        files = { hidden = true, ignored = true },
       },
       layout = {
         preset = 'vertical',
@@ -13,7 +13,7 @@ return {
         input = {
           keys = {
             -- ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
-            ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+            -- ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
             ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
             ['<s-c-c>'] = { 'cycle_win', mode = { 'i', 'n' } },
           },
@@ -72,22 +72,6 @@ return {
     -- grep
     {
       '<leader>sb',
-      function()
-        Snacks.picker.lines {
-          win = {
-            preview = {
-              wo = {
-                -- Matches current window options so layout doesn't shift
-                signcolumn = 'yes',
-              },
-            },
-          },
-        }
-      end,
-      desc = 'Buffer Lines',
-    },
-    {
-      '<C-/>',
       function()
         Snacks.picker.lines {
           win = {
@@ -239,14 +223,21 @@ return {
     },
     -- LSP
     {
-      'grd',
+      'gd',
       function()
         Snacks.picker.lsp_definitions()
       end,
       desc = 'Goto Definition',
     },
     {
-      'grr',
+      'gD',
+      function()
+        Snacks.picker.lsp_declarations()
+      end,
+      desc = 'Goto Definition',
+    },
+    {
+      'gr',
       function()
         Snacks.picker.lsp_references()
       end,
@@ -254,14 +245,14 @@ return {
       desc = 'Goto References',
     },
     {
-      'gri',
+      'gI',
       function()
         Snacks.picker.lsp_implementations()
       end,
       desc = 'Goto Implementation',
     },
     {
-      'grt',
+      'gy',
       function()
         Snacks.picker.lsp_type_definitions()
       end,

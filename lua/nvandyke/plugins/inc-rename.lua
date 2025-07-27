@@ -3,7 +3,7 @@ return {
   opts = {},
   keys = {
     {
-      'grn',
+      '<leader>cr',
       function()
         return ':IncRename ' .. vim.fn.expand '<cword>'
       end,

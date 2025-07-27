@@ -1,12 +1,11 @@
 return {
   'Chaitanyabsprip/fastaction.nvim',
-  enabled = false,
   opts = {
     dismiss_keys = { 'q', '<Esc>', '<C-c>' },
   },
   keys = {
     {
-      'gra',
+      'ga',
       function()
         require('fastaction').code_action()
       end,
