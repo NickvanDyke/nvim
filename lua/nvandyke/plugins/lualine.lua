@@ -121,17 +121,13 @@ return {
         },
         lualine_y = {
           -- {
-          --   require('noice').api.status.command.get,
-          --   cond = require('noice').api.status.command.has,
+          --   require('noice').api.status.mode.get,
+          --   cond = require('noice').api.status.mode.has,
+          --   fmt = function(str)
+          --     return '󰑋 ' .. string.sub(str, #str)
+          --   end,
+          --   color = { fg = '#ff0000' },
           -- },
-          {
-            require('noice').api.status.mode.get,
-            cond = require('noice').api.status.mode.has,
-            fmt = function(str)
-              return '󰑋 ' .. string.sub(str, #str)
-            end,
-            color = { fg = '#ff0000' },
-          },
           {
             'searchcount',
             icon = '',
