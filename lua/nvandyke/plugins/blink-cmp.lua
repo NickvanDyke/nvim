@@ -4,7 +4,6 @@ return {
   version = '1.0.*',
   dependencies = {
     'xzbdmw/colorful-menu.nvim',
-    'Kaiser-Yang/blink-cmp-avante',
   },
   opts = {
     keymap = {
@@ -17,15 +16,8 @@ return {
       -- use_nvim_cmp_as_default = true,
     },
     sources = {
-      default = { 'avante', 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
-        avante = {
-          module = 'blink-cmp-avante',
-          name = 'Avante',
-          opts = {
-            -- options for blink-cmp-avante
-          },
-        },
         snippets = {
           enabled = false,
         },
