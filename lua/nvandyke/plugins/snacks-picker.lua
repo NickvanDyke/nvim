@@ -4,7 +4,7 @@ return {
     picker = {
       ui_select = true,
       sources = {
-        files = { hidden = true },
+        files = { hidden = true, ignored = true },
       },
       layout = {
         preset = 'vertical',
@@ -13,7 +13,7 @@ return {
         input = {
           keys = {
             -- ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
-            ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+            -- ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
             ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
             ['<s-c-c>'] = { 'cycle_win', mode = { 'i', 'n' } },
           },
