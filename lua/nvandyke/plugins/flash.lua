@@ -20,7 +20,7 @@ return {
     -- TODO: have to wait for timeoutlen when using `ys` or `yS` because of nvim-surround `ys` mapping
     {
       's',
-      mode = { 'n', 'o' },
+      mode = { 'n', 'o', 'v' },
       function()
         require('flash').jump()
       end,
