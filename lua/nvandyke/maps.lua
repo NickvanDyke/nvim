@@ -33,7 +33,7 @@ end, { desc = 'Copy relative filepath to clipboard' })
 -- vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
 -- vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
 
-vim.keymap.set('n', '<leader>cR', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
+vim.keymap.set('n', 'grN', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
 
 vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
 
