@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   event = { 'InsertEnter', 'CmdlineEnter' },
-  version = '1.0.*',
+  version = '1.*.*',
   dependencies = {
     'xzbdmw/colorful-menu.nvim',
   },
@@ -16,8 +16,17 @@ return {
       -- use_nvim_cmp_as_default = true,
     },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = {
+        'lsp',
+        'path',
+        'snippets',
+        'buffer',
+        -- 'opencode',
+      },
       providers = {
+        -- opencode = {
+        --   module = 'opencode.cmp',
+        -- },
         snippets = {
           enabled = false,
         },
@@ -67,6 +76,20 @@ return {
         treesitter_highlighting = true,
         show_documentation = true,
       },
+    },
+    cmdline = {
+      -- sources = {
+      --   default = {
+      --     'opencode',
+      --   },
+      --   providers = {
+      --     opencode = {
+      --       module = 'opencode.cmp',
+      --     },
+      --   },
+      -- },
+      -- TODO: Doesn't work??
+      completion = { menu = { auto_show = true } },
     },
   },
 }
