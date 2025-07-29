@@ -4,7 +4,7 @@ return {
     { 'nvim-tree/nvim-web-devicons', lazy = true },
   },
   opts = {
-    scope = "git_branch",
+    -- scope = "git_branch",
     statusline = {
       icon = '♥',
       active = '%%#GrappleActive#%s %%*',

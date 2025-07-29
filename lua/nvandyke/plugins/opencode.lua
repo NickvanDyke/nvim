@@ -13,7 +13,7 @@ return {
             },
           },
           per_filetype = {
-            opencode_ask = { 'opencode', 'buffer' },
+            opencode_ask = { 'buffer', 'opencode' },
           },
         },
       },
@@ -23,6 +23,7 @@ return {
   },
   ---@type opencode.Config
   opts = {
+    auto_reload = true,
     -- port = 6969,
     -- Example context integration
     context = {
@@ -44,8 +45,8 @@ return {
   -- stylua: ignore
   keys = {
     { '<leader>ot', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
-    { '<leader>oa', function() require('opencode').ask() end, desc = 'Ask opencode', mode = { 'n', 'v' }, },
-    { '<leader>oA', function() require('opencode').ask('@file ') end, desc = 'Ask opencode about current file', mode = { 'n', 'v' }, },
+    { '<leader>oa', function() require('opencode').ask() end, desc = 'Ask opencode', mode = 'n', },
+    { '<leader>oa', function() require('opencode').ask('@selection: ') end, desc = 'Ask opencode about selection', mode = 'v', },
     { '<leader>on', function() require('opencode').create_session() end, desc = 'New session', },
     { '<leader>oe', function() require('opencode').prompt('Explain @cursor and its context') end, desc = 'Explain code near cursor' },
     { '<leader>or', function() require('opencode').prompt('Review @file for correctness and readability') end, desc = 'Review file', },
