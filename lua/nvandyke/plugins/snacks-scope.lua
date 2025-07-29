@@ -3,9 +3,9 @@ return {
   opts = {
     -- Indent/scope guide
     indent = {
-      indent = {
-        enabled = false,
-      },
+      -- indent = {
+      --   enabled = false,
+      -- },
     },
     -- Scope-based movements and textobjects
     scope = {
