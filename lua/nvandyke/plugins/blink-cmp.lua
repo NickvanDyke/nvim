@@ -21,12 +21,8 @@ return {
         'path',
         'snippets',
         'buffer',
-        -- 'opencode',
       },
       providers = {
-        -- opencode = {
-        --   module = 'opencode.cmp',
-        -- },
         snippets = {
           enabled = false,
         },
@@ -78,18 +74,15 @@ return {
       },
     },
     cmdline = {
-      -- sources = {
-      --   default = {
-      --     'opencode',
-      --   },
-      --   providers = {
-      --     opencode = {
-      --       module = 'opencode.cmp',
-      --     },
-      --   },
-      -- },
-      -- TODO: Doesn't work??
-      completion = { menu = { auto_show = true } },
+      completion = {
+        menu = {
+          auto_show = function(ctx)
+            return vim.fn.getcmdtype() == ':'
+            -- enable for inputs as well, with:
+            -- or vim.fn.getcmdtype() == '@'
+          end,
+        },
+      },
     },
   },
 }
