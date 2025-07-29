@@ -106,6 +106,9 @@ return {
           },
           { 'filetype', icon_only = true, padding = 0, separator = '' },
           {
+            cond = function()
+              return false
+            end,
             function()
               local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
 
@@ -162,7 +165,7 @@ return {
       })
       vim.api.nvim_set_hl(0, 'GrappleActive', {
         bold = true,
-        fg = lualine_b_hl.fg,
+        fg = lualine_a_hl.bg,
         bg = lualine_b_hl.bg,
       })
       vim.api.nvim_set_hl(0, 'GrappleInactive', {

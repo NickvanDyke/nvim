@@ -10,12 +10,12 @@ return {
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
-    vim.keymap.set('n', 'K', function()
-      local winid = require('ufo').peekFoldedLinesUnderCursor()
-      if not winid then
-        vim.lsp.buf.hover()
-      end
-    end)
+    -- vim.keymap.set('n', 'K', function()
+    --   local winid = require('ufo').peekFoldedLinesUnderCursor()
+    --   if not winid then
+    --     vim.lsp.buf.hover()
+    --   end
+    -- end)
 
     -- Show number of lines in fold
     local fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
