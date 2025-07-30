@@ -65,15 +65,14 @@ return {
 
               local result = ''
               if summary.add and summary.add > 0 then
-                result = result .. '%#MiniDiffSignAdd#+' .. summary.add .. '%* '
+                result = result .. '%#LualineDiffAdd#+' .. summary.add .. ' %*'
               end
               if summary.change and summary.change > 0 then
-                result = result .. '%#MiniDiffSignChange#~' .. summary.change .. '%* '
+                result = result .. '%#LualineDiffChange#~' .. summary.change .. ' %*'
               end
               if summary.delete and summary.delete > 0 then
-                result = result .. '%#MiniDiffSignDelete#-' .. summary.delete .. '%*'
+                result = result .. '%#LualineDiffDelete#-' .. summary.delete .. '%*'
               end
-
               return result
             end,
           },
@@ -87,8 +86,8 @@ return {
               local filename = parts[#parts]
 
               local filename_hl_name = 'LualineFilename'
-              -- local gitsigns = vim.b.gitsigns_status_dict
-              -- if gitsigns and (gitsigns.changed ~= nil or gitsigns.added ~= nil or gitsigns.removed ~= nil) then
+              -- local summary = vim.b.minidiff_summary
+              -- if summary and ((summary.add or 0) > 0 or (summary.change or 0) > 0 or (summary.delete or 0) > 0) then
               --   filename_hl_name = 'LualineFilenameChanged'
               -- end
 
@@ -171,6 +170,41 @@ return {
       vim.api.nvim_set_hl(0, 'GrappleInactive', {
         fg = comment_hl.fg,
         bg = lualine_b_hl.bg,
+      })
+
+      -- Helper to resolve highlight links
+      local function resolve_hl(name)
+        local hl = vim.api.nvim_get_hl(0, { name = name })
+        if hl.link then
+          return resolve_hl(hl.link)
+        end
+        return hl
+      end
+
+      -- Extend MiniDiffSign groups for lualine_c background
+      local minidiff_add = resolve_hl('MiniDiffSignAdd')
+      local minidiff_change = resolve_hl('MiniDiffSignChange')
+      local minidiff_delete = resolve_hl('MiniDiffSignDelete')
+      vim.api.nvim_set_hl(0, 'LualineDiffAdd', {
+        fg = minidiff_add.fg,
+        bg = lualine_c_hl.bg,
+        bold = minidiff_add.bold,
+        italic = minidiff_add.italic,
+        underline = minidiff_add.underline,
+      })
+      vim.api.nvim_set_hl(0, 'LualineDiffChange', {
+        fg = minidiff_change.fg,
+        bg = lualine_c_hl.bg,
+        bold = minidiff_change.bold,
+        italic = minidiff_change.italic,
+        underline = minidiff_change.underline,
+      })
+      vim.api.nvim_set_hl(0, 'LualineDiffDelete', {
+        fg = minidiff_delete.fg,
+        bg = lualine_c_hl.bg,
+        bold = minidiff_delete.bold,
+        italic = minidiff_delete.italic,
+        underline = minidiff_delete.underline,
       })
     end
 
