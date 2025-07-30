@@ -6,7 +6,6 @@ local a = vim.api
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- FIX: breaks noice/nui: https://github.com/folke/noice.nvim/issues/1082
 vim.o.winborder = 'rounded'
 
 vim.g.winblend_default = 0 --20
