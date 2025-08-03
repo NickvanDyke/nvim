@@ -17,7 +17,7 @@ return {
   },
   keys = {
     {
-      '<c-t>',
+      '<c-\\>',
       function()
         Snacks.terminal.toggle()
       end,
@@ -41,7 +41,7 @@ return {
     --   mode = 'n',
     -- },
     {
-      '<s-c-t>',
+      '<s-c-\\>',
       function()
         Snacks.terminal.open()
       end,
