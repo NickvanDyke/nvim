@@ -5,6 +5,12 @@ return {
       top_down = false,
       style = 'compact',
     },
+    styles = {
+      notification_history = {
+        position = 'bottom',
+        height = 10,
+      },
+    },
   },
   config = function(_, opts)
     require('snacks').setup(opts)
@@ -52,4 +58,13 @@ return {
       end,
     })
   end,
+  keys = {
+    {
+      '<leader>n',
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = 'Notification History',
+    },
+  },
 }

@@ -30,13 +30,6 @@ return {
   },
   keys = {
     {
-      '<leader>n',
-      function()
-        Snacks.notifier.show_history()
-      end,
-      desc = 'Notification History',
-    },
-    {
       '<leader>uz',
       function()
         Snacks.zen()
