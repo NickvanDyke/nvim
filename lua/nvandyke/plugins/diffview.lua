@@ -16,12 +16,12 @@ return {
       end,
       desc = 'Close Diffview',
     },
-    {
-      '<leader>gf',
-      function()
-        require('diffview').file_history(vim.fn.expand '<cfile>')
-      end,
-    },
+    -- {
+    --   '<leader>gf',
+    --   function()
+    --     require('diffview').file_history(vim.fn.expand '<cfile>')
+    --   end,
+    -- },
   },
   init = function()
     vim.cmd [[cab gd Diffview]]
