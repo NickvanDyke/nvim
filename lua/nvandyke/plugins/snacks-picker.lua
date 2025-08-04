@@ -1,10 +1,18 @@
 return {
   'folke/snacks.nvim',
+  ---@type snacks.Config
   opts = {
-    ---@type snacks.picker.Config
+    explorer = {
+      replace_netrw = true,
+    },
     picker = {
       ui_select = true,
       sources = {
+        explorer = {
+          hidden = true,
+          ignored = true,
+          -- layout = { layout = { position = 'right' } },
+        },
         files = {
           hidden = true,
           -- Way too many files (dist, node_modules, etc)
@@ -45,12 +53,27 @@ return {
   },
   keys = {
     {
+      '\\',
+      function()
+        Snacks.explorer.open()
+      end,
+      desc = 'Snacks Explorer',
+    },
+    {
       '<leader><leader>',
       function()
         Snacks.picker.smart()
       end,
       desc = 'Smart Picker',
     },
+    {
+      '<leader>sn',
+      function()
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = 'Find Neovim Config File',
+    },
+    -- Grep
     {
       '<leader>sg',
       function()
@@ -60,14 +83,6 @@ return {
       end,
       desc = 'Grep',
     },
-    {
-      '<leader>sn',
-      function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
-      end,
-      desc = 'Find Neovim Config File',
-    },
-    -- grep
     {
       '<leader>sb',
       function()
@@ -254,6 +269,7 @@ return {
       end,
       desc = 'LSP Workspace Symbols',
     },
+    -- todo
     {
       '<leader>st',
       function()
