@@ -57,6 +57,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>ri', group = 'Inline' },
       { '<leader>rd', group = 'Debug' },
       { '<leader>re', group = 'Extract' },
+      { '<leader>b', group = 'Buffer' },
       { 'gr', group = 'LSP' },
       { 'gl', group = 'Log' },
       { 'gL', group = 'Log w/ operator' },
