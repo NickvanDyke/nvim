@@ -1,6 +1,7 @@
 return {
   'folke/snacks.nvim',
   opts = {
+    ---@type snacks.picker.Config
     picker = {
       ui_select = true,
       sources = {
@@ -11,7 +12,17 @@ return {
         },
       },
       layout = {
+        -- More room for file path
         preset = 'vertical',
+      },
+      formatters = {
+        file = {
+          truncate = 69,
+        },
+        selected = {
+          show_always = true,
+          unselected = false,
+        },
       },
       win = {
         input = {
@@ -27,23 +38,6 @@ return {
             number = vim.o.number,
             relativenumber = vim.o.relativenumber,
             signcolumn = vim.o.signcolumn,
-          },
-        },
-        list = {
-          keys = {
-            -- TODO:
-            ['a'] = {
-              function(picker)
-                require('nvim_aider').api.add_file(picker:selected())
-              end,
-              mode = { 'n' },
-            },
-            ['A'] = {
-              function(picker)
-                require('nvim_aider').api.add_read_only_file(picker:selected())
-              end,
-              mode = { 'n' },
-            },
           },
         },
       },
@@ -77,32 +71,7 @@ return {
     {
       '<leader>sb',
       function()
-        Snacks.picker.lines {
-          win = {
-            preview = {
-              wo = {
-                -- Matches current window options so layout doesn't shift
-                signcolumn = 'yes',
-              },
-            },
-          },
-        }
-      end,
-      desc = 'Buffer Lines',
-    },
-    {
-      '<C-/>',
-      function()
-        Snacks.picker.lines {
-          win = {
-            preview = {
-              wo = {
-                -- Matches current window options so layout doesn't shift
-                signcolumn = 'yes',
-              },
-            },
-          },
-        }
+        Snacks.picker.lines {}
       end,
       desc = 'Buffer Lines',
     },
