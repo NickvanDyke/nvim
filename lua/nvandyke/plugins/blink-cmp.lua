@@ -32,12 +32,19 @@ return {
           -- min_keyword_length = 3,
           score_offset = -3,
         },
+        opencode = {
+          module = 'opencode.cmp.blink',
+        },
       },
       per_filetype = {
         codecompanion = { 'codecompanion' },
+        opencode_ask = { 'buffer', 'opencode' },
       },
     },
     completion = {
+      -- ghost_text = {
+      --   enabled = true,
+      -- },
       trigger = {
         -- show_on_insert_on_trigger_character = false,
       },

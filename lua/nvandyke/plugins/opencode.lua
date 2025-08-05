@@ -1,23 +1,9 @@
 return {
   'NickvanDyke/opencode.nvim',
   dir = '~/dev/opencode.nvim',
+  -- lazy = false,
   dependencies = {
     'folke/snacks.nvim',
-    {
-      'saghen/blink.cmp',
-      opts = {
-        sources = {
-          providers = {
-            opencode = {
-              module = 'opencode.cmp.blink',
-            },
-          },
-          per_filetype = {
-            opencode_ask = { 'buffer', 'opencode' },
-          },
-        },
-      },
-    },
     -- 'nvimtools/none-ls.nvim',
     -- 'nvim-lua/plenary.nvim',
   },
@@ -37,20 +23,23 @@ return {
     },
     -- port = 6969,
     -- Example context integration
-    context = {
-      ---@return string|nil
-      ['@grapple'] = function()
-        local tags = require('grapple').tags()
-        if not tags or #tags == 0 then
-          return nil
-        end
+    contexts = {
+      ---@type opencode.Context
+      ['@grapple'] = {
+        description = 'Files tracked by Grapple',
+        value = function()
+          local tags = require('grapple').tags()
+          if not tags or #tags == 0 then
+            return nil
+          end
 
-        local paths = {}
-        for _, tag in ipairs(tags) do
-          table.insert(paths, tag.path)
-        end
-        return table.concat(paths, ', ')
-      end,
+          local paths = {}
+          for _, tag in ipairs(tags) do
+            table.insert(paths, tag.path)
+          end
+          return table.concat(paths, ', ')
+        end,
+      },
     },
   },
   -- stylua: ignore
@@ -64,4 +53,7 @@ return {
     { '<S-C-u>', function() require('opencode').command('messages_half_page_up') end, desc = 'New session', },
     { '<S-C-d>', function() require('opencode').command('messages_half_page_down') end, desc = 'New session', },
   },
+  setup = function(_, opts)
+    require('opencode').setup(opts)
+  end,
 }
