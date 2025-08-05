@@ -41,15 +41,28 @@ return {
       function()
         require('flash').treesitter()
       end,
-      desc = 'Flash Treesitter',
+      desc = 'Treesitter Flash',
     },
     {
       'R',
-      mode = { 'n', 'o', 'x' },
+      mode = 'n',
       function()
         require('flash').treesitter_search()
       end,
       desc = 'Treesitter Search',
+    },
+    {
+      'R',
+      mode = 'o',
+      function()
+        require('flash').treesitter_search {
+          remote_op = {
+            restore = true,
+            motion = true,
+          },
+        }
+      end,
+      desc = 'Remote Treesitter Search',
     },
     -- '/',
     -- '?',
