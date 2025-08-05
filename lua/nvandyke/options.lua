@@ -6,7 +6,7 @@ local a = vim.api
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.o.winborder = 'rounded'
+vim.o.winborder = 'bold'
 
 vim.g.winblend_default = 0 --20
 
