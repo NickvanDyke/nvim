@@ -4,6 +4,7 @@ return {
   version = '1.*.*',
   dependencies = {
     'xzbdmw/colorful-menu.nvim',
+    'rafamadriz/friendly-snippets',
   },
   opts = {
     keymap = {
@@ -23,22 +24,20 @@ return {
         'buffer',
       },
       providers = {
-        snippets = {
-          enabled = false,
-        },
+        snippets = {},
         lsp = {},
         path = {},
         buffer = {
           -- min_keyword_length = 3,
           score_offset = -3,
         },
-        opencode = {
-          module = 'opencode.cmp.blink',
-        },
+        -- opencode = {
+        --   module = 'opencode.cmp.blink',
+        -- },
       },
       per_filetype = {
         codecompanion = { 'codecompanion' },
-        opencode_ask = { 'buffer', 'opencode' },
+        -- opencode_ask = { 'buffer', 'opencode' },
       },
     },
     completion = {
