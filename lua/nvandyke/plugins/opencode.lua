@@ -1,7 +1,7 @@
 return {
   'NickvanDyke/opencode.nvim',
   dir = '~/dev/opencode.nvim',
-  -- lazy = false,
+  lazy = false,
   dependencies = {
     'folke/snacks.nvim',
     -- 'nvimtools/none-ls.nvim',
@@ -10,15 +10,13 @@ return {
   ---@type opencode.Config
   opts = {
     auto_reload = true,
+    -- auto_register_cmp_sources = {},
     -- port = 12345,
+    -- auto_open_embedded = false,
     prompts = {
       joke = {
         description = 'Tell me a cat joke',
         prompt = 'Tell me a joke about cats. Make it funny, but not too funny.',
-        key = '<leader>oj',
-      },
-      explain = {
-        key = '<leader>oe',
       },
     },
     -- port = 6969,
@@ -41,6 +39,11 @@ return {
         end,
       },
     },
+    terminal = {
+      win = {
+        position = 'left',
+      },
+    },
   },
   -- stylua: ignore
   keys = {
@@ -55,5 +58,10 @@ return {
   },
   setup = function(_, opts)
     require('opencode').setup(opts)
+
+    local prompts = require('opencode.config').options.prompts or {}
+    vim.keymap.set('n', '<leader>oj', function()
+      require('opencode').prompt(prompts.joke.prompt)
+    end, { desc = prompts.joke.description })
   end,
 }

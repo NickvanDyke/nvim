@@ -31,13 +31,9 @@ return {
           -- min_keyword_length = 3,
           score_offset = -3,
         },
-        -- opencode = {
-        --   module = 'opencode.cmp.blink',
-        -- },
       },
       per_filetype = {
         codecompanion = { 'codecompanion' },
-        -- opencode_ask = { 'buffer', 'opencode' },
       },
     },
     completion = {
