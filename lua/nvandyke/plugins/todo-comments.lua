@@ -19,6 +19,13 @@ return {
       mode = 'n',
       desc = 'Previous todo comment',
     },
+    {
+      '<leader>st',
+      function()
+        Snacks.picker.todo_comments()
+      end,
+      desc = 'Todo',
+    },
   },
   opts = {
     -- signs = false,

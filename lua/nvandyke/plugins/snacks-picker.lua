@@ -269,13 +269,5 @@ return {
       end,
       desc = 'LSP Workspace Symbols',
     },
-    -- todo
-    {
-      '<leader>st',
-      function()
-        Snacks.picker.todo_comments()
-      end,
-      desc = 'Todo',
-    },
   },
 }
