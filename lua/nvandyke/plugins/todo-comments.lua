@@ -1,6 +1,6 @@
 return {
   'folke/todo-comments.nvim',
-  event = 'BufReadPost',
+  event = 'VeryLazy',
   dependencies = { 'nvim-lua/plenary.nvim' },
   keys = {
     {
@@ -30,4 +30,16 @@ return {
   opts = {
     -- signs = false,
   },
+  config = function(_, opts)
+    require('todo-comments').setup(opts)
+
+    -- FIX: Still doesn't redraw after undo...
+    -- https://github.com/folke/todo-comments.nvim/issues/61
+    -- vim.api.nvim_create_autocmd('FileChangedShellPost', {
+    --   desc = 'Fix highlight desync issues',
+    --   callback = function(args)
+    --     require('todo-comments.highlight').redraw(args.buf, 0, vim.api.nvim_buf_line_count(args.buf))
+    --   end,
+    -- })
+  end,
 }
