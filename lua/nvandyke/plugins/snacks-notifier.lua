@@ -2,8 +2,7 @@ return {
   'folke/snacks.nvim',
   opts = {
     notifier = {
-      top_down = false,
-      style = 'compact',
+      style = 'minimal',
     },
     styles = {
       notification_history = {
