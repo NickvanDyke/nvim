@@ -67,9 +67,7 @@ return {
     },
     signature = {
       enabled = true,
-      trigger = {
-        enabled = true,
-      },
+      auto_show = true,
       window = {
         treesitter_highlighting = true,
         show_documentation = true,
