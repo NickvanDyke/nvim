@@ -62,15 +62,12 @@ return {
       },
       documentation = {
         auto_show = true,
-        treesitter_highlighting = true,
       },
     },
     signature = {
       enabled = true,
-      auto_show = true,
       window = {
-        treesitter_highlighting = true,
-        show_documentation = true,
+        -- show_documentation = true,
       },
     },
     cmdline = {

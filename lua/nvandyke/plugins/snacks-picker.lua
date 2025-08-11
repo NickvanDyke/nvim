@@ -46,6 +46,7 @@ return {
             number = vim.o.number,
             relativenumber = vim.o.relativenumber,
             signcolumn = vim.o.signcolumn,
+            wrap = true,
           },
         },
       },

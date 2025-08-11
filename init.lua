@@ -22,7 +22,7 @@ if vim.env.PROF then
   -- change this to the correct path for your plugin manager
   local snacks = vim.fn.stdpath 'data' .. '/lazy/snacks.nvim'
   vim.opt.rtp:append(snacks)
----@diagnostic disable-next-line: missing-fields
+  ---@diagnostic disable-next-line: missing-fields
   require('snacks.profiler').startup {
     startup = {
       event = 'VimEnter', -- stop profiler on this event. Defaults to `VimEnter`
@@ -38,23 +38,7 @@ require('lazy').setup({
 }, {
   ui = {
     border = vim.o.winborder,
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    icons = {},
   },
   change_detection = {
     notify = false,
@@ -77,7 +61,4 @@ require('lazy').setup({
   },
 })
 
-
--- FIX: Seems to immediately load lualine (before VeryLazy) because it registers a ColorScheme autocmd in `config`
--- But only when 'everforest'...?
-vim.cmd 'colorscheme tokyonight'
+vim.cmd 'colorscheme everforest'

@@ -1,17 +1,12 @@
-local o = vim.opt
-local a = vim.api
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.o.winborder = 'bold'
+vim.opt.winborder = 'rounded'
 
 vim.g.winblend_default = 0 --20
-
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -31,8 +26,8 @@ vim.opt.linebreak = true
 vim.opt.showbreak = '↪'
 vim.opt.breakindent = true
 
-o.copyindent = true
-o.breakindent = true
+vim.opt.copyindent = true
+vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
@@ -135,9 +130,9 @@ vim.diagnostic.config {
       vim.diagnostic.severity.WARN,
       -- vim.diagnostic.severity.INFO,
       -- vim.diagnostic.severity.HINT,
-    }
-  }
+    },
+  },
 }
 
-a.nvim_command('aunmenu PopUp.How-to\\ disable\\ mouse')
-a.nvim_command('aunmenu PopUp.-1-')
+vim.api.nvim_command 'aunmenu PopUp.How-to\\ disable\\ mouse'
+vim.api.nvim_command 'aunmenu PopUp.-1-'

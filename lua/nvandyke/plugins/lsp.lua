@@ -65,10 +65,6 @@ return {
       'eslint',
     }
 
-    if vim.fn.getcwd():find 'polco-node' then
-      vim.lsp.enable 'polco_node'
-    end
-
     -- vim.api.nvim_create_autocmd('BufWritePre', {
     --   pattern = { '*.js', '*.ts', '*.jsx', '*.tsx' },
     --   command = 'LspEslintFixAll',

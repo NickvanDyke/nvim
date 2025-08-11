@@ -1,7 +1,7 @@
 return {
   'NickvanDyke/opencode.nvim',
   dir = '~/dev/opencode.nvim',
-  lazy = false,
+  -- lazy = false,
   dependencies = {
     'folke/snacks.nvim',
     -- 'nvimtools/none-ls.nvim',
@@ -10,9 +10,9 @@ return {
   ---@type opencode.Config
   opts = {
     auto_reload = true,
-    -- auto_register_cmp_sources = {},
     -- port = 12345,
-    -- auto_open_embedded = false,
+    -- auto_register_cmp_sources = {},
+    -- auto_fallback_to_embedded = false,
     prompts = {
       joke = {
         description = 'Tell me a cat joke',
@@ -56,12 +56,13 @@ return {
     { '<S-C-u>', function() require('opencode').command('messages_half_page_up') end, desc = 'New session', },
     { '<S-C-d>', function() require('opencode').command('messages_half_page_down') end, desc = 'New session', },
   },
-  setup = function(_, opts)
+  -- stylua: ignore
+  config = function(_, opts)
     require('opencode').setup(opts)
 
     local prompts = require('opencode.config').options.prompts or {}
-    vim.keymap.set('n', '<leader>oj', function()
-      require('opencode').prompt(prompts.joke.prompt)
-    end, { desc = prompts.joke.description })
+    vim.keymap.set('n', '<leader>oj', function() require('opencode').prompt(prompts.joke.prompt) end, { desc = prompts.joke.description })
+
+    vim.keymap.set('v', '<leader>os', function() require('opencode').prompt 'Tell me a story about cats and @selection' end, { desc = 'Tell me a story' })
   end,
 }
