@@ -1,13 +1,47 @@
 return {
   'rmagatti/goto-preview',
-  event = 'LspAttach',
-  config = function()
-    require('goto-preview').setup {
-      default_mappings = true,
-      focus_on_open = false,
-      dismiss_on_move = true,
-      border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
-      -- vim.g.border_default == 'none' and { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' } or
-    }
-  end,
+  opts = {
+    default_mappings = false,
+    focus_on_open = false,
+    dismiss_on_move = true,
+    border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
+  },
+  config = true,
+  keys = {
+    {
+      'gpd',
+      function()
+        require('goto-preview').goto_preview_definition()
+      end,
+      desc = 'Preview Definition',
+    },
+    {
+      'gpD',
+      function()
+        require('goto-preview').goto_preview_declaration()
+      end,
+      desc = 'Preview Declaration',
+    },
+    {
+      'gpt',
+      function()
+        require('goto-preview').goto_preview_type_definition()
+      end,
+      desc = 'Preview Type Definition',
+    },
+    {
+      'gpr',
+      function()
+        require('goto-preview').goto_preview_references()
+      end,
+      desc = 'Preview References',
+    },
+    {
+      'gpi',
+      function()
+        require('goto-preview').goto_preview_implementation()
+      end,
+      desc = 'Preview Implementation',
+    },
+  },
 }
