@@ -23,7 +23,12 @@ return {
     },
     -- WARNING: Breaks and issues tons of warnings in VSCode Neovim
     words = { enabled = true },
-    statuscolumn = { enabled = false },
+    -- statuscolumn = {
+    --   enabled = true,
+    --   folds = {
+    --     git_hl = true, -- use Git Signs hl for fold icons
+    --   },
+    -- },
     notifier = { -- Used by noice
       top_down = false,
       style = 'compact',

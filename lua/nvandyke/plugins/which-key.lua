@@ -9,7 +9,7 @@ return {
       keys = {},
     },
     spec = {
-      { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' } },
+      { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' }, icon = '' },
       { '<leader>c', group = 'Code' },
       { '<leader>s', group = 'Search' },
       { '<leader>l', group = 'Lazy' },
@@ -25,6 +25,7 @@ return {
       { '<leader>rd', group = 'Debug' },
       { '<leader>re', group = 'Extract' },
       { '<leader>b', group = 'Buffer' },
+      { '<leader>u', group = 'User', icon = '' },
       { 'gr', group = 'LSP' },
       { 'gl', group = 'Log' },
       { 'gL', group = 'Log w/ operator' },

@@ -6,11 +6,11 @@ return {
   },
   keys = {
     {
-      '<leader>F',
+      '<leader>cF',
       function()
         vim.cmd 'silent! LspEslintFixAll'
       end,
-      desc = 'Fix all',
+      desc = 'ESLint fix all',
     },
   },
   config = function()
