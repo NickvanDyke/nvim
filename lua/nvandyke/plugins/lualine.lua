@@ -122,14 +122,16 @@ return {
           },
         },
         lualine_y = {
-          -- {
-          --   require('noice').api.status.mode.get,
-          --   cond = require('noice').api.status.mode.has,
-          --   fmt = function(str)
-          --     return '󰑋 ' .. string.sub(str, #str)
-          --   end,
-          --   color = { fg = '#ff0000' },
-          -- },
+          {
+            function()
+              local reg = vim.fn.reg_recording()
+              if reg == '' then
+                return ''
+              end -- not recording
+              return '󰑋 ' .. reg
+            end,
+            color = { fg = '#ff0000' },
+          },
           {
             'searchcount',
             icon = '',
@@ -182,9 +184,9 @@ return {
       end
 
       -- Extend MiniDiffSign groups for lualine_c background
-      local minidiff_add = resolve_hl('MiniDiffSignAdd')
-      local minidiff_change = resolve_hl('MiniDiffSignChange')
-      local minidiff_delete = resolve_hl('MiniDiffSignDelete')
+      local minidiff_add = resolve_hl 'MiniDiffSignAdd'
+      local minidiff_change = resolve_hl 'MiniDiffSignChange'
+      local minidiff_delete = resolve_hl 'MiniDiffSignDelete'
       vim.api.nvim_set_hl(0, 'LualineDiffAdd', {
         fg = minidiff_add.fg,
         bg = lualine_c_hl.bg,
