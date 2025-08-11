@@ -2,6 +2,7 @@ return {
   'folke/snacks.nvim',
   opts = {
     notifier = {
+      margin = { right = 0 },
       style = 'minimal',
     },
     styles = {
@@ -61,7 +62,7 @@ return {
     {
       '<leader>n',
       function()
-        Snacks.picker.notifications()
+        Snacks.notifier.show_history()
       end,
       desc = 'Notifications',
     },
