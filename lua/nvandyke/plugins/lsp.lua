@@ -8,9 +8,10 @@ return {
     {
       '<leader>cF',
       function()
+        -- TODO: Do LSPs offer a generic way to fix all issues?
         vim.cmd 'silent! LspEslintFixAll'
       end,
-      desc = 'ESLint fix all',
+      desc = 'Fix all (ESLint)',
     },
   },
   config = function()
