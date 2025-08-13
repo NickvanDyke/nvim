@@ -9,6 +9,7 @@ return {
       keys = {},
     },
     spec = {
+      { '<leader>o', group = 'Opencode' },
       { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' }, icon = '' },
       { '<leader>c', group = 'Code' },
       { '<leader>s', group = 'Search' },
