@@ -21,6 +21,7 @@ return {
         timeout_ms = 200,
         lsp_format = 'fallback',
         stop_after_first = true,
+        quiet = true,
         -- Exclude the format from the undotree. Specifically, that's annoying with auto-save and auto-format
         undojoin = true,
       }
