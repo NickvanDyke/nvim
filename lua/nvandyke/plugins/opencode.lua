@@ -1,7 +1,7 @@
 return {
   'NickvanDyke/opencode.nvim',
   dir = '~/dev/opencode.nvim',
-  -- lazy = false,
+  lazy = false,
   dependencies = {
     'folke/snacks.nvim',
     -- 'nvimtools/none-ls.nvim',
@@ -10,7 +10,7 @@ return {
   ---@type opencode.Config
   opts = {
     auto_reload = true,
-    -- port = 12345,
+    -- port = 6969,
     -- auto_register_cmp_sources = {},
     -- auto_fallback_to_embedded = false,
     prompts = {
@@ -19,7 +19,6 @@ return {
         prompt = 'Tell me a joke about cats. Make it funny, but not too funny.',
       },
     },
-    -- port = 6969,
     -- Example context integration
     contexts = {
       ---@type opencode.Context
@@ -48,7 +47,7 @@ return {
   -- stylua: ignore
   keys = {
     { '<leader>ot', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
-    { '<leader>oa', function() require('opencode').ask() end, desc = 'Ask opencode', mode = 'n', },
+    { '<leader>oa', function() require('opencode').ask('@cursor: ') end, desc = 'Ask opencode', mode = 'n', },
     { '<leader>oa', function() require('opencode').ask('@selection: ') end, desc = 'Ask opencode about selection', mode = 'v', },
     { '<leader>op', function() require('opencode').select_prompt() end, desc = 'Select opencode prompt', mode = { 'n', 'v', }, },
     { '<leader>on', function() require('opencode').command('session_new') end, desc = 'New session', },
