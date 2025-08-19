@@ -39,7 +39,7 @@ return {
       return mode
     end
 
-    local function sync_cursor_sign()
+    local function sync_cursor_sign_to_mode()
       local mode = get_simple_mode()
       local mode_hl_name = mode and ('lualine_a_' .. mode) or 'lualine_a_normal'
       local mode_hl = vim.api.nvim_get_hl(0, { name = mode_hl_name })
@@ -54,19 +54,22 @@ return {
       vim.api.nvim_set_hl(0, 'CursorLineSign', {
         bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
       })
+      vim.api.nvim_set_hl(0, 'CursorLineNr', {
+        bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
+      })
     end
 
     -- NOTE: ModeChanged seemingly doesn't fire until after potential keymaps. Not sure how Lualine responds immediately.
     vim.api.nvim_create_autocmd({ 'ModeChanged', 'ColorScheme' }, {
       callback = function()
         vim.schedule(function()
-          sync_cursor_sign()
+          sync_cursor_sign_to_mode()
           sync_cursorlinesign()
         end)
       end,
     })
 
-    sync_cursor_sign()
+    sync_cursor_sign_to_mode()
     sync_cursorlinesign()
   end,
 }
