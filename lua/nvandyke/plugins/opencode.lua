@@ -3,7 +3,7 @@ return {
   dir = '~/dev/opencode.nvim',
   lazy = false,
   dependencies = {
-    'folke/snacks.nvim',
+    { 'folke/snacks.nvim' },
     -- 'nvimtools/none-ls.nvim',
     -- 'nvim-lua/plenary.nvim',
   },
@@ -13,6 +13,8 @@ return {
     -- port = 6969,
     -- auto_register_cmp_sources = {},
     -- auto_fallback_to_embedded = false,
+    -- on_send = function() end,
+    -- on_opencode_not_found = function() end,
     prompts = {
       joke = {
         description = 'Tell me a cat joke',
@@ -54,6 +56,14 @@ return {
     { '<leader>oy', function() require('opencode').command('messages_copy') end, desc = 'Copy last opencode message', },
     { '<S-C-u>', function() require('opencode').command('messages_half_page_up') end, desc = 'New session', },
     { '<S-C-d>', function() require('opencode').command('messages_half_page_down') end, desc = 'New session', },
+    -- { '<Tab>', function() require('opencode.suggestion').accept() end, desc = 'Accept suggestion', mode = { 'n' }, },
+    -- { '<Esc>', function()
+    --   if not require('opencode.suggestion').reject() then
+    --     vim.cmd('nohlsearch')
+    --     -- TODO: More general handling of <Esc> fallthrough?
+    --
+    --   end
+    -- end, desc = 'Reject suggestion', mode = { 'n' }, },
   },
   -- stylua: ignore
   config = function(_, opts)

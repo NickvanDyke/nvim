@@ -62,7 +62,7 @@ return {
       'basedpyright',
       'yamlls',
       'circleci',
-      'harper_ls',
+      -- 'harper_ls',
       'eslint',
     }
 
