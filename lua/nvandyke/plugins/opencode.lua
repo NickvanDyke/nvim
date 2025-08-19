@@ -21,29 +21,12 @@ return {
         prompt = 'Tell me a joke about cats. Make it funny, but not too funny.',
       },
     },
-    -- Example context integration
-    contexts = {
-      ---@type opencode.Context
-      ['@grapple'] = {
-        description = 'Files tracked by Grapple',
-        value = function()
-          local tags = require('grapple').tags()
-          if not tags or #tags == 0 then
-            return nil
-          end
-
-          local paths = {}
-          for _, tag in ipairs(tags) do
-            table.insert(paths, tag.path)
-          end
-          return table.concat(paths, ', ')
-        end,
-      },
-    },
     terminal = {
-      win = {
-        position = 'left',
-      },
+      -- Override my snacks.nvim terminal config. No reason to prefer normal mode for opencode - can't scroll its TUI like a normal terminal buffer.
+      auto_insert = true,
+      -- win = {
+      --   position = 'left',
+      -- },
     },
   },
   -- stylua: ignore
