@@ -37,7 +37,7 @@ return {
   },
   keys = {
     {
-      '<leader>fq',
+      '<leader>qf',
       function()
         require('quicker').toggle()
       end,
@@ -45,7 +45,7 @@ return {
       mode = 'n',
     },
     {
-      '<leader>fl',
+      '<leader>ql',
       function()
         require('quicker').toggle { loclist = true }
       end,
