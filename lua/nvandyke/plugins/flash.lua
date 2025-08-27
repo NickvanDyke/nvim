@@ -1,9 +1,9 @@
 return {
   'folke/flash.nvim',
   opts = {
-    highlight = {
-      backdrop = false,
-    },
+    -- highlight = {
+    --   backdrop = false,
+    -- },
     label = {
       rainbow = {
         enabled = true,
@@ -14,11 +14,11 @@ return {
         -- This breaks the `treesitter` mode's selection
         -- jump = { pos = 'start' },
       },
-      char = {
-        highlight = {
-          backdrop = false,
-        },
-      }
+      -- char = {
+      --   highlight = {
+      --     backdrop = false,
+      --   },
+      -- },
     },
     prompt = {
       enabled = false, -- looks bad until it properly supports the new vim.o.winborder

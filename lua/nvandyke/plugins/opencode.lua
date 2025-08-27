@@ -7,32 +7,35 @@ return {
     -- 'nvimtools/none-ls.nvim',
     -- 'nvim-lua/plenary.nvim',
   },
-  ---@type opencode.Config
+  ---@type opencode.Opts
   opts = {
-    auto_reload = true,
+    -- auto_reload = true,
     -- port = 6969,
     -- auto_register_cmp_sources = {},
-    -- auto_fallback_to_embedded = false,
     -- on_send = function() end,
-    -- on_opencode_not_found = function() end,
+    -- on_opencode_not_found = function()
+    --   return false
+    -- end,
     prompts = {
       joke = {
-        description = 'Tell me a cat joke',
-        prompt = 'Tell me a joke about cats. Make it funny, but not too funny.',
+        description = 'Personify as cat',
+        prompt = 'Personify @buffer as a cat and write a one-paragraph story about it.',
       },
     },
     terminal = {
       -- Override my snacks.nvim terminal config. No reason to prefer normal mode for opencode - can't scroll its TUI like a normal terminal buffer.
       auto_insert = true,
-      -- win = {
-      --   position = 'left',
-      -- },
+      auto_close = true,
+      win = {
+        position = 'left',
+      },
     },
   },
   -- stylua: ignore
   keys = {
     { '<leader>ot', function() require('opencode').toggle() end, desc = 'Toggle opencode' },
-    { '<leader>oa', function() require('opencode').ask('@cursor: ') end, desc = 'Ask opencode', mode = 'n', },
+    { '<leader>oA', function() require('opencode').ask() end, desc = 'Ask opencode', },
+    { '<leader>oa', function() require('opencode').ask('@cursor: ') end, desc = 'Ask opencode about this', mode = 'n', },
     { '<leader>oa', function() require('opencode').ask('@selection: ') end, desc = 'Ask opencode about selection', mode = 'v', },
     { '<leader>op', function() require('opencode').select_prompt() end, desc = 'Select opencode prompt', mode = { 'n', 'v', }, },
     { '<leader>on', function() require('opencode').command('session_new') end, desc = 'New session', },
@@ -48,13 +51,9 @@ return {
     --   end
     -- end, desc = 'Reject suggestion', mode = { 'n' }, },
   },
-  -- stylua: ignore
   config = function(_, opts)
+    vim.opt.autoread = true
+
     require('opencode').setup(opts)
-
-    local prompts = require('opencode.config').options.prompts or {}
-    vim.keymap.set('n', '<leader>oj', function() require('opencode').prompt(prompts.joke.prompt) end, { desc = prompts.joke.description })
-
-    vim.keymap.set('v', '<leader>os', function() require('opencode').prompt 'Tell me a story about cats and @selection' end, { desc = 'Tell me a story' })
   end,
 }

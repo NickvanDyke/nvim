@@ -10,12 +10,12 @@ return {
       sources = {
         explorer = {
           hidden = true,
-          ignored = true,
+          -- Way too many files (dist, node_modules, etc)
+          -- ignored = true,
           -- layout = { layout = { position = 'right' } },
         },
         files = {
           hidden = true,
-          -- Way too many files (dist, node_modules, etc)
           -- ignored = true,
         },
       },
