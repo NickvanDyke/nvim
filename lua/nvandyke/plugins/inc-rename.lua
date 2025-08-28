@@ -1,6 +1,8 @@
 return {
   'smjonas/inc-rename.nvim',
-  opts = {},
+  opts = {
+    input_buffer_type = "snacks",
+  },
   keys = {
     {
       'grn',
