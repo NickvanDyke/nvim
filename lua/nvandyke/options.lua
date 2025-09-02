@@ -64,6 +64,7 @@ vim.opt.listchars = {
 vim.opt.fillchars = {
   eob = ' ',
   lastline = ' ',
+  fold = ' ',
 }
 
 -- Preview substitutions live, as you type!
@@ -96,6 +97,12 @@ vim.opt.wrap = false
 
 vim.opt.termguicolors = true
 vim.opt.guicursor:append 't:ver25'
+
+vim.opt.foldmethod = 'expr' -- Define folds using an expression
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for folding
+vim.opt.foldlevel = 99 -- Open all folds by default upon opening a file
+vim.opt.foldlevelstart = 99 -- Open all folds by default upon opening a file
+-- vim.opt.foldtext = '' -- Syntax highlight first line of fold
 
 vim.diagnostic.config {
   signs = {
