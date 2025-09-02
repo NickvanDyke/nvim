@@ -47,4 +47,4 @@ vim.keymap.set('n', '<s-c-s>', '<cmd>wall<cr>', { desc = 'Save all files', silen
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment number under cursor', noremap = true })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement number under cursor', noremap = true })
 
-vim.keymap.set('n', '<leader>Q', '<cmd>qall<cr>', { desc = 'Quit Neovim' })
+vim.keymap.set('n', '<leader>q', '<cmd>qall<cr>', { desc = 'Quit Neovim' })
