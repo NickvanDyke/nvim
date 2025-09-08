@@ -39,8 +39,6 @@ vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
 
 vim.keymap.set('n', '<C-c>', 'ciw')
 
-vim.keymap.set('i', '<C-j>', "[[<C-r>=strftime('%Y-%m-%d')<CR>]]", { desc = 'Insert current date', silent = true })
-
 vim.keymap.set('n', '<c-s>', '<cmd>write<cr>', { desc = 'Save file', silent = true })
 vim.keymap.set('n', '<s-c-s>', '<cmd>wall<cr>', { desc = 'Save all files', silent = true })
 
