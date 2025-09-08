@@ -32,9 +32,6 @@ return {
           score_offset = -3,
         },
       },
-      per_filetype = {
-        codecompanion = { 'codecompanion' },
-      },
     },
     completion = {
       -- ghost_text = {

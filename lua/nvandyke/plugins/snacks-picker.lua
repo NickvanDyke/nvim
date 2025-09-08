@@ -72,7 +72,7 @@ return {
       function()
         Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
       end,
-      desc = 'Find Neovim Config File',
+      desc = 'Neovim Config Files',
     },
     -- Grep
     {

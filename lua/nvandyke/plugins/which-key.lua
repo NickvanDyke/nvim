@@ -5,11 +5,8 @@ return {
     preset = 'helix',
     -- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
     show_help = false,
-    icons = {
-      keys = {},
-    },
     spec = {
-      { '<leader>o', group = 'Opencode' },
+      { '<leader>o', group = 'Opencode', mode = { 'n', 'v' }, icon = '󱚣' },
       { '<leader>z', group = 'Zettelkasten', mode = { 'n', 'x' }, icon = '' },
       { '<leader>c', group = 'Code' },
       { '<leader>s', group = 'Search', mode = { 'n', 'v' } },

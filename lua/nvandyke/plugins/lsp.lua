@@ -22,6 +22,7 @@ return {
     -- Atm it doesn't support merging with lsp/<server>.lua
 
     -- https://writewithharper.com/docs/integrations/neovim
+    -- TODO: How to add words to dictionary? "Thanh Thanh"
     vim.lsp.config('harper_ls', {
       filetypes = { 'markdown' },
       settings = {
