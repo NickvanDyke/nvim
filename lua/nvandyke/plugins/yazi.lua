@@ -1,6 +1,6 @@
 return {
   'mikavilpas/yazi.nvim',
-  enabled = false,
+  enabled = true,
   cmd = 'Yazi',
   keys = {
     -- 👇 in this section, choose your own keymappings!
@@ -9,17 +9,17 @@ return {
       '<cmd>Yazi<cr>',
       desc = 'Open yazi at the current file',
     },
-    {
-      -- Open in the current working directory
-      '<C-\\>',
-      '<cmd>Yazi cwd<cr>',
-      desc = 'Open yazi at neovim cwd',
-    },
-    {
-      '<S-C-\\>',
-      '<cmd>Yazi toggle<cr>',
-      desc = 'Resume the last yazi session',
-    },
+    -- {
+    --   -- Open in the current working directory
+    --   '<C-\\>',
+    --   '<cmd>Yazi cwd<cr>',
+    --   desc = 'Open yazi at neovim cwd',
+    -- },
+    -- {
+    --   '<S-C-\\>',
+    --   '<cmd>Yazi toggle<cr>',
+    --   desc = 'Resume the last yazi session',
+    -- },
   },
   opts = {
     open_for_directories = true, -- open instead of netrw

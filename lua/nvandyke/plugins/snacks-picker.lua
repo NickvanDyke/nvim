@@ -2,9 +2,9 @@ return {
   'folke/snacks.nvim',
   ---@type snacks.Config
   opts = {
-    explorer = {
-      replace_netrw = true,
-    },
+    -- explorer = {
+    --   replace_netrw = true,
+    -- },
     picker = {
       ui_select = true,
       sources = {
@@ -53,13 +53,13 @@ return {
     },
   },
   keys = {
-    {
-      '\\',
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = 'Snacks Explorer',
-    },
+    -- {
+    --   '\\',
+    --   function()
+    --     Snacks.explorer.open()
+    --   end,
+    --   desc = 'Snacks Explorer',
+    -- },
     {
       '<leader><leader>',
       function()
