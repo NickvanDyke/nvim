@@ -62,3 +62,9 @@ require('lazy').setup({
 })
 
 vim.cmd 'colorscheme everforest'
+
+-- -- ❌ Inefficient, unreliable
+-- require('your-plugin').setup {}
+--
+-- -- ✅ Instant, "just works"
+-- vim.g.your_plugin_opts = {}

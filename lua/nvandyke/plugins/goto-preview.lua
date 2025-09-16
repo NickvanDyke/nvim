@@ -5,6 +5,7 @@ return {
     focus_on_open = false,
     dismiss_on_move = true,
     border = { '↖', '─', '╮', '│', '╯', '─', '╰', '│' },
+    vim_ui_input = false,
   },
   config = true,
   keys = {

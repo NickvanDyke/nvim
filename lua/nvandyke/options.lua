@@ -37,8 +37,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'number'
-vim.opt.number = true
+vim.opt.signcolumn = 'yes'
+vim.opt.number = false
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -106,6 +106,7 @@ vim.opt.foldlevelstart = 99 -- Open all folds by default upon opening a file
 
 vim.diagnostic.config {
   signs = {
+    priority = 200,
     text = {
       [vim.diagnostic.severity.ERROR] = '',
       [vim.diagnostic.severity.WARN] = '',
@@ -119,26 +120,26 @@ vim.diagnostic.config {
     --   [vim.diagnostic.severity.HINT] = 'Hint',
     -- },
   },
-  -- virtual_text = {
-  --   current_line = true,
-  --   prefix = '',
-  -- },
-  virtual_lines = {
+  virtual_text = {
     current_line = true,
+    prefix = '',
   },
+  -- virtual_lines = {
+  --   current_line = true,
+  -- },
   severity_sort = true,
   underline = true,
   float = {
     source = true,
   },
-  jump = {
-    severity = {
-      vim.diagnostic.severity.ERROR,
-      vim.diagnostic.severity.WARN,
-      -- vim.diagnostic.severity.INFO,
-      -- vim.diagnostic.severity.HINT,
-    },
-  },
+  -- jump = {
+  --   severity = {
+  --     vim.diagnostic.severity.ERROR,
+  --     vim.diagnostic.severity.WARN,
+  --     -- vim.diagnostic.severity.INFO,
+  --     -- vim.diagnostic.severity.HINT,
+  --   },
+  -- },
 }
 
 vim.api.nvim_command 'aunmenu PopUp.How-to\\ disable\\ mouse'

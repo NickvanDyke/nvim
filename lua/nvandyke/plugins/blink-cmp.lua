@@ -9,6 +9,8 @@ return {
   opts = {
     keymap = {
       preset = 'default',
+      ['<C-u>'] = { 'scroll_signature_up', 'fallback' },
+      ['<C-d>'] = { 'scroll_signature_down', 'fallback' },
     },
     appearance = {
       -- sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -41,6 +43,7 @@ return {
         -- show_on_insert_on_trigger_character = false,
       },
       menu = {
+        auto_show_delay_ms = 100,
         border = 'none',
         draw = {
           treesitter = { 'lsp' },

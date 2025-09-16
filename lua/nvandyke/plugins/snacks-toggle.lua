@@ -62,8 +62,8 @@ return {
           :map '<leader>uK'
 
         local pairingToggles = {
-          'smear_cursor',
-          'scroll',
+          -- 'smear_cursor',
+          -- 'scroll',
           'showkeys',
           'dim',
         }

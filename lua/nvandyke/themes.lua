@@ -18,5 +18,5 @@ end, {
   'projekt0n/github-nvim-theme',
   'catppuccin/nvim',
   'webhooked/kanso.nvim',
-  'ellisonleao/gruvbox.nvim',
+  'sainnhe/gruvbox-material',
 })

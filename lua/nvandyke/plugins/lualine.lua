@@ -53,7 +53,12 @@ return {
               end
             end,
           },
-          'diagnostics',
+          {
+            'diagnostics',
+            cond = function()
+              return true
+            end,
+          },
         },
         lualine_c = {
           {
@@ -104,22 +109,6 @@ return {
             separator = '',
           },
           { 'filetype', icon_only = true, padding = 0, separator = '' },
-          {
-            cond = function()
-              return false
-            end,
-            function()
-              local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
-
-              local progress = math.floor((vim.fn.line '.' / vim.fn.line '$') * 100)
-              local indexBucket = math.min(#chars, math.floor(progress / (100 / #chars)) + 1)
-              local progressChar = chars[indexBucket]
-
-              return progressChar
-            end,
-            padding = { left = 0, right = 1 },
-            color = { fg = '#ff0000' },
-          },
         },
         lualine_y = {
           {
@@ -144,7 +133,22 @@ return {
             padding = { left = 1, right = 0 },
           },
         },
-        lualine_z = { 'location' },
+        lualine_z = {
+          { 'location', separator = '' },
+          {
+            function()
+              local chars = { '⎺', '⎻', '─', '⎼', '⎽' }
+
+              local progress = math.floor((vim.fn.line '.' / vim.fn.line '$') * 100)
+              local indexBucket = math.min(#chars, math.floor(progress / (100 / #chars)) + 1)
+              local progressChar = chars[indexBucket]
+
+              return progressChar
+            end,
+            padding = { left = 0, right = 1 },
+            color = { fg = '#ff0000' },
+          },
+        },
       },
     }
 

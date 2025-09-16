@@ -3,6 +3,7 @@ return {
   dependencies = {
     { 'nvim-tree/nvim-web-devicons', lazy = true },
   },
+  ---@type grapple.settings
   opts = {
     scope = 'git_branch',
     statusline = {
