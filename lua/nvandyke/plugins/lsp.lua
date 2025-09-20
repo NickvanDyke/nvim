@@ -54,7 +54,8 @@ return {
     })
 
     vim.lsp.enable {
-      'lua_ls',
+      -- 'lua_ls',
+      'emmylua_ls',
       'graphql',
       'terraformls',
       'intelephense',
@@ -70,6 +71,11 @@ return {
     -- vim.api.nvim_create_autocmd('BufWritePre', {
     --   pattern = { '*.js', '*.ts', '*.jsx', '*.tsx' },
     --   command = 'LspEslintFixAll',
+    -- })
+
+    -- FIX:
+    -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+    --   silent = true,
     -- })
   end,
 }
