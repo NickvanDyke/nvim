@@ -16,6 +16,7 @@ return {
     },
   },
   config = function(_, opts)
+    vim.opt.splitkeep = 'cursor'
     require('focus').setup(opts)
 
     local ignore_filetypes = {
