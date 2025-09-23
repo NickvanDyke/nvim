@@ -39,10 +39,9 @@ vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
 
 vim.keymap.set('n', '<C-c>', 'ciw')
 
-vim.keymap.set('n', '<c-s>', '<cmd>write<cr>', { desc = 'Save file', silent = true })
-vim.keymap.set('n', '<s-c-s>', '<cmd>wall<cr>', { desc = 'Save all files', silent = true })
+vim.keymap.set('n', '<c-s>', '<cmd>wall<cr>', { desc = 'Save all buffers', silent = true })
 
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment number under cursor', noremap = true })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement number under cursor', noremap = true })
 
-vim.keymap.set('n', '<leader>q', '<cmd>qall<cr>', { desc = 'Quit Neovim' })
+vim.keymap.set('n', '<leader>q', '<cmd>wqall<cr>', { desc = 'Save + Quit Neovim', silent = true })
