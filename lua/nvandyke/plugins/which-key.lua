@@ -3,7 +3,6 @@ return {
   event = 'VimEnter',
   opts = {
     preset = 'helix',
-    -- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
     show_help = false,
     spec = {
       { '<leader>o', group = 'Opencode', mode = { 'n', 'v' }, icon = '󱚣' },
