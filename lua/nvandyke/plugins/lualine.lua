@@ -26,6 +26,7 @@ return {
             fmt = function(str)
               return string.sub(str, 0, 1)
             end,
+            padding = { left = 2, right = 1 },
           },
         },
         lualine_b = {
@@ -53,12 +54,7 @@ return {
               end
             end,
           },
-          {
-            'diagnostics',
-            cond = function()
-              return true
-            end,
-          },
+          { 'diagnostics' },
         },
         lualine_c = {
           {
@@ -68,17 +64,17 @@ return {
                 return ''
               end
 
-              local result = ''
+              local result = {}
               if summary.add and summary.add > 0 then
-                result = result .. '%#LualineDiffAdd#+' .. summary.add .. ' %*'
+                table.insert(result, '%#LualineDiffAdd#+' .. summary.add .. '%*')
               end
               if summary.change and summary.change > 0 then
-                result = result .. '%#LualineDiffChange#~' .. summary.change .. ' %*'
+                table.insert(result, '%#LualineDiffChange#~' .. summary.change .. '%*')
               end
               if summary.delete and summary.delete > 0 then
-                result = result .. '%#LualineDiffDelete#-' .. summary.delete .. '%*'
+                table.insert(result, '%#LualineDiffDelete#-' .. summary.delete .. '%*')
               end
-              return result
+              return table.concat(result, '%#LualineDiffAdd# %*')
             end,
           },
         },
@@ -108,7 +104,7 @@ return {
             end,
             separator = '',
           },
-          { 'filetype', icon_only = true, padding = 0, separator = '' },
+          { 'filetype', icon_only = true, padding = { left = 0, right = 1 } },
         },
         lualine_y = {
           {
@@ -128,10 +124,7 @@ return {
               return str:gsub('[%[%]|]', '')
             end,
           },
-          {
-            'grapple',
-            padding = { left = 1, right = 0 },
-          },
+          { 'grapple', padding = 0 },
         },
         lualine_z = {
           { 'location', separator = '' },

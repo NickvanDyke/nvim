@@ -7,7 +7,7 @@ return {
   opts = {
     scope = 'git_branch',
     statusline = {
-      icon = '♥',
+      icon = '♥ ',
       active = '%%#GrappleActive#%s %%*',
       inactive = '%%#GrappleInactive#%s %%*',
     },
@@ -18,7 +18,7 @@ return {
       function()
         local char = vim.fn.getcharstr()
         -- Handle ESC, Ctrl-C, etc.
-        if char == '' or vim.startswith(char, '<') then
+        if char == '' or vim.startswith(char, '\\') or vim.startswith(char, '<') then
           return
         end
         local grapple = require 'grapple'
@@ -36,7 +36,7 @@ return {
       function()
         local char = vim.fn.getcharstr()
         -- Handle ESC, Ctrl-C, etc.
-        if char == '' or vim.startswith(char, '<') then
+        if char == '' or vim.startswith(char, '\\') or vim.startswith(char, '<') or vim.startswith(char, '^') then
           return
         end
         local grapple = require 'grapple'

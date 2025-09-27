@@ -1,7 +1,7 @@
 return {
   'nvim-focus/focus.nvim',
-  enabled = false,
   event = 'WinNew',
+  enabled = false,
   opts = {
     autoresize = {
       minwidth = 3, -- Force minimum width for the unfocused window
@@ -16,8 +16,9 @@ return {
     },
   },
   config = function(_, opts)
-    vim.opt.splitkeep = 'cursor'
     require('focus').setup(opts)
+
+    vim.opt.splitkeep = 'cursor'
 
     local ignore_filetypes = {
       -- Annoying, and quicker.nvim handles qf height better
@@ -29,7 +30,11 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       group = vim.api.nvim_create_augroup('FocusDisable', { clear = true }),
       callback = function(_)
-        vim.b.focus_disable = vim.tbl_contains(ignore_filetypes, vim.bo.filetype)
+        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
+          vim.b.focus_disable = true
+        else
+          vim.b.focus_disable = false
+        end
       end,
       desc = 'Disable focus autoresize for FileType',
     })

@@ -42,7 +42,7 @@ return {
       desc = 'Extract Function',
     },
     {
-      '<leader>rdp',
+      '<leader>dp',
       function()
         require('refactoring').debug.printf {}
       end,
@@ -50,7 +50,7 @@ return {
       desc = 'Print',
     },
     {
-      '<leader>rdv',
+      '<leader>dv',
       function()
         require('refactoring').debug.print_var {}
       end,
@@ -58,7 +58,7 @@ return {
       desc = 'Print Variable',
     },
     {
-      '<leader>rdc',
+      '<leader>dc',
       function()
         require('refactoring').debug.cleanup {}
       end,

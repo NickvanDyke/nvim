@@ -2,13 +2,13 @@ return {
   'folke/snacks.nvim',
   opts = {
     notifier = {
-      margin = { right = 0 },
+      margin = { right = 0, bottom = 0 },
       style = 'minimal',
     },
     styles = {
       notification_history = {
-        position = 'bottom',
-        height = 10,
+        -- position = 'bottom',
+        -- height = 10,
       },
     },
   },
