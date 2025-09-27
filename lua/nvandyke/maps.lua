@@ -44,4 +44,4 @@ vim.keymap.set('n', '<c-s>', '<cmd>wall<cr>', { desc = 'Save all buffers', silen
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment number under cursor', noremap = true })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement number under cursor', noremap = true })
 
-vim.keymap.set('n', '<leader>q', '<cmd>wqall<cr>', { desc = 'Save + Quit Neovim', silent = true })
+vim.keymap.set('n', '<leader>q', '<cmd>qall<cr>', { desc = 'Save + Quit Neovim', silent = true })

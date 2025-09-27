@@ -26,6 +26,18 @@ return {
         Snacks.toggle.scroll():map '<leader>us'
         Snacks.toggle
           .new({
+            id = 'autosave',
+            name = 'Autosave',
+            get = function()
+              return not vim.g.disable_autosave
+            end,
+            set = function(state)
+              vim.g.disable_autosave = not state
+            end,
+          })
+          :map '<leader>ua'
+        Snacks.toggle
+          .new({
             id = 'autoformat',
             name = 'Autoformat',
             get = function()
@@ -65,7 +77,8 @@ return {
           -- 'smear_cursor',
           -- 'scroll',
           'showkeys',
-          'dim',
+          -- 'dim',
+          'line_number',
         }
         Snacks.toggle
           .new({

@@ -6,7 +6,7 @@ return {
   },
   keys = {
     {
-      '<leader>cF',
+      '<leader>F',
       function()
         -- TODO: Do LSPs offer a generic way to fix all issues?
         vim.cmd 'silent! LspEslintFixAll'
@@ -54,8 +54,8 @@ return {
     })
 
     vim.lsp.enable {
-      -- 'lua_ls',
-      'emmylua_ls',
+      'lua_ls',
+      -- 'emmylua_ls',
       'graphql',
       'terraformls',
       'intelephense',
