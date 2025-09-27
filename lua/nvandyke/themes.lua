@@ -15,7 +15,6 @@ end, {
   },
   'rose-pine/neovim',
   'folke/tokyonight.nvim',
-  'projekt0n/github-nvim-theme',
   'catppuccin/nvim',
   'webhooked/kanso.nvim',
   'sainnhe/gruvbox-material',
