@@ -24,6 +24,7 @@ return {
         Snacks.toggle.indent():map '<leader>uG'
         Snacks.toggle.dim():map '<leader>ud'
         Snacks.toggle.scroll():map '<leader>us'
+        Snacks.toggle.zen():map '<leader>uz'
         Snacks.toggle
           .new({
             id = 'autosave',
@@ -50,18 +51,6 @@ return {
           :map '<leader>uf'
         Snacks.toggle
           .new({
-            id = 'smear_cursor',
-            name = 'Smear Cursor',
-            get = function()
-              return require('smear_cursor').enabled
-            end,
-            set = function(state)
-              require('smear_cursor').enabled = state
-            end,
-          })
-          :map '<leader>uS'
-        Snacks.toggle
-          .new({
             id = 'showkeys',
             name = 'Showkeys',
             get = function()
@@ -74,7 +63,6 @@ return {
           :map '<leader>uK'
 
         local pairingToggles = {
-          -- 'smear_cursor',
           -- 'scroll',
           'showkeys',
           -- 'dim',

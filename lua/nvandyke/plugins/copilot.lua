@@ -10,6 +10,7 @@ return {
       hide_during_completion = false,
       keymap = {
         accept = '<Tab>',
+        accept_line = '<S-Tab>',
       },
     },
   },

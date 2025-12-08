@@ -2,9 +2,12 @@ return {
   'folke/snacks.nvim',
   ---@type snacks.Config
   opts = {
-    explorer = {
-      replace_netrw = true,
+    gh = {
+
     },
+    -- explorer = {
+    --   replace_netrw = true,
+    -- },
     picker = {
       ui_select = true,
       sources = {
@@ -38,7 +41,6 @@ return {
             ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
             ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
             ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
-            ['<s-c-c>'] = { 'cycle_win', mode = { 'i', 'n' } },
           },
         },
         preview = {
@@ -53,13 +55,13 @@ return {
     },
   },
   keys = {
-    {
-      '\\',
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = 'Snacks Explorer',
-    },
+    -- {
+    --   '\\',
+    --   function()
+    --     Snacks.explorer.open()
+    --   end,
+    --   desc = 'Snacks Explorer',
+    -- },
     {
       '<leader><leader>',
       function()
@@ -68,11 +70,11 @@ return {
       desc = 'Smart Picker',
     },
     {
-      '<leader>sn',
+      '<leader>sc',
       function()
         Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
       end,
-      desc = 'Neovim Config Files',
+      desc = 'Config Files',
     },
     -- Grep
     {
@@ -128,13 +130,13 @@ return {
       end,
       desc = 'Autocmds',
     },
-    {
-      '<leader>sc',
-      function()
-        Snacks.picker.command_history()
-      end,
-      desc = 'Command History',
-    },
+    -- {
+    --   '<leader>sc',
+    --   function()
+    --     Snacks.picker.command_history()
+    --   end,
+    --   desc = 'Command History',
+    -- },
     {
       '<leader>sC',
       function()
@@ -255,6 +257,20 @@ return {
         Snacks.picker.lsp_type_definitions()
       end,
       desc = 'Goto Type Definition',
+    },
+    {
+      'grI',
+      function()
+        Snacks.picker.lsp_incoming_calls()
+      end,
+      desc = 'Goto Implementation',
+    },
+    {
+      'grO',
+      function()
+        Snacks.picker.lsp_outgoing_calls()
+      end,
+      desc = 'Goto Implementation',
     },
     {
       '<leader>ss',

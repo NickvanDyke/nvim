@@ -37,14 +37,14 @@ return {
   },
   keys = {
     {
-      '<leader>lq',
+      '<leader>qf',
       function()
         require('quicker').toggle()
       end,
       desc = 'Toggle quickfix',
     },
     {
-      '<leader>ll',
+      '<leader>ql',
       function()
         require('quicker').toggle { loclist = true }
       end,

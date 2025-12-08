@@ -6,7 +6,7 @@ return {
   opts = {
     scroll = { enabled = true },
     input = {
-      enabled = true,
+      -- enabled = true,
     },
     bigfile = { enabled = true },
     -- WARNING: Breaks and issues tons of warnings in VSCode Neovim
@@ -20,6 +20,15 @@ return {
     notifier = { -- Used by noice
       top_down = false,
       style = 'compact',
+    },
+    zen = {
+      toggles = {
+        dim = false,
+      },
+      show = {
+        statusline = true,
+        tabline = true,
+      },
     },
   },
   keys = {
@@ -52,7 +61,7 @@ return {
       desc = 'Delete other buffers',
     },
     {
-      '<leader>.',
+      '<C-.>',
       function()
         Snacks.scratch()
       end,

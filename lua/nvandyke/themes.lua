@@ -17,5 +17,4 @@ end, {
   'folke/tokyonight.nvim',
   'catppuccin/nvim',
   'webhooked/kanso.nvim',
-  'sainnhe/gruvbox-material',
 })

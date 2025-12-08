@@ -1,7 +1,6 @@
 return {
   'gen740/SmoothCursor.nvim',
   event = 'VeryLazy',
-  -- enabled = false,
   dependencies = {
     'nvim-lualine/lualine.nvim',
   },
@@ -11,8 +10,7 @@ return {
       cursor = '',
       speed = 31,
       disable_float_win = true,
-      -- Show over signs in the sign column
-      priority = 100,
+      priority = 1000,
     }
 
     local function get_simple_mode()
@@ -21,8 +19,10 @@ return {
         ['n'] = 'normal',
         ['i'] = 'insert',
         ['v'] = 'visual',
-        ['ctrl-v'] = 'visual', -- FIX: idk why this one doesn't match
+        ['V'] = 'visual',
+        ['\22'] = 'visual', -- C-v
         ['s'] = 'visual',
+        ['S'] = 'visual',
         ['r'] = 'replace',
         ['c'] = 'command',
         ['t'] = 'terminal',
@@ -49,7 +49,7 @@ return {
     end
 
     -- FIX: In some colorschemes, the bg follows the smooth cursor, not the cursorline...
-    local function sync_cursorlinesign()
+    local function sync_cursorline()
       local cursorline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
       vim.api.nvim_set_hl(0, 'CursorLineSign', {
         bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
@@ -64,12 +64,12 @@ return {
       callback = function()
         vim.schedule(function()
           sync_cursor_sign_to_mode()
-          sync_cursorlinesign()
+          sync_cursorline()
         end)
       end,
     })
 
     sync_cursor_sign_to_mode()
-    sync_cursorlinesign()
+    sync_cursorline()
   end,
 }

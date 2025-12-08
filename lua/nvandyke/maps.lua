@@ -33,6 +33,9 @@ end, { desc = 'Copy relative filepath to clipboard' })
 -- vim.keymap.set('n', '<leader>qf', '<cmd>copen<cr>', { desc = 'QuickFix list' })
 -- vim.keymap.set('n', '<leader>ql', '<cmd>lopen<cr>', { desc = 'Location list' })
 
+vim.keymap.set('n', 'grn', function()
+  vim.lsp.buf.rename()
+end, { desc = 'LSP Rename' })
 vim.keymap.set('n', 'grN', [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = 'Replace word under cursor' })
 
 vim.keymap.set('n', 'gG', 'gg<S-v>G', { desc = 'Select all' })
@@ -44,4 +47,4 @@ vim.keymap.set('n', '<c-s>', '<cmd>wall<cr>', { desc = 'Save all buffers', silen
 vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment number under cursor', noremap = true })
 vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement number under cursor', noremap = true })
 
-vim.keymap.set('n', '<leader>q', '<cmd>qall<cr>', { desc = 'Save + Quit Neovim', silent = true })
+vim.keymap.set('n', '<C-q>', '<cmd>qall<cr>', { desc = 'Save + Quit Neovim', silent = true })

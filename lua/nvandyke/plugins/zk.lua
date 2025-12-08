@@ -1,5 +1,6 @@
 return {
   'zk-org/zk-nvim',
+  enabled = false,
   cmd = 'ZkOrphans',
   ft = 'markdown',
   opts = {

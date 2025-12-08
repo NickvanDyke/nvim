@@ -38,7 +38,7 @@ vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
-vim.opt.number = false
+vim.opt.number = true
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -71,6 +71,7 @@ vim.opt.fillchars = {
 vim.opt.inccommand = 'split'
 
 vim.opt.cursorline = true
+-- vim.opt.cursorlineopt = 'number'
 
 vim.opt.scrolloff = 7
 vim.opt.sidescrolloff = 3
@@ -121,7 +122,7 @@ vim.diagnostic.config {
     -- },
   },
   virtual_text = {
-    current_line = true,
+    -- current_line = true,
     prefix = '',
   },
   -- virtual_lines = {
@@ -132,15 +133,9 @@ vim.diagnostic.config {
   float = {
     source = true,
   },
-  -- jump = {
-  --   severity = {
-  --     vim.diagnostic.severity.ERROR,
-  --     vim.diagnostic.severity.WARN,
-  --     -- vim.diagnostic.severity.INFO,
-  --     -- vim.diagnostic.severity.HINT,
-  --   },
-  -- },
 }
+
+vim.o.laststatus = 0
 
 vim.api.nvim_command 'aunmenu PopUp.How-to\\ disable\\ mouse'
 vim.api.nvim_command 'aunmenu PopUp.-1-'
