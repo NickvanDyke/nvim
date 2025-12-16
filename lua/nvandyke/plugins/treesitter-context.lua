@@ -17,8 +17,8 @@ return {
   config = function(_, opts)
     require('treesitter-context').setup(opts)
 
-    vim.api.nvim_set_hl(0, 'TreesitterContext', { link = 'None' })
-    vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline = true })
+    -- vim.api.nvim_set_hl(0, 'TreesitterContext', { link = 'None' })
+    -- vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { underline = true })
     -- vim.api.nvim_set_hl(0, 'TreesitterContextLineNumberBottom', { underline = true })
   end,
 }

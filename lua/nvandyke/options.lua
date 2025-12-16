@@ -71,7 +71,7 @@ vim.opt.fillchars = {
 vim.opt.inccommand = 'split'
 
 vim.opt.cursorline = true
--- vim.opt.cursorlineopt = 'number'
+vim.opt.cursorlineopt = 'number'
 
 vim.opt.scrolloff = 7
 vim.opt.sidescrolloff = 3

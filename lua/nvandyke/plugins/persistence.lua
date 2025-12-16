@@ -1,7 +1,7 @@
 return {
   'folke/persistence.nvim',
   opts = {
-    need = 0,
+    -- need = 0,
   },
   config = function(_, opts)
     require('persistence').setup(opts)

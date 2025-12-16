@@ -2,30 +2,22 @@ return {
   'folke/snacks.nvim',
   ---@type snacks.Config
   opts = {
-    gh = {
-
+    gh = {},
+    explorer = {
+      replace_netrw = true,
     },
-    -- explorer = {
-    --   replace_netrw = true,
-    -- },
     picker = {
       ui_select = true,
       sources = {
         explorer = {
           hidden = true,
-          -- Way too many files (dist, node_modules, etc)
-          -- ignored = true,
           -- layout = { layout = { position = 'right' } },
         },
-        files = {
-          hidden = true,
-          -- ignored = true,
-        },
       },
-      layout = {
-        -- More room for file path
-        preset = 'vertical',
-      },
+      -- layout = {
+      --   -- More room for file path
+      --   preset = 'vertical',
+      -- },
       formatters = {
         file = {
           truncate = 69,
@@ -38,9 +30,10 @@ return {
       win = {
         input = {
           keys = {
-            ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
-            ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
-            ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
+            -- not needed while I'm using native MacOS window management
+            -- ['<c-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
+            -- ['<c-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+            -- ['<c-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
           },
         },
         preview = {
@@ -55,13 +48,13 @@ return {
     },
   },
   keys = {
-    -- {
-    --   '\\',
-    --   function()
-    --     Snacks.explorer.open()
-    --   end,
-    --   desc = 'Snacks Explorer',
-    -- },
+    {
+      '\\',
+      function()
+        Snacks.explorer.open()
+      end,
+      desc = 'Snacks Explorer',
+    },
     {
       '<leader><leader>',
       function()
@@ -72,7 +65,7 @@ return {
     {
       '<leader>sc',
       function()
-        Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
+        Snacks.picker.files { cwd = vim.fn.stdpath 'config' .. '/..' }
       end,
       desc = 'Config Files',
     },

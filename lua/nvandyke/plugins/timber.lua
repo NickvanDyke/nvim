@@ -4,8 +4,8 @@ return {
   opts = {
     log_templates = {
       default = {
-        lua = [[vim.print("%log_target", %log_target)]]
-      }
-    }
+        lua = [[vim.print("%log_target", %log_target)]],
+      },
+    },
   },
 }

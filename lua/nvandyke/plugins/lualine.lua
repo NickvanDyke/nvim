@@ -16,7 +16,7 @@ return {
       'filetype',
       icon_only = true,
       separator = '',
-      padding = { left = 2, right = 0 },
+      padding = { left = 1, right = 0 },
     }
 
     local cwd = {
@@ -118,24 +118,24 @@ return {
         component_separators = { left = '', right = '' },
         -- component_separators = { left = '', right = '' },
         always_show_tabline = false,
-        globalstatus = false,
+        globalstatus = true,
       },
       tabline = {
         lualine_a = {
           'tabs',
         },
       },
-      inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = {
-          filetype,
-          filename,
-        },
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
+      -- inactive_sections = {
+      --   lualine_a = {},
+      --   lualine_b = {},
+      --   lualine_c = {
+      --     filetype,
+      --     filename,
+      --   },
+      --   lualine_x = {},
+      --   lualine_y = {},
+      --   lualine_z = {},
+      -- },
       sections = {
         lualine_a = {
           -- modes,

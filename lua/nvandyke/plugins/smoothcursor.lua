@@ -50,13 +50,15 @@ return {
 
     -- FIX: In some colorschemes, the bg follows the smooth cursor, not the cursorline...
     local function sync_cursorline()
-      local cursorline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
-      vim.api.nvim_set_hl(0, 'CursorLineSign', {
-        bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
-      })
-      vim.api.nvim_set_hl(0, 'CursorLineNr', {
-        bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
-      })
+      if vim.o.cursorlineopt == 'line' then
+        local cursorline_hl = vim.api.nvim_get_hl(0, { name = 'CursorLine' })
+        vim.api.nvim_set_hl(0, 'CursorLineSign', {
+          bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
+        })
+        vim.api.nvim_set_hl(0, 'CursorLineNr', {
+          bg = get_simple_mode() == 'visual' and 'NONE' or cursorline_hl.bg,
+        })
+      end
     end
 
     -- NOTE: ModeChanged seemingly doesn't fire until after potential keymaps. Not sure how Lualine responds immediately.

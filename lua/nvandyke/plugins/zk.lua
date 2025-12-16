@@ -1,6 +1,5 @@
 return {
   'zk-org/zk-nvim',
-  enabled = false,
   cmd = 'ZkOrphans',
   ft = 'markdown',
   opts = {
@@ -38,6 +37,7 @@ return {
     },
     { '<leader>zb', '<Cmd>ZkBacklinks<CR>', mode = 'n', silent = true, desc = 'Backlinks' },
     { '<leader>zl', '<Cmd>ZkLinks<CR>', mode = 'n', silent = true, desc = 'Links' },
+    { '<leader>zt', '<Cmd>ZkTags<CR>', mode = 'n', silent = true, desc = 'Tags' },
     { '<leader>zd', "<Cmd>ZkNew { dir = 'journal/daily', group = 'daily' }<CR>", mode = 'n', silent = true, desc = 'Daily journal' },
     {
       '<leader>znn',

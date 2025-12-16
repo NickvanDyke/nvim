@@ -4,7 +4,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    scroll = { enabled = true },
+    -- scroll = { enabled = true },
     input = {
       -- enabled = true,
     },
@@ -61,7 +61,7 @@ return {
       desc = 'Delete other buffers',
     },
     {
-      '<C-.>',
+      '<leader>.',
       function()
         Snacks.scratch()
       end,
