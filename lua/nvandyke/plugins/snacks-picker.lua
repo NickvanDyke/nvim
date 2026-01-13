@@ -3,9 +3,9 @@ return {
   ---@type snacks.Config
   opts = {
     gh = {},
-    explorer = {
-      replace_netrw = true,
-    },
+    -- explorer = {
+    --   replace_netrw = true,
+    -- },
     picker = {
       ui_select = true,
       sources = {
@@ -48,13 +48,13 @@ return {
     },
   },
   keys = {
-    {
-      '\\',
-      function()
-        Snacks.explorer.open()
-      end,
-      desc = 'Snacks Explorer',
-    },
+    -- {
+    --   '\\',
+    --   function()
+    --     Snacks.explorer.open()
+    --   end,
+    --   desc = 'Snacks Explorer',
+    -- },
     {
       '<leader><leader>',
       function()
@@ -74,7 +74,7 @@ return {
       '<leader>sg',
       function()
         Snacks.picker.grep {
-          hidden = true,
+          -- hidden = true,
         }
       end,
       desc = 'Grep',
@@ -256,14 +256,14 @@ return {
       function()
         Snacks.picker.lsp_incoming_calls()
       end,
-      desc = 'Goto Implementation',
+      desc = 'Goto Incoming Calls',
     },
     {
       'grO',
       function()
         Snacks.picker.lsp_outgoing_calls()
       end,
-      desc = 'Goto Implementation',
+      desc = 'Goto Outgoing Calls',
     },
     {
       '<leader>ss',

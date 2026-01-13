@@ -89,51 +89,22 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.swapfile = false
--- vim.opt.autowrite = true
--- vim.opt.autoread = true
+vim.opt.autowrite = true
+vim.opt.autowriteall = true
+vim.opt.autoread = true
 
 vim.opt.cmdheight = 0
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.termguicolors = true
 vim.opt.guicursor:append 't:ver25'
 
 vim.opt.foldmethod = 'expr' -- Define folds using an expression
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()' -- Use Treesitter for folding
-vim.opt.foldlevel = 99 -- Open all folds by default upon opening a file
-vim.opt.foldlevelstart = 99 -- Open all folds by default upon opening a file
--- vim.opt.foldtext = '' -- Syntax highlight first line of fold
-
-vim.diagnostic.config {
-  signs = {
-    priority = 200,
-    text = {
-      [vim.diagnostic.severity.ERROR] = '',
-      [vim.diagnostic.severity.WARN] = '',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '󰠠',
-    },
-    -- linehl = {
-    --   [vim.diagnostic.severity.ERROR] = 'Error',
-    --   [vim.diagnostic.severity.WARN] = 'Warn',
-    --   [vim.diagnostic.severity.INFO] = 'Info',
-    --   [vim.diagnostic.severity.HINT] = 'Hint',
-    -- },
-  },
-  virtual_text = {
-    -- current_line = true,
-    prefix = '',
-  },
-  -- virtual_lines = {
-  --   current_line = true,
-  -- },
-  severity_sort = true,
-  underline = true,
-  float = {
-    source = true,
-  },
-}
+vim.opt.foldlevel = 0
+-- vim.opt.foldlevelstart = 0
+vim.opt.foldtext = '' -- Syntax highlight first line of fold
 
 vim.o.laststatus = 0
 

@@ -1,6 +1,6 @@
 return {
   'NickvanDyke/opencode.nvim',
-  dir = '~/dev/opencode.nvim',
+  dir = '~/dev/opencode-review.nvim',
   dependencies = {
     ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
     {
@@ -29,15 +29,16 @@ return {
         -- }
       },
       select = {
-        prompt = 'meow',
+        -- prompt = 'meow',
         sections = {
           commands = {
-            ['meowwww'] = 'MEOW MEOW',
+            -- ['meowwww'] = 'MEOW MEOW',
+            -- ['session.list'] = 'List Sessions',
           },
         },
       },
       provider = {
-        enabled = 'terminal',
+        -- enabled = false,
         snacks = {
           auto_insert = true,
           -- win = {
@@ -52,7 +53,7 @@ return {
 
     vim.keymap.set({ 'n', 'x' }, 'go', function()
       return require('opencode').operator '@this '
-    end, { expr = true, desc = 'Add object to opencode' })
+    end, { expr = true, desc = 'Add range to opencode' })
     vim.keymap.set('n', 'goo', function()
       return require('opencode').operator '@this ' .. '_'
     end, { expr = true, desc = 'Add line to opencode' })
@@ -64,7 +65,7 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<C-x>', function()
       require('opencode').select()
     end, { desc = 'Execute opencode action…' })
-    -- vim.keymap.set({ "n", "x" },      "ga",    function() require("opencode").prompt("@this") end, { desc = "Add to opencode" })
+
     vim.keymap.set({ 'n', 't' }, '<C-.>', function()
       require('opencode').toggle()
     end, { desc = 'Toggle opencode' })
@@ -74,12 +75,9 @@ return {
     vim.keymap.set('n', '<S-C-d>', function()
       require('opencode').command 'session.half.page.down'
     end, { desc = 'opencode half page down' })
+
     -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".
     vim.keymap.set('n', '+', '<C-a>', { desc = 'Increment', noremap = true })
     vim.keymap.set('n', '-', '<C-x>', { desc = 'Decrement', noremap = true })
-
-    vim.keymap.set('n', '<leader>os', function()
-      require('opencode').single 'Explain @this'
-    end, { desc = 'Single' })
   end,
 }

@@ -4,19 +4,19 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    -- scroll = { enabled = true },
+    scroll = { enabled = true },
     input = {
-      -- enabled = true,
+      enabled = true,
     },
     bigfile = { enabled = true },
     -- WARNING: Breaks and issues tons of warnings in VSCode Neovim
     words = { enabled = true },
-    -- statuscolumn = {
-    --   enabled = true,
-    --   folds = {
-    --     git_hl = true, -- use Git Signs hl for fold icons
-    --   },
-    -- },
+    statuscolumn = {
+      enabled = true,
+      folds = {
+        open = true,
+      },
+    },
     notifier = { -- Used by noice
       top_down = false,
       style = 'compact',

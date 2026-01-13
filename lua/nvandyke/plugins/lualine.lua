@@ -7,8 +7,7 @@ return {
   config = function()
     local filename = {
       'filename',
-      color = { gui = 'bold' },
-      padding = 0,
+      path = 1,
       separator = '',
     }
 
@@ -16,7 +15,7 @@ return {
       'filetype',
       icon_only = true,
       separator = '',
-      padding = { left = 1, right = 0 },
+      padding = { left = 0, right = 1 },
     }
 
     local cwd = {
@@ -30,13 +29,14 @@ return {
         end
       end,
       icon = ' ', -- Same as my powerline prompt
+      separator = { left = '', right = '' },
     }
 
     local branch = {
       'branch',
       icon = '',
       fmt = function(str)
-        local target_len = vim.o.columns / 11
+        local target_len = vim.o.columns / 7
         if string.len(str) > target_len then
           return string.sub(str, 1, target_len) .. '…'
         else
@@ -125,20 +125,21 @@ return {
           'tabs',
         },
       },
-      -- inactive_sections = {
-      --   lualine_a = {},
-      --   lualine_b = {},
-      --   lualine_c = {
-      --     filetype,
-      --     filename,
-      --   },
-      --   lualine_x = {},
-      --   lualine_y = {},
-      --   lualine_z = {},
-      -- },
+      inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+          filetype,
+          filename,
+        },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
+      },
       sections = {
         lualine_a = {
           -- modes,
+          -- cwd,
           branch,
         },
         lualine_b = {
@@ -146,8 +147,8 @@ return {
         },
         lualine_c = {
           { 'grapple', padding = { left = 1 } },
-          filetype,
           filename,
+          filetype,
           -- progress,
         },
         lualine_x = {
@@ -159,7 +160,7 @@ return {
         },
         lualine_z = {
           lsp,
-          -- { require('opencode').statusline, separator = { left = '', right = '' } },
+          { require('opencode').statusline, separator = { left = '', right = '' } },
         },
       },
     }

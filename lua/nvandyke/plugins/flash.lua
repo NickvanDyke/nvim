@@ -1,14 +1,13 @@
 return {
   'folke/flash.nvim',
-  enabled = false,
   ---@type Flash.Config
   opts = {
     -- search = {
     --   max_length = 1,
     -- },
-    -- highlight = {
-    --   backdrop = false,
-    -- },
+    highlight = {
+      backdrop = false,
+    },
     label = {
       rainbow = {
         enabled = true,

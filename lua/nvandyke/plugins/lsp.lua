@@ -65,7 +65,7 @@ return {
       'yamlls',
       'circleci',
       -- 'harper_ls',
-      'eslint',
+      -- 'eslint',
       'tsgo',
     }
 
@@ -78,5 +78,45 @@ return {
     -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
     --   silent = true,
     -- })
+
+    vim.keymap.set('n', 'grn', function()
+      vim.lsp.buf.rename()
+    end, { desc = 'LSP Rename' })
+
+    -- Depends on the theme, apparently
+    -- vim.api.nvim_set_hl(0, 'VirtualTextError', { link = 'DiagnosticVirtualLinesError' })
+    -- vim.api.nvim_set_hl(0, 'VirtualTextWarn', { link = 'DiagnosticVirtualLinesWarn' })
+    -- vim.api.nvim_set_hl(0, 'VirtualTextInfo', { link = 'DiagnosticVirtualLinesInfo' })
+    -- vim.api.nvim_set_hl(0, 'VirtualTextHint', { link = 'DiagnosticVirtualLinesHint' })
+
+    vim.diagnostic.config {
+      signs = {
+        priority = 200,
+        text = {
+          [vim.diagnostic.severity.ERROR] = '',
+          [vim.diagnostic.severity.WARN] = '',
+          [vim.diagnostic.severity.INFO] = '',
+          [vim.diagnostic.severity.HINT] = '󰠠',
+        },
+        -- linehl = {
+        --   [vim.diagnostic.severity.ERROR] = 'Error',
+        --   [vim.diagnostic.severity.WARN] = 'Warn',
+        --   [vim.diagnostic.severity.INFO] = 'Info',
+        --   [vim.diagnostic.severity.HINT] = 'Hint',
+        -- },
+      },
+      -- virtual_text = {
+      --   -- current_line = true,
+      --   prefix = '',
+      -- },
+      virtual_lines = {
+        current_line = true,
+      },
+      severity_sort = true,
+      underline = true,
+      float = {
+        source = true,
+      },
+    }
   end,
 }

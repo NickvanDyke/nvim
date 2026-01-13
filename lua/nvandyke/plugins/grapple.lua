@@ -8,8 +8,8 @@ return {
     scope = 'git_branch',
     statusline = {
       icon = '♥',
-      active = '%%#lualine_c_insert#%s %%*',
-      inactive = '%%#lualine_c_normal#%s %%*',
+      active = '%%#lualine_c_normal#%s %%*',
+      inactive = '%%#lualine_c_inactive#%s %%*',
     },
   },
   keys = {

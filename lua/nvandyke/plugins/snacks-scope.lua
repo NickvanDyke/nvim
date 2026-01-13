@@ -12,10 +12,10 @@ return {
       -- The textobjects ignore cursor column;
       -- ignore it for the scope guide too so we know what we'll select
       cursor = false,
-      filter = function()
-        -- It works weirdly in markdown
-        return vim.bo.filetype ~= 'markdown'
-      end,
+      -- filter = function()
+      --   -- It works weirdly in markdown
+      --   return vim.bo.filetype ~= 'markdown'
+      -- end,
       keys = {
         textobject = {
           ii = {

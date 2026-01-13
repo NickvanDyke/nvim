@@ -4,7 +4,7 @@ return {
   opts = {
     multiwindow = true,
     line_numbers = vim.o.number or vim.o.relativenumber,
-    multiline_threshold = 7,
+    -- multiline_threshold = 5,
   },
   keys = {
     {

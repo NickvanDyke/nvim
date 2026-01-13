@@ -2,6 +2,9 @@ return {
   'folke/which-key.nvim',
   event = 'VimEnter',
   opts = {
+    icons = {
+      mappings = false,
+    },
     preset = 'helix',
     show_help = false,
     spec = {

@@ -13,7 +13,16 @@ end, {
       -- vim.g.everforest_dim_inactive_windows = 1
     end,
   },
-  'rose-pine/neovim',
+  {
+    'rose-pine/neovim',
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          -- transparency = true,
+        },
+      }
+    end,
+  },
   'folke/tokyonight.nvim',
   'catppuccin/nvim',
   'webhooked/kanso.nvim',

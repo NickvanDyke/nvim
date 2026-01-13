@@ -1,5 +1,6 @@
 return {
   'ggandor/leap.nvim',
+  enabled = false,
   config = function()
     local clever_s = require('leap.user').with_traversal_keys('s', 'S')
     vim.keymap.set({ 'n', 'x', 'o' }, 's', function()
