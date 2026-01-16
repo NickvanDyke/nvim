@@ -5,7 +5,7 @@ return {
   opts = {
     terminal = {
       enabled = true,
-      auto_insert = false,
+      -- auto_insert = false,
       win = {
         wo = {
           winbar = '',
